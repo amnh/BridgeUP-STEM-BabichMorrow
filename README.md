@@ -16,13 +16,6 @@
 
 ## Daily Git To Do
 
-### End of Session
-
-Push your local changes:
-
-+ Push changes from your local copy of your fork to the remote copy of your fork
-
-
 ### Beginning of Session
 
 Sync your fork:
@@ -31,4 +24,12 @@ Sync your fork:
 + Check out your fork's local `master` branch
 + Merge the changes from `upstream/master` into your local `master` branch
 + Push changes from your local copy of your fork to the remote copy of your fork
+
+### End of Session
+
+Push your local changes:
+
++ Push changes from your local copy of your fork to the remote copy of your fork
+
+
 
