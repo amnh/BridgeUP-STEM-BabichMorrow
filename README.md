@@ -13,3 +13,22 @@
 | **Week 3** | | |
   | October 23 | <ul><li> What is GBIF? </li><li> `spocc` package |  [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://ropensci.org/tutorials/spocc_tutorial/)  |
   |October 25 | <ul><li> Visualizing spatial data | |
+
+## Daily Git To Do
+
+### End of Session
+
+Push your local changes:
+
++ Push changes from your local copy of your fork to the remote copy of your fork
+
+
+### Beginning of Session
+
+Sync your fork:
+
++ Fetch commits from upstream repository to get any updates we've made to code and schedule
++ Check out your fork's local `master` branch
++ Merge the changes from `upstream/master` into your local `master` branch
++ Push changes from your local copy of your fork to the remote copy of your fork
+
