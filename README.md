@@ -1,5 +1,20 @@
 # SlothSquad
 
+## Team Research Questions & Goals
+
+### Research Questions
+
++ What environmental variables influence the range of the sloths?
++ How do the different species differ in their ranges?
++ How have sloth ranges changed over time and how will they continue to change in the future?
+
+### Goals
+
++ Read and write R scripts to analyze spatial data
++ Understand the basics of machine learning
++ Understand how ecological concepts relate to programming
+
+
 ## Calendar
 
 | Date   |      Topics      |  Materials |
