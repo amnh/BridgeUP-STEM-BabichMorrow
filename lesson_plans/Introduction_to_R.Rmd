@@ -1,16 +1,26 @@
 ---
 title: "Introduction to R"
-author: "Cecina Babich Morrow (with material from Drew Kerkhoff & Nathaniel Phillips"
+author: "Cecina Babich Morrow"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,tidy.opts=list(width.cutoff=60),tidy=TRUE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Portions of the following tutorial are modified from Drew Kerkhoff's RPub https://rpubs.com/kerkhoffa/KenyonBasics and Nathaniel Phillips' *YaRrr! The Pirate's Guide to R* (https://bookdown.org/ndphillips/YaRrr/).
+
+## Intro to RMarkdown
+
+This file is an R Markdown file, which is similar to the Jupyter notebooks you've worked with. R Markdown files can save code, run code, and generate reports. They contain three basic types of content: the header at the top with title, author, etc.; code chunks surrounded by ` ``` `, and text (which can be formatted in different ways). We'll learn more about R Markdown later on, but for now, here are the basics:
+
+* To insert a new code chunk, click the "Insert" button and select "R"
+* To run a code chunk, press the green play button on the right, or select the dropdown menu by the "Run" button and click "Run Current Chunk"
+* To "knit" the document into a pdf or html, click the "Knit" button
+
+** Try it yourself ** Knit the file as either a pdf or html file to see what the formatted product looks like.
 
 ## R Basics -- The Console
 
@@ -48,7 +58,7 @@ class(your_name)
 
 Now that we have a test script, we can start messing around with some code. One very common type of data in R is a vector, which is a one-dimensional array that can hold numerical, character, or logical data. To create a vector, use the c() function:
 
-```{r}
+```{r, tidy = TRUE}
 intern_names <- c("Marie Curie", "Dorothy Vaughan", "Jane Goodall", "Rosalind Franklin", "Grace Hopper", "Ada Lovelace")
 ```
 
@@ -129,14 +139,15 @@ One of the most useful parts of RStudio is the Help menu: you can type the name 
 
 **Try it yourself:** Use the help function for hist to customize your histogram of pirate heights. Some ideas: change the title, change the x-axis label, change the number of cells in the histogram, whatever you want!
 
-Make sure to save your script with all the code you've run today!
+Make sure to save your script with all the code you've run today! Once you save, commit those changes and push them to your fork.
 
 ##Recap
 
 Stuff you've done in R!
 
-* Become familiar with the RStudio set-up
+* Become more familiar with the RStudio set-up
     + console, projects, scripts, environment, and help
+* Integrated RStudio and GitHub to keep track of your edits
 * Created and modified variables
     + multiple types of variables
     + vectors (Remember: **indexes start with 1**)
@@ -144,6 +155,14 @@ Stuff you've done in R!
 * Worked with a (fairly large) dataset
     + created a histogram to visualize that data
 
+## Bonus
 
+If you finish all of the above, keep working with the pirate dataset to learn about basic statistics and plotting in R. Save any new code you write in this file (or in anothe script) to keep track of what you did.
+
+Calculate some descriptive statistics about the data: https://bookdown.org/ndphillips/YaRrr/descriptive-statistics.html
+
+Make a scatterplot: first part of https://bookdown.org/ndphillips/YaRrr/plotting.html
+
+Advanced scatterplot techniques: apply the techniques from https://www.statmethods.net/graphs/scatterplot.html to modify the scatterplot you made
 
 
