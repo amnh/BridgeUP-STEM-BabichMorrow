@@ -36,3 +36,11 @@ Start by adding a line of text after the first code chunk saying "This is a line
 ## Push local changes online
 
 Click the green arrow "Push" button to send those local edits to your fork on GitHub. Go back to the GitHub website on your browser, navigate to your fork, and refresh. In the blue bar next to your username, you should see the description of the new commit you just made, and if you navigate to the `Introduction_to_R.Rmd` file on the GitHub website, you will see the new line you added to the file.
+
+## Sync a fork
+
+Committing edits and pushing them to your fork is great for updating your version of the repository, but you may also want to get changes from the original copy of the repo, for example to see the updated calendar or get access to any new files I create. To keep your fork up-to-date with the upstream repository, you need to do some configuring in Terminal.
+
+Work through the following steps to configure a remote for your fork: https://help.github.com/articles/configuring-a-remote-for-a-fork/.
+
+Now you are set up to sync your fork with the upstream: https://help.github.com/articles/syncing-a-fork/.
