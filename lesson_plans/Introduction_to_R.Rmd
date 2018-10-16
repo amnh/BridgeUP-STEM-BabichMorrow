@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R"
-author: "Cecina Babich Morrow"
+author: "Cecina Babich Morrow (with material from Drew Kerkhoff & Nathaniel Phillips"
 output:
   pdf_document: default
   html_document: default
@@ -9,6 +9,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+Portions of the following tutorial are modified from Drew Kerkhoff's RPub https://rpubs.com/kerkhoffa/KenyonBasics and Nathaniel Phillips' *YaRrr! The Pirate's Guide to R* (https://bookdown.org/ndphillips/YaRrr/).
 
 ## R Basics -- The Console
 
@@ -56,35 +58,37 @@ But wait, these still aren't the right names. Let's start with the first element
 intern_names[1]
 ```
 
-**Try it yourself:** Change the first element in intern_names to your own name. Hint: you can reassign elements in a vector in the same way you would reassign a variable.
+**Try it yourself:** Change the first element in intern_names to your own name. Make sure to write the code to do this in the code chunk above so you can save it for future reference. Hint: you can reassign elements in a vector in the same way you would reassign a variable.
 
-Let's add some numerical data:
+**Try it yourself:** Now that you have individually reassigned the first element in intern_names to your name, change the other names in the vector to match the names of the rest of the SlothSquad! There are (at least) two ways to do this -- see if you can figure out both.
+
+Now let's add some numerical data using the distances from the icebreaker:
 
 ```{r}
-intern_heights = c(42, 45, 110, 68, 54, 76)
+destination_dists = c(42, 45, 110, 68, 54, 76)
 ```
 
-Make sure you enter heights in the same order as the names in your intern_names vector. In order to keep track of the list of numbers you just entered, you can name the intern_heights vector using the intern_names vector you've already created:
+Make sure you enter the distances to the destinations in the same order as the names in your intern_names vector. In order to keep track of the list of numbers you just entered, you can name the destination_dists vector using the intern_names vector you've already created:
 
 ```{r}
-names(intern_heights) <- intern_names
+names(destination_dists) <- intern_names
 ```
 
 Now that we have some numerical data, we can even make a plot. There are many different ways to make graphs in R (with varying levels of complexity/prettiness), but the base package includes basic plotting functions. We can make a histogram of your heights:
 
 ```{r}
-hist(intern_heights)
+hist(destination_dists)
 ```
 
 ##Adding more data
 
-Not a very beautiful histogram...we don't have enough data for a really useful visualization.
+Not a very beautiful histogram...we don't have enough data to make a histogram useful.
 
 To get some more data to play with, we're going to use one of R's many packages.
 
 ###R Packages
 
-Packages are part of what makes R so special: a package is basically a collection of functions, help menus, data, vignettes, etc. stored in a (wait for it) package. You can think of a package kind of like a lightbulb: if you want to start using it, you have to first put it in the lamp (install it). You only have to install an R package once. Everytime you want to use the lightbulb, though, you have to turn it on--everytime you want to use an R package, you must load it:
+Packages are part of what makes R so special: a package is basically a collection of functions, help menus, data, vignettes, etc. stored in a (wait for it) package. You can think of a package kind of like a lightbulb: if you want to start using it, you have to first put it in the lamp (install it). You only have to install an R package once. Everytime you want to use the lightbulb, though, you have to turn it on, so everytime you want to use an R package, you must load it:
 
 ```{r, message=FALSE}
 #Install the yarrr package (from https://bookdown.org/ndphillips/YaRrr/):
@@ -107,7 +111,7 @@ head(pirates)
 
 **Try it yourself:** Run a command that will allow you to see the last 5 rows of the dataset...the last 10?
 
-Now let's try another histogram, this time using the 1000 pirate heights. What happens if we try basically the same thing we did for intern_heights?
+Now let's try another histogram, this time using the 1000 pirate heights. What happens if we try basically the same thing we did for destination_dists?
 
 ```{r, error=TRUE}
 hist(pirates)
