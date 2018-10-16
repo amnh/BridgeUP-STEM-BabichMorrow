@@ -42,17 +42,6 @@ class(your_name)
 
 **Try it yourself:** We've seen numeric and character data types. Try to make a Boolean variable. Check yourself using the class() function.
 
-##Scripts
-
-So far, you've been typing your R commands directly into the console window to run or running them from the RMarkdown. R scripts, like Python scripts, are a way to write and save a set of R commands. Go to File -> New File -> R Script. Start your R script with some helpful comments, including your name, the date, and the purpose of the script, for example:
-```{r}
-#Cecina Babich Morrow
-#10/4/2018
-#Test R script
-```
-
-Pick your favorite calculation and type it in the script. Notice what happens when you press Enter. To run that line of code, you can click anywhere on that line and press the Run button in the top right of the script menu. Alternatively, you can press Command+Enter to run the line.
-
 ##Let's get started!
 
 Now that we have a test script, we can start messing around with some code. One very common type of data in R is a vector, which is a one-dimensional array that can hold numerical, character, or logical data. To create a vector, use the c() function:
