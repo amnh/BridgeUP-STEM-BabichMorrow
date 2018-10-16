@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,tidy.opts=list(width.cutoff=60),tidy=TRUE)
 ```
 
 Portions of the following tutorial are modified from Drew Kerkhoff's RPub https://rpubs.com/kerkhoffa/KenyonBasics and Nathaniel Phillips' *YaRrr! The Pirate's Guide to R* (https://bookdown.org/ndphillips/YaRrr/).
