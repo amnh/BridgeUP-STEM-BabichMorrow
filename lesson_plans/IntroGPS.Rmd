@@ -1,0 +1,18 @@
+---
+title: "Intro to GPS"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Apps
+
+## Format data
+
+### Android
+
+Your data will come in the form of a .txt file, so we need to convert that to a .csv. Open Excel and select Data > Get External Data > Import Text File and navigate to the data file you downloaded. Your data is delimited by commas. Import the data into the existing sheet and save it as a .csv file.
