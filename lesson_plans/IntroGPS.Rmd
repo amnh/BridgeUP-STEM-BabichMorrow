@@ -12,42 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Adapted from lesson plan by Professors Harbert and Blair: https://rsh249.github.io/spatial_bioinformatics/GPStoGISwithText.html.
 
-## Apps
-
-### iPhone
-
-For iPhone, download the free app "GPS Logger" (logo looks like US map). Go to the "Manager" button on the top left and select "Export current track data as CSV".
-
-### Android
-
-For Android, download the free app "GPS Logger" (red circular logo). Go to "Settings" and make sure that "Export Tracks in TXT" is turned on. Make sure that the "Trackpoints" button in the bottom right isn't red (or else the app will continuously record points along your route).
-
-## Collect data
-
-We want to collect data from at least three features: a point, a line, and a polygon. For the line and polygon, we will be using R to convert the points you collect into a line and polygon. To create these, you will need to decide how many points you take for each feature.
-
-### iPhone
-
-To start a session, press the plus icon on the top right of the home page -- your current location will be the first pin. Press the plus icon again anytime you want to log a point.
-
-### Android
-
-Select "Trackpoints" in the bottom right to add a new point. Everytime you do this, the app will prompt you for a description of the points -- note whether the point belongs to the point, line, or polygon feature.
-
-## Download data
-
-When you have collected all the points you want, you can email the .csv or .txt file to yourself so you can analyze it in R.
-
-### iPhone
-
-Select the mail app of your choice and email the .csv file to yourself. Download the data from your email and save it somewhere on your computer (but not in the folder for the repository -- save to desktop or another folder of your choice). Your data is already in .csv format, so it needs no further formatting.
-
-### Android
-
-Go to the "Tracklist" tab. Press and hold on the track you created and select "Share with ...". Select the mail app of your choice and email the .txt to yourself.
-
-Your data will come in the form of a .txt file, so we need to convert that to a .csv. Open Excel and select Data > Get External Data > Import Text File and navigate to the data file you downloaded. Your data is delimited by commas. Import the data into the existing sheet and save it as a .csv file.
-
 ## Import data to R
 
 Start by opening a new script file in RStudio. Instead of just editing this R Markdown file (although you can and should add your own notes to it!), you can save the code for this analysis in that script file. Start the file with a helpful comment, for example:
@@ -77,6 +41,22 @@ head(androiddata_test)
 head(iphonedata_test)
 ```
 
+To map these data, we need to make sure the columns for latitude and longitude are called "lat" and "lon". Check out what the current column names for the data are:
+
+```{r}
+names(iphonedata_test)
+names(androiddata_test)
+```
+
+To rename a column in R, you can do something similar to what we did in the Intro to R lesson where you renamed elements in the vector `intern_names`.
+
+**Try it yourself:** Add code in the following chunks to rename the correct columns so they are named "lat" and "lon":
+
+```{r}
+
+```
+
+
 ## Visualize data
 
 We need to download a few required packages:
@@ -85,10 +65,36 @@ We need to download a few required packages:
 require(raster) #package to analyze gridded spatial data
 require(sp) #package to provide classes and methods for spatial data
 require(rgdal) #allows R to access a library called GDAL
-require(ggmap) #package to visualize spatial data and models
+require(ggplot2) #plotting package in R
+devtools::install_github("dkahle/ggmap", ref = "tidyup") #package to visualize spatial data and models
+require(ggmap)
 ```
 
-The `ggmap` package allows us to use Google Earth imagery to visualize our points. In order to use this, we have to set up a free API. 
+We can start by plotting the points onto a map from GoogleEarth. Google has made it necessary to obtain an API key, which is a way to let two applications talk to each other. Since you have to enter a credit card number to get the API (even though it's free), we're going to use the one I set up. 
+
+```{r}
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+```
+
+We also need to determine the range of latitudes and longitudes containing your points. We can do that by making a bounding box.
+
+
+
+```{r}
+loc = cbind(c(min(wps$lon), max(wps$lon)), c(min(wps$lat), max(wps$lat)))
+```
+
+
+Now we can do some plotting:
+
+```{r}
+map <- get_map(maptype = "satellite", source = "google")
+ggmap(map) + 
+  geom_point(data = androiddata_test, 
+             color = "red",
+             size =1)
+```
 
 
 
