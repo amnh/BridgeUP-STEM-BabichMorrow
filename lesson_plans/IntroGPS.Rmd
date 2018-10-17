@@ -28,10 +28,10 @@ Now go to the "Environment" tab of RStudio (top right panel) and select "Import 
 ```{r}
 # Import android data
 library(readr)
-androiddata_test <- read_csv("gps_test_data/androiddata_test.csv")
+androiddata_test <- read_csv("../gps_test_data/androiddata_test.csv")
 
 # Import iPhone data
-iphonedata_test <- read_csv("gps_test_data/iphonedata_test.csv")
+iphonedata_test <- read_csv("../gps_test_data/iphonedata_test.csv")
 ```
 
 Now take a look at the data using either the `View()` or `head()` function.
@@ -56,8 +56,16 @@ To rename a column in R, you can do something similar to what we did in the Intr
 
 ```
 
+Eventually, we are going to need the new "lon" and "lat" columns to be the first two columns of our dataframe. We can do some rearranging in the following ways:
 
-## Visualize data
+```{r}
+#Be careful!!! These are not the same for the android and the iphone data
+iphonedata_test <- iphonedata_test[c(3,2,1,4)]
+androiddata_test <- androiddata_test[c(4,3,2,6)]
+```
+
+
+## Set-up to visualize
 
 We need to download a few required packages:
 
@@ -77,21 +85,47 @@ api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
 register_google(key = api_key)
 ```
 
-We also need to determine the range of latitudes and longitudes containing your points. We can do that by making a bounding box.
+We also need to determine the range of latitudes and longitudes containing your points. Use the `max` and `min` functions to find the range:
 
-
+**Try it yourself:** Find the maximum and minimum of the latitude and longitude columns in your data. Remember that the `$` accesses a column of a dataframe in R.
 
 ```{r}
-loc = cbind(c(min(wps$lon), max(wps$lon)), c(min(wps$lat), max(wps$lat)))
+
 ```
 
-
-Now we can do some plotting:
+Now you can put those values into the following code:
 
 ```{r}
-map <- get_map(maptype = "satellite", source = "google")
+loc = cbind(c(min_lon, max_lon), c(min_lat, max_lat))
+loc = as.data.frame(loc) #make loc into a dataframe
+colnames(loc) = c('lon', 'lat')
+```
+
+**Try it yourself:** Run `View(loc)` to see exactly what `cbind` did. Also notice the `colnames` function: how does this compare to the way you renamed the columns earlier?
+
+Now we need to make a bounding box out of these values:
+
+```{r}
+bound_box <- make_bbox(lon = loc$lon, lat = loc$lat, f = .2)
+```
+
+**Try it yourself:** Look up the function `make_bbox` in the Help menu of RStudio. What does the `f` argument in the function do? You can experiment with different `f` values to see how this affects the map you make.
+
+## Visualize data
+
+Now we can make some maps!
+
+```{r}
+#Get a satellite map at the location of the bounding box you made:
+map <- get_map(location = bound_box, maptype = "satellite", source = "google")
+
+#Plot the waypoints on the map:
 ggmap(map) + 
-  geom_point(data = androiddata_test, 
+  geom_point(data = iphonedata_test[,1:2], 
+             color = "red",
+             size =1)
+ggmap(map) + 
+  geom_point(data = androiddata_test[,1:2], 
              color = "red",
              size =1)
 ```
