@@ -35,16 +35,16 @@
 
 Sync your fork:
 
-+ Fetch commits from upstream repository to get any updates we've made to code and schedule
-+ Check out your fork's local `master` branch
-+ Merge the changes from `upstream/master` into your local `master` branch
-+ Push changes from your local copy of your fork to the remote copy of your fork
++ Fetch commits from upstream repository to get any updates: `git fetch upstream`
++ Check out your fork's local `master` branch: `git checkout master`
++ Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
++ Push changes from your local copy of your fork to the remote copy of your fork: `git push`
 
 ### End of Session
 
 Push your local changes:
 
-+ Push changes from your local copy of your fork to the remote copy of your fork
++ Push changes from your local copy of your fork to the remote copy of your fork: `git push`
 
 
 
