@@ -32,6 +32,8 @@
 
 ## Daily Git To Do
 
+![alt text|10%](github_diagram1.png)
+
 ### Beginning of Session
 
 Push your local changes:
