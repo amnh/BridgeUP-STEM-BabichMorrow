@@ -23,7 +23,7 @@ Start by opening a new script file in RStudio. Instead of just editing this R Ma
 ```
 
 
-Now go to the "Environment" tab of RStudio (top right panel) and select "Import Dataset" > "From Text (readr) ..." Use the "Browse" to navigate to and select the data file you just saved (for Android users, select the .csv, not the .txt). Check over the formatting options to make sure everything looks okay. When you're satisfied, click "Import". When you do that, code will run in your console (see example below). Copy and paste that code into your new R script and add a helpful comment, like `# Import dataset from .csv`. 
+Now go to the "Environment" tab of RStudio (top right panel) and select "Import Dataset" > "From Text (readr) ..." Use the "Browse" to navigate to and select the data file you just saved (for Android users, select the .csv, not the .txt). Check over the formatting options to make sure everything looks okay. When you're satisfied, click "Import". When you do that, code will run in your console (see example below). Copy and paste that code into your new R script and add a helpful comment, like `# Import dataset from .csv`.
 
 ```{r}
 # Import android data
