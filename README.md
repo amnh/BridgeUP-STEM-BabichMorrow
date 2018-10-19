@@ -28,7 +28,7 @@
 | **Week 3** | | |
   | October 23 | <ul><li> Syncing a fork - review </li><li> GPS in R continued |                                                 [GitHub Help: syncing a fork](https://help.github.com/articles/syncing-a-fork/) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/IntroGPS.Rmd)  |
   | October 25 | <ul><li> What is GBIF? </li><li> `spocc` package |                                                       [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://ropensci.org/tutorials/spocc_tutorial/)  |
-  |October 30 :jack_o_lantern: | <ul><li> Visualizing spatial data | |
+  |October 30 :jack_o_lantern: <br> <sub> Halloween Eve </sub> | <ul><li> Visualizing spatial data | |
 
 ## Daily Git To Do
 
