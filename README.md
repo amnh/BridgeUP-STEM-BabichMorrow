@@ -34,18 +34,32 @@
 
 ### Beginning of Session
 
+Push your local changes:
+
++ Open Terminal and navigate to your folder for the forked repository
+  + `pwd`: check current directory
+  + `ls`: get a list of files in the current directory
+  + `cd`: move to a new directory
++ See current status of Git: `git status`
++ If you have modified files, commit your changes
+  + `git add <file name>` to add those files to your commit
+  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
++ Push your changes to your remote copy of the fork: `git push`
+
 Sync your fork:
 
 + Fetch commits from upstream repository to get any updates: `git fetch upstream`
 + Check out your fork's local `master` branch: `git checkout master`
 + Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
-+ Push changes from your local copy of your fork to the remote copy of your fork: `git push`
 
 ### End of Session
 
 Push your local changes:
 
-+ Push changes from your local copy of your fork to the remote copy of your fork: `git push`
-
++ See current status of Git: `git status`
++ If you have modified files, commit your changes
+  + `git add <file name>` to add those files to your commit
+  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
++ Push your changes to your remote copy of the fork: `git push`
 
 
