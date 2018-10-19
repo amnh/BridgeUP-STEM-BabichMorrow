@@ -24,27 +24,42 @@
   | October 11 |    <ul><li>Meet Dr. Mary Blair </li><li> Project Overview |                                                                                         [Questions for Dr. Blair](https://docs.google.com/document/d/14YUri2-jk7_R_H8OH7ouzHGdfD1sJqFb7CTERCC7NMs/edit?usp=sharing)<br>[Project Overview - slides](https://docs.google.com/presentation/d/1WHQqnFkMPRanS7SCgBz7Vu6U876s6jPJqvuFz_OkTFU/edit?usp=sharing) |
 | **Week 2** | | |
   | October 16 | <ul><li> Digging into R+GitHub :fork_and_knife: </li><li>  Introduction to R |                                 [Forking in GitHub and RStudio](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GitHub_Fork.md) <br> [Happy Git with R](http://happygitwithr.com/rstudio-git-github.html) <br> [Introduction to R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Introduction_to_R.Rmd) |
-  | October 18 | <ul><li> Going outside! - GPS exploration </li><li> Introduction to spatial data in R </li><li> Keeping a lab notebook :notebook_with_decorative_cover: |                                                                                [GPS instructions](https://rsh249.github.io/spatial_bioinformatics/GPStoGISwithText.html) <br> [Basic markdown syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/) <br> [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)   |
+  | October 18 | <ul><li> Going outside! - GPS exploration </li><li> Syncing a fork </li><li> Introduction to spatial data in R |                         [GPS collection instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GPS_CollectData.md) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/IntroGPS.Rmd) |
 | **Week 3** | | |
-  | October 23 | <ul><li> What is GBIF? </li><li> `spocc` package |                                                       [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://ropensci.org/tutorials/spocc_tutorial/)  |
-  |October 25 | <ul><li> Visualizing spatial data | |
+  | October 23 | <ul><li> Syncing a fork - review </li><li> GPS in R continued |                                                 [GitHub Help: syncing a fork](https://help.github.com/articles/syncing-a-fork/) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/IntroGPS.Rmd)  |
+  | October 25 | <ul><li> What is GBIF? </li><li> `spocc` package |                                                       [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://ropensci.org/tutorials/spocc_tutorial/)  |
+  |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> | <ul><li> Visualizing spatial data | |
 
 ## Daily Git To Do
 
 ### Beginning of Session
 
+Push your local changes:
+
++ Open Terminal and navigate to your folder for the forked repository
+  + `pwd`: check current directory
+  + `ls`: get a list of files in the current directory
+  + `cd`: move to a new directory
++ See current status of Git: `git status`
++ If you have modified files, commit your changes
+  + `git add <file name>` to add those files to your commit
+  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
++ Push your changes to your remote copy of the fork: `git push`
+
 Sync your fork:
 
-+ Fetch commits from upstream repository to get any updates we've made to code and schedule
-+ Check out your fork's local `master` branch
-+ Merge the changes from `upstream/master` into your local `master` branch
-+ Push changes from your local copy of your fork to the remote copy of your fork
++ Fetch commits from upstream repository to get any updates: `git fetch upstream`
++ Check out your fork's local `master` branch: `git checkout master`
++ Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
 
 ### End of Session
 
 Push your local changes:
 
-+ Push changes from your local copy of your fork to the remote copy of your fork
-
++ See current status of Git: `git status`
++ If you have modified files, commit your changes
+  + `git add <file name>` to add those files to your commit
+  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
++ Push your changes to your remote copy of the fork: `git push`
 
 
