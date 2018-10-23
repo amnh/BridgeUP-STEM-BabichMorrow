@@ -2,8 +2,9 @@
 title: "Intro to GPS"
 author: "Cecina Babich Morrow"
 output:
-  pdf_document: default
   html_document: default
+  html_notebook: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -50,7 +51,7 @@ names(androiddata_test)
 
 To rename a column in R, you can do something similar to what we did in the Intro to R lesson where you renamed elements in the vector `intern_names`.
 
-**Try it yourself:** Add code in the following chunks to rename the correct columns so they are named "lat" and "lon":
+**Try it yourself:** Add code in your script file to rename the correct columns so they are named "lat" and "lon".
 
 ```{r}
 
@@ -87,7 +88,7 @@ register_google(key = api_key)
 
 We also need to determine the range of latitudes and longitudes containing your points. Use the `max` and `min` functions to find the range:
 
-**Try it yourself:** Find the maximum and minimum of the latitude and longitude columns in your data. Remember that the `$` accesses a column of a dataframe in R.
+**Try it yourself:** Find the maximum and minimum of the latitude and longitude columns in your data. Remember that the `$` accesses a column of a dataframe in R. Assign these values to variables named `min_lon`, `max_lon`, `min_lat`, and `max_lat`.
 
 ```{r}
 
