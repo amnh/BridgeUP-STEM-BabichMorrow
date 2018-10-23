@@ -27,10 +27,12 @@
   | October 18 | <ul><li> Going outside! - GPS exploration </li><li> Syncing a fork </li><li> Introduction to spatial data in R |                         [GPS collection instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GPS_CollectData.md) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/IntroGPS.Rmd) |
 | **Week 3** | | |
   | October 23 | <ul><li> Syncing a fork - review </li><li> GPS in R continued |                                                 [GitHub Help: syncing a fork](https://help.github.com/articles/syncing-a-fork/) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/IntroGPS.Rmd)  |
-  | October 25 | <ul><li> What is GBIF? </li><li> `spocc` package |                                                       [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://ropensci.org/tutorials/spocc_tutorial/)  |
+  | October 25 | <ul><li> Hall of Biodiversity scavenger hunt </li><li> What is GBIF? </li><li> `spocc` package |               [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://ropensci.org/tutorials/spocc_tutorial/)  |
   |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> | <ul><li> Visualizing spatial data | |
 
 ## Daily Git To Do
+
+![alt text|10%](github_diagram1.png)
 
 ### Beginning of Session
 
