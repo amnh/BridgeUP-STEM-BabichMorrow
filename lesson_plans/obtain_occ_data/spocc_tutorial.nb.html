@@ -236,11 +236,17 @@ View(sp_df)</code></pre>
 <p>Now that you’ve downloaded the data from GBIF (using <code>occ</code>), and formatted it a bit (using <code>occ2df</code>), you’re ready to do some mapping. We’re going to use the <code>ggmap</code> package again like we did with the GPS points you collected.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xvYWQgZ2dtYXBcbmxpYnJhcnkoZ2dtYXApXG5cbiNTZXQgdGhlIEFQSSBrZXkgYWdhaW5cbmFwaV9rZXkgPSBcIkFJemFTeUJLN2xMYnFvcW5ZRmR6Zi1pZFlZcG9zYi0xZ3d5UkFsUVwiXG5yZWdpc3Rlcl9nb29nbGUoa2V5ID0gYXBpX2tleSlcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xvYWQgZ2dtYXBcbmxpYnJhcnkoZ2dtYXApXG5gYGAifQ== -->
 <pre class="r"><code>#Load ggmap
-library(ggmap)
-
-#Set the API key again
+library(ggmap)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBnZ3Bsb3QyXG5Hb29nbGUgTWFwcyBBUEkgVGVybXMgb2YgU2VydmljZTogaHR0cHM6Ly9jbG91ZC5nb29nbGUuY29tL21hcHMtcGxhdGZvcm0vdGVybXMvLlxuUGxlYXNlIGNpdGUgZ2dtYXAgaWYgeW91IHVzZSBpdDogc2VlIGNpdGF0aW9uKFwiZ2dtYXBcIikgZm9yIGRldGFpbHMuXG4ifQ== -->
+<pre><code>Loading required package: ggplot2
+Google Maps API Terms of Service: https://cloud.google.com/maps-platform/terms/.
+Please cite ggmap if you use it: see citation(&quot;ggmap&quot;) for details.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NldCB0aGUgQVBJIGtleSBhZ2FpblxuYXBpX2tleSA9IFwiQUl6YVN5Qks3bExicW9xbllGZHpmLWlkWVlwb3NiLTFnd3lSQWxRXCJcbnJlZ2lzdGVyX2dvb2dsZShrZXkgPSBhcGlfa2V5KVxuYGBgIn0= -->
+<pre class="r"><code>#Set the API key again
 api_key = &quot;AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ&quot;
 register_google(key = api_key)</code></pre>
 <!-- rnb-source-end -->

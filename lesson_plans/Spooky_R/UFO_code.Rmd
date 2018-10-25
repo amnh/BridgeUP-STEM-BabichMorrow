@@ -1,0 +1,15 @@
+---
+title: "Putting the R in UFO"
+output:
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In honor of Halloween Eve, we're going to continue practicing R mapping skills using a dataset of UFO sightings downloaded from this website: https://www.kaggle.com/NUFORC/ufo-sightings/data. 
+
+
+
