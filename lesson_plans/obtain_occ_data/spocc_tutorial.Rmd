@@ -1,21 +1,111 @@
 ---
-title: "spocc Package Tutorial"
+title: "`spocc` Package Tutorial"
 output:
-  pdf_document: default
   html_notebook: default
+  pdf_document: default
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
-```{r}
-plot(cars)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+Portions of the following tutorial are modified from rOpenSci's spocc tutorial: https://ropensci.org/tutorials/spocc_tutorial/.
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+## What is `spocc`?
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+`spocc`, standing for "species occurrence", is an R package that allows you to pull species occurrence data from a variety of online resources. We are going to use `spocc` to download occurrence data from GBIF specifically (although you can use it to download from other sources).
+
+## Install `spocc`
+
+Just like the other R packages we've worked with, you'll have to start off by installing `spocc`. There are two ways to do this: either go to your "Packages" tab in RStudio, click "Install", and type in "spocc", or run the following code:
+
+```{r}
+install.packages("spocc")
+```
+
+You only have to install a package once on your computer, but you have to load the package everytime you reopen RStudio:
+
+```{r}
+library(spocc)
+```
+
+## Retrieve data
+
+The most important function in the package is the `occ` function.
+
+**Try it yourself:** Use the "Help" menu to search for the `occ` function. What does the function do?
+
+Now it's time to try running the function!
+
+```{r}
+#Running occ() for the Barbados threadsnake:
+t_carlae_occ <- occ(query = "Tetracheilostoma carlae", from = 'gbif')
+#Running occ() for your organism:
+
+```
+
+**Try it yourself:** Replace "Tetracheilostoma carlae" with the scientific name of the organism you learned about in the Hall of Biodiversity and run `occ`.
+
+Now we want to get the occurrence data into a dataframe format to get the information we need to make maps.
+
+**Try it yourself:** Look up the `occ2df` function in "Help". Fill in the rest of the code below to make a dataframe of occurrences for your species:
+```{r}
+sp_df <- occ2df()
+#View the dataframe you made
+head(sp_df)
+View(sp_df)
+```
+
+## Map data
+
+Now that you've downloaded the data from GBIF (using `occ`), and formatted it a bit (using `occ2df`), you're ready to do some mapping. We're going to use the `ggmap` package again like we did with the GPS points you collected.
+
+```{r}
+#Load ggmap
+library(ggmap)
+
+#Set the API key again
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+```
+
+We're going to start by creating a data frame for a map of the entire world and then plotting it:
+
+```{r}
+#Make dataframe:
+world_map <- map_data("world")
+
+#Assign the world map plot to the variable "world"
+world <- ggplot() + 
+  geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = "grey", color = "darkgrey")
+#plot the world map
+world
+```
+
+Now we want to add the occurrence data to our map. The following code looks a lot like the code we used to map your points in Central Park -- the process of plotting species occurrence points is the same as the process to plot GPS points you took yourself.
+
+```{r}
+world +
+  geom_point(data = sp_df, aes(x = longitude, y = latitude),
+             color = "green",
+             size = 1)
+```
+
+Depending on what your species is, you will probably want to zoom in to a specific part of the globe. We can do this by making a bounding box again:
+
+```{r}
+#This time, we specify the bounding box using the latitude and longitude columns from our data
+bound_box <- make_bbox(lon = sp_df$longitude, lat = sp_df$latitude, f = 2)
+#Get a satellite map at the location of the bounding box you made:
+bbox_map <- get_map(location = bound_box, maptype = "satellite", source = "google")
+```
+
+Now plot the map zoomed into the bounding box you created:
+
+```{r}
+ggmap(bbox_map) + 
+  geom_point(data = sp_df, aes(x = longitude, y = latitude), 
+             color = "red",
+             size =1)
+```
 

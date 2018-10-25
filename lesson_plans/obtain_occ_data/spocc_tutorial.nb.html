@@ -170,27 +170,130 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">spocc Package Tutorial</h1>
+<h1 class="title toc-ignore"><code>spocc</code> Package Tutorial</h1>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
-<p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Cmd+Shift+Enter</em>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-text-begin -->
+<p>Portions of the following tutorial are modified from rOpenSci’s spocc tutorial: <a href="https://ropensci.org/tutorials/spocc_tutorial/" class="uri">https://ropensci.org/tutorials/spocc_tutorial/</a>.</p>
+<div id="what-is-spocc" class="section level2">
+<h2>What is <code>spocc</code>?</h2>
+<p><code>spocc</code>, standing for “species occurrence”, is an R package that allows you to pull species occurrence data from a variety of online resources. We are going to use <code>spocc</code> to download occurrence data from GBIF specifically (although you can use it to download from other sources).</p>
+</div>
+<div id="install-spocc" class="section level2">
+<h2>Install <code>spocc</code></h2>
+<p>Just like the other R packages we’ve worked with, you’ll have to start off by installing <code>spocc</code>. There are two ways to do this: either go to your “Packages” tab in RStudio, click “Install”, and type in “spocc”, or run the following code:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcInNwb2NjXCIpXG5gYGAifQ== -->
+<pre class="r"><code>install.packages(&quot;spocc&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Cmd+Option+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+<p>You only have to install a package once on your computer, but you have to load the package everytime you reopen RStudio:</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="retrieve-data" class="section level2">
+<h2>Retrieve data</h2>
+<p>The most important function in the package is the <code>occ</code> function.</p>
+<p><strong>Try it yourself:</strong> Use the “Help” menu to search for the <code>occ</code> function. What does the function do?</p>
+<p>Now it’s time to try running the function!</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1J1bm5pbmcgb2NjKCkgZm9yIHRoZSBCYXJiYWRvcyB0aHJlYWRzbmFrZTpcbnRfY2FybGFlX29jYyA8LSBvY2MocXVlcnkgPSBcIlRldHJhY2hlaWxvc3RvbWEgY2FybGFlXCIsIGZyb20gPSAnZ2JpZicpXG4jUnVubmluZyBvY2MoKSBmb3IgeW91ciBvcmdhbmlzbTpcbmBgYCJ9 -->
+<pre class="r"><code>#Running occ() for the Barbados threadsnake:
+t_carlae_occ &lt;- occ(query = &quot;Tetracheilostoma carlae&quot;, from = 'gbif')
+#Running occ() for your organism:</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Try it yourself:</strong> Replace “Tetracheilostoma carlae” with the scientific name of the organism you learned about in the Hall of Biodiversity and run <code>occ</code>.</p>
+<p>Now we want to get the occurrence data into a dataframe format to get the information we need to make maps.</p>
+<p><strong>Try it yourself:</strong> Look up the <code>occ2df</code> function in “Help”. Fill in the rest of the code below to make a dataframe of occurrences for your species:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3BfZGYgPC0gb2NjMmRmKClcbiNWaWV3IHRoZSBkYXRhZnJhbWUgeW91IG1hZGVcbmhlYWQoc3BfZGYpXG5WaWV3KHNwX2RmKVxuYGBgIn0= -->
+<pre class="r"><code>sp_df &lt;- occ2df()
+#View the dataframe you made
+head(sp_df)
+View(sp_df)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="map-data" class="section level2">
+<h2>Map data</h2>
+<p>Now that you’ve downloaded the data from GBIF (using <code>occ</code>), and formatted it a bit (using <code>occ2df</code>), you’re ready to do some mapping. We’re going to use the <code>ggmap</code> package again like we did with the GPS points you collected.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xvYWQgZ2dtYXBcbmxpYnJhcnkoZ2dtYXApXG5cbiNTZXQgdGhlIEFQSSBrZXkgYWdhaW5cbmFwaV9rZXkgPSBcIkFJemFTeUJLN2xMYnFvcW5ZRmR6Zi1pZFlZcG9zYi0xZ3d5UkFsUVwiXG5yZWdpc3Rlcl9nb29nbGUoa2V5ID0gYXBpX2tleSlcbmBgYCJ9 -->
+<pre class="r"><code>#Load ggmap
+library(ggmap)
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAic3BvY2MgUGFja2FnZSBUdXRvcmlhbCIKb3V0cHV0OgogIHBkZl9kb2N1bWVudDogZGVmYXVsdAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKLS0tCgpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiAKClRyeSBleGVjdXRpbmcgdGhpcyBjaHVuayBieSBjbGlja2luZyB0aGUgKlJ1biogYnV0dG9uIHdpdGhpbiB0aGUgY2h1bmsgb3IgYnkgcGxhY2luZyB5b3VyIGN1cnNvciBpbnNpZGUgaXQgYW5kIHByZXNzaW5nICpDbWQrU2hpZnQrRW50ZXIqLiAKCmBgYHtyfQpwbG90KGNhcnMpCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkNtZCtPcHRpb24rSSouCgpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkNtZCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLiAKClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4KCg==</div>
+#Set the API key again
+api_key = &quot;AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ&quot;
+register_google(key = api_key)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We’re going to start by creating a data frame for a map of the entire world and then plotting it:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI01ha2UgZGF0YWZyYW1lOlxud29ybGRfbWFwIDwtIG1hcF9kYXRhKFwid29ybGRcIilcblxuI0Fzc2lnbiB0aGUgd29ybGQgbWFwIHBsb3QgdG8gdGhlIHZhcmlhYmxlIFwid29ybGRcIlxud29ybGQgPC0gZ2dwbG90KCkgKyBcbiAgZ2VvbV9wb2x5Z29uKGRhdGEgPSB3b3JsZF9tYXAsIGFlcyh4PWxvbmcsIHkgPSBsYXQsIGdyb3VwID0gZ3JvdXApLCBmaWxsID0gXCJncmV5XCIsIGNvbG9yID0gXCJkYXJrZ3JleVwiKVxuI3Bsb3QgdGhlIHdvcmxkIG1hcFxud29ybGRcbmBgYCJ9 -->
+<pre class="r"><code>#Make dataframe:
+world_map &lt;- map_data(&quot;world&quot;)
+
+#Assign the world map plot to the variable &quot;world&quot;
+world &lt;- ggplot() + 
+  geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = &quot;grey&quot;, color = &quot;darkgrey&quot;)
+#plot the world map
+world</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now we want to add the occurrence data to our map. The following code looks a lot like the code we used to map your points in Central Park – the process of plotting species occurrence points is the same as the process to plot GPS points you took yourself.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud29ybGQgK1xuICBnZW9tX3BvaW50KGRhdGEgPSBzcF9kZiwgYWVzKHggPSBsb25naXR1ZGUsIHkgPSBsYXRpdHVkZSksXG4gICAgICAgICAgICAgY29sb3IgPSBcImdyZWVuXCIsXG4gICAgICAgICAgICAgc2l6ZSA9IDEpXG5gYGAifQ== -->
+<pre class="r"><code>world +
+  geom_point(data = sp_df, aes(x = longitude, y = latitude),
+             color = &quot;green&quot;,
+             size = 1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Depending on what your species is, you will probably want to zoom in to a specific part of the globe. We can do this by making a bounding box again:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RoaXMgdGltZSwgd2Ugc3BlY2lmeSB0aGUgYm91bmRpbmcgYm94IHVzaW5nIHRoZSBsYXRpdHVkZSBhbmQgbG9uZ2l0dWRlIGNvbHVtbnMgZnJvbSBvdXIgZGF0YVxuYm91bmRfYm94IDwtIG1ha2VfYmJveChsb24gPSBzcF9kZiRsb25naXR1ZGUsIGxhdCA9IHNwX2RmJGxhdGl0dWRlLCBmID0gMilcbiNHZXQgYSBzYXRlbGxpdGUgbWFwIGF0IHRoZSBsb2NhdGlvbiBvZiB0aGUgYm91bmRpbmcgYm94IHlvdSBtYWRlOlxuYmJveF9tYXAgPC0gZ2V0X21hcChsb2NhdGlvbiA9IGJvdW5kX2JveCwgbWFwdHlwZSA9IFwic2F0ZWxsaXRlXCIsIHNvdXJjZSA9IFwiZ29vZ2xlXCIpXG5gYGAifQ== -->
+<pre class="r"><code>#This time, we specify the bounding box using the latitude and longitude columns from our data
+bound_box &lt;- make_bbox(lon = sp_df$longitude, lat = sp_df$latitude, f = 2)
+#Get a satellite map at the location of the bounding box you made:
+bbox_map &lt;- get_map(location = bound_box, maptype = &quot;satellite&quot;, source = &quot;google&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now plot the map zoomed into the bounding box you created:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dtYXAoYmJveF9tYXApICsgXG4gIGdlb21fcG9pbnQoZGF0YSA9IHNwX2RmLCBhZXMoeCA9IGxvbmdpdHVkZSwgeSA9IGxhdGl0dWRlKSwgXG4gICAgICAgICAgICAgY29sb3IgPSBcInJlZFwiLFxuICAgICAgICAgICAgIHNpemUgPTEpXG5gYGAifQ== -->
+<pre class="r"><code>ggmap(bbox_map) + 
+  geom_point(data = sp_df, aes(x = longitude, y = latitude), 
+             color = &quot;red&quot;,
+             size =1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiYHNwb2NjYCBQYWNrYWdlIFR1dG9yaWFsIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdAogIHBkZl9kb2N1bWVudDogZGVmYXVsdAotLS0KCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpCmBgYAoKUG9ydGlvbnMgb2YgdGhlIGZvbGxvd2luZyB0dXRvcmlhbCBhcmUgbW9kaWZpZWQgZnJvbSByT3BlblNjaSdzIHNwb2NjIHR1dG9yaWFsOiBodHRwczovL3JvcGVuc2NpLm9yZy90dXRvcmlhbHMvc3BvY2NfdHV0b3JpYWwvLgoKIyMgV2hhdCBpcyBgc3BvY2NgPwoKYHNwb2NjYCwgc3RhbmRpbmcgZm9yICJzcGVjaWVzIG9jY3VycmVuY2UiLCBpcyBhbiBSIHBhY2thZ2UgdGhhdCBhbGxvd3MgeW91IHRvIHB1bGwgc3BlY2llcyBvY2N1cnJlbmNlIGRhdGEgZnJvbSBhIHZhcmlldHkgb2Ygb25saW5lIHJlc291cmNlcy4gV2UgYXJlIGdvaW5nIHRvIHVzZSBgc3BvY2NgIHRvIGRvd25sb2FkIG9jY3VycmVuY2UgZGF0YSBmcm9tIEdCSUYgc3BlY2lmaWNhbGx5IChhbHRob3VnaCB5b3UgY2FuIHVzZSBpdCB0byBkb3dubG9hZCBmcm9tIG90aGVyIHNvdXJjZXMpLgoKIyMgSW5zdGFsbCBgc3BvY2NgCgpKdXN0IGxpa2UgdGhlIG90aGVyIFIgcGFja2FnZXMgd2UndmUgd29ya2VkIHdpdGgsIHlvdSdsbCBoYXZlIHRvIHN0YXJ0IG9mZiBieSBpbnN0YWxsaW5nIGBzcG9jY2AuIFRoZXJlIGFyZSB0d28gd2F5cyB0byBkbyB0aGlzOiBlaXRoZXIgZ28gdG8geW91ciAiUGFja2FnZXMiIHRhYiBpbiBSU3R1ZGlvLCBjbGljayAiSW5zdGFsbCIsIGFuZCB0eXBlIGluICJzcG9jYyIsIG9yIHJ1biB0aGUgZm9sbG93aW5nIGNvZGU6CgpgYGB7cn0KaW5zdGFsbC5wYWNrYWdlcygic3BvY2MiKQpgYGAKCllvdSBvbmx5IGhhdmUgdG8gaW5zdGFsbCBhIHBhY2thZ2Ugb25jZSBvbiB5b3VyIGNvbXB1dGVyLCBidXQgeW91IGhhdmUgdG8gbG9hZCB0aGUgcGFja2FnZSBldmVyeXRpbWUgeW91IHJlb3BlbiBSU3R1ZGlvOgoKYGBge3J9CmxpYnJhcnkoc3BvY2MpCmBgYAoKIyMgUmV0cmlldmUgZGF0YQoKVGhlIG1vc3QgaW1wb3J0YW50IGZ1bmN0aW9uIGluIHRoZSBwYWNrYWdlIGlzIHRoZSBgb2NjYCBmdW5jdGlvbi4KCioqVHJ5IGl0IHlvdXJzZWxmOioqIFVzZSB0aGUgIkhlbHAiIG1lbnUgdG8gc2VhcmNoIGZvciB0aGUgYG9jY2AgZnVuY3Rpb24uIFdoYXQgZG9lcyB0aGUgZnVuY3Rpb24gZG8/CgpOb3cgaXQncyB0aW1lIHRvIHRyeSBydW5uaW5nIHRoZSBmdW5jdGlvbiEKCmBgYHtyfQojUnVubmluZyBvY2MoKSBmb3IgdGhlIEJhcmJhZG9zIHRocmVhZHNuYWtlOgp0X2NhcmxhZV9vY2MgPC0gb2NjKHF1ZXJ5ID0gIlRldHJhY2hlaWxvc3RvbWEgY2FybGFlIiwgZnJvbSA9ICdnYmlmJykKI1J1bm5pbmcgb2NjKCkgZm9yIHlvdXIgb3JnYW5pc206CgpgYGAKCioqVHJ5IGl0IHlvdXJzZWxmOioqIFJlcGxhY2UgIlRldHJhY2hlaWxvc3RvbWEgY2FybGFlIiB3aXRoIHRoZSBzY2llbnRpZmljIG5hbWUgb2YgdGhlIG9yZ2FuaXNtIHlvdSBsZWFybmVkIGFib3V0IGluIHRoZSBIYWxsIG9mIEJpb2RpdmVyc2l0eSBhbmQgcnVuIGBvY2NgLgoKTm93IHdlIHdhbnQgdG8gZ2V0IHRoZSBvY2N1cnJlbmNlIGRhdGEgaW50byBhIGRhdGFmcmFtZSBmb3JtYXQgdG8gZ2V0IHRoZSBpbmZvcm1hdGlvbiB3ZSBuZWVkIHRvIG1ha2UgbWFwcy4KCioqVHJ5IGl0IHlvdXJzZWxmOioqIExvb2sgdXAgdGhlIGBvY2MyZGZgIGZ1bmN0aW9uIGluICJIZWxwIi4gRmlsbCBpbiB0aGUgcmVzdCBvZiB0aGUgY29kZSBiZWxvdyB0byBtYWtlIGEgZGF0YWZyYW1lIG9mIG9jY3VycmVuY2VzIGZvciB5b3VyIHNwZWNpZXM6CmBgYHtyfQpzcF9kZiA8LSBvY2MyZGYoKQojVmlldyB0aGUgZGF0YWZyYW1lIHlvdSBtYWRlCmhlYWQoc3BfZGYpClZpZXcoc3BfZGYpCmBgYAoKIyMgTWFwIGRhdGEKCk5vdyB0aGF0IHlvdSd2ZSBkb3dubG9hZGVkIHRoZSBkYXRhIGZyb20gR0JJRiAodXNpbmcgYG9jY2ApLCBhbmQgZm9ybWF0dGVkIGl0IGEgYml0ICh1c2luZyBgb2NjMmRmYCksIHlvdSdyZSByZWFkeSB0byBkbyBzb21lIG1hcHBpbmcuIFdlJ3JlIGdvaW5nIHRvIHVzZSB0aGUgYGdnbWFwYCBwYWNrYWdlIGFnYWluIGxpa2Ugd2UgZGlkIHdpdGggdGhlIEdQUyBwb2ludHMgeW91IGNvbGxlY3RlZC4KCmBgYHtyfQojTG9hZCBnZ21hcApsaWJyYXJ5KGdnbWFwKQoKI1NldCB0aGUgQVBJIGtleSBhZ2FpbgphcGlfa2V5ID0gIkFJemFTeUJLN2xMYnFvcW5ZRmR6Zi1pZFlZcG9zYi0xZ3d5UkFsUSIKcmVnaXN0ZXJfZ29vZ2xlKGtleSA9IGFwaV9rZXkpCmBgYAoKV2UncmUgZ29pbmcgdG8gc3RhcnQgYnkgY3JlYXRpbmcgYSBkYXRhIGZyYW1lIGZvciBhIG1hcCBvZiB0aGUgZW50aXJlIHdvcmxkIGFuZCB0aGVuIHBsb3R0aW5nIGl0OgoKYGBge3J9CiNNYWtlIGRhdGFmcmFtZToKd29ybGRfbWFwIDwtIG1hcF9kYXRhKCJ3b3JsZCIpCgojQXNzaWduIHRoZSB3b3JsZCBtYXAgcGxvdCB0byB0aGUgdmFyaWFibGUgIndvcmxkIgp3b3JsZCA8LSBnZ3Bsb3QoKSArIAogIGdlb21fcG9seWdvbihkYXRhID0gd29ybGRfbWFwLCBhZXMoeD1sb25nLCB5ID0gbGF0LCBncm91cCA9IGdyb3VwKSwgZmlsbCA9ICJncmV5IiwgY29sb3IgPSAiZGFya2dyZXkiKQojcGxvdCB0aGUgd29ybGQgbWFwCndvcmxkCmBgYAoKTm93IHdlIHdhbnQgdG8gYWRkIHRoZSBvY2N1cnJlbmNlIGRhdGEgdG8gb3VyIG1hcC4gVGhlIGZvbGxvd2luZyBjb2RlIGxvb2tzIGEgbG90IGxpa2UgdGhlIGNvZGUgd2UgdXNlZCB0byBtYXAgeW91ciBwb2ludHMgaW4gQ2VudHJhbCBQYXJrIC0tIHRoZSBwcm9jZXNzIG9mIHBsb3R0aW5nIHNwZWNpZXMgb2NjdXJyZW5jZSBwb2ludHMgaXMgdGhlIHNhbWUgYXMgdGhlIHByb2Nlc3MgdG8gcGxvdCBHUFMgcG9pbnRzIHlvdSB0b29rIHlvdXJzZWxmLgoKYGBge3J9CndvcmxkICsKICBnZW9tX3BvaW50KGRhdGEgPSBzcF9kZiwgYWVzKHggPSBsb25naXR1ZGUsIHkgPSBsYXRpdHVkZSksCiAgICAgICAgICAgICBjb2xvciA9ICJncmVlbiIsCiAgICAgICAgICAgICBzaXplID0gMSkKYGBgCgpEZXBlbmRpbmcgb24gd2hhdCB5b3VyIHNwZWNpZXMgaXMsIHlvdSB3aWxsIHByb2JhYmx5IHdhbnQgdG8gem9vbSBpbiB0byBhIHNwZWNpZmljIHBhcnQgb2YgdGhlIGdsb2JlLiBXZSBjYW4gZG8gdGhpcyBieSBtYWtpbmcgYSBib3VuZGluZyBib3ggYWdhaW46CgpgYGB7cn0KI1RoaXMgdGltZSwgd2Ugc3BlY2lmeSB0aGUgYm91bmRpbmcgYm94IHVzaW5nIHRoZSBsYXRpdHVkZSBhbmQgbG9uZ2l0dWRlIGNvbHVtbnMgZnJvbSBvdXIgZGF0YQpib3VuZF9ib3ggPC0gbWFrZV9iYm94KGxvbiA9IHNwX2RmJGxvbmdpdHVkZSwgbGF0ID0gc3BfZGYkbGF0aXR1ZGUsIGYgPSAyKQojR2V0IGEgc2F0ZWxsaXRlIG1hcCBhdCB0aGUgbG9jYXRpb24gb2YgdGhlIGJvdW5kaW5nIGJveCB5b3UgbWFkZToKYmJveF9tYXAgPC0gZ2V0X21hcChsb2NhdGlvbiA9IGJvdW5kX2JveCwgbWFwdHlwZSA9ICJzYXRlbGxpdGUiLCBzb3VyY2UgPSAiZ29vZ2xlIikKYGBgCgpOb3cgcGxvdCB0aGUgbWFwIHpvb21lZCBpbnRvIHRoZSBib3VuZGluZyBib3ggeW91IGNyZWF0ZWQ6CgpgYGB7cn0KZ2dtYXAoYmJveF9tYXApICsgCiAgZ2VvbV9wb2ludChkYXRhID0gc3BfZGYsIGFlcyh4ID0gbG9uZ2l0dWRlLCB5ID0gbGF0aXR1ZGUpLCAKICAgICAgICAgICAgIGNvbG9yID0gInJlZCIsCiAgICAgICAgICAgICBzaXplID0xKQpgYGAKCg==</div>
 
 
 
