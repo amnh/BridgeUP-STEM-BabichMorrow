@@ -113,7 +113,7 @@ ggmap(bbox_map) +
 
 When you save the file:
 
-+ Save it in the lesson_plans/obtain_occ_data/ folder
++ Save it in the intern_code folder
 
 + Name it in the following way (using the name of your sloth species and your own first name): `bradypus_tridactylus_occ_cecina`
 
