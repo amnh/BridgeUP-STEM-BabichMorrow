@@ -109,3 +109,13 @@ ggmap(bbox_map) +
              size =1)
 ```
 
+**Try it yourself:** Open up a new R script file. In this script you're going to write your own code to get occurrence data for sloths! Use the code from this tutorial as a model, but modify it for your species of sloth. You can also customize the graphs as much as you want --  play with different parameters like color, extent of the map, etc.
+
+When you save the file:
+
++ Save it in the lesson_plans/obtain_occ_data/ folder
+
++ Name it in the following way (using the name of your sloth species and your own first name): `bradypus_tridactylus_occ_cecina`
+
+
+
