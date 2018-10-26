@@ -27,8 +27,8 @@
   | October 18 | <ul><li> Going outside! - GPS exploration </li><li> Syncing a fork </li><li> Introduction to spatial data in R |                         [GPS collection instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GPS_CollectData.md) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/IntroGPS.Rmd) |
 | **Week 3** | | |
   | October 23 | <ul><li> Syncing a fork - review </li><li> GPS in R continued |                                                 [GitHub Help: syncing a fork](https://help.github.com/articles/syncing-a-fork/) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Intro_GPS/IntroGPS.Rmd)  |
-  | October 25 | <ul><li> Hall of Biodiversity scavenger hunt </li><li> What is GBIF? </li><li> `spocc` package |               [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd)  |
-  |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> | <ul><li> Visualizing spatial data | |
+  | October 25 | <ul><li> Hall of Biodiversity scavenger hunt </li><li> What is GBIF? |                                       [GBIF website](https://www.gbif.org) |
+  |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> | <ul><li> UFO(+R) :alien: </li><li> `spocc` package |                                                                                                                     [UFO R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Spooky_R/UFO_code.Rmd) <br> [`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd)|
 
 ## Daily Git To Do
 
