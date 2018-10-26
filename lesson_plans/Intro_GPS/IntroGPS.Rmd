@@ -1,0 +1,135 @@
+---
+title: "Intro to GPS"
+author: "Cecina Babich Morrow"
+output:
+  html_document: default
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Adapted from lesson plan by Professors Harbert and Blair: https://rsh249.github.io/spatial_bioinformatics/GPStoGISwithText.html.
+
+## Import data to R
+
+Start by opening a new script file in RStudio. Instead of just editing this R Markdown file (although you can and should add your own notes to it!), you can save the code for this analysis in that script file. Start the file with a helpful comment, for example:
+
+```{r}
+# Gladys Phyllis Smith
+# 03/04/1973
+# Script for analyzing GPS points
+```
+
+
+Now go to the "Environment" tab of RStudio (top right panel) and select "Import Dataset" > "From Text (readr) ..." Use the "Browse" to navigate to and select the data file you just saved (for Android users, select the .csv, not the .txt). Check over the formatting options to make sure everything looks okay. When you're satisfied, click "Import". When you do that, code will run in your console (see example below). Copy and paste that code into your new R script and add a helpful comment, like `# Import dataset from .csv`.
+
+```{r}
+# Import android data
+library(readr)
+androiddata_test <- read_csv("../gps_test_data/androiddata_test.csv")
+
+# Import iPhone data
+iphonedata_test <- read_csv("../gps_test_data/iphonedata_test.csv")
+```
+
+Now take a look at the data using either the `View()` or `head()` function.
+
+```{r}
+head(androiddata_test)
+head(iphonedata_test)
+```
+
+To map these data, we need to make sure the columns for latitude and longitude are called "lat" and "lon". Check out what the current column names for the data are:
+
+```{r}
+names(iphonedata_test)
+names(androiddata_test)
+```
+
+To rename a column in R, you can do something similar to what we did in the Intro to R lesson where you renamed elements in the vector `intern_names`.
+
+**Try it yourself:** Add code in your script file to rename the correct columns so they are named "lat" and "lon".
+
+```{r}
+
+```
+
+Eventually, we are going to need the new "lon" and "lat" columns to be the first two columns of our dataframe. We can do some rearranging in the following ways:
+
+```{r}
+#Be careful!!! These are not the same for the android and the iphone data
+iphonedata_test <- iphonedata_test[c(3,2,1,4)]
+androiddata_test <- androiddata_test[c(4,3,2,6)]
+```
+
+
+## Set-up to visualize
+
+We need to download a few required packages:
+
+```{r}
+require(raster) #package to analyze gridded spatial data
+require(sp) #package to provide classes and methods for spatial data
+require(rgdal) #allows R to access a library called GDAL
+require(ggplot2) #plotting package in R
+devtools::install_github("dkahle/ggmap", ref = "tidyup") #package to visualize spatial data and models
+require(ggmap)
+```
+
+We can start by plotting the points onto a map from GoogleEarth. Google has made it necessary to obtain an API key, which is a way to let two applications talk to each other. Since you have to enter a credit card number to get the API (even though it's free), we're going to use the one I set up. 
+
+```{r}
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+```
+
+We also need to determine the range of latitudes and longitudes containing your points. Use the `max` and `min` functions to find the range:
+
+**Try it yourself:** Find the maximum and minimum of the latitude and longitude columns in your data. Remember that the `$` accesses a column of a dataframe in R. Assign these values to variables named `min_lon`, `max_lon`, `min_lat`, and `max_lat`.
+
+```{r}
+
+```
+
+Now you can put those values into the following code:
+
+```{r}
+loc = cbind(c(min_lon, max_lon), c(min_lat, max_lat))
+loc = as.data.frame(loc) #make loc into a dataframe
+colnames(loc) = c('lon', 'lat')
+```
+
+**Try it yourself:** Run `View(loc)` to see exactly what `cbind` did. Also notice the `colnames` function: how does this compare to the way you renamed the columns earlier?
+
+Now we need to make a bounding box out of these values:
+
+```{r}
+bound_box <- make_bbox(lon = loc$lon, lat = loc$lat, f = .2)
+```
+
+**Try it yourself:** Look up the function `make_bbox` in the Help menu of RStudio. What does the `f` argument in the function do? You can experiment with different `f` values to see how this affects the map you make.
+
+## Visualize data
+
+Now we can make some maps!
+
+```{r}
+#Get a satellite map at the location of the bounding box you made:
+map <- get_map(location = bound_box, maptype = "satellite", source = "google")
+
+#Plot the waypoints on the map:
+ggmap(map) + 
+  geom_point(data = iphonedata_test[,1:2], 
+             color = "red",
+             size =1)
+ggmap(map) + 
+  geom_point(data = androiddata_test[,1:2], 
+             color = "red",
+             size =1)
+```
+
+
+
