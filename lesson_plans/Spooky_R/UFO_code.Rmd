@@ -95,8 +95,8 @@ world <- ggplot() +
 
 #add UFO sightings to map
 world +
-  ggplot(data = ufo_data, aes(x = longitude, y = latitude)) +
-  geom_emoji("alien")
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude),
+             color = "green", size = 1)
 ```
 
 ### UFO Shape
@@ -113,7 +113,7 @@ It looks like there aree 30 shapes (including `NA`!). We can start by making a b
 
 ```{r}
 #Make a basic bar plot
-bar <- ggplot(data = ufo_data, aes(x = shape)) + #typically your first line will include the data and the "aesthetics" - what you want on each access
+bar <- ggplot(data = ufo_data, aes(x = shape)) + #typically your first line will include the data and the "aesthetics" - what you want on each axis
   geom_bar(stat = "count") #plot bars based on the number of obs in each category
 bar #show the plot
 ```
@@ -124,6 +124,8 @@ Now we have a bargraph! Unfortunately, we can't really read the labels on each b
 bar +
   theme(axis.text.x = element_text(angle = 90)) #rotate all text on the x-axis by 90 degrees
 ```
+
+**Try it yourself:** What is the most common UFO shape sighted?
 
 ## Mapping + UFO Shape
 
@@ -137,9 +139,44 @@ world +
 
 **Try it yourself:** Compare this code to the code we originally used to add the green points of UFO sightings to the map. What is the same? What changed?
 
+## Sighting Duration
+
+We've now looked at data in the form of latitude/longitude coordinates and in the form of a categorical variable (shape). Our dataset also includes the duration of each sighting in seconds, which is a continuous variable. Currently that data is stored in a column called `duration (seconds)`. This isn't a particularly good name since R doesn't like spaces, so we would like to rename it.
+
+**Try it yourself:** Rename the `duration (seconds)` column `duration_sec` instead. You can refer back to how you renamed the columns in the IntroGPS R Markdown.
+
+```{r}
+
+```
+
+For a continuous variable like sighting duration, we often want to look at some summary statistics to learn about its distribution:
+
+```{r}
+summary(ufo_data$duration_sec)
+```
+
+The `summary()` function gives us some nice descriptions of our data, like mean and median. But a visual representation might be more helpful. We can make a boxplot to see the distribution of our data:
+
+```{r}
+box <- ggplot(data = ufo_data, aes(x = "", y = duration_sec)) +
+  geom_boxplot()
+box
+```
+
+**Try it yourself:** How does this code compare to the code you used to make the bar graph? What is the same? What changed?
+
+This is not the most beautiful boxplot -- we can see that most of the sightings only lasted a very short amount of time and a few last a very long time (the longest lasts 31 years). One way we can visualize data that is so skewed is to use a logarithmic scale.
+
+```{r}
+box +
+  scale_y_log10() #transforms the y-axis scale by log10
+```
+
+We can see the line in the middle of the boxplot, which is the median, is a little above the tick-mark for `1+02`, which is 1x10^2, or 100. This corresponds to the median value we found when we ran `summary()`.
+
 ## Bonus
 
-If you finish the rest of the UFO plotting, here are some additional fun things you can do in R:
+Here are some additional fun things you can do in R with our UFO data:
 
 ### More Cleaning: Select data from one country
 
@@ -178,4 +215,19 @@ germany_map <- ggmap(germany)
 ```{r}
 
 ```
+
+### Sighting Duration by Country
+
+We can add even more information to our maps by visualizing the duration of sightings. We can do this by letting `ggplot2` change the color of each point on our map based on how long that sighting was.
+
+**Try it yourself:** Below is the code we used to change the color of the points on a map based on the shape of the UFO observed. What do you think you need to change to make the color depend on duration instead?
+
+```{r}
+#Modify this code so that color is based on duration, not shape
+world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude, color = shape),
+             size = 1)
+```
+
+
 
