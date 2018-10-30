@@ -44,13 +44,13 @@
   | November 27 | | |
   | November 29 | | |
 | **Week 9** | | |
-  | December 4 | | |
-  | December 6 | | |
+  | December 4 | <ul><li> Presentation planning | |
+  | December 6 | <ul><li> Work on presentations | |
 | **Week 10** | | |
-  | December 11 | | |
+  | December 11 | <ul><li> Work on presentations | |
   | December 13 | Presentation Skills Workshop | |
 | **Week 11** | | |
-  | December 18 | | |
+  | December 18 | <ul><li> Work on presentations | |
   | December 20 | **Winter Presentations!** | |
 
 ## Daily Git To Do
