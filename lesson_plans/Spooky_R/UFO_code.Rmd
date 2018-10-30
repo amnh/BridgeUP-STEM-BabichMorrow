@@ -9,7 +9,120 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In honor of Halloween Eve, we're going to continue practicing R mapping skills using a dataset of UFO sightings downloaded from this website: https://www.kaggle.com/NUFORC/ufo-sightings/data. 
+In honor of Halloween Eve, we're going to continue practicing R mapping skills using a dataset of UFO sightings downloaded from this website: https://www.kaggle.com/NUFORC/ufo-sightings/data.
 
+## Getting started
+
+To start, we need to load the `ggmap` package (same package we've been using for mapping), set the API key so we can map, and load in the dataset:
+
+```{r}
+#Load required packages
+library(ggmap)
+
+#Set the API key again
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+
+#Load dataset:
+library(readr)
+ufo_data <- read_csv("../../data/ufo_data.csv")
+```
+
+
+## Data Wrangling
+
+Now that we have the data imported in R, we can examine it to make sure everything is in the format we want.
+
+**Try it yourself:** Use either the `View()` or `head()` functions to check out `ufo_data`. Look at the `latitude` column. Can you tell what data type it is? Try either hovering your cursor over the column if you used `View()` or looking at the type under the column name if you used `head()`. You can also use the `class()` function we learned about all the way back in the Introduction to R lesson.
+
+```{r}
+
+```
+
+
+The `latitude` column isn't in the right format -- we want it to be a numeric, like `longitude`. Problems like this can often happen when you import data, but they're pretty easy to solve:
+
+```{r}
+#Make the latitude column a numeric
+ufo_data$latitude <- as.numeric(ufo_data$latitude)
+#check the data type now
+head(ufo_data)
+```
+
+
+Once again, we need to reorder the columns so that `longitude` is first and `latitude` is second.
+
+**Try it yourself:** Look back at what you did in `IntroGPS.Rmd` to reorder the columns. Remember you used `c()` and put the number of the columns in the order you wanted them within the parentheses. (Also remember indices in R start with 1!) Complete the code below:
+
+```{r}
+ufo_data <- ufo_data[c()]
+```
+
+## Data Cleaning
+
+One of the most important steps in data cleaning is getting rid of `NA` values in your data. We are most concerned with `NA`s in the `latitude` and `longitude` columns, since those are what we need to map, so we need to check those columns in particular:
+
+```{r}
+#See how many rows have NA values for the longitude and latitude columns
+ufo_data$longitude[is.na(ufo_data$longitude)] #subset the longitude column by which values are missing
+ufo_data$latitude[is.na(ufo_data$latitude)]
+
+#See the row numbers that have NA values for the latitude column
+which(is.na(ufo_data$latitude)) #gives the indices of NA values in the latitude column
+
+#View only the rows of ufo_data with NA values for latitude
+View(ufo_data[which(is.na(ufo_data$latitude)),]) #subsets the entire dataframe by the row numbers we found in the previous line of code
+```
+
+Now that we know which rows have `NA` values in them, we want to get rid of those rows. In R, you can use the `!` in front of a logical expression (something that gives you `TRUE` or `FALSE` values) to get the opposite. So if we type `!is.na()`, that will give us values that do **not** have `NA`.
+
+```{r}
+#Subset the data by the rows that don't have NA in the latitude column
+ufo_data <- ufo_data[!is.na(ufo_data$latitude),]
+```
+
+## Graphing!
+
+### Mapping
+
+Now that we've reformatted and cleaned up our data a little, we're ready for some fun graphing. We can start by mapping all the data in the same way we mapped the GPS points from Central Park:
+
+```{r}
+#Assign the world map plot to the variable "world"
+world <- ggplot() + 
+  geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = "grey", color = "darkgrey")
+
+#add UFO sightings to map
+world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude),
+             color = "green",
+             size = 1)
+```
+
+### UFO Shape
+
+We've done a decent amount of mapping in R, so let's look at some other types of graphs we can make. The package `ggmap` is related to a major graphics/plotting package in R called `ggplot2` (the "gg" stands for "grammar of graphics"). You can use `ggplot2` to make just about any type of graph.
+
+Since we have some categorical data, let's use `ggplot2` to make a bar graph of the different UFO shapes. We can start by looking at the different shapes we have in the data:
+
+```{r}
+unique(ufo_data$shape) #returns the unique values in the shape column
+```
+
+It looks like there aree 30 shapes (including `NA`!). We can start by making a basic bar plot, which we will call `bar`:
+
+```{r}
+#Make a basic bar plot
+bar <- ggplot(data = ufo_data, aes(x = factor(shape)))
+```
+
+
+## Bonus
+
+If you finish the rest of the UFO plotting, here are some additional fun things you can do in R:
+
+### Plot with Emojis
+
+The package `emojifont` (https://cran.r-project.org/web/packages/emojifont/vignettes/emojifont.html) will let you add emojis to your plots. Start off by installing the package using the "Packages" tab in RStudio, then usee `library()` to load the package.
 
 
