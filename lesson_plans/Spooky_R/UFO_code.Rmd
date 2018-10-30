@@ -179,20 +179,3 @@ germany_map <- ggmap(germany)
 
 ```
 
-### Plot with Emojis
-
-The package `emojifont` (https://cran.r-project.org/web/packages/emojifont/vignettes/emojifont.html) will let you add emojis to your plots. Start off by installing the package using the "Packages" tab in RStudio, then use `library()` to load the package.
-
-```{r}
-world <- ggplot() + 
-  geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = "grey", color = "darkgrey")
-world +
-  geom_point(data = ufo_data, aes(x = longitude, y = latitude),size = 1)+
-  geom_emoji('alien', aes(x = ufo_data$longitude, y = ufo_data$latitude))
-
-ggplot(data = ufo_data, aes(x = longitude, y = latitude)) +
-  geom_emoji(alias = "alien") +
-  geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = "grey", color = "darkgrey")
-
-```
-
