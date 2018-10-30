@@ -44,7 +44,7 @@ t_carlae_occ <- occ(query = "Tetracheilostoma carlae", from = 'gbif')
 
 ```
 
-**Try it yourself:** Replace "Tetracheilostoma carlae" with the scientific name of the organism you learned about in the Hall of Biodiversity and run `occ`.
+**Try it yourself:** Replace "Tetracheilostoma carlae" with the scientific name of Your Favorite Organism (YFO). Run `occ`.
 
 Now we want to get the occurrence data into a dataframe format to get the information we need to make maps.
 
@@ -82,7 +82,7 @@ world <- ggplot() +
 world
 ```
 
-Now we want to add the occurrence data to our map. The following code looks a lot like the code we used to map your points in Central Park -- the process of plotting species occurrence points is the same as the process to plot GPS points you took yourself.
+Now we want to add the occurrence data to our map. The following code looks a lot like the code we used to map your points in Central Park (and the alien sightings) -- the process of plotting species occurrence points is the same as the process to plot GPS points you took yourself.
 
 ```{r}
 world +
