@@ -29,11 +29,11 @@
   | October 23 | <ul><li> Syncing a fork - review </li><li> GPS in R continued |                                                 [GitHub Help: syncing a fork](https://help.github.com/articles/syncing-a-fork/) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Intro_GPS/IntroGPS.Rmd)  |
   | October 25 | <ul><li> Hall of Biodiversity scavenger hunt </li><li> What is GBIF? |                                       [GBIF website](https://www.gbif.org) |
 | **Week 4** | | |
-  |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> |                                                 <ul><li> UFO(+R) :alien: </li><li> `spocc` package |                                                                           [UFO R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Spooky_R/UFO_code.Rmd) <br>       [`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd)|
-  | November 1 | <ul><li> `ggplot2` tutorial </li><li> Lines & polygons |                                                       [`ggplot2` tutorial](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) <br> [`ggplot2` Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) <br> Return to GPS - RMarkdown |
+  |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> |                                                 <ul><li> UFO(+R) :alien: |                                                                                                     [UFO R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Spooky_R/UFO_code.Rmd) |
+  | November 1 | <ul><li> `ggplot2` tutorial </li><li> UFO(+R) continued </li><li> `spocc` package |                           [`ggplot2` tutorial](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) <br> [`ggplot2` Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) <br> [`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd) |
 | **Week 5** | | |
   | November 6 <br> <sub> :us: Election Day :us: </sub> | **No internship session today** |                                           Code in politics (and life) - [FiveThirtyEight](https://fivethirtyeight.com/) |
-  | November 8 | | |
+  | November 8 | <ul><li> Lines and polygons | Return to GPS - R Markdown|
 | **Week 6** | | |
   | November 13 | | |
   | November 15 | | |
