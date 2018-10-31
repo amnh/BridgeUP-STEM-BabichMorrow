@@ -9,7 +9,225 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In honor of Halloween Eve, we're going to continue practicing R mapping skills using a dataset of UFO sightings downloaded from this website: https://www.kaggle.com/NUFORC/ufo-sightings/data. 
+In honor of Halloween Eve, we're going to continue practicing R mapping skills using a dataset of UFO sightings downloaded from this website: https://www.kaggle.com/NUFORC/ufo-sightings/data.
+
+## Getting started
+
+To start, we need to load the `ggmap` package (same package we've been using for mapping), set the API key so we can map, and load in the dataset:
+
+```{r}
+#Load required packages
+library(ggmap)
+
+#Set the API key again
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+
+#Load dataset:
+library(readr)
+ufo_data <- read_csv("../../data/ufo_data.csv")
+ufo_data <- as.data.frame(ufo_data)
+```
+
+
+## Data Wrangling
+
+Now that we have the data imported in R, we can examine it to make sure everything is in the format we want.
+
+**Try it yourself:** Use either the `View()` or `head()` functions to check out `ufo_data`. Look at the `latitude` column. Can you tell what data type it is? Try either hovering your cursor over the column if you used `View()` or looking at the type under the column name if you used `head()`. You can also use the `class()` function we learned about all the way back in the Introduction to R lesson.
+
+```{r}
+
+```
+
+
+The `latitude` column isn't in the right format -- we want it to be a numeric, like `longitude`. Problems like this can often happen when you import data, but they're pretty easy to solve:
+
+```{r}
+#Make the latitude column a numeric
+ufo_data$latitude <- as.numeric(ufo_data$latitude)
+#check the data type now
+head(ufo_data)
+```
+
+
+Once again, we need to reorder the columns so that `longitude` is first and `latitude` is second.
+
+**Try it yourself:** Look back at what you did in `IntroGPS.Rmd` to reorder the columns. Remember you used `c()` and put the number of the columns in the order you wanted them within the parentheses. (Also remember indices in R start with 1!) Complete the code below:
+
+```{r}
+ufo_data <- ufo_data[c()]
+```
+
+## Data Cleaning
+
+One of the most important steps in data cleaning is getting rid of `NA` values in your data. We are most concerned with `NA`s in the `latitude` and `longitude` columns, since those are what we need to map, so we need to check those columns in particular:
+
+```{r}
+#See how many rows have NA values for the longitude and latitude columns
+ufo_data$longitude[is.na(ufo_data$longitude)] #subset the longitude column by which values are missing
+ufo_data$latitude[is.na(ufo_data$latitude)]
+
+#See the row numbers that have NA values for the latitude column
+which(is.na(ufo_data$latitude)) #gives the indices of NA values in the latitude column
+
+#View only the rows of ufo_data with NA values for latitude
+View(ufo_data[which(is.na(ufo_data$latitude)),]) #subsets the entire dataframe by the row numbers we found in the previous line of code
+```
+
+Now that we know which rows have `NA` values in them, we want to get rid of those rows. In R, you can use the `!` in front of a logical expression (something that gives you `TRUE` or `FALSE` values) to get the opposite. So if we type `!is.na()`, that will give us values that do **not** have `NA`.
+
+```{r}
+#Subset the data by the rows that don't have NA in the latitude column
+ufo_data <- ufo_data[!is.na(ufo_data$latitude),]
+```
+
+## Graphing!
+
+### Mapping
+
+Now that we've reformatted and cleaned up our data a little, we're ready for some fun graphing. We can start by mapping all the data in the same way we mapped the GPS points from Central Park:
+
+```{r}
+#Assign the world map plot to the variable "world"
+world <- ggplot() + 
+  geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = "grey", color = "darkgrey")
+
+#add UFO sightings to map
+world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude),
+             color = "green", size = 1)
+```
+
+### UFO Shape
+
+We've done a decent amount of mapping in R, so let's look at some other types of graphs we can make. The package `ggmap` is related to a major graphics/plotting package in R called `ggplot2` (the "gg" stands for "grammar of graphics"). You can use `ggplot2` to make just about any type of graph.
+
+Since we have some categorical data, let's use `ggplot2` to make a bar graph of the different UFO shapes. We can start by looking at the different shapes we have in the data:
+
+```{r}
+unique(ufo_data$shape) #returns the unique values in the shape column
+```
+
+It looks like there aree 30 shapes (including `NA`!). We can start by making a basic bar plot, which we will call `bar`:
+
+```{r}
+#Make a basic bar plot
+bar <- ggplot(data = ufo_data, aes(x = shape)) + #typically your first line will include the data and the "aesthetics" - what you want on each axis
+  geom_bar(stat = "count") #plot bars based on the number of obs in each category
+bar #show the plot
+```
+
+Now we have a bargraph! Unfortunately, we can't really read the labels on each bar. The handy thing about the syntax of `ggplot2` is we can add additional specifications to a pre-existing plot to modify how it looks. For example, to rotate the labels on `bar`:
+
+```{r}
+bar +
+  theme(axis.text.x = element_text(angle = 90)) #rotate all text on the x-axis by 90 degrees
+```
+
+**Try it yourself:** What is the most common UFO shape sighted?
+
+## Mapping + UFO Shape
+
+Now that we've mapped the points and looked at the prevalence of the different UFO shapes observed, we can see if there is any geographical pattern in UFO shape.
+
+```{r}
+world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude, color = shape),
+             size = 1)
+```
+
+**Try it yourself:** Compare this code to the code we originally used to add the green points of UFO sightings to the map. What is the same? What changed?
+
+## Sighting Duration
+
+We've now looked at data in the form of latitude/longitude coordinates and in the form of a categorical variable (shape). Our dataset also includes the duration of each sighting in seconds, which is a continuous variable. Currently that data is stored in a column called `duration (seconds)`. This isn't a particularly good name since R doesn't like spaces, so we would like to rename it.
+
+**Try it yourself:** Rename the `duration (seconds)` column `duration_sec` instead. You can refer back to how you renamed the columns in the IntroGPS R Markdown.
+
+```{r}
+
+```
+
+For a continuous variable like sighting duration, we often want to look at some summary statistics to learn about its distribution:
+
+```{r}
+summary(ufo_data$duration_sec)
+```
+
+The `summary()` function gives us some nice descriptions of our data, like mean and median. But a visual representation might be more helpful. We can make a boxplot to see the distribution of our data:
+
+```{r}
+box <- ggplot(data = ufo_data, aes(x = "", y = duration_sec)) +
+  geom_boxplot()
+box
+```
+
+**Try it yourself:** How does this code compare to the code you used to make the bar graph? What is the same? What changed?
+
+This is not the most beautiful boxplot -- we can see that most of the sightings only lasted a very short amount of time and a few last a very long time (the longest lasts 31 years). One way we can visualize data that is so skewed is to use a logarithmic scale.
+
+```{r}
+box +
+  scale_y_log10() #transforms the y-axis scale by log10
+```
+
+We can see the line in the middle of the boxplot, which is the median, is a little above the tick-mark for `1+02`, which is 1x10^2, or 100. This corresponds to the median value we found when we ran `summary()`.
+
+## Bonus
+
+Here are some additional fun things you can do in R with our UFO data:
+
+### More Cleaning: Select data from one country
+
+If you only care about data from a given country, you need to be able to pull out only those rows from your dataset.
+
+**Try it yourself:** First, check what countries are available in the dataset. Use the same code we used to check what different UFO shapes were in our data:
+
+```{r}
+
+```
+
+Once again, we have some `NA` values. We know that these points do occur in some country, it just wasn't recorded in our data. Let's ignore these for now.
+
+Pick one of the countries in the data and subset our dataset by that country (you can edit the following code for any of the countries included in the data):
+
+```{r}
+#Subset data for only records from Germany:
+country_data <- ufo_data[which(ufo_data$country == "de"),]
+```
+
+```{r}
+world +
+  geom_point(data = country_data, aes(x = longitude, y = latitude),
+             color = "red",
+             size = 1)
+```
+
+That's pretty zoomed-out, so we can try plotting on a new map zoomed in to the country we care about, instead of adding points to our `world` map.
+
+```{r}
+germany <- get_map(location = "Germany", zoom = 6, source = "google")
+germany_map <- ggmap(germany)
+```
+
+**Try it yourself:** Add the points from your subsetted `country_data` to the map of the country you're interested in (follow the earlier code to add points to the world map): 
+```{r}
+
+```
+
+### Sighting Duration by Country
+
+We can add even more information to our maps by visualizing the duration of sightings. We can do this by letting `ggplot2` change the color of each point on our map based on how long that sighting was.
+
+**Try it yourself:** Below is the code we used to change the color of the points on a map based on the shape of the UFO observed. What do you think you need to change to make the color depend on duration instead?
+
+```{r}
+#Modify this code so that color is based on duration, not shape
+world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude, color = shape),
+             size = 1)
+```
 
 
 

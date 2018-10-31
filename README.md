@@ -27,8 +27,31 @@
   | October 18 | <ul><li> Going outside! - GPS exploration </li><li> Syncing a fork </li><li> Introduction to spatial data in R |                         [GPS collection instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GPS_CollectData.md) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/IntroGPS.Rmd) |
 | **Week 3** | | |
   | October 23 | <ul><li> Syncing a fork - review </li><li> GPS in R continued |                                                 [GitHub Help: syncing a fork](https://help.github.com/articles/syncing-a-fork/) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Intro_GPS/IntroGPS.Rmd)  |
-  | October 25 | <ul><li> Hall of Biodiversity scavenger hunt </li><li> What is GBIF? </li><li> `spocc` package |               [GBIF website](https://www.gbif.org) <br>[`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd)  |
-  |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> | <ul><li> Visualizing spatial data | |
+  | October 25 | <ul><li> Hall of Biodiversity scavenger hunt </li><li> What is GBIF? |                                       [GBIF website](https://www.gbif.org) |
+| **Week 4** | | |
+  |October 30 <br> <sub> :jack_o_lantern: Halloween Eve :chocolate_bar: </sub> |                                                 <ul><li> UFO(+R) :alien: </li><li> `spocc` package |                                                                           [UFO R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Spooky_R/UFO_code.Rmd) <br>       [`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd)|
+  | November 1 | <ul><li> `ggplot2` tutorial </li><li> Lines & polygons |                                                       [`ggplot2` tutorial](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) <br> [`ggplot2` Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) <br> Return to GPS - RMarkdown |
+| **Week 5** | | |
+  | November 6 <br> <sub> :us: Election Day :us: </sub> | **No internship session today** |                                           Code in politics (and life) - [FiveThirtyEight](https://fivethirtyeight.com/) |
+  | November 8 | | |
+| **Week 6** | | |
+  | November 13 | | |
+  | November 15 | | |
+| **Week 7** | | |
+  | November 20 | | |
+  | November 22 <br> <sub> :poultry_leg: Thanksgiving :maple_leaf: </sub> | **No internship session today** | | 
+| **Week 8** | | |
+  | November 27 | | |
+  | November 29 | | |
+| **Week 9** | | |
+  | December 4 | <ul><li> Presentation planning | |
+  | December 6 | <ul><li> Work on presentations | |
+| **Week 10** | | |
+  | December 11 | <ul><li> Work on presentations | |
+  | December 13 | Presentation Skills Workshop | |
+| **Week 11** | | |
+  | December 18 | <ul><li> Work on presentations | |
+  | December 20 | **Winter Presentations!** | |
 
 ## Daily Git To Do
 
@@ -53,6 +76,8 @@ Sync your fork:
 + Fetch commits from upstream repository to get any updates: `git fetch upstream`
 + Check out your fork's local `master` branch: `git checkout master`
 + Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
+  + Will need to hit the escape key, then type `:wq` to get out of the text editor for the commit
++ Run `git push` one final time to push the merged changes to your remote fork
 
 ### End of Session
 

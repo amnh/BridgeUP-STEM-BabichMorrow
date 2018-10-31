@@ -2,8 +2,8 @@
 title: "Intro to GPS"
 author: "Cecina Babich Morrow"
 output:
-  html_document: default
   html_notebook: default
+  html_document: default
   pdf_document: default
 ---
 
