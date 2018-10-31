@@ -36,7 +36,7 @@
   | November 8 | <ul><li> Lines and polygons </li><li> Sloth data cleaning | Return to GPS - R Markdown|
 | **Week 6** | | |
   | November 13 | <ul><li> Introduction to spatial thinning </li><li> `spThin` tutorial | |
-  | November 15 | <ul><li> What is WorldClim? </li><li> `raster` package tutorial |                                             [WorldClim website](http://www.worldclim.org) |
+  | November 15 | <ul><li> What is WorldClim? </li><li> `raster` package tutorial |                                             [WorldClim website](http://www.worldclim.org) <br> [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) |
 | **Week 7** | | |
   | November 20 | <ul><li> WorldClim in R | |
   | November 22 <br> <sub> :poultry_leg: Thanksgiving :maple_leaf: </sub> | **No internship session today** | | 
