@@ -179,9 +179,254 @@ $(document).ready(function () {
 <!-- rnb-text-end -->
 <!-- rnb-text-begin -->
 <p>In honor of Halloween Eve, we’re going to continue practicing R mapping skills using a dataset of UFO sightings downloaded from this website: <a href="https://www.kaggle.com/NUFORC/ufo-sightings/data" class="uri">https://www.kaggle.com/NUFORC/ufo-sightings/data</a>.</p>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
+<p>To start, we need to load the <code>ggmap</code> package (same package we’ve been using for mapping), set the API key so we can map, and load in the dataset:</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xvYWQgcmVxdWlyZWQgcGFja2FnZXNcbmxpYnJhcnkoZ2dtYXApXG5cbiNTZXQgdGhlIEFQSSBrZXkgYWdhaW5cbmFwaV9rZXkgPSBcIkFJemFTeUJLN2xMYnFvcW5ZRmR6Zi1pZFlZcG9zYi0xZ3d5UkFsUVwiXG5yZWdpc3Rlcl9nb29nbGUoa2V5ID0gYXBpX2tleSlcblxuI0xvYWQgZGF0YXNldDpcbmxpYnJhcnkocmVhZHIpXG51Zm9fZGF0YSA8LSByZWFkX2NzdihcIi4uLy4uL2RhdGEvdWZvX2RhdGEuY3N2XCIpXG51Zm9fZGF0YSA8LSBhcy5kYXRhLmZyYW1lKHVmb19kYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>#Load required packages
+library(ggmap)
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHV0dGluZyB0aGUgUiBpbiBVRk8iCm91dHB1dDoKICBodG1sX25vdGVib29rOiBkZWZhdWx0CiAgcGRmX2RvY3VtZW50OiBkZWZhdWx0Ci0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKYGBgCgpJbiBob25vciBvZiBIYWxsb3dlZW4gRXZlLCB3ZSdyZSBnb2luZyB0byBjb250aW51ZSBwcmFjdGljaW5nIFIgbWFwcGluZyBza2lsbHMgdXNpbmcgYSBkYXRhc2V0IG9mIFVGTyBzaWdodGluZ3MgZG93bmxvYWRlZCBmcm9tIHRoaXMgd2Vic2l0ZTogaHR0cHM6Ly93d3cua2FnZ2xlLmNvbS9OVUZPUkMvdWZvLXNpZ2h0aW5ncy9kYXRhLiAKCgoK</div>
+#Set the API key again
+api_key = &quot;AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ&quot;
+register_google(key = api_key)
+
+#Load dataset:
+library(readr)
+ufo_data &lt;- read_csv(&quot;../../data/ufo_data.csv&quot;)
+ufo_data &lt;- as.data.frame(ufo_data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="data-wrangling" class="section level2">
+<h2>Data Wrangling</h2>
+<p>Now that we have the data imported in R, we can examine it to make sure everything is in the format we want.</p>
+<p><strong>Try it yourself:</strong> Use either the <code>View()</code> or <code>head()</code> functions to check out <code>ufo_data</code>. Look at the <code>latitude</code> column. Can you tell what data type it is? Try either hovering your cursor over the column if you used <code>View()</code> or looking at the type under the column name if you used <code>head()</code>. You can also use the <code>class()</code> function we learned about all the way back in the Introduction to R lesson.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The <code>latitude</code> column isn’t in the right format – we want it to be a numeric, like <code>longitude</code>. Problems like this can often happen when you import data, but they’re pretty easy to solve:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI01ha2UgdGhlIGxhdGl0dWRlIGNvbHVtbiBhIG51bWVyaWNcbnVmb19kYXRhJGxhdGl0dWRlIDwtIGFzLm51bWVyaWModWZvX2RhdGEkbGF0aXR1ZGUpXG4jY2hlY2sgdGhlIGRhdGEgdHlwZSBub3dcbmhlYWQodWZvX2RhdGEpXG5gYGAifQ== -->
+<pre class="r"><code>#Make the latitude column a numeric
+ufo_data$latitude &lt;- as.numeric(ufo_data$latitude)
+#check the data type now
+head(ufo_data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Once again, we need to reorder the columns so that <code>longitude</code> is first and <code>latitude</code> is second.</p>
+<p><strong>Try it yourself:</strong> Look back at what you did in <code>IntroGPS.Rmd</code> to reorder the columns. Remember you used <code>c()</code> and put the number of the columns in the order you wanted them within the parentheses. (Also remember indices in R start with 1!) Complete the code below:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudWZvX2RhdGEgPC0gdWZvX2RhdGFbYygpXVxuYGBgIn0= -->
+<pre class="r"><code>ufo_data &lt;- ufo_data[c()]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="data-cleaning" class="section level2">
+<h2>Data Cleaning</h2>
+<p>One of the most important steps in data cleaning is getting rid of <code>NA</code> values in your data. We are most concerned with <code>NA</code>s in the <code>latitude</code> and <code>longitude</code> columns, since those are what we need to map, so we need to check those columns in particular:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NlZSBob3cgbWFueSByb3dzIGhhdmUgTkEgdmFsdWVzIGZvciB0aGUgbG9uZ2l0dWRlIGFuZCBsYXRpdHVkZSBjb2x1bW5zXG51Zm9fZGF0YSRsb25naXR1ZGVbaXMubmEodWZvX2RhdGEkbG9uZ2l0dWRlKV0gI3N1YnNldCB0aGUgbG9uZ2l0dWRlIGNvbHVtbiBieSB3aGljaCB2YWx1ZXMgYXJlIG1pc3NpbmdcbnVmb19kYXRhJGxhdGl0dWRlW2lzLm5hKHVmb19kYXRhJGxhdGl0dWRlKV1cblxuI1NlZSB0aGUgcm93IG51bWJlcnMgdGhhdCBoYXZlIE5BIHZhbHVlcyBmb3IgdGhlIGxhdGl0dWRlIGNvbHVtblxud2hpY2goaXMubmEodWZvX2RhdGEkbGF0aXR1ZGUpKSAjZ2l2ZXMgdGhlIGluZGljZXMgb2YgTkEgdmFsdWVzIGluIHRoZSBsYXRpdHVkZSBjb2x1bW5cblxuI1ZpZXcgb25seSB0aGUgcm93cyBvZiB1Zm9fZGF0YSB3aXRoIE5BIHZhbHVlcyBmb3IgbGF0aXR1ZGVcblZpZXcodWZvX2RhdGFbd2hpY2goaXMubmEodWZvX2RhdGEkbGF0aXR1ZGUpKSxdKSAjc3Vic2V0cyB0aGUgZW50aXJlIGRhdGFmcmFtZSBieSB0aGUgcm93IG51bWJlcnMgd2UgZm91bmQgaW4gdGhlIHByZXZpb3VzIGxpbmUgb2YgY29kZVxuYGBgIn0= -->
+<pre class="r"><code>#See how many rows have NA values for the longitude and latitude columns
+ufo_data$longitude[is.na(ufo_data$longitude)] #subset the longitude column by which values are missing
+ufo_data$latitude[is.na(ufo_data$latitude)]
+
+#See the row numbers that have NA values for the latitude column
+which(is.na(ufo_data$latitude)) #gives the indices of NA values in the latitude column
+
+#View only the rows of ufo_data with NA values for latitude
+View(ufo_data[which(is.na(ufo_data$latitude)),]) #subsets the entire dataframe by the row numbers we found in the previous line of code</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now that we know which rows have <code>NA</code> values in them, we want to get rid of those rows. In R, you can use the <code>!</code> in front of a logical expression (something that gives you <code>TRUE</code> or <code>FALSE</code> values) to get the opposite. So if we type <code>!is.na()</code>, that will give us values that do <strong>not</strong> have <code>NA</code>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1N1YnNldCB0aGUgZGF0YSBieSB0aGUgcm93cyB0aGF0IGRvbid0IGhhdmUgTkEgaW4gdGhlIGxhdGl0dWRlIGNvbHVtblxudWZvX2RhdGEgPC0gdWZvX2RhdGFbIWlzLm5hKHVmb19kYXRhJGxhdGl0dWRlKSxdXG5gYGAifQ== -->
+<pre class="r"><code>#Subset the data by the rows that don't have NA in the latitude column
+ufo_data &lt;- ufo_data[!is.na(ufo_data$latitude),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="graphing" class="section level2">
+<h2>Graphing!</h2>
+<div id="mapping" class="section level3">
+<h3>Mapping</h3>
+<p>Now that we’ve reformatted and cleaned up our data a little, we’re ready for some fun graphing. We can start by mapping all the data in the same way we mapped the GPS points from Central Park:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0Fzc2lnbiB0aGUgd29ybGQgbWFwIHBsb3QgdG8gdGhlIHZhcmlhYmxlIFwid29ybGRcIlxud29ybGQgPC0gZ2dwbG90KCkgKyBcbiAgZ2VvbV9wb2x5Z29uKGRhdGEgPSB3b3JsZF9tYXAsIGFlcyh4PWxvbmcsIHkgPSBsYXQsIGdyb3VwID0gZ3JvdXApLCBmaWxsID0gXCJncmV5XCIsIGNvbG9yID0gXCJkYXJrZ3JleVwiKVxuXG4jYWRkIFVGTyBzaWdodGluZ3MgdG8gbWFwXG53b3JsZCArXG4gIGdlb21fcG9pbnQoZGF0YSA9IHVmb19kYXRhLCBhZXMoeCA9IGxvbmdpdHVkZSwgeSA9IGxhdGl0dWRlKSxcbiAgICAgICAgICAgICBjb2xvciA9IFwiZ3JlZW5cIiwgc2l6ZSA9IDEpXG5gYGAifQ== -->
+<pre class="r"><code>#Assign the world map plot to the variable &quot;world&quot;
+world &lt;- ggplot() + 
+  geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = &quot;grey&quot;, color = &quot;darkgrey&quot;)
+
+#add UFO sightings to map
+world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude),
+             color = &quot;green&quot;, size = 1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="ufo-shape" class="section level3">
+<h3>UFO Shape</h3>
+<p>We’ve done a decent amount of mapping in R, so let’s look at some other types of graphs we can make. The package <code>ggmap</code> is related to a major graphics/plotting package in R called <code>ggplot2</code> (the “gg” stands for “grammar of graphics”). You can use <code>ggplot2</code> to make just about any type of graph.</p>
+<p>Since we have some categorical data, let’s use <code>ggplot2</code> to make a bar graph of the different UFO shapes. We can start by looking at the different shapes we have in the data:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5pcXVlKHVmb19kYXRhJHNoYXBlKSAjcmV0dXJucyB0aGUgdW5pcXVlIHZhbHVlcyBpbiB0aGUgc2hhcGUgY29sdW1uXG5gYGAifQ== -->
+<pre class="r"><code>unique(ufo_data$shape) #returns the unique values in the shape column</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>It looks like there aree 30 shapes (including <code>NA</code>!). We can start by making a basic bar plot, which we will call <code>bar</code>:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI01ha2UgYSBiYXNpYyBiYXIgcGxvdFxuYmFyIDwtIGdncGxvdChkYXRhID0gdWZvX2RhdGEsIGFlcyh4ID0gc2hhcGUpKSArICN0eXBpY2FsbHkgeW91ciBmaXJzdCBsaW5lIHdpbGwgaW5jbHVkZSB0aGUgZGF0YSBhbmQgdGhlIFwiYWVzdGhldGljc1wiIC0gd2hhdCB5b3Ugd2FudCBvbiBlYWNoIGF4aXNcbiAgZ2VvbV9iYXIoc3RhdCA9IFwiY291bnRcIikgI3Bsb3QgYmFycyBiYXNlZCBvbiB0aGUgbnVtYmVyIG9mIG9icyBpbiBlYWNoIGNhdGVnb3J5XG5iYXIgI3Nob3cgdGhlIHBsb3RcbmBgYCJ9 -->
+<pre class="r"><code>#Make a basic bar plot
+bar &lt;- ggplot(data = ufo_data, aes(x = shape)) + #typically your first line will include the data and the &quot;aesthetics&quot; - what you want on each axis
+  geom_bar(stat = &quot;count&quot;) #plot bars based on the number of obs in each category
+bar #show the plot</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now we have a bargraph! Unfortunately, we can’t really read the labels on each bar. The handy thing about the syntax of <code>ggplot2</code> is we can add additional specifications to a pre-existing plot to modify how it looks. For example, to rotate the labels on <code>bar</code>:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmFyICtcbiAgdGhlbWUoYXhpcy50ZXh0LnggPSBlbGVtZW50X3RleHQoYW5nbGUgPSA5MCkpICNyb3RhdGUgYWxsIHRleHQgb24gdGhlIHgtYXhpcyBieSA5MCBkZWdyZWVzXG5gYGAifQ== -->
+<pre class="r"><code>bar +
+  theme(axis.text.x = element_text(angle = 90)) #rotate all text on the x-axis by 90 degrees</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Try it yourself:</strong> What is the most common UFO shape sighted?</p>
+</div>
+</div>
+<div id="mapping-ufo-shape" class="section level2">
+<h2>Mapping + UFO Shape</h2>
+<p>Now that we’ve mapped the points and looked at the prevalence of the different UFO shapes observed, we can see if there is any geographical pattern in UFO shape.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud29ybGQgK1xuICBnZW9tX3BvaW50KGRhdGEgPSB1Zm9fZGF0YSwgYWVzKHggPSBsb25naXR1ZGUsIHkgPSBsYXRpdHVkZSwgY29sb3IgPSBzaGFwZSksXG4gICAgICAgICAgICAgc2l6ZSA9IDEpXG5gYGAifQ== -->
+<pre class="r"><code>world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude, color = shape),
+             size = 1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Try it yourself:</strong> Compare this code to the code we originally used to add the green points of UFO sightings to the map. What is the same? What changed?</p>
+</div>
+<div id="sighting-duration" class="section level2">
+<h2>Sighting Duration</h2>
+<p>We’ve now looked at data in the form of latitude/longitude coordinates and in the form of a categorical variable (shape). Our dataset also includes the duration of each sighting in seconds, which is a continuous variable. Currently that data is stored in a column called <code>duration (seconds)</code>. This isn’t a particularly good name since R doesn’t like spaces, so we would like to rename it.</p>
+<p><strong>Try it yourself:</strong> Rename the <code>duration (seconds)</code> column <code>duration_sec</code> instead. You can refer back to how you renamed the columns in the IntroGPS R Markdown.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>For a continuous variable like sighting duration, we often want to look at some summary statistics to learn about its distribution:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeSh1Zm9fZGF0YSRkdXJhdGlvbl9zZWMpXG5gYGAifQ== -->
+<pre class="r"><code>summary(ufo_data$duration_sec)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The <code>summary()</code> function gives us some nice descriptions of our data, like mean and median. But a visual representation might be more helpful. We can make a boxplot to see the distribution of our data:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm94IDwtIGdncGxvdChkYXRhID0gdWZvX2RhdGEsIGFlcyh4ID0gZHVyYXRpb25fc2VjKSkgK1xuICBnZW9tX2JveHBsb3QoKVxuYGBgIn0= -->
+<pre class="r"><code>box &lt;- ggplot(data = ufo_data, aes(x = duration_sec)) +
+  geom_boxplot()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Try it yourself:</strong> How does this code compare to the code you used to make the bar graph? What is the same? What changed?</p>
+<p>This is not the most beautiful boxplot – we can see that most of the sightings only lasted a very short amount of time and a few last a very long time (the longest lasts 31 years). One way we can visualize data that is so skewed is to use a logarithmic scale.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm94ICtcbiAgc2NhbGVfeV9sb2cxMCgpICN0cmFuc2Zvcm1zIHRoZSB5LWF4aXMgc2NhbGUgYnkgbG9nMTBcbmBgYCJ9 -->
+<pre class="r"><code>box +
+  scale_y_log10() #transforms the y-axis scale by log10</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We can see the line in the middle of the boxplot, which is the median, is a little above the tick-mark for <code>1+02</code>, which is 1x10^2, or 100. This corresponds to the median value we found when we ran <code>summary()</code>.</p>
+</div>
+<div id="bonus" class="section level2">
+<h2>Bonus</h2>
+<p>Here are some additional fun things you can do in R with our UFO data:</p>
+<div id="more-cleaning-select-data-from-one-country" class="section level3">
+<h3>More Cleaning: Select data from one country</h3>
+<p>If you only care about data from a given country, you need to be able to pull out only those rows from your dataset.</p>
+<p><strong>Try it yourself:</strong> First, check what countries are available in the dataset. Use the same code we used to check what different UFO shapes were in our data:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Once again, we have some <code>NA</code> values. We know that these points do occur in some country, it just wasn’t recorded in our data. Let’s ignore these for now.</p>
+<p>Pick one of the countries in the data and subset our dataset by that country (you can edit the following code for any of the countries included in the data):</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1N1YnNldCBkYXRhIGZvciBvbmx5IHJlY29yZHMgZnJvbSBHZXJtYW55OlxuY291bnRyeV9kYXRhIDwtIHVmb19kYXRhW3doaWNoKHVmb19kYXRhJGNvdW50cnkgPT0gXCJkZVwiKSxdXG5gYGAifQ== -->
+<pre class="r"><code>#Subset data for only records from Germany:
+country_data &lt;- ufo_data[which(ufo_data$country == &quot;de&quot;),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud29ybGQgK1xuICBnZW9tX3BvaW50KGRhdGEgPSBjb3VudHJ5X2RhdGEsIGFlcyh4ID0gbG9uZ2l0dWRlLCB5ID0gbGF0aXR1ZGUpLFxuICAgICAgICAgICAgIGNvbG9yID0gXCJyZWRcIixcbiAgICAgICAgICAgICBzaXplID0gMSlcbmBgYCJ9 -->
+<pre class="r"><code>world +
+  geom_point(data = country_data, aes(x = longitude, y = latitude),
+             color = &quot;red&quot;,
+             size = 1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>That’s pretty zoomed-out, so we can try plotting on a new map zoomed in to the country we care about, instead of adding points to our <code>world</code> map.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2VybWFueSA8LSBnZXRfbWFwKGxvY2F0aW9uID0gXCJHZXJtYW55XCIsIHpvb20gPSA2LCBzb3VyY2UgPSBcImdvb2dsZVwiKVxuZ2VybWFueV9tYXAgPC0gZ2dtYXAoZ2VybWFueSlcbmBgYCJ9 -->
+<pre class="r"><code>germany &lt;- get_map(location = &quot;Germany&quot;, zoom = 6, source = &quot;google&quot;)
+germany_map &lt;- ggmap(germany)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Try it yourself:</strong> Add the points from your subsetted <code>country_data</code> to the map of the country you’re interested in (follow the earlier code to add points to the world map):</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="sighting-duration-by-country" class="section level3">
+<h3>Sighting Duration by Country</h3>
+<p>We can add even more information to our maps by visualizing the duration of sightings. We can do this by letting <code>ggplot2</code> change the color of each point on our map based on how long that sighting was.</p>
+<p><strong>Try it yourself:</strong> Below is the code we used to change the color of the points on a map based on the shape of the UFO observed. What do you think you need to change to make the color depend on duration instead?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI01vZGlmeSB0aGlzIGNvZGUgc28gdGhhdCBjb2xvciBpcyBiYXNlZCBvbiBkdXJhdGlvbiwgbm90IHNoYXBlXG53b3JsZCArXG4gIGdlb21fcG9pbnQoZGF0YSA9IHVmb19kYXRhLCBhZXMoeCA9IGxvbmdpdHVkZSwgeSA9IGxhdGl0dWRlLCBjb2xvciA9IHNoYXBlKSxcbiAgICAgICAgICAgICBzaXplID0gMSlcbmBgYCJ9 -->
+<pre class="r"><code>#Modify this code so that color is based on duration, not shape
+world +
+  geom_point(data = ufo_data, aes(x = longitude, y = latitude, color = shape),
+             size = 1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHV0dGluZyB0aGUgUiBpbiBVRk8iCm91dHB1dDoKICBodG1sX25vdGVib29rOiBkZWZhdWx0CiAgcGRmX2RvY3VtZW50OiBkZWZhdWx0Ci0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKYGBgCgpJbiBob25vciBvZiBIYWxsb3dlZW4gRXZlLCB3ZSdyZSBnb2luZyB0byBjb250aW51ZSBwcmFjdGljaW5nIFIgbWFwcGluZyBza2lsbHMgdXNpbmcgYSBkYXRhc2V0IG9mIFVGTyBzaWdodGluZ3MgZG93bmxvYWRlZCBmcm9tIHRoaXMgd2Vic2l0ZTogaHR0cHM6Ly93d3cua2FnZ2xlLmNvbS9OVUZPUkMvdWZvLXNpZ2h0aW5ncy9kYXRhLgoKIyMgR2V0dGluZyBzdGFydGVkCgpUbyBzdGFydCwgd2UgbmVlZCB0byBsb2FkIHRoZSBgZ2dtYXBgIHBhY2thZ2UgKHNhbWUgcGFja2FnZSB3ZSd2ZSBiZWVuIHVzaW5nIGZvciBtYXBwaW5nKSwgc2V0IHRoZSBBUEkga2V5IHNvIHdlIGNhbiBtYXAsIGFuZCBsb2FkIGluIHRoZSBkYXRhc2V0OgoKYGBge3J9CiNMb2FkIHJlcXVpcmVkIHBhY2thZ2VzCmxpYnJhcnkoZ2dtYXApCgojU2V0IHRoZSBBUEkga2V5IGFnYWluCmFwaV9rZXkgPSAiQUl6YVN5Qks3bExicW9xbllGZHpmLWlkWVlwb3NiLTFnd3lSQWxRIgpyZWdpc3Rlcl9nb29nbGUoa2V5ID0gYXBpX2tleSkKCiNMb2FkIGRhdGFzZXQ6CmxpYnJhcnkocmVhZHIpCnVmb19kYXRhIDwtIHJlYWRfY3N2KCIuLi8uLi9kYXRhL3Vmb19kYXRhLmNzdiIpCnVmb19kYXRhIDwtIGFzLmRhdGEuZnJhbWUodWZvX2RhdGEpCmBgYAoKCiMjIERhdGEgV3JhbmdsaW5nCgpOb3cgdGhhdCB3ZSBoYXZlIHRoZSBkYXRhIGltcG9ydGVkIGluIFIsIHdlIGNhbiBleGFtaW5lIGl0IHRvIG1ha2Ugc3VyZSBldmVyeXRoaW5nIGlzIGluIHRoZSBmb3JtYXQgd2Ugd2FudC4KCioqVHJ5IGl0IHlvdXJzZWxmOioqIFVzZSBlaXRoZXIgdGhlIGBWaWV3KClgIG9yIGBoZWFkKClgIGZ1bmN0aW9ucyB0byBjaGVjayBvdXQgYHVmb19kYXRhYC4gTG9vayBhdCB0aGUgYGxhdGl0dWRlYCBjb2x1bW4uIENhbiB5b3UgdGVsbCB3aGF0IGRhdGEgdHlwZSBpdCBpcz8gVHJ5IGVpdGhlciBob3ZlcmluZyB5b3VyIGN1cnNvciBvdmVyIHRoZSBjb2x1bW4gaWYgeW91IHVzZWQgYFZpZXcoKWAgb3IgbG9va2luZyBhdCB0aGUgdHlwZSB1bmRlciB0aGUgY29sdW1uIG5hbWUgaWYgeW91IHVzZWQgYGhlYWQoKWAuIFlvdSBjYW4gYWxzbyB1c2UgdGhlIGBjbGFzcygpYCBmdW5jdGlvbiB3ZSBsZWFybmVkIGFib3V0IGFsbCB0aGUgd2F5IGJhY2sgaW4gdGhlIEludHJvZHVjdGlvbiB0byBSIGxlc3Nvbi4KCmBgYHtyfQoKYGBgCgoKVGhlIGBsYXRpdHVkZWAgY29sdW1uIGlzbid0IGluIHRoZSByaWdodCBmb3JtYXQgLS0gd2Ugd2FudCBpdCB0byBiZSBhIG51bWVyaWMsIGxpa2UgYGxvbmdpdHVkZWAuIFByb2JsZW1zIGxpa2UgdGhpcyBjYW4gb2Z0ZW4gaGFwcGVuIHdoZW4geW91IGltcG9ydCBkYXRhLCBidXQgdGhleSdyZSBwcmV0dHkgZWFzeSB0byBzb2x2ZToKCmBgYHtyfQojTWFrZSB0aGUgbGF0aXR1ZGUgY29sdW1uIGEgbnVtZXJpYwp1Zm9fZGF0YSRsYXRpdHVkZSA8LSBhcy5udW1lcmljKHVmb19kYXRhJGxhdGl0dWRlKQojY2hlY2sgdGhlIGRhdGEgdHlwZSBub3cKaGVhZCh1Zm9fZGF0YSkKYGBgCgoKT25jZSBhZ2Fpbiwgd2UgbmVlZCB0byByZW9yZGVyIHRoZSBjb2x1bW5zIHNvIHRoYXQgYGxvbmdpdHVkZWAgaXMgZmlyc3QgYW5kIGBsYXRpdHVkZWAgaXMgc2Vjb25kLgoKKipUcnkgaXQgeW91cnNlbGY6KiogTG9vayBiYWNrIGF0IHdoYXQgeW91IGRpZCBpbiBgSW50cm9HUFMuUm1kYCB0byByZW9yZGVyIHRoZSBjb2x1bW5zLiBSZW1lbWJlciB5b3UgdXNlZCBgYygpYCBhbmQgcHV0IHRoZSBudW1iZXIgb2YgdGhlIGNvbHVtbnMgaW4gdGhlIG9yZGVyIHlvdSB3YW50ZWQgdGhlbSB3aXRoaW4gdGhlIHBhcmVudGhlc2VzLiAoQWxzbyByZW1lbWJlciBpbmRpY2VzIGluIFIgc3RhcnQgd2l0aCAxISkgQ29tcGxldGUgdGhlIGNvZGUgYmVsb3c6CgpgYGB7cn0KdWZvX2RhdGEgPC0gdWZvX2RhdGFbYygpXQpgYGAKCiMjIERhdGEgQ2xlYW5pbmcKCk9uZSBvZiB0aGUgbW9zdCBpbXBvcnRhbnQgc3RlcHMgaW4gZGF0YSBjbGVhbmluZyBpcyBnZXR0aW5nIHJpZCBvZiBgTkFgIHZhbHVlcyBpbiB5b3VyIGRhdGEuIFdlIGFyZSBtb3N0IGNvbmNlcm5lZCB3aXRoIGBOQWBzIGluIHRoZSBgbGF0aXR1ZGVgIGFuZCBgbG9uZ2l0dWRlYCBjb2x1bW5zLCBzaW5jZSB0aG9zZSBhcmUgd2hhdCB3ZSBuZWVkIHRvIG1hcCwgc28gd2UgbmVlZCB0byBjaGVjayB0aG9zZSBjb2x1bW5zIGluIHBhcnRpY3VsYXI6CgpgYGB7cn0KI1NlZSBob3cgbWFueSByb3dzIGhhdmUgTkEgdmFsdWVzIGZvciB0aGUgbG9uZ2l0dWRlIGFuZCBsYXRpdHVkZSBjb2x1bW5zCnVmb19kYXRhJGxvbmdpdHVkZVtpcy5uYSh1Zm9fZGF0YSRsb25naXR1ZGUpXSAjc3Vic2V0IHRoZSBsb25naXR1ZGUgY29sdW1uIGJ5IHdoaWNoIHZhbHVlcyBhcmUgbWlzc2luZwp1Zm9fZGF0YSRsYXRpdHVkZVtpcy5uYSh1Zm9fZGF0YSRsYXRpdHVkZSldCgojU2VlIHRoZSByb3cgbnVtYmVycyB0aGF0IGhhdmUgTkEgdmFsdWVzIGZvciB0aGUgbGF0aXR1ZGUgY29sdW1uCndoaWNoKGlzLm5hKHVmb19kYXRhJGxhdGl0dWRlKSkgI2dpdmVzIHRoZSBpbmRpY2VzIG9mIE5BIHZhbHVlcyBpbiB0aGUgbGF0aXR1ZGUgY29sdW1uCgojVmlldyBvbmx5IHRoZSByb3dzIG9mIHVmb19kYXRhIHdpdGggTkEgdmFsdWVzIGZvciBsYXRpdHVkZQpWaWV3KHVmb19kYXRhW3doaWNoKGlzLm5hKHVmb19kYXRhJGxhdGl0dWRlKSksXSkgI3N1YnNldHMgdGhlIGVudGlyZSBkYXRhZnJhbWUgYnkgdGhlIHJvdyBudW1iZXJzIHdlIGZvdW5kIGluIHRoZSBwcmV2aW91cyBsaW5lIG9mIGNvZGUKYGBgCgpOb3cgdGhhdCB3ZSBrbm93IHdoaWNoIHJvd3MgaGF2ZSBgTkFgIHZhbHVlcyBpbiB0aGVtLCB3ZSB3YW50IHRvIGdldCByaWQgb2YgdGhvc2Ugcm93cy4gSW4gUiwgeW91IGNhbiB1c2UgdGhlIGAhYCBpbiBmcm9udCBvZiBhIGxvZ2ljYWwgZXhwcmVzc2lvbiAoc29tZXRoaW5nIHRoYXQgZ2l2ZXMgeW91IGBUUlVFYCBvciBgRkFMU0VgIHZhbHVlcykgdG8gZ2V0IHRoZSBvcHBvc2l0ZS4gU28gaWYgd2UgdHlwZSBgIWlzLm5hKClgLCB0aGF0IHdpbGwgZ2l2ZSB1cyB2YWx1ZXMgdGhhdCBkbyAqKm5vdCoqIGhhdmUgYE5BYC4KCmBgYHtyfQojU3Vic2V0IHRoZSBkYXRhIGJ5IHRoZSByb3dzIHRoYXQgZG9uJ3QgaGF2ZSBOQSBpbiB0aGUgbGF0aXR1ZGUgY29sdW1uCnVmb19kYXRhIDwtIHVmb19kYXRhWyFpcy5uYSh1Zm9fZGF0YSRsYXRpdHVkZSksXQpgYGAKCiMjIEdyYXBoaW5nIQoKIyMjIE1hcHBpbmcKCk5vdyB0aGF0IHdlJ3ZlIHJlZm9ybWF0dGVkIGFuZCBjbGVhbmVkIHVwIG91ciBkYXRhIGEgbGl0dGxlLCB3ZSdyZSByZWFkeSBmb3Igc29tZSBmdW4gZ3JhcGhpbmcuIFdlIGNhbiBzdGFydCBieSBtYXBwaW5nIGFsbCB0aGUgZGF0YSBpbiB0aGUgc2FtZSB3YXkgd2UgbWFwcGVkIHRoZSBHUFMgcG9pbnRzIGZyb20gQ2VudHJhbCBQYXJrOgoKYGBge3J9CiNBc3NpZ24gdGhlIHdvcmxkIG1hcCBwbG90IHRvIHRoZSB2YXJpYWJsZSAid29ybGQiCndvcmxkIDwtIGdncGxvdCgpICsgCiAgZ2VvbV9wb2x5Z29uKGRhdGEgPSB3b3JsZF9tYXAsIGFlcyh4PWxvbmcsIHkgPSBsYXQsIGdyb3VwID0gZ3JvdXApLCBmaWxsID0gImdyZXkiLCBjb2xvciA9ICJkYXJrZ3JleSIpCgojYWRkIFVGTyBzaWdodGluZ3MgdG8gbWFwCndvcmxkICsKICBnZW9tX3BvaW50KGRhdGEgPSB1Zm9fZGF0YSwgYWVzKHggPSBsb25naXR1ZGUsIHkgPSBsYXRpdHVkZSksCiAgICAgICAgICAgICBjb2xvciA9ICJncmVlbiIsIHNpemUgPSAxKQpgYGAKCiMjIyBVRk8gU2hhcGUKCldlJ3ZlIGRvbmUgYSBkZWNlbnQgYW1vdW50IG9mIG1hcHBpbmcgaW4gUiwgc28gbGV0J3MgbG9vayBhdCBzb21lIG90aGVyIHR5cGVzIG9mIGdyYXBocyB3ZSBjYW4gbWFrZS4gVGhlIHBhY2thZ2UgYGdnbWFwYCBpcyByZWxhdGVkIHRvIGEgbWFqb3IgZ3JhcGhpY3MvcGxvdHRpbmcgcGFja2FnZSBpbiBSIGNhbGxlZCBgZ2dwbG90MmAgKHRoZSAiZ2ciIHN0YW5kcyBmb3IgImdyYW1tYXIgb2YgZ3JhcGhpY3MiKS4gWW91IGNhbiB1c2UgYGdncGxvdDJgIHRvIG1ha2UganVzdCBhYm91dCBhbnkgdHlwZSBvZiBncmFwaC4KClNpbmNlIHdlIGhhdmUgc29tZSBjYXRlZ29yaWNhbCBkYXRhLCBsZXQncyB1c2UgYGdncGxvdDJgIHRvIG1ha2UgYSBiYXIgZ3JhcGggb2YgdGhlIGRpZmZlcmVudCBVRk8gc2hhcGVzLiBXZSBjYW4gc3RhcnQgYnkgbG9va2luZyBhdCB0aGUgZGlmZmVyZW50IHNoYXBlcyB3ZSBoYXZlIGluIHRoZSBkYXRhOgoKYGBge3J9CnVuaXF1ZSh1Zm9fZGF0YSRzaGFwZSkgI3JldHVybnMgdGhlIHVuaXF1ZSB2YWx1ZXMgaW4gdGhlIHNoYXBlIGNvbHVtbgpgYGAKCkl0IGxvb2tzIGxpa2UgdGhlcmUgYXJlZSAzMCBzaGFwZXMgKGluY2x1ZGluZyBgTkFgISkuIFdlIGNhbiBzdGFydCBieSBtYWtpbmcgYSBiYXNpYyBiYXIgcGxvdCwgd2hpY2ggd2Ugd2lsbCBjYWxsIGBiYXJgOgoKYGBge3J9CiNNYWtlIGEgYmFzaWMgYmFyIHBsb3QKYmFyIDwtIGdncGxvdChkYXRhID0gdWZvX2RhdGEsIGFlcyh4ID0gc2hhcGUpKSArICN0eXBpY2FsbHkgeW91ciBmaXJzdCBsaW5lIHdpbGwgaW5jbHVkZSB0aGUgZGF0YSBhbmQgdGhlICJhZXN0aGV0aWNzIiAtIHdoYXQgeW91IHdhbnQgb24gZWFjaCBheGlzCiAgZ2VvbV9iYXIoc3RhdCA9ICJjb3VudCIpICNwbG90IGJhcnMgYmFzZWQgb24gdGhlIG51bWJlciBvZiBvYnMgaW4gZWFjaCBjYXRlZ29yeQpiYXIgI3Nob3cgdGhlIHBsb3QKYGBgCgpOb3cgd2UgaGF2ZSBhIGJhcmdyYXBoISBVbmZvcnR1bmF0ZWx5LCB3ZSBjYW4ndCByZWFsbHkgcmVhZCB0aGUgbGFiZWxzIG9uIGVhY2ggYmFyLiBUaGUgaGFuZHkgdGhpbmcgYWJvdXQgdGhlIHN5bnRheCBvZiBgZ2dwbG90MmAgaXMgd2UgY2FuIGFkZCBhZGRpdGlvbmFsIHNwZWNpZmljYXRpb25zIHRvIGEgcHJlLWV4aXN0aW5nIHBsb3QgdG8gbW9kaWZ5IGhvdyBpdCBsb29rcy4gRm9yIGV4YW1wbGUsIHRvIHJvdGF0ZSB0aGUgbGFiZWxzIG9uIGBiYXJgOgoKYGBge3J9CmJhciArCiAgdGhlbWUoYXhpcy50ZXh0LnggPSBlbGVtZW50X3RleHQoYW5nbGUgPSA5MCkpICNyb3RhdGUgYWxsIHRleHQgb24gdGhlIHgtYXhpcyBieSA5MCBkZWdyZWVzCmBgYAoKKipUcnkgaXQgeW91cnNlbGY6KiogV2hhdCBpcyB0aGUgbW9zdCBjb21tb24gVUZPIHNoYXBlIHNpZ2h0ZWQ/CgojIyBNYXBwaW5nICsgVUZPIFNoYXBlCgpOb3cgdGhhdCB3ZSd2ZSBtYXBwZWQgdGhlIHBvaW50cyBhbmQgbG9va2VkIGF0IHRoZSBwcmV2YWxlbmNlIG9mIHRoZSBkaWZmZXJlbnQgVUZPIHNoYXBlcyBvYnNlcnZlZCwgd2UgY2FuIHNlZSBpZiB0aGVyZSBpcyBhbnkgZ2VvZ3JhcGhpY2FsIHBhdHRlcm4gaW4gVUZPIHNoYXBlLgoKYGBge3J9CndvcmxkICsKICBnZW9tX3BvaW50KGRhdGEgPSB1Zm9fZGF0YSwgYWVzKHggPSBsb25naXR1ZGUsIHkgPSBsYXRpdHVkZSwgY29sb3IgPSBzaGFwZSksCiAgICAgICAgICAgICBzaXplID0gMSkKYGBgCgoqKlRyeSBpdCB5b3Vyc2VsZjoqKiBDb21wYXJlIHRoaXMgY29kZSB0byB0aGUgY29kZSB3ZSBvcmlnaW5hbGx5IHVzZWQgdG8gYWRkIHRoZSBncmVlbiBwb2ludHMgb2YgVUZPIHNpZ2h0aW5ncyB0byB0aGUgbWFwLiBXaGF0IGlzIHRoZSBzYW1lPyBXaGF0IGNoYW5nZWQ/CgojIyBTaWdodGluZyBEdXJhdGlvbgoKV2UndmUgbm93IGxvb2tlZCBhdCBkYXRhIGluIHRoZSBmb3JtIG9mIGxhdGl0dWRlL2xvbmdpdHVkZSBjb29yZGluYXRlcyBhbmQgaW4gdGhlIGZvcm0gb2YgYSBjYXRlZ29yaWNhbCB2YXJpYWJsZSAoc2hhcGUpLiBPdXIgZGF0YXNldCBhbHNvIGluY2x1ZGVzIHRoZSBkdXJhdGlvbiBvZiBlYWNoIHNpZ2h0aW5nIGluIHNlY29uZHMsIHdoaWNoIGlzIGEgY29udGludW91cyB2YXJpYWJsZS4gQ3VycmVudGx5IHRoYXQgZGF0YSBpcyBzdG9yZWQgaW4gYSBjb2x1bW4gY2FsbGVkIGBkdXJhdGlvbiAoc2Vjb25kcylgLiBUaGlzIGlzbid0IGEgcGFydGljdWxhcmx5IGdvb2QgbmFtZSBzaW5jZSBSIGRvZXNuJ3QgbGlrZSBzcGFjZXMsIHNvIHdlIHdvdWxkIGxpa2UgdG8gcmVuYW1lIGl0LgoKKipUcnkgaXQgeW91cnNlbGY6KiogUmVuYW1lIHRoZSBgZHVyYXRpb24gKHNlY29uZHMpYCBjb2x1bW4gYGR1cmF0aW9uX3NlY2AgaW5zdGVhZC4gWW91IGNhbiByZWZlciBiYWNrIHRvIGhvdyB5b3UgcmVuYW1lZCB0aGUgY29sdW1ucyBpbiB0aGUgSW50cm9HUFMgUiBNYXJrZG93bi4KCmBgYHtyfQoKYGBgCgpGb3IgYSBjb250aW51b3VzIHZhcmlhYmxlIGxpa2Ugc2lnaHRpbmcgZHVyYXRpb24sIHdlIG9mdGVuIHdhbnQgdG8gbG9vayBhdCBzb21lIHN1bW1hcnkgc3RhdGlzdGljcyB0byBsZWFybiBhYm91dCBpdHMgZGlzdHJpYnV0aW9uOgoKYGBge3J9CnN1bW1hcnkodWZvX2RhdGEkZHVyYXRpb25fc2VjKQpgYGAKClRoZSBgc3VtbWFyeSgpYCBmdW5jdGlvbiBnaXZlcyB1cyBzb21lIG5pY2UgZGVzY3JpcHRpb25zIG9mIG91ciBkYXRhLCBsaWtlIG1lYW4gYW5kIG1lZGlhbi4gQnV0IGEgdmlzdWFsIHJlcHJlc2VudGF0aW9uIG1pZ2h0IGJlIG1vcmUgaGVscGZ1bC4gV2UgY2FuIG1ha2UgYSBib3hwbG90IHRvIHNlZSB0aGUgZGlzdHJpYnV0aW9uIG9mIG91ciBkYXRhOgoKYGBge3J9CmJveCA8LSBnZ3Bsb3QoZGF0YSA9IHVmb19kYXRhLCBhZXMoeCA9ICIiLCB5ID0gZHVyYXRpb25fc2VjKSkgKwogIGdlb21fYm94cGxvdCgpCmJveApgYGAKCioqVHJ5IGl0IHlvdXJzZWxmOioqIEhvdyBkb2VzIHRoaXMgY29kZSBjb21wYXJlIHRvIHRoZSBjb2RlIHlvdSB1c2VkIHRvIG1ha2UgdGhlIGJhciBncmFwaD8gV2hhdCBpcyB0aGUgc2FtZT8gV2hhdCBjaGFuZ2VkPwoKVGhpcyBpcyBub3QgdGhlIG1vc3QgYmVhdXRpZnVsIGJveHBsb3QgLS0gd2UgY2FuIHNlZSB0aGF0IG1vc3Qgb2YgdGhlIHNpZ2h0aW5ncyBvbmx5IGxhc3RlZCBhIHZlcnkgc2hvcnQgYW1vdW50IG9mIHRpbWUgYW5kIGEgZmV3IGxhc3QgYSB2ZXJ5IGxvbmcgdGltZSAodGhlIGxvbmdlc3QgbGFzdHMgMzEgeWVhcnMpLiBPbmUgd2F5IHdlIGNhbiB2aXN1YWxpemUgZGF0YSB0aGF0IGlzIHNvIHNrZXdlZCBpcyB0byB1c2UgYSBsb2dhcml0aG1pYyBzY2FsZS4KCmBgYHtyfQpib3ggKwogIHNjYWxlX3lfbG9nMTAoKSAjdHJhbnNmb3JtcyB0aGUgeS1heGlzIHNjYWxlIGJ5IGxvZzEwCmBgYAoKV2UgY2FuIHNlZSB0aGUgbGluZSBpbiB0aGUgbWlkZGxlIG9mIHRoZSBib3hwbG90LCB3aGljaCBpcyB0aGUgbWVkaWFuLCBpcyBhIGxpdHRsZSBhYm92ZSB0aGUgdGljay1tYXJrIGZvciBgMSswMmAsIHdoaWNoIGlzIDF4MTBeMiwgb3IgMTAwLiBUaGlzIGNvcnJlc3BvbmRzIHRvIHRoZSBtZWRpYW4gdmFsdWUgd2UgZm91bmQgd2hlbiB3ZSByYW4gYHN1bW1hcnkoKWAuCgojIyBCb251cwoKSGVyZSBhcmUgc29tZSBhZGRpdGlvbmFsIGZ1biB0aGluZ3MgeW91IGNhbiBkbyBpbiBSIHdpdGggb3VyIFVGTyBkYXRhOgoKIyMjIE1vcmUgQ2xlYW5pbmc6IFNlbGVjdCBkYXRhIGZyb20gb25lIGNvdW50cnkKCklmIHlvdSBvbmx5IGNhcmUgYWJvdXQgZGF0YSBmcm9tIGEgZ2l2ZW4gY291bnRyeSwgeW91IG5lZWQgdG8gYmUgYWJsZSB0byBwdWxsIG91dCBvbmx5IHRob3NlIHJvd3MgZnJvbSB5b3VyIGRhdGFzZXQuCgoqKlRyeSBpdCB5b3Vyc2VsZjoqKiBGaXJzdCwgY2hlY2sgd2hhdCBjb3VudHJpZXMgYXJlIGF2YWlsYWJsZSBpbiB0aGUgZGF0YXNldC4gVXNlIHRoZSBzYW1lIGNvZGUgd2UgdXNlZCB0byBjaGVjayB3aGF0IGRpZmZlcmVudCBVRk8gc2hhcGVzIHdlcmUgaW4gb3VyIGRhdGE6CgpgYGB7cn0KCmBgYAoKT25jZSBhZ2Fpbiwgd2UgaGF2ZSBzb21lIGBOQWAgdmFsdWVzLiBXZSBrbm93IHRoYXQgdGhlc2UgcG9pbnRzIGRvIG9jY3VyIGluIHNvbWUgY291bnRyeSwgaXQganVzdCB3YXNuJ3QgcmVjb3JkZWQgaW4gb3VyIGRhdGEuIExldCdzIGlnbm9yZSB0aGVzZSBmb3Igbm93LgoKUGljayBvbmUgb2YgdGhlIGNvdW50cmllcyBpbiB0aGUgZGF0YSBhbmQgc3Vic2V0IG91ciBkYXRhc2V0IGJ5IHRoYXQgY291bnRyeSAoeW91IGNhbiBlZGl0IHRoZSBmb2xsb3dpbmcgY29kZSBmb3IgYW55IG9mIHRoZSBjb3VudHJpZXMgaW5jbHVkZWQgaW4gdGhlIGRhdGEpOgoKYGBge3J9CiNTdWJzZXQgZGF0YSBmb3Igb25seSByZWNvcmRzIGZyb20gR2VybWFueToKY291bnRyeV9kYXRhIDwtIHVmb19kYXRhW3doaWNoKHVmb19kYXRhJGNvdW50cnkgPT0gImRlIiksXQpgYGAKCmBgYHtyfQp3b3JsZCArCiAgZ2VvbV9wb2ludChkYXRhID0gY291bnRyeV9kYXRhLCBhZXMoeCA9IGxvbmdpdHVkZSwgeSA9IGxhdGl0dWRlKSwKICAgICAgICAgICAgIGNvbG9yID0gInJlZCIsCiAgICAgICAgICAgICBzaXplID0gMSkKYGBgCgpUaGF0J3MgcHJldHR5IHpvb21lZC1vdXQsIHNvIHdlIGNhbiB0cnkgcGxvdHRpbmcgb24gYSBuZXcgbWFwIHpvb21lZCBpbiB0byB0aGUgY291bnRyeSB3ZSBjYXJlIGFib3V0LCBpbnN0ZWFkIG9mIGFkZGluZyBwb2ludHMgdG8gb3VyIGB3b3JsZGAgbWFwLgoKYGBge3J9Cmdlcm1hbnkgPC0gZ2V0X21hcChsb2NhdGlvbiA9ICJHZXJtYW55Iiwgem9vbSA9IDYsIHNvdXJjZSA9ICJnb29nbGUiKQpnZXJtYW55X21hcCA8LSBnZ21hcChnZXJtYW55KQpgYGAKCioqVHJ5IGl0IHlvdXJzZWxmOioqIEFkZCB0aGUgcG9pbnRzIGZyb20geW91ciBzdWJzZXR0ZWQgYGNvdW50cnlfZGF0YWAgdG8gdGhlIG1hcCBvZiB0aGUgY291bnRyeSB5b3UncmUgaW50ZXJlc3RlZCBpbiAoZm9sbG93IHRoZSBlYXJsaWVyIGNvZGUgdG8gYWRkIHBvaW50cyB0byB0aGUgd29ybGQgbWFwKTogCmBgYHtyfQoKYGBgCgojIyMgU2lnaHRpbmcgRHVyYXRpb24gYnkgQ291bnRyeQoKV2UgY2FuIGFkZCBldmVuIG1vcmUgaW5mb3JtYXRpb24gdG8gb3VyIG1hcHMgYnkgdmlzdWFsaXppbmcgdGhlIGR1cmF0aW9uIG9mIHNpZ2h0aW5ncy4gV2UgY2FuIGRvIHRoaXMgYnkgbGV0dGluZyBgZ2dwbG90MmAgY2hhbmdlIHRoZSBjb2xvciBvZiBlYWNoIHBvaW50IG9uIG91ciBtYXAgYmFzZWQgb24gaG93IGxvbmcgdGhhdCBzaWdodGluZyB3YXMuCgoqKlRyeSBpdCB5b3Vyc2VsZjoqKiBCZWxvdyBpcyB0aGUgY29kZSB3ZSB1c2VkIHRvIGNoYW5nZSB0aGUgY29sb3Igb2YgdGhlIHBvaW50cyBvbiBhIG1hcCBiYXNlZCBvbiB0aGUgc2hhcGUgb2YgdGhlIFVGTyBvYnNlcnZlZC4gV2hhdCBkbyB5b3UgdGhpbmsgeW91IG5lZWQgdG8gY2hhbmdlIHRvIG1ha2UgdGhlIGNvbG9yIGRlcGVuZCBvbiBkdXJhdGlvbiBpbnN0ZWFkPwoKYGBge3J9CiNNb2RpZnkgdGhpcyBjb2RlIHNvIHRoYXQgY29sb3IgaXMgYmFzZWQgb24gZHVyYXRpb24sIG5vdCBzaGFwZQp3b3JsZCArCiAgZ2VvbV9wb2ludChkYXRhID0gdWZvX2RhdGEsIGFlcyh4ID0gbG9uZ2l0dWRlLCB5ID0gbGF0aXR1ZGUsIGNvbG9yID0gc2hhcGUpLAogICAgICAgICAgICAgc2l6ZSA9IDEpCmBgYAoKCgo=</div>
 
 
 

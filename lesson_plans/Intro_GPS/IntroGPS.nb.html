@@ -186,31 +186,31 @@ $(document).ready(function () {
 <p>Start by opening a new script file in RStudio. Instead of just editing this R Markdown file (although you can and should add your own notes to it!), you can save the code for this analysis in that script file. Start the file with a helpful comment, for example:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHbGFkeXMgUGh5bGxpcyBTbWl0aFxuIyAwMy8wNC8xOTczXG4jIFNjcmlwdCBmb3IgYW5hbHl6aW5nIEdQUyBwb2ludHNcbmBgYCJ9 -->
-<pre class="r"><code># Gladys Phyllis Smith
-# 03/04/1973
-# Script for analyzing GPS points</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBHbGFkeXMgUGh5bGxpcyBTbWl0aFxuIyAwMy8wNC8xOTczXG4jIFNjcmlwdCBmb3IgYW5hbHl6aW5nIEdQUyBwb2ludHNcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r # Gladys Phyllis Smith # 03/04/1973 # Script for analyzing GPS points</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Now go to the “Environment” tab of RStudio (top right panel) and select “Import Dataset” &gt; “From Text (readr) …” Use the “Browse” to navigate to and select the data file you just saved (for Android users, select the .csv, not the .txt). Check over the formatting options to make sure everything looks okay. When you’re satisfied, click “Import”. When you do that, code will run in your console (see example below). Copy and paste that code into your new R script and add a helpful comment, like <code># Import dataset from .csv</code>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBJbXBvcnQgYW5kcm9pZCBkYXRhXG5saWJyYXJ5KHJlYWRyKVxuYW5kcm9pZGRhdGFfdGVzdCA8LSByZWFkX2NzdihcIi4uL2dwc190ZXN0X2RhdGEvYW5kcm9pZGRhdGFfdGVzdC5jc3ZcIilcblxuIyBJbXBvcnQgaVBob25lIGRhdGFcbmlwaG9uZWRhdGFfdGVzdCA8LSByZWFkX2NzdihcIi4uL2dwc190ZXN0X2RhdGEvaXBob25lZGF0YV90ZXN0LmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code># Import android data
-library(readr)
-androiddata_test &lt;- read_csv(&quot;../gps_test_data/androiddata_test.csv&quot;)
-
-# Import iPhone data
-iphonedata_test &lt;- read_csv(&quot;../gps_test_data/iphonedata_test.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBJbXBvcnQgYW5kcm9pZCBkYXRhXG5saWJyYXJ5KHJlYWRyKVxuYW5kcm9pZGRhdGFfdGVzdCA8LSByZWFkX2NzdihcXC4uL2dwc190ZXN0X2RhdGEvYW5kcm9pZGRhdGFfdGVzdC5jc3ZcXClcblxuIyBJbXBvcnQgaVBob25lIGRhdGFcbmlwaG9uZWRhdGFfdGVzdCA8LSByZWFkX2NzdihcXC4uL2dwc190ZXN0X2RhdGEvaXBob25lZGF0YV90ZXN0LmNzdlxcKVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r # Import android data library(readr) androiddata_test &lt;- read_csv(../gps_test_data/androiddata_test.csv)</p>
+</div>
+<div id="import-iphone-data" class="section level1">
+<h1>Import iPhone data</h1>
+<p>iphonedata_test &lt;- read_csv(../gps_test_data/iphonedata_test.csv)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Now take a look at the data using either the <code>View()</code> or <code>head()</code> function.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChhbmRyb2lkZGF0YV90ZXN0KVxuYGBgIn0= -->
-<pre class="r"><code>head(androiddata_test)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuaGVhZChhbmRyb2lkZGF0YV90ZXN0KVxuYGBgXG5gYGByXG5oZWFkKGlwaG9uZWRhdGFfdGVzdClcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r head(androiddata_test) <code></code>r head(iphonedata_test)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MTMsIm5yb3ciOjZ9LCJyZGYiOiJINHNJQUFBQUFBQUFBNTFVUzJzVFVSUyttYnpINWdIUlRSWXlnbUM2U05wSm82WjFZZEdJMjlKTnN4REx6Y3cxR1RxWkNmTXdCaFJkZE9GR1JOMm9DeEZmSzM5QkJDbUtpUGcvdWhRWEZSK1VqbWVTZThKa3lLWWQrTzczM2UvTXVYUHZ1WWRaYnpTcllsTWtoQWdrR284UUlRb3lKc0FRSVRHUzl2a1dJZEVDaUF3Z0QwaGdZT053WWpvN0t5OHV5TFVGdVM3SjUxZXE4a3gzYVphN1ZKL2wxbWF1VUt2TmNzL0t2dVB2WmJXaG5vdDkrN2dHdlBoczk4cnoxWWF5ZnlHN053VCsra2c5NFFFUEg3ZWV2b040NGNQMUZSdnpkdFp2djMxOTUwVWUrUDJUL2Q4UGdML3NlT3BwNE8vYXk0MDN3TU5pczdnSHZMMjdYZjdEcTVjQTVBQW5BWE9BSXVBVTRIZ2dmaDh3NzNuZUQrQXovbDJBL2plcEhTRnBtSHVINEN6UG0zcnUvdlRINUt1TGZ6ODl2RmI2OVRrY3gvM2Nnd0VCVHp5Z2NiOXhqaVRuQk5jWXozTGtPZWM0am5xZVlBK2xxaEkxVkdrWmJ6bDZkZERsTXJaR3JTM1U5V1dudzNYaXN1U1lmUU1UTHJsMnFOM2pCdTB5bTM4b2d5czRneDZiYUsyTE9xVlRSM05jRmVkcDNUVGFRV09PS29wclVXVWdsYnJ6RTA4Zkp3VzhmSnVabXJyWllWcTc0d1Q4WTNhUE1SV01CUnV0VEl0UlN6UGFVa2xsYlRSVE5uVTJYWnVwZkM3NmM4MjRxYkUrYnRzL0YycVYyVXJvM0duTDdGZnc3UDdsQ2Y1Rmo1dHZ1a0NLVG0wc0VKcWlTaDFhdVdINTN5RGtJSlNTTkh1T1pocVFKQlI0ZTRpajhCakJoU0pXSUVoQ3daeHIrRHRVeTBySE5iYksxZENyR2E0VEFaMFpiMFhBMWtsaUNaalNNYkVuR0Z5YWdjV0pNOHN5TFp6b3RNVjAvSWxBaVVZVnF2VGdBaHc4T3JoMnhURWRpdStKaXFtak15b0dPZmdQTXFEY09tY0ZBQUE9In0= -->
 <div data-pagedtable="false">
@@ -219,9 +219,6 @@ iphonedata_test &lt;- read_csv(&quot;../gps_test_data/iphonedata_test.csv&quot;)
   </script>
 </div>
 <!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChpcGhvbmVkYXRhX3Rlc3QpXG5gYGAifQ== -->
-<pre class="r"><code>head(iphonedata_test)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6NiwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERpaXVCaVlHQmdZbUJtWldSZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqTFlnRFFmaUhhODl1SEJhaUFEUkNjZmdOQ1NFUDc5NncwUStpcEUvUDRWQmdaMEExbVRjeEtMaTRFTUFiQ3RFRUgyQVA5Z3o0amtFaWlYRGN3dFFkZFpVcFdmbHdyVkNSTmtEZzF4QmxML2dCanNPZ2VYRkFORy8rNUlCNWZrVDM5My9IME1wRGN3WjJUNUF1bUhmemgrVlFQcHh3d2lQN1lCNlNmL1QxWkd3L1FkQ0twWjdNRGRjUXBJVC94Zm1ISWNTSzlNMlBiekw1QSs1eVIrcVJWRVA2eGkrZzJrVC8zUE5lYUUyNmVpdFlCeDBuSnpCMTJmTTBCdzFrR2ozN3gwaHpDamczN0MrL0pQOVU4ZDlBM0V5K3k4OWprWWJPNktlYnBGQmFadi93ZHcwRERBYVB0M0lsVVAzZGVKTUVDQi9WVzVIWUd2VytWaDhyajBPWlJ1YlFEVG1ZejIvejVQYUhOSWFnRFRDSDJvWVppWG1Kc0tDMzAycUNCblNDWlFzQ1F4dHdBcXdPR1RXSkpaVXBxU0NsUGdrNStYaml6QTRaaURvb0ExdUNBMU5RVVdlODc1cFVYRnFXZzJjeGJsbCt2QmJPY0Z4VDNJM2YvLy8vOEZVY2owSHkxbXVWSVNTeEwxMG9xQVdpQVJqR0ljZTM1QlNXWitIdEF3SmxEcVpBZHBBRXRETUxKQmpFVklrZ3hva3Z5bGVTQkhwZWdtWjVUbVplc2FvU25saGJMWlVOa2dwN0RBSE13T05Zb2xOVGtqSHhZR3FjQUF5NE1IVDJwUlVYNFJqSk9UbUpTYUErWHdBVU1GSENoNkJVV1plYkQwendVVUxkWXJ5UzlKaEtualNzN1BnWWxBVXZzL0FFUlJYdjY4QXdBQSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -234,19 +231,21 @@ iphonedata_test &lt;- read_csv(&quot;../gps_test_data/iphonedata_test.csv&quot;)
 <p>To map these data, we need to make sure the columns for latitude and longitude are called “lat” and “lon”. Check out what the current column names for the data are:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoaXBob25lZGF0YV90ZXN0KVxuYGBgIn0= -->
-<pre class="r"><code>names(iphonedata_test)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubmFtZXMoaXBob25lZGF0YV90ZXN0KVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r names(iphonedata_test)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiVGltZXN0YW1wXCIgXCJMYXRpdHVkZVwiICBcIkxvbmdpdHVkZVwiIFwiQWx0aXR1ZGVcIiAgXCJTcGVlZFwiICAgICBcIkNvdXJzZVwiICAgXG4ifQ== -->
-<pre><code>[1] &quot;Timestamp&quot; &quot;Latitude&quot;  &quot;Longitude&quot; &quot;Altitude&quot;  &quot;Speed&quot;     &quot;Course&quot;   </code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFxcVGltZXN0YW1wXFwgXFxMYXRpdHVkZVxcICBcXExvbmdpdHVkZVxcIFxcQWx0aXR1ZGVcXCAgXFxTcGVlZFxcICAgICBcXENvdXJzZVxcICAgXG4ifQ== -->
+<pre><code>[1] \Timestamp\ \Latitude\  \Longitude\ \Altitude\  \Speed\     \Course\   </code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoYW5kcm9pZGRhdGFfdGVzdClcbmBgYCJ9 -->
-<pre class="r"><code>names(androiddata_test)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubmFtZXMoYW5kcm9pZGRhdGFfdGVzdClcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r names(androiddata_test)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcInR5cGVcIiAgICAgICAgICAgICBcInRpbWVcIiAgICAgICAgICAgICBcImxhdGl0dWRlXCIgICAgICAgICBcImxvbmdpdHVkZVwiICAgICAgICBcImFjY3VyYWN5IChtKVwiICAgIFxuIFs2XSBcImFsdGl0dWRlIChtKVwiICAgICBcImdlb2lkX2hlaWdodCAobSlcIiBcInNwZWVkIChtL3MpXCIgICAgICBcImJlYXJpbmcgKGRlZylcIiAgICBcInNhdF91c2VkXCIgICAgICAgIFxuWzExXSBcInNhdF9pbnZpZXdcIiAgICAgICBcIm5hbWVcIiAgICAgICAgICAgICBcImRlc2NcIiAgICAgICAgICAgIFxuIn0= -->
-<pre><code> [1] &quot;type&quot;             &quot;time&quot;             &quot;latitude&quot;         &quot;longitude&quot;        &quot;accuracy (m)&quot;    
- [6] &quot;altitude (m)&quot;     &quot;geoid_height (m)&quot; &quot;speed (m/s)&quot;      &quot;bearing (deg)&quot;    &quot;sat_used&quot;        
-[11] &quot;sat_inview&quot;       &quot;name&quot;             &quot;desc&quot;            </code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcXHR5cGVcXCAgICAgICAgICAgICBcXHRpbWVcXCAgICAgICAgICAgICBcXGxhdGl0dWRlXFwgICAgICAgICBcXGxvbmdpdHVkZVxcICAgICAgICBcXGFjY3VyYWN5IChtKVxcICAgIFxuIFs2XSBcXGFsdGl0dWRlIChtKVxcICAgICBcXGdlb2lkX2hlaWdodCAobSlcXCBcXHNwZWVkIChtL3MpXFwgICAgICBcXGJlYXJpbmcgKGRlZylcXCAgICBcXHNhdF91c2VkXFwgICAgICAgIFxuWzExXSBcXHNhdF9pbnZpZXdcXCAgICAgICBcXG5hbWVcXCAgICAgICAgICAgICBcXGRlc2NcXCAgICAgICAgICAgIFxuIn0= -->
+<pre><code> [1] \type\             \time\             \latitude\         \longitude\        \accuracy (m)\    
+ [6] \altitude (m)\     \geoid_height (m)\ \speed (m/s)\      \bearing (deg)\    \sat_used\        
+[11] \sat_inview\       \name\             \desc\            </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -259,35 +258,30 @@ iphonedata_test &lt;- read_csv(&quot;../gps_test_data/iphonedata_test.csv&quot;)
 <p>Eventually, we are going to need the new “lon” and “lat” columns to be the first two columns of our dataframe. We can do some rearranging in the following ways:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0JlIGNhcmVmdWwhISEgVGhlc2UgYXJlIG5vdCB0aGUgc2FtZSBmb3IgdGhlIGFuZHJvaWQgYW5kIHRoZSBpcGhvbmUgZGF0YVxuaXBob25lZGF0YV90ZXN0IDwtIGlwaG9uZWRhdGFfdGVzdFtjKDMsMiwxLDQpXVxuYW5kcm9pZGRhdGFfdGVzdCA8LSBhbmRyb2lkZGF0YV90ZXN0W2MoNCwzLDIsNildXG5gYGAifQ== -->
-<pre class="r"><code>#Be careful!!! These are not the same for the android and the iphone data
-iphonedata_test &lt;- iphonedata_test[c(3,2,1,4)]
-androiddata_test &lt;- androiddata_test[c(4,3,2,6)]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI0JlIGNhcmVmdWwhISEgVGhlc2UgYXJlIG5vdCB0aGUgc2FtZSBmb3IgdGhlIGFuZHJvaWQgYW5kIHRoZSBpcGhvbmUgZGF0YVxuaXBob25lZGF0YV90ZXN0IDwtIGlwaG9uZWRhdGFfdGVzdFtjKDMsMiwxLDQpXVxuYW5kcm9pZGRhdGFfdGVzdCA8LSBhbmRyb2lkZGF0YV90ZXN0W2MoNCwzLDIsNildXG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r #Be careful!!! These are not the same for the android and the iphone data iphonedata_test &lt;- iphonedata_test[c(3,2,1,4)] androiddata_test &lt;- androiddata_test[c(4,3,2,6)]</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
 <div id="set-up-to-visualize" class="section level2">
 <h2>Set-up to visualize</h2>
 <p>We need to download a few required packages:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShyYXN0ZXIpICNwYWNrYWdlIHRvIGFuYWx5emUgZ3JpZGRlZCBzcGF0aWFsIGRhdGFcbnJlcXVpcmUoc3ApICNwYWNrYWdlIHRvIHByb3ZpZGUgY2xhc3NlcyBhbmQgbWV0aG9kcyBmb3Igc3BhdGlhbCBkYXRhXG5yZXF1aXJlKHJnZGFsKSAjYWxsb3dzIFIgdG8gYWNjZXNzIGEgbGlicmFyeSBjYWxsZWQgR0RBTFxucmVxdWlyZShnZ3Bsb3QyKSAjcGxvdHRpbmcgcGFja2FnZSBpbiBSXG5kZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXCJka2FobGUvZ2dtYXBcIiwgcmVmID0gXCJ0aWR5dXBcIikgI3BhY2thZ2UgdG8gdmlzdWFsaXplIHNwYXRpYWwgZGF0YSBhbmQgbW9kZWxzXG5yZXF1aXJlKGdnbWFwKVxuYGBgIn0= -->
-<pre class="r"><code>require(raster) #package to analyze gridded spatial data
-require(sp) #package to provide classes and methods for spatial data
-require(rgdal) #allows R to access a library called GDAL
-require(ggplot2) #plotting package in R
-devtools::install_github(&quot;dkahle/ggmap&quot;, ref = &quot;tidyup&quot;) #package to visualize spatial data and models
-require(ggmap)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxucmVxdWlyZShyYXN0ZXIpICNwYWNrYWdlIHRvIGFuYWx5emUgZ3JpZGRlZCBzcGF0aWFsIGRhdGFcbnJlcXVpcmUoc3ApICNwYWNrYWdlIHRvIHByb3ZpZGUgY2xhc3NlcyBhbmQgbWV0aG9kcyBmb3Igc3BhdGlhbCBkYXRhXG5yZXF1aXJlKHJnZGFsKSAjYWxsb3dzIFIgdG8gYWNjZXNzIGEgbGlicmFyeSBjYWxsZWQgR0RBTFxucmVxdWlyZShnZ3Bsb3QyKSAjcGxvdHRpbmcgcGFja2FnZSBpbiBSXG5kZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXFxka2FobGUvZ2dtYXBcXCwgcmVmID0gXFx0aWR5dXBcXCkgI3BhY2thZ2UgdG8gdmlzdWFsaXplIHNwYXRpYWwgZGF0YSBhbmQgbW9kZWxzXG5yZXF1aXJlKGdnbWFwKVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r require(raster) #package to analyze gridded spatial data require(sp) #package to provide classes and methods for spatial data require(rgdal) #allows R to access a library called GDAL require(ggplot2) #plotting package in R devtools::install_github(/ggmap, ref = ) #package to visualize spatial data and models require(ggmap)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>We can start by plotting the points onto a map from GoogleEarth. Google has made it necessary to obtain an API key, which is a way to let two applications talk to each other. Since you have to enter a credit card number to get the API (even though it’s free), we’re going to use the one I set up.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXBpX2tleSA9IFwiQUl6YVN5Qks3bExicW9xbllGZHpmLWlkWVlwb3NiLTFnd3lSQWxRXCJcbnJlZ2lzdGVyX2dvb2dsZShrZXkgPSBhcGlfa2V5KVxuYGBgIn0= -->
-<pre class="r"><code>api_key = &quot;AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ&quot;
-register_google(key = api_key)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYXBpX2tleSA9IFxcQUl6YVN5Qks3bExicW9xbllGZHpmLWlkWVlwb3NiLTFnd3lSQWxRXFxcbnJlZ2lzdGVyX2dvb2dsZShrZXkgPSBhcGlfa2V5KVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r api_key = 7lLbqoqnYFdzf-idYYposb-1gwyRAlQ<br />
+register_google(key = api_key)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -300,10 +294,9 @@ register_google(key = api_key)</code></pre>
 <p>Now you can put those values into the following code:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9jID0gY2JpbmQoYyhtaW5fbG9uLCBtYXhfbG9uKSwgYyhtaW5fbGF0LCBtYXhfbGF0KSlcbmxvYyA9IGFzLmRhdGEuZnJhbWUobG9jKSAjbWFrZSBsb2MgaW50byBhIGRhdGFmcmFtZVxuY29sbmFtZXMobG9jKSA9IGMoJ2xvbicsICdsYXQnKVxuYGBgIn0= -->
-<pre class="r"><code>loc = cbind(c(min_lon, max_lon), c(min_lat, max_lat))
-loc = as.data.frame(loc) #make loc into a dataframe
-colnames(loc) = c('lon', 'lat')</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubG9jID0gY2JpbmQoYyhtaW5fbG9uLCBtYXhfbG9uKSwgYyhtaW5fbGF0LCBtYXhfbGF0KSlcbmxvYyA9IGFzLmRhdGEuZnJhbWUobG9jKSAjbWFrZSBsb2MgaW50byBhIGRhdGFmcmFtZVxuY29sbmFtZXMobG9jKSA9IGMoJ2xvbicsICdsYXQnKVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r loc = cbind(c(min_lon, max_lon), c(min_lat, max_lat)) loc = as.data.frame(loc) #make loc into a dataframe colnames(loc) = c(‘lon’, ‘lat’)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -311,8 +304,9 @@ colnames(loc) = c('lon', 'lat')</code></pre>
 <p>Now we need to make a bounding box out of these values:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm91bmRfYm94IDwtIG1ha2VfYmJveChsb24gPSBsb2MkbG9uLCBsYXQgPSBsb2MkbGF0LCBmID0gLjIpXG5gYGAifQ== -->
-<pre class="r"><code>bound_box &lt;- make_bbox(lon = loc$lon, lat = loc$lat, f = .2)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYm91bmRfYm94IDwtIG1ha2VfYmJveChsb24gPSBsb2MkbG9uLCBsYXQgPSBsb2MkbGF0LCBmID0gLjIpXG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r bound_box &lt;- make_bbox(lon = loc<span class="math inline">\(lon, lat = loc\)</span>lat, f = .2)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -323,26 +317,21 @@ colnames(loc) = c('lon', 'lat')</code></pre>
 <p>Now we can make some maps!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dldCBhIHNhdGVsbGl0ZSBtYXAgYXQgdGhlIGxvY2F0aW9uIG9mIHRoZSBib3VuZGluZyBib3ggeW91IG1hZGU6XG5tYXAgPC0gZ2V0X21hcChsb2NhdGlvbiA9IGJvdW5kX2JveCwgbWFwdHlwZSA9IFwic2F0ZWxsaXRlXCIsIHNvdXJjZSA9IFwiZ29vZ2xlXCIpXG5cbiNQbG90IHRoZSB3YXlwb2ludHMgb24gdGhlIG1hcDpcbmdnbWFwKG1hcCkgKyBcbiAgZ2VvbV9wb2ludChkYXRhID0gaXBob25lZGF0YV90ZXN0WywxOjJdLCBcbiAgICAgICAgICAgICBjb2xvciA9IFwicmVkXCIsXG4gICAgICAgICAgICAgc2l6ZSA9MSlcbmdnbWFwKG1hcCkgKyBcbiAgZ2VvbV9wb2ludChkYXRhID0gYW5kcm9pZGRhdGFfdGVzdFssMToyXSwgXG4gICAgICAgICAgICAgY29sb3IgPSBcInJlZFwiLFxuICAgICAgICAgICAgIHNpemUgPTEpXG5gYGAifQ== -->
-<pre class="r"><code>#Get a satellite map at the location of the bounding box you made:
-map &lt;- get_map(location = bound_box, maptype = &quot;satellite&quot;, source = &quot;google&quot;)
-
-#Plot the waypoints on the map:
-ggmap(map) + 
-  geom_point(data = iphonedata_test[,1:2], 
-             color = &quot;red&quot;,
-             size =1)
-ggmap(map) + 
-  geom_point(data = androiddata_test[,1:2], 
-             color = &quot;red&quot;,
-             size =1)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI0dldCBhIHNhdGVsbGl0ZSBtYXAgYXQgdGhlIGxvY2F0aW9uIG9mIHRoZSBib3VuZGluZyBib3ggeW91IG1hZGU6XG5tYXAgPC0gZ2V0X21hcChsb2NhdGlvbiA9IGJvdW5kX2JveCwgbWFwdHlwZSA9IFxcc2F0ZWxsaXRlXFwsIHNvdXJjZSA9IFxcZ29vZ2xlXFwpXG5cbiNQbG90IHRoZSB3YXlwb2ludHMgb24gdGhlIG1hcDpcbmdnbWFwKG1hcCkgKyBcbiAgZ2VvbV9wb2ludChkYXRhID0gaXBob25lZGF0YV90ZXN0WywxOjJdLCBcbiAgICAgICAgICAgICBjb2xvciA9IFxccmVkXFwsXG4gICAgICAgICAgICAgc2l6ZSA9MSlcbmdnbWFwKG1hcCkgKyBcbiAgZ2VvbV9wb2ludChkYXRhID0gYW5kcm9pZGRhdGFfdGVzdFssMToyXSwgXG4gICAgICAgICAgICAgY29sb3IgPSBcXHJlZFxcLFxuICAgICAgICAgICAgIHNpemUgPTEpXG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r #Get a satellite map at the location of the bounding box you made: map &lt;- get_map(location = bound_box, maptype = , source = )</p>
+</div>
+</div>
+<div id="plot-the-waypoints-on-the-map" class="section level1">
+<h1>Plot the waypoints on the map:</h1>
+<p>ggmap(map) + geom_point(data = iphonedata_test[,1:2], color = , size =1) ggmap(map) + geom_point(data = androiddata_test[,1:2], color = , size =1)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW50cm8gdG8gR1BTIgphdXRob3I6ICJDZWNpbmEgQmFiaWNoIE1vcnJvdyIKb3V0cHV0OgogIGh0bWxfZG9jdW1lbnQ6IGRlZmF1bHQKICBodG1sX25vdGVib29rOiBkZWZhdWx0CiAgcGRmX2RvY3VtZW50OiBkZWZhdWx0Ci0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKYGBgCgpBZGFwdGVkIGZyb20gbGVzc29uIHBsYW4gYnkgUHJvZmVzc29ycyBIYXJiZXJ0IGFuZCBCbGFpcjogaHR0cHM6Ly9yc2gyNDkuZ2l0aHViLmlvL3NwYXRpYWxfYmlvaW5mb3JtYXRpY3MvR1BTdG9HSVN3aXRoVGV4dC5odG1sLgoKIyMgSW1wb3J0IGRhdGEgdG8gUgoKU3RhcnQgYnkgb3BlbmluZyBhIG5ldyBzY3JpcHQgZmlsZSBpbiBSU3R1ZGlvLiBJbnN0ZWFkIG9mIGp1c3QgZWRpdGluZyB0aGlzIFIgTWFya2Rvd24gZmlsZSAoYWx0aG91Z2ggeW91IGNhbiBhbmQgc2hvdWxkIGFkZCB5b3VyIG93biBub3RlcyB0byBpdCEpLCB5b3UgY2FuIHNhdmUgdGhlIGNvZGUgZm9yIHRoaXMgYW5hbHlzaXMgaW4gdGhhdCBzY3JpcHQgZmlsZS4gU3RhcnQgdGhlIGZpbGUgd2l0aCBhIGhlbHBmdWwgY29tbWVudCwgZm9yIGV4YW1wbGU6CgpgYGB7cn0KIyBHbGFkeXMgUGh5bGxpcyBTbWl0aAojIDAzLzA0LzE5NzMKIyBTY3JpcHQgZm9yIGFuYWx5emluZyBHUFMgcG9pbnRzCmBgYAoKCk5vdyBnbyB0byB0aGUgIkVudmlyb25tZW50IiB0YWIgb2YgUlN0dWRpbyAodG9wIHJpZ2h0IHBhbmVsKSBhbmQgc2VsZWN0ICJJbXBvcnQgRGF0YXNldCIgPiAiRnJvbSBUZXh0IChyZWFkcikgLi4uIiBVc2UgdGhlICJCcm93c2UiIHRvIG5hdmlnYXRlIHRvIGFuZCBzZWxlY3QgdGhlIGRhdGEgZmlsZSB5b3UganVzdCBzYXZlZCAoZm9yIEFuZHJvaWQgdXNlcnMsIHNlbGVjdCB0aGUgLmNzdiwgbm90IHRoZSAudHh0KS4gQ2hlY2sgb3ZlciB0aGUgZm9ybWF0dGluZyBvcHRpb25zIHRvIG1ha2Ugc3VyZSBldmVyeXRoaW5nIGxvb2tzIG9rYXkuIFdoZW4geW91J3JlIHNhdGlzZmllZCwgY2xpY2sgIkltcG9ydCIuIFdoZW4geW91IGRvIHRoYXQsIGNvZGUgd2lsbCBydW4gaW4geW91ciBjb25zb2xlIChzZWUgZXhhbXBsZSBiZWxvdykuIENvcHkgYW5kIHBhc3RlIHRoYXQgY29kZSBpbnRvIHlvdXIgbmV3IFIgc2NyaXB0IGFuZCBhZGQgYSBoZWxwZnVsIGNvbW1lbnQsIGxpa2UgYCMgSW1wb3J0IGRhdGFzZXQgZnJvbSAuY3N2YC4KCmBgYHtyfQojIEltcG9ydCBhbmRyb2lkIGRhdGEKbGlicmFyeShyZWFkcikKYW5kcm9pZGRhdGFfdGVzdCA8LSByZWFkX2NzdigiLi4vZ3BzX3Rlc3RfZGF0YS9hbmRyb2lkZGF0YV90ZXN0LmNzdiIpCgojIEltcG9ydCBpUGhvbmUgZGF0YQppcGhvbmVkYXRhX3Rlc3QgPC0gcmVhZF9jc3YoIi4uL2dwc190ZXN0X2RhdGEvaXBob25lZGF0YV90ZXN0LmNzdiIpCmBgYAoKTm93IHRha2UgYSBsb29rIGF0IHRoZSBkYXRhIHVzaW5nIGVpdGhlciB0aGUgYFZpZXcoKWAgb3IgYGhlYWQoKWAgZnVuY3Rpb24uCgpgYGB7cn0KaGVhZChhbmRyb2lkZGF0YV90ZXN0KQpoZWFkKGlwaG9uZWRhdGFfdGVzdCkKYGBgCgpUbyBtYXAgdGhlc2UgZGF0YSwgd2UgbmVlZCB0byBtYWtlIHN1cmUgdGhlIGNvbHVtbnMgZm9yIGxhdGl0dWRlIGFuZCBsb25naXR1ZGUgYXJlIGNhbGxlZCAibGF0IiBhbmQgImxvbiIuIENoZWNrIG91dCB3aGF0IHRoZSBjdXJyZW50IGNvbHVtbiBuYW1lcyBmb3IgdGhlIGRhdGEgYXJlOgoKYGBge3J9Cm5hbWVzKGlwaG9uZWRhdGFfdGVzdCkKbmFtZXMoYW5kcm9pZGRhdGFfdGVzdCkKYGBgCgpUbyByZW5hbWUgYSBjb2x1bW4gaW4gUiwgeW91IGNhbiBkbyBzb21ldGhpbmcgc2ltaWxhciB0byB3aGF0IHdlIGRpZCBpbiB0aGUgSW50cm8gdG8gUiBsZXNzb24gd2hlcmUgeW91IHJlbmFtZWQgZWxlbWVudHMgaW4gdGhlIHZlY3RvciBgaW50ZXJuX25hbWVzYC4KCioqVHJ5IGl0IHlvdXJzZWxmOioqIEFkZCBjb2RlIGluIHlvdXIgc2NyaXB0IGZpbGUgdG8gcmVuYW1lIHRoZSBjb3JyZWN0IGNvbHVtbnMgc28gdGhleSBhcmUgbmFtZWQgImxhdCIgYW5kICJsb24iLgoKYGBge3J9CgpgYGAKCkV2ZW50dWFsbHksIHdlIGFyZSBnb2luZyB0byBuZWVkIHRoZSBuZXcgImxvbiIgYW5kICJsYXQiIGNvbHVtbnMgdG8gYmUgdGhlIGZpcnN0IHR3byBjb2x1bW5zIG9mIG91ciBkYXRhZnJhbWUuIFdlIGNhbiBkbyBzb21lIHJlYXJyYW5naW5nIGluIHRoZSBmb2xsb3dpbmcgd2F5czoKCmBgYHtyfQojQmUgY2FyZWZ1bCEhISBUaGVzZSBhcmUgbm90IHRoZSBzYW1lIGZvciB0aGUgYW5kcm9pZCBhbmQgdGhlIGlwaG9uZSBkYXRhCmlwaG9uZWRhdGFfdGVzdCA8LSBpcGhvbmVkYXRhX3Rlc3RbYygzLDIsMSw0KV0KYW5kcm9pZGRhdGFfdGVzdCA8LSBhbmRyb2lkZGF0YV90ZXN0W2MoNCwzLDIsNildCmBgYAoKCiMjIFNldC11cCB0byB2aXN1YWxpemUKCldlIG5lZWQgdG8gZG93bmxvYWQgYSBmZXcgcmVxdWlyZWQgcGFja2FnZXM6CgpgYGB7cn0KcmVxdWlyZShyYXN0ZXIpICNwYWNrYWdlIHRvIGFuYWx5emUgZ3JpZGRlZCBzcGF0aWFsIGRhdGEKcmVxdWlyZShzcCkgI3BhY2thZ2UgdG8gcHJvdmlkZSBjbGFzc2VzIGFuZCBtZXRob2RzIGZvciBzcGF0aWFsIGRhdGEKcmVxdWlyZShyZ2RhbCkgI2FsbG93cyBSIHRvIGFjY2VzcyBhIGxpYnJhcnkgY2FsbGVkIEdEQUwKcmVxdWlyZShnZ3Bsb3QyKSAjcGxvdHRpbmcgcGFja2FnZSBpbiBSCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiZGthaGxlL2dnbWFwIiwgcmVmID0gInRpZHl1cCIpICNwYWNrYWdlIHRvIHZpc3VhbGl6ZSBzcGF0aWFsIGRhdGEgYW5kIG1vZGVscwpyZXF1aXJlKGdnbWFwKQpgYGAKCldlIGNhbiBzdGFydCBieSBwbG90dGluZyB0aGUgcG9pbnRzIG9udG8gYSBtYXAgZnJvbSBHb29nbGVFYXJ0aC4gR29vZ2xlIGhhcyBtYWRlIGl0IG5lY2Vzc2FyeSB0byBvYnRhaW4gYW4gQVBJIGtleSwgd2hpY2ggaXMgYSB3YXkgdG8gbGV0IHR3byBhcHBsaWNhdGlvbnMgdGFsayB0byBlYWNoIG90aGVyLiBTaW5jZSB5b3UgaGF2ZSB0byBlbnRlciBhIGNyZWRpdCBjYXJkIG51bWJlciB0byBnZXQgdGhlIEFQSSAoZXZlbiB0aG91Z2ggaXQncyBmcmVlKSwgd2UncmUgZ29pbmcgdG8gdXNlIHRoZSBvbmUgSSBzZXQgdXAuIAoKYGBge3J9CmFwaV9rZXkgPSAiQUl6YVN5Qks3bExicW9xbllGZHpmLWlkWVlwb3NiLTFnd3lSQWxRIgpyZWdpc3Rlcl9nb29nbGUoa2V5ID0gYXBpX2tleSkKYGBgCgpXZSBhbHNvIG5lZWQgdG8gZGV0ZXJtaW5lIHRoZSByYW5nZSBvZiBsYXRpdHVkZXMgYW5kIGxvbmdpdHVkZXMgY29udGFpbmluZyB5b3VyIHBvaW50cy4gVXNlIHRoZSBgbWF4YCBhbmQgYG1pbmAgZnVuY3Rpb25zIHRvIGZpbmQgdGhlIHJhbmdlOgoKKipUcnkgaXQgeW91cnNlbGY6KiogRmluZCB0aGUgbWF4aW11bSBhbmQgbWluaW11bSBvZiB0aGUgbGF0aXR1ZGUgYW5kIGxvbmdpdHVkZSBjb2x1bW5zIGluIHlvdXIgZGF0YS4gUmVtZW1iZXIgdGhhdCB0aGUgYCRgIGFjY2Vzc2VzIGEgY29sdW1uIG9mIGEgZGF0YWZyYW1lIGluIFIuIEFzc2lnbiB0aGVzZSB2YWx1ZXMgdG8gdmFyaWFibGVzIG5hbWVkIGBtaW5fbG9uYCwgYG1heF9sb25gLCBgbWluX2xhdGAsIGFuZCBgbWF4X2xhdGAuCgpgYGB7cn0KCmBgYAoKTm93IHlvdSBjYW4gcHV0IHRob3NlIHZhbHVlcyBpbnRvIHRoZSBmb2xsb3dpbmcgY29kZToKCmBgYHtyfQpsb2MgPSBjYmluZChjKG1pbl9sb24sIG1heF9sb24pLCBjKG1pbl9sYXQsIG1heF9sYXQpKQpsb2MgPSBhcy5kYXRhLmZyYW1lKGxvYykgI21ha2UgbG9jIGludG8gYSBkYXRhZnJhbWUKY29sbmFtZXMobG9jKSA9IGMoJ2xvbicsICdsYXQnKQpgYGAKCioqVHJ5IGl0IHlvdXJzZWxmOioqIFJ1biBgVmlldyhsb2MpYCB0byBzZWUgZXhhY3RseSB3aGF0IGBjYmluZGAgZGlkLiBBbHNvIG5vdGljZSB0aGUgYGNvbG5hbWVzYCBmdW5jdGlvbjogaG93IGRvZXMgdGhpcyBjb21wYXJlIHRvIHRoZSB3YXkgeW91IHJlbmFtZWQgdGhlIGNvbHVtbnMgZWFybGllcj8KCk5vdyB3ZSBuZWVkIHRvIG1ha2UgYSBib3VuZGluZyBib3ggb3V0IG9mIHRoZXNlIHZhbHVlczoKCmBgYHtyfQpib3VuZF9ib3ggPC0gbWFrZV9iYm94KGxvbiA9IGxvYyRsb24sIGxhdCA9IGxvYyRsYXQsIGYgPSAuMikKYGBgCgoqKlRyeSBpdCB5b3Vyc2VsZjoqKiBMb29rIHVwIHRoZSBmdW5jdGlvbiBgbWFrZV9iYm94YCBpbiB0aGUgSGVscCBtZW51IG9mIFJTdHVkaW8uIFdoYXQgZG9lcyB0aGUgYGZgIGFyZ3VtZW50IGluIHRoZSBmdW5jdGlvbiBkbz8gWW91IGNhbiBleHBlcmltZW50IHdpdGggZGlmZmVyZW50IGBmYCB2YWx1ZXMgdG8gc2VlIGhvdyB0aGlzIGFmZmVjdHMgdGhlIG1hcCB5b3UgbWFrZS4KCiMjIFZpc3VhbGl6ZSBkYXRhCgpOb3cgd2UgY2FuIG1ha2Ugc29tZSBtYXBzIQoKYGBge3J9CiNHZXQgYSBzYXRlbGxpdGUgbWFwIGF0IHRoZSBsb2NhdGlvbiBvZiB0aGUgYm91bmRpbmcgYm94IHlvdSBtYWRlOgptYXAgPC0gZ2V0X21hcChsb2NhdGlvbiA9IGJvdW5kX2JveCwgbWFwdHlwZSA9ICJzYXRlbGxpdGUiLCBzb3VyY2UgPSAiZ29vZ2xlIikKCiNQbG90IHRoZSB3YXlwb2ludHMgb24gdGhlIG1hcDoKZ2dtYXAobWFwKSArIAogIGdlb21fcG9pbnQoZGF0YSA9IGlwaG9uZWRhdGFfdGVzdFssMToyXSwgCiAgICAgICAgICAgICBjb2xvciA9ICJyZWQiLAogICAgICAgICAgICAgc2l6ZSA9MSkKZ2dtYXAobWFwKSArIAogIGdlb21fcG9pbnQoZGF0YSA9IGFuZHJvaWRkYXRhX3Rlc3RbLDE6Ml0sIAogICAgICAgICAgICAgY29sb3IgPSAicmVkIiwKICAgICAgICAgICAgIHNpemUgPTEpCmBgYAoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW50cm8gdG8gR1BTIgphdXRob3I6ICJDZWNpbmEgQmFiaWNoIE1vcnJvdyIKb3V0cHV0OgogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKICBodG1sX2RvY3VtZW50OiBkZWZhdWx0CiAgcGRmX2RvY3VtZW50OiBkZWZhdWx0Ci0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKYGBgCgpBZGFwdGVkIGZyb20gbGVzc29uIHBsYW4gYnkgUHJvZmVzc29ycyBIYXJiZXJ0IGFuZCBCbGFpcjogaHR0cHM6Ly9yc2gyNDkuZ2l0aHViLmlvL3NwYXRpYWxfYmlvaW5mb3JtYXRpY3MvR1BTdG9HSVN3aXRoVGV4dC5odG1sLgoKIyMgSW1wb3J0IGRhdGEgdG8gUgoKU3RhcnQgYnkgb3BlbmluZyBhIG5ldyBzY3JpcHQgZmlsZSBpbiBSU3R1ZGlvLiBJbnN0ZWFkIG9mIGp1c3QgZWRpdGluZyB0aGlzIFIgTWFya2Rvd24gZmlsZSAoYWx0aG91Z2ggeW91IGNhbiBhbmQgc2hvdWxkIGFkZCB5b3VyIG93biBub3RlcyB0byBpdCEpLCB5b3UgY2FuIHNhdmUgdGhlIGNvZGUgZm9yIHRoaXMgYW5hbHlzaXMgaW4gdGhhdCBzY3JpcHQgZmlsZS4gU3RhcnQgdGhlIGZpbGUgd2l0aCBhIGhlbHBmdWwgY29tbWVudCwgZm9yIGV4YW1wbGU6CgpgYGB7cn0KIyBHbGFkeXMgUGh5bGxpcyBTbWl0aAojIDAzLzA0LzE5NzMKIyBTY3JpcHQgZm9yIGFuYWx5emluZyBHUFMgcG9pbnRzCmBgYAoKCk5vdyBnbyB0byB0aGUgIkVudmlyb25tZW50IiB0YWIgb2YgUlN0dWRpbyAodG9wIHJpZ2h0IHBhbmVsKSBhbmQgc2VsZWN0ICJJbXBvcnQgRGF0YXNldCIgPiAiRnJvbSBUZXh0IChyZWFkcikgLi4uIiBVc2UgdGhlICJCcm93c2UiIHRvIG5hdmlnYXRlIHRvIGFuZCBzZWxlY3QgdGhlIGRhdGEgZmlsZSB5b3UganVzdCBzYXZlZCAoZm9yIEFuZHJvaWQgdXNlcnMsIHNlbGVjdCB0aGUgLmNzdiwgbm90IHRoZSAudHh0KS4gQ2hlY2sgb3ZlciB0aGUgZm9ybWF0dGluZyBvcHRpb25zIHRvIG1ha2Ugc3VyZSBldmVyeXRoaW5nIGxvb2tzIG9rYXkuIFdoZW4geW91J3JlIHNhdGlzZmllZCwgY2xpY2sgIkltcG9ydCIuIFdoZW4geW91IGRvIHRoYXQsIGNvZGUgd2lsbCBydW4gaW4geW91ciBjb25zb2xlIChzZWUgZXhhbXBsZSBiZWxvdykuIENvcHkgYW5kIHBhc3RlIHRoYXQgY29kZSBpbnRvIHlvdXIgbmV3IFIgc2NyaXB0IGFuZCBhZGQgYSBoZWxwZnVsIGNvbW1lbnQsIGxpa2UgYCMgSW1wb3J0IGRhdGFzZXQgZnJvbSAuY3N2YC4KCmBgYHtyfQojIEltcG9ydCBhbmRyb2lkIGRhdGEKbGlicmFyeShyZWFkcikKYW5kcm9pZGRhdGFfdGVzdCA8LSByZWFkX2NzdigiLi4vZ3BzX3Rlc3RfZGF0YS9hbmRyb2lkZGF0YV90ZXN0LmNzdiIpCgojIEltcG9ydCBpUGhvbmUgZGF0YQppcGhvbmVkYXRhX3Rlc3QgPC0gcmVhZF9jc3YoIi4uL2dwc190ZXN0X2RhdGEvaXBob25lZGF0YV90ZXN0LmNzdiIpCmBgYAoKTm93IHRha2UgYSBsb29rIGF0IHRoZSBkYXRhIHVzaW5nIGVpdGhlciB0aGUgYFZpZXcoKWAgb3IgYGhlYWQoKWAgZnVuY3Rpb24uCgpgYGB7cn0KaGVhZChhbmRyb2lkZGF0YV90ZXN0KQpoZWFkKGlwaG9uZWRhdGFfdGVzdCkKYGBgCgpUbyBtYXAgdGhlc2UgZGF0YSwgd2UgbmVlZCB0byBtYWtlIHN1cmUgdGhlIGNvbHVtbnMgZm9yIGxhdGl0dWRlIGFuZCBsb25naXR1ZGUgYXJlIGNhbGxlZCAibGF0IiBhbmQgImxvbiIuIENoZWNrIG91dCB3aGF0IHRoZSBjdXJyZW50IGNvbHVtbiBuYW1lcyBmb3IgdGhlIGRhdGEgYXJlOgoKYGBge3J9Cm5hbWVzKGlwaG9uZWRhdGFfdGVzdCkKbmFtZXMoYW5kcm9pZGRhdGFfdGVzdCkKYGBgCgpUbyByZW5hbWUgYSBjb2x1bW4gaW4gUiwgeW91IGNhbiBkbyBzb21ldGhpbmcgc2ltaWxhciB0byB3aGF0IHdlIGRpZCBpbiB0aGUgSW50cm8gdG8gUiBsZXNzb24gd2hlcmUgeW91IHJlbmFtZWQgZWxlbWVudHMgaW4gdGhlIHZlY3RvciBgaW50ZXJuX25hbWVzYC4KCioqVHJ5IGl0IHlvdXJzZWxmOioqIEFkZCBjb2RlIGluIHlvdXIgc2NyaXB0IGZpbGUgdG8gcmVuYW1lIHRoZSBjb3JyZWN0IGNvbHVtbnMgc28gdGhleSBhcmUgbmFtZWQgImxhdCIgYW5kICJsb24iLgoKYGBge3J9CgpgYGAKCkV2ZW50dWFsbHksIHdlIGFyZSBnb2luZyB0byBuZWVkIHRoZSBuZXcgImxvbiIgYW5kICJsYXQiIGNvbHVtbnMgdG8gYmUgdGhlIGZpcnN0IHR3byBjb2x1bW5zIG9mIG91ciBkYXRhZnJhbWUuIFdlIGNhbiBkbyBzb21lIHJlYXJyYW5naW5nIGluIHRoZSBmb2xsb3dpbmcgd2F5czoKCmBgYHtyfQojQmUgY2FyZWZ1bCEhISBUaGVzZSBhcmUgbm90IHRoZSBzYW1lIGZvciB0aGUgYW5kcm9pZCBhbmQgdGhlIGlwaG9uZSBkYXRhCmlwaG9uZWRhdGFfdGVzdCA8LSBpcGhvbmVkYXRhX3Rlc3RbYygzLDIsMSw0KV0KYW5kcm9pZGRhdGFfdGVzdCA8LSBhbmRyb2lkZGF0YV90ZXN0W2MoNCwzLDIsNildCmBgYAoKCiMjIFNldC11cCB0byB2aXN1YWxpemUKCldlIG5lZWQgdG8gZG93bmxvYWQgYSBmZXcgcmVxdWlyZWQgcGFja2FnZXM6CgpgYGB7cn0KcmVxdWlyZShyYXN0ZXIpICNwYWNrYWdlIHRvIGFuYWx5emUgZ3JpZGRlZCBzcGF0aWFsIGRhdGEKcmVxdWlyZShzcCkgI3BhY2thZ2UgdG8gcHJvdmlkZSBjbGFzc2VzIGFuZCBtZXRob2RzIGZvciBzcGF0aWFsIGRhdGEKcmVxdWlyZShyZ2RhbCkgI2FsbG93cyBSIHRvIGFjY2VzcyBhIGxpYnJhcnkgY2FsbGVkIEdEQUwKcmVxdWlyZShnZ3Bsb3QyKSAjcGxvdHRpbmcgcGFja2FnZSBpbiBSCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiZGthaGxlL2dnbWFwIiwgcmVmID0gInRpZHl1cCIpICNwYWNrYWdlIHRvIHZpc3VhbGl6ZSBzcGF0aWFsIGRhdGEgYW5kIG1vZGVscwpyZXF1aXJlKGdnbWFwKQpgYGAKCldlIGNhbiBzdGFydCBieSBwbG90dGluZyB0aGUgcG9pbnRzIG9udG8gYSBtYXAgZnJvbSBHb29nbGVFYXJ0aC4gR29vZ2xlIGhhcyBtYWRlIGl0IG5lY2Vzc2FyeSB0byBvYnRhaW4gYW4gQVBJIGtleSwgd2hpY2ggaXMgYSB3YXkgdG8gbGV0IHR3byBhcHBsaWNhdGlvbnMgdGFsayB0byBlYWNoIG90aGVyLiBTaW5jZSB5b3UgaGF2ZSB0byBlbnRlciBhIGNyZWRpdCBjYXJkIG51bWJlciB0byBnZXQgdGhlIEFQSSAoZXZlbiB0aG91Z2ggaXQncyBmcmVlKSwgd2UncmUgZ29pbmcgdG8gdXNlIHRoZSBvbmUgSSBzZXQgdXAuIAoKYGBge3J9CmFwaV9rZXkgPSAiQUl6YVN5Qks3bExicW9xbllGZHpmLWlkWVlwb3NiLTFnd3lSQWxRIgpyZWdpc3Rlcl9nb29nbGUoa2V5ID0gYXBpX2tleSkKYGBgCgpXZSBhbHNvIG5lZWQgdG8gZGV0ZXJtaW5lIHRoZSByYW5nZSBvZiBsYXRpdHVkZXMgYW5kIGxvbmdpdHVkZXMgY29udGFpbmluZyB5b3VyIHBvaW50cy4gVXNlIHRoZSBgbWF4YCBhbmQgYG1pbmAgZnVuY3Rpb25zIHRvIGZpbmQgdGhlIHJhbmdlOgoKKipUcnkgaXQgeW91cnNlbGY6KiogRmluZCB0aGUgbWF4aW11bSBhbmQgbWluaW11bSBvZiB0aGUgbGF0aXR1ZGUgYW5kIGxvbmdpdHVkZSBjb2x1bW5zIGluIHlvdXIgZGF0YS4gUmVtZW1iZXIgdGhhdCB0aGUgYCRgIGFjY2Vzc2VzIGEgY29sdW1uIG9mIGEgZGF0YWZyYW1lIGluIFIuIEFzc2lnbiB0aGVzZSB2YWx1ZXMgdG8gdmFyaWFibGVzIG5hbWVkIGBtaW5fbG9uYCwgYG1heF9sb25gLCBgbWluX2xhdGAsIGFuZCBgbWF4X2xhdGAuCgpgYGB7cn0KCmBgYAoKTm93IHlvdSBjYW4gcHV0IHRob3NlIHZhbHVlcyBpbnRvIHRoZSBmb2xsb3dpbmcgY29kZToKCmBgYHtyfQpsb2MgPSBjYmluZChjKG1pbl9sb24sIG1heF9sb24pLCBjKG1pbl9sYXQsIG1heF9sYXQpKQpsb2MgPSBhcy5kYXRhLmZyYW1lKGxvYykgI21ha2UgbG9jIGludG8gYSBkYXRhZnJhbWUKY29sbmFtZXMobG9jKSA9IGMoJ2xvbicsICdsYXQnKQpgYGAKCioqVHJ5IGl0IHlvdXJzZWxmOioqIFJ1biBgVmlldyhsb2MpYCB0byBzZWUgZXhhY3RseSB3aGF0IGBjYmluZGAgZGlkLiBBbHNvIG5vdGljZSB0aGUgYGNvbG5hbWVzYCBmdW5jdGlvbjogaG93IGRvZXMgdGhpcyBjb21wYXJlIHRvIHRoZSB3YXkgeW91IHJlbmFtZWQgdGhlIGNvbHVtbnMgZWFybGllcj8KCk5vdyB3ZSBuZWVkIHRvIG1ha2UgYSBib3VuZGluZyBib3ggb3V0IG9mIHRoZXNlIHZhbHVlczoKCmBgYHtyfQpib3VuZF9ib3ggPC0gbWFrZV9iYm94KGxvbiA9IGxvYyRsb24sIGxhdCA9IGxvYyRsYXQsIGYgPSAuMikKYGBgCgoqKlRyeSBpdCB5b3Vyc2VsZjoqKiBMb29rIHVwIHRoZSBmdW5jdGlvbiBgbWFrZV9iYm94YCBpbiB0aGUgSGVscCBtZW51IG9mIFJTdHVkaW8uIFdoYXQgZG9lcyB0aGUgYGZgIGFyZ3VtZW50IGluIHRoZSBmdW5jdGlvbiBkbz8gWW91IGNhbiBleHBlcmltZW50IHdpdGggZGlmZmVyZW50IGBmYCB2YWx1ZXMgdG8gc2VlIGhvdyB0aGlzIGFmZmVjdHMgdGhlIG1hcCB5b3UgbWFrZS4KCiMjIFZpc3VhbGl6ZSBkYXRhCgpOb3cgd2UgY2FuIG1ha2Ugc29tZSBtYXBzIQoKYGBge3J9CiNHZXQgYSBzYXRlbGxpdGUgbWFwIGF0IHRoZSBsb2NhdGlvbiBvZiB0aGUgYm91bmRpbmcgYm94IHlvdSBtYWRlOgptYXAgPC0gZ2V0X21hcChsb2NhdGlvbiA9IGJvdW5kX2JveCwgbWFwdHlwZSA9ICJzYXRlbGxpdGUiLCBzb3VyY2UgPSAiZ29vZ2xlIikKCiNQbG90IHRoZSB3YXlwb2ludHMgb24gdGhlIG1hcDoKZ2dtYXAobWFwKSArIAogIGdlb21fcG9pbnQoZGF0YSA9IGlwaG9uZWRhdGFfdGVzdFssMToyXSwgCiAgICAgICAgICAgICBjb2xvciA9ICJyZWQiLAogICAgICAgICAgICAgc2l6ZSA9MSkKZ2dtYXAobWFwKSArIAogIGdlb21fcG9pbnQoZGF0YSA9IGFuZHJvaWRkYXRhX3Rlc3RbLDE6Ml0sIAogICAgICAgICAgICAgY29sb3IgPSAicmVkIiwKICAgICAgICAgICAgIHNpemUgPTEpCmBgYAoKCgo=</div>
 
 
 
