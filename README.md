@@ -42,7 +42,7 @@
   | November 22 <br> <sub> :poultry_leg: Thanksgiving :maple_leaf: </sub> | **No internship session today** | | 
 | **Week 8** | | |
   | November 27 | | |
-  | November 29 | | |
+  | November 29 | <ul><li> Louise is visiting! | |
 | **Week 9** | | |
   | December 4 | <ul><li> Presentation planning | |
   | December 6 | <ul><li> Work on presentations | |
