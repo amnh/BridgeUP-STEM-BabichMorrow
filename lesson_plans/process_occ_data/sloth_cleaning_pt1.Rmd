@@ -1,0 +1,14 @@
+---
+title: "Sloth Data Cleaning - Part 1"
+output:
+  html_notebook: default
+  pdf_document: default
+---
+
+## What is data cleaning?
+
+Usually, the dataset we first get is not the dataset we want to end up with. Datasets often come in unhelpful formats, don't contain all the information we need (or contains too much information), or even have incorrect entries (like a sloth observation in the middle of the ocean). Data cleaning is the process of taking the (usually crummy) data you start with and making it into useful, informative, and accurate data.
+
+## Subsetting in R
+
+Just like Python, R has ways for you to access certain parts of a dataset. This is super helpful in data cleaning -- if you want to get rid of a sloth occurrence point in the Atlantic Ocean, you have to be able to select that value out of your dataset.
