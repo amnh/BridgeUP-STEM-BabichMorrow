@@ -1,5 +1,5 @@
 ---
-title: "Sloth Data Cleaning - Part 1"
+title: "Sloth Data Cleaning - Part 1: Subsetting"
 output:
   html_notebook: default
   pdf_document: default
@@ -9,6 +9,83 @@ output:
 
 Usually, the dataset we first get is not the dataset we want to end up with. Datasets often come in unhelpful formats, don't contain all the information we need (or contains too much information), or even have incorrect entries (like a sloth observation in the middle of the ocean). Data cleaning is the process of taking the (usually crummy) data you start with and making it into useful, informative, and accurate data.
 
-## Subsetting in R
+## Saving GBIF sloth occurrences
+
+From your script at the end of the `spocc` package tutorial, you ended up with a dataframe of occurrences for your sloth species. Have one person from your group 
+
+## Selecting and deleting variables
 
 Just like Python, R has ways for you to access certain parts of a dataset. This is super helpful in data cleaning -- if you want to get rid of a sloth occurrence point in the Atlantic Ocean, you have to be able to select that value out of your dataset.
+
+The most basic way of subsetting a dataframe in R is by using square brackets `[]`. To pull out an individual cell in a dataframe, you use square brackets and the row/column number of that cell.
+
+**Try it yourself:** Look at your dataframe using the `View()` function. Pick a particular cell in the dataframe, like a certain latitude value or date. See if you can extract just that cell from the dataframe using the row and column number -- remember the syntax is `[row number, column number]`
+
+```{r}
+sp_df[]
+```
+
+
+### Selecting variables
+
+You can select out certain variables from your dataframe. For example, let's say we only care about the latitude and longitude columns. There are a couple ways we could extract just those two columns -- the first uses the column names.
+
+```{r}
+#select latitude and longitude columns
+latlong_vars <- c("latitude", "longitude")
+newdata1 <- sp_df[latlong_vars]
+View(newdata1)
+```
+
+
+**Try it yourself:** Another way of ending up with the same two columns is to select the columns by column number, rather than column name. Find the column numbers of the latitude and longitude columns, and put them in the square brackets below. Be careful -- we want to make sure that we don't select out only a single cell from the dataframe. You can use `c()` to create a vector of the columns you want, or use `:` to indicate a range of column numbers.
+
+```{r}
+newdata2 <- sp_df[]
+View(newdata2)
+```
+
+### Selecting rows
+
+We can also select out certain rows from our dataframe. To get a certain row with all of the columns included, run the following:
+
+```{r}
+sp_df[1,]
+```
+
+**Try it yourself:** Use the syntax above to extract a range of rows from your dataframe. Again, you will have to use `c()` or `:` to indicate that you want more than one row.
+
+### Excluding variables
+
+Sometimes it's more convenient to tell R what columns you want to get rid of, rather than specifying which you want to keep. Let's say we want to get rid of the column `prov` since we know all of our data comes from GBIF anyways.
+
+```{r}
+newdata3 <- sp_df[-4]
+View(newdata3)
+```
+
+We can also do this using the column names, although the syntax is a little trickier than it was for selecting variables:
+
+```{r}
+drop_vars <- names(sp_df) %in% "prov"
+newdata4 <- sp_df[!drop_vars]
+```
+
+**Try it yourself:** Let's break that code down a little bit. Run `names(sp_df)` -- what do you get? Now run the part of the first line to the right of `<-`. What do you think `%in%` does? You can use the help menu to learn a little more about `%in%`.
+
+```{r}
+names(sp_df)
+names(sp_df) %in% "prov"
+```
+
+
+**Try it yourself:** Now try dropping multiple columns from the dataset. Let's say, in this case, that we no longer care about occurrence data. Modify the above code to get rid of the data from the columns `prov` and `date`:
+```{r}
+
+```
+
+## Selection by data value
+
+Oftentimes, we don't immediately know enough about our data to pick out a particular cell from our dataframe that might be of interest. Instead, we want to be able to pull out all observations with a particular value for one of our variables.
+
+
