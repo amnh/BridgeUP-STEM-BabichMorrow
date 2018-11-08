@@ -7,11 +7,9 @@ output:
 
 ## What is data cleaning?
 
-Usually, the dataset we first get is not the dataset we want to end up with. Datasets often come in unhelpful formats, don't contain all the information we need (or contains too much information), or even have incorrect entries (like a sloth observation in the middle of the ocean). Data cleaning is the process of taking the (usually crummy) data you start with and making it into useful, informative, and accurate data.
+Usually, the dataset we first get is not the dataset we want to end up with. Datasets often come in unhelpful formats, don't contain all the information we need (or contain too much information), or even have incorrect entries (like a sloth observation in the middle of the ocean). Data cleaning is the process of taking the (usually crummy) data you start with and making it useful, informative, and accurate.
 
-## Saving GBIF sloth occurrences
-
-From your script at the end of the `spocc` package tutorial, you ended up with a dataframe of occurrences for your sloth species. Have one person from your group 
+We are going to take the dataframe that you obtained at the end of the `spocc` tutorial, and use it to learn some critical data cleaning skills in R.
 
 ## Selecting and deleting variables
 
@@ -50,14 +48,20 @@ View(newdata2)
 We can also select out certain rows from our dataframe. To get a certain row with all of the columns included, run the following:
 
 ```{r}
+#print the first row of the dataframe
 sp_df[1,]
 ```
 
 **Try it yourself:** Use the syntax above to extract a range of rows from your dataframe. Again, you will have to use `c()` or `:` to indicate that you want more than one row.
 
+```{r}
+
+```
+
+
 ### Excluding variables
 
-Sometimes it's more convenient to tell R what columns you want to get rid of, rather than specifying which you want to keep. Let's say we want to get rid of the column `prov` since we know all of our data comes from GBIF anyways.
+Sometimes it's more convenient to tell R what columns you want to get rid of, rather than specifying which you want to keep. Let's say we want to get rid of the column `prov` since we know all of our data comes from GBIF.
 
 ```{r}
 newdata3 <- sp_df[-4]
@@ -93,6 +97,7 @@ Oftentimes, we don't immediately know enough about our data to pick out a partic
 For example, let's say we want to look at all of our observations within a particular band of latitude:
 
 ```{r}
+#subset the data to select observations with latitude between -5 and 5 degrees
 which_obs <- sp_df[ which(sp_df$latitude > -5 & sp_df$latitude < 5), ]
 View(which_obs)
 
@@ -105,7 +110,7 @@ ggmap(bbox_map) +
 
 Notice the `which()` function within the square brackets: `which()` returns the indices where a given logical statement is true.
 
-**Try it yourself:** Run just the `which()` portion of the above code. By nesting `which()` within the square brackets, we are basically doing the same thing we did earlier when we specified certain row numbers to keep, only this time we are letting `which()` do the work of picking out the rows to keep.
+**Try it yourself:** Run just the `which()` portion of the above code. By nesting `which()` within the square brackets, we are basically doing the same thing we did earlier when we specified certain row numbers to keep, only this time we are letting `which()` do the work of picking out the rows.
 
 ```{r}
 which(sp_df$latitude > -5 & sp_df$latitude < 5)
@@ -137,7 +142,7 @@ View(subset_obs2)
 
 ## Sloth data cleaning
 
-**Try it yourself:** Pick a different latitude or longitude (or both) range of occurrences to plot. You can use either `which()` or `subset()`. You can use `>`, `<`, `<=`, `>=`, `==`, or `!=` to specify values you do (or don't) want included. You can also use `&` to specify multiple conditions that must all be true. If you want to be really fancy, you could also use `|`, which means "or" in R. All of these symbols are *logical operators* in R.
+**Try it yourself:** Pick a different latitude or longitude (or both) range of occurrences to plot. You can use either `which()` or `subset()`. You can use `>`, `<`, `<=`, `>=`, `==`, or `!=` to specify values you do (or don't) want included. You can also use `&` to specify multiple conditions that must all be true. If you want to be really fancy, you could also use `|`, which means "or" in R. All of these symbols known as *logical operators*.
 
 ```{r}
 
