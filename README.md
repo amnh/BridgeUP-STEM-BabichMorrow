@@ -33,7 +33,7 @@
   | November 1 | <ul><li> `ggplot2` tutorial </li><li> UFO(+R) continued </li><li> `spocc` package |                             [`ggplot2` tutorial](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) and [tutorial notes](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Spooky_R/ggplot2_Notes.md) <br> [`ggplot2` Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) <br> [`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd) |
 | **Week 5** | | |
   | November 6 <br> <sub> :us: Election Day :us: </sub> | **No internship session today** |                                      Code in politics (and life) - [FiveThirtyEight](https://fivethirtyeight.com/) |
-  | November 8 | <ul><li> Finish `spocc` tutorial </li><li> ~~Fast~~ facts about sloths </li><li> Subsetting data |             [Sloth slides](https://docs.google.com/presentation/d/1h3dgXnZQpHdQW54hK1eR3cRHQ3shuDH3E7P_h1rnZKE/edit?usp=sharing) <br>     Sloth data cleaning - part 1 |
+  | November 8 | <ul><li> Finish `spocc` tutorial </li><li> ~~Fast~~ facts about sloths </li><li> Subsetting data |             [Sloth slides](https://docs.google.com/presentation/d/1h3dgXnZQpHdQW54hK1eR3cRHQ3shuDH3E7P_h1rnZKE/edit?usp=sharing) <br>     [Sloth data cleaning - part 1](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt1.Rmd) |
 | **Week 6** | | |
   | November 13 | <ul><li> Lines and polygons | Return to GPS <br> Sloth data cleaning - part 2 |
   | November 15 | <ul><li> Introduction to spatial thinning </li><li> `spThin` tutorial | Sloth data cleaning - part 3 |
