@@ -88,4 +88,64 @@ names(sp_df) %in% "prov"
 
 Oftentimes, we don't immediately know enough about our data to pick out a particular cell from our dataframe that might be of interest. Instead, we want to be able to pull out all observations with a particular value for one of our variables.
 
+### `which()` function
+
+For example, let's say we want to look at all of our observations within a particular band of latitude:
+
+```{r}
+which_obs <- sp_df[ which(sp_df$latitude > -5 & sp_df$latitude < 5), ]
+View(which_obs)
+
+#plot the observations in our dataset that have latitude values between -5 and 5
+ggmap(bbox_map) +
+  geom_point(data = which_obs, aes(x = longitude, y = latitude),
+             color = "green",
+             size = 1)
+```
+
+Notice the `which()` function within the square brackets: `which()` returns the indices where a given logical statement is true.
+
+**Try it yourself:** Run just the `which()` portion of the above code. By nesting `which()` within the square brackets, we are basically doing the same thing we did earlier when we specified certain row numbers to keep, only this time we are letting `which()` do the work of picking out the rows to keep.
+
+```{r}
+which(sp_df$latitude > -5 & sp_df$latitude < 5)
+```
+
+### `subset()` function
+
+As an alternative to using the square brackets and the `which()` function, R also has a handy `subset()` function. `subset()` takes 3 arguments (one of which is optional):
+
+1. `x`: the data/object you want to subset
+2. `subset`: the logical expression you want to subset by
+3. `select`: the columns you want to use in your data (if you don't include this, you'll end up with all of the columns of your original data).
+
+For example, this code replicates what we ran above using `which()` to select observations between -5 and 5 degrees latitude:
+
+```{r}
+subset_obs <- subset(sp_df, latitude > -5 & latitude < 5)
+View(subset_obs)
+```
+
+Notice we didn't add in `select`, so we got all of the same columns that our original dataframe had.
+
+**Try it yourself:** Use the `select` argument to extract only the `latitude` and `longitude` columns -- you can use the column names (no quotation marks):
+
+```{r}
+subset_obs2 <- subset(sp_df, latitude > -5 & latitude < 5, select = )
+View(subset_obs2)
+```
+
+## Sloth data cleaning
+
+**Try it yourself:** Pick a different latitude or longitude (or both) range of occurrences to plot. You can use either `which()` or `subset()`. You can use `>`, `<`, `<=`, `>=`, `==`, or `!=` to specify values you do (or don't) want included. You can also use `&` to specify multiple conditions that must all be true. If you want to be really fancy, you could also use `|`, which means "or" in R. All of these symbols are *logical operators* in R.
+
+```{r}
+
+```
+
+**Try it yourself:** Look at your dataset -- is there a particular datapoint that seems inaccurate? Work with your group to figure out how to isolate that point. Can you estimate its latitude or longitude? If so, can you subset your data by that range of latitude and longitude to find what row that observation is in? How could you delete that row?
+
+```{r}
+
+```
 
