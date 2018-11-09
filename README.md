@@ -38,7 +38,7 @@
   | November 13 | <ul><li> Subsetting data </li><li> Lines and polygons |                                                       [Sloth data cleaning - part 1](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt1.Rmd) <br> Return to GPS <br> Sloth data cleaning - part 2 |
   | November 15 | <ul><li> Introduction to spatial thinning </li><li> `spThin` tutorial </li><li> Questions for Julia Tejada |   Sloth data cleaning - part 3 <br> [Questions for Julia Tejada](https://docs.google.com/document/d/15rEqzpRAIuNE7CPi0UA2Lyxaw1sH1BPFmGaGWRG7JfY/edit?usp=sharing) |
 | **Week 7** | | |
-  | November 20 | <ul><li> Meet Julia Tejada! </li><li> What is WorldClim? </li><li> `raster` package tutorial |                 [WorldClim website](http://www.worldclim.org) <br> [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) |
+  | November 20 | <ul><li> Meet Julia Tejada! </li><li> `raster` package tutorial </li><li> What is WorldClim? |                 [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) <br> [WorldClim website](http://www.worldclim.org) |
   | November 22 <br> <sub> :poultry_leg: Thanksgiving :maple_leaf: </sub> | **No internship session today** | | 
 | **Week 8** | | |
   | November 27 | <ul><li> WorldClim in R :earth_americas: | |
