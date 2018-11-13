@@ -36,7 +36,7 @@ View(newdata1)
 ```
 
 
-**Try it yourself:** Another way of ending up with the same two columns is to select the columns by column number, rather than column name. Find the column numbers of the latitude and longitude columns, and put them in the square brackets below. Be careful -- we want to make sure that we don't select out only a single cell from the dataframe. You can use `c()` to create a vector of the columns you want, or use `:` to indicate a range of column numbers.
+**Try it yourself:** Another way of ending up with the same two columns is to select the columns by column number, rather than column name. Find the column numbers of the latitude and longitude columns, and put them in the square brackets below. Be careful -- we want to make sure that we don't select out only a single cell from the dataframe. You can use `c()` to create a vector of the columns you want (for example `c(4,6)` would get you the 4th and 6th columns), or use `:` (for example `3:5` would get you the 3rd, 4th, and 5th columns) to indicate a range of column numbers.
 
 ```{r}
 newdata2 <- sp_df[]
@@ -83,7 +83,7 @@ names(sp_df) %in% "prov"
 ```
 
 
-**Try it yourself:** Now try dropping multiple columns from the dataset. Let's say, in this case, that we no longer care about occurrence data. Modify the above code to get rid of the data from the columns `prov` and `date`:
+**Try it yourself:** Now try dropping multiple columns from the dataset. Let's say, in this case, that we no longer care about occurrence date. Modify the above code to get rid of the data from the columns `prov` and `date`:
 ```{r}
 
 ```
