@@ -18,14 +18,17 @@ api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
 register_google(key = api_key)
 
 #Make map of your Central Park GPS points:
-
+bound_box <- make_bbox()
+map <- get_map()
+ggmap(map) +
+  
 ```
 
 ## Points, lines, and polygons
 
 We are going to create a point, line, and polygon feature using the GPS points you collected. First, you need to pick which GPS points will belong to each feature.
 
-**Try it yourself:** View the dataframe of GPS points. Pick one observation (row of your dataframe) to be your point feature, pick >2 observations to be your line feature, and pick another set to be your polygon.
+**Try it yourself:** View the dataframe of GPS points. Pick one observation (row of your dataframe) to be your point feature, pick a set of >2 observations to be your line feature, and pick another set of >2 observations to be your polygon.
 
 ```{r}
 #Enter the row name of the point feature:
@@ -48,13 +51,6 @@ PointPoly <- SpatialPolygons(list(Polygons(list(Polygon(yourdata[PolyFeat, 1:2])
 ```
 
 ## Plot features
-
-**Try it yourself:** Fill in the following code to make a bounding box from your GPS coordinates and get a map from Google at that location. Feel free to reference your code from IntroGPS.Rmd
-
-```{r}
-bound_box <- make_bbox()
-map <- get_map()
-```
 
 Now we can map our features, starting with the point:
 
