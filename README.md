@@ -35,7 +35,7 @@
   | November 6 <br> <sub> :us: Election Day :us: </sub> | **No internship session today** |                                      Code in politics (and life) - [FiveThirtyEight](https://fivethirtyeight.com/) |
   | November 8 | <ul><li> Finish `spocc` tutorial </li><li> ~~Fast~~ facts about sloths |                                       [Sloth slides](https://docs.google.com/presentation/d/1h3dgXnZQpHdQW54hK1eR3cRHQ3shuDH3E7P_h1rnZKE/edit?usp=sharing) |
 | **Week 6** | | |
-  | November 13 | <ul><li> Subsetting data </li><li> Lines and polygons |                                                       [Sloth data cleaning - part 1](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt1.Rmd) <br> Return to GPS <br> Sloth data cleaning - part 2 |
+  | November 13 | <ul><li> Subsetting data </li><li> Lines and polygons |                                                       [Sloth data cleaning - part 1](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt1.Rmd) <br> [Return to GPS](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/GPS_PointLinePoly.Rmd) <br> [Sloth data cleaning - part 2](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt2.Rmd) |
   | November 15 | <ul><li> Introduction to spatial thinning </li><li> `spThin` tutorial </li><li> Questions for Julia Tejada |   Sloth data cleaning - part 3 <br> [Questions for Julia Tejada](https://docs.google.com/document/d/15rEqzpRAIuNE7CPi0UA2Lyxaw1sH1BPFmGaGWRG7JfY/edit?usp=sharing) |
 | **Week 7** | | |
   | November 20 | <ul><li> Meet Julia Tejada! </li><li> `raster` package tutorial </li><li> What is WorldClim? |                 [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) <br> [WorldClim website](http://www.worldclim.org) |
@@ -67,7 +67,7 @@ Push your local changes:
   + `cd`: move to a new directory
 + See current status of Git: `git status`
 + If you have modified files, commit your changes
-  + `git add <file name>` to add those files to your commit
+  + `git add .` to add all untracked files to your commit
   + Once you've added all the files, `git commit -m "whatever you want your message to be"`
 + Push your changes to your remote copy of the fork: `git push`
 
@@ -85,7 +85,7 @@ Push your local changes:
 
 + See current status of Git: `git status`
 + If you have modified files, commit your changes
-  + `git add <file name>` to add those files to your commit
+  + `git add .` to add all untracked files to your commit
   + Once you've added all the files, `git commit -m "whatever you want your message to be"`
 + Push your changes to your remote copy of the fork: `git push`
 
