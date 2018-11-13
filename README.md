@@ -67,7 +67,7 @@ Push your local changes:
   + `cd`: move to a new directory
 + See current status of Git: `git status`
 + If you have modified files, commit your changes
-  + `git add <file name>` to add those files to your commit
+  + `git add .` to add all untracked files to your commit
   + Once you've added all the files, `git commit -m "whatever you want your message to be"`
 + Push your changes to your remote copy of the fork: `git push`
 
@@ -85,7 +85,7 @@ Push your local changes:
 
 + See current status of Git: `git status`
 + If you have modified files, commit your changes
-  + `git add <file name>` to add those files to your commit
+  + `git add .` to add all untracked files to your commit
   + Once you've added all the files, `git commit -m "whatever you want your message to be"`
 + Push your changes to your remote copy of the fork: `git push`
 
