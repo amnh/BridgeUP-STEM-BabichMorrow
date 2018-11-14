@@ -36,12 +36,12 @@
   | November 8 | <ul><li> Finish `spocc` tutorial </li><li> ~~Fast~~ facts about sloths |                                       [Sloth slides](https://docs.google.com/presentation/d/1h3dgXnZQpHdQW54hK1eR3cRHQ3shuDH3E7P_h1rnZKE/edit?usp=sharing) |
 | **Week 6** | | |
   | November 13 | <ul><li> Subsetting data </li><li> Lines and polygons - Introduction |                                         [Sloth data cleaning - part 1](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt1.Rmd) <br> [Return to GPS](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/GPS_PointLinePoly.Rmd) <br> |
-  | November 15 | <ul><li> Lines and polygons (continued) </li><li> Introduction to spatial thinning </li><li> Questions for Julia Tejada |                                                                                                                   [Sloth data cleaning - part 2](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt2.Rmd) <br> [Questions for Julia Tejada](https://docs.google.com/document/d/15rEqzpRAIuNE7CPi0UA2Lyxaw1sH1BPFmGaGWRG7JfY/edit?usp=sharing) |
+  | November 15 | <ul><li> Lines and polygons (continued) </li><li> Questions for Julia Tejada |                                 [Sloth data cleaning - part 2](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt2.Rmd) <br> [Questions for Julia Tejada](https://docs.google.com/document/d/15rEqzpRAIuNE7CPi0UA2Lyxaw1sH1BPFmGaGWRG7JfY/edit?usp=sharing) |
 | **Week 7** | | |
-  | November 20 | <ul><li> Meet Julia Tejada! </li><li> `spThin` tutorial </li><li> What is WorldClim? |                         Sloth data cleaning - part 3 <br> [WorldClim website](http://www.worldclim.org) |
+  | November 20 | <ul><li> Meet Julia Tejada! </li><li> Introduction to spatial thinning </li><li> `spThin` tutorial|           Sloth data cleaning - part 3 |
   | November 22 <br> <sub> :poultry_leg: Thanksgiving :maple_leaf: </sub> | **No internship session today** | | 
 | **Week 8** | | |
-  | November 27 | <ul><li> `raster` package tutorial </li><li> WorldClim in R :earth_americas: |                                 [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) |
+  | November 27 | <ul><li> `raster` package tutorial </li><li> What is WorldClim? </li><li> WorldClim in R :earth_americas: |   [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) <br> [WorldClim website](http://www.worldclim.org) |
   | November 29 | <ul><li> Louise is visiting! | |
 | **Week 9** | | |
   | December 4 | <ul><li> Presentation planning | |
