@@ -7,7 +7,7 @@
 
 # Required packages -------------------------------------------------------
 
-# Load the packages you need for your analyses
+# Load all the packages you need for your analyses
 # You can find packages we've used in IntroGPS.Rmd, UFO_code.Rmd,
 # spocc_tutorial.Rmd and the R script you wrote using spocc, sloth_cleaning_pt1.Rmd, and sloth_cleaning_pt2.Rmd
 
@@ -19,6 +19,9 @@
 # Look at the spocc_tutorial.Rmd and the R script you wrote using spocc for inspiration
 # Check out the help menu for the occ function: we want to change the limit argument to 1300
 
+
+# Remove rows in the dataframe that have NA values for latitude or longitude
+# Use UFO_code.Rmd for inspiration on removing NA values
 
 
 # Visualize occurrence data -----------------------------------------------
