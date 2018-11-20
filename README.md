@@ -38,7 +38,7 @@
   | November 13 | <ul><li> Subsetting data </li><li> Lines and polygons - Introduction |                                         [Sloth data cleaning - part 1](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt1.Rmd) <br> [Return to GPS](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/GPS_PointLinePoly.Rmd) <br> |
   | November 15 | <ul><li> Lines and polygons (continued) </li><li> Questions for Julia Tejada |                                 [Sloth data cleaning - part 2](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt2.Rmd) <br> [Questions for Julia Tejada](https://docs.google.com/document/d/15rEqzpRAIuNE7CPi0UA2Lyxaw1sH1BPFmGaGWRG7JfY/edit?usp=sharing) |
 | **Week 7** | | |
-  | November 20 | <ul><li> Meet Julia Tejada! </li><li> Data cleaning workflow |            |
+  | November 20 | <ul><li> Meet Julia Tejada! </li><li> Data cleaning workflow |                                                 [Data cleaning script](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/intern_code/data_cleaning_workflow.R)|
   | November 22 <br> <sub> :poultry_leg: Thanksgiving :maple_leaf: </sub> | **No internship session today** | | 
 | **Week 8** | | |
   | November 27 | <ul><li> Introduction to spatial thinning </li><li> `spThin` tutorial | Sloth data cleaning - part 3 |
