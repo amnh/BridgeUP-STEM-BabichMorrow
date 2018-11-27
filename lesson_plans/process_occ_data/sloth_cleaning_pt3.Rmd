@@ -43,4 +43,41 @@ if(length(maxThin) > 1){
 
 **Try it yourself:** Check out the if-else statement above -- this is one of the first conditionals we've worked with in R. Make sure you understand what each part does. Look at the data frame `maxThin` (paying attention to the row numbers).
 
+For the last step, we want to subset our occurrence data that remained after using the polygon to take only the rows left after spatial thinning.
+
+**Try it yourself:** Replace the `???` with the name of the data frame containing occurrences subsetted by your polygon. Check out the square brackets in the code below and think about what the code is doing -- what do the row names of `maxThin` represent?
+
+```{r}
+thinned_occs <- ???[rownames(maxThin),]
+```
+
+This all might have been tricky -- take some time to go through the code line by line to understand why you did what you did. If you have any questions, check out the Help menu, ask your neighbor, and/or ask Cecina!
+
+## Mapping
+
+Running `spThin` can seem a bit abstract until you can visualize the results. You can use `ggmap` to visualize the points you started off with (the ones from the polygon data cleaning) and compare them to the points you ended up with (the spatially thinned occurrences).
+
+**Try it yourself:** Use your code from past R Markdowns and/or your data cleaning R script to plot the polygon occurrence points on a map. Remember to load the `ggmap` package first:
+
+```{r}
+
+```
+
+**Try it yourself:** Copy and paste the above code into the code chunk below. Use the `+` to add another layer onto your map: plot the points from `thinned_occs` on your map in a different color.
+
+```{r}
+
+```
+
+Do you think the spatial thinning helped with spatial bias?
+
+## Bonus:
+
+We just spatially thinned our data to 10 km. This may or may not have been enough to remove the spatial bias in the data. Try the above process again, but increase the thinning distance to something higher than 10 km. Make sure to plot on the map at the end -- which thinning distance results in data that looks less biased? Why?
+
+```{r}
+
+```
+
+
 
