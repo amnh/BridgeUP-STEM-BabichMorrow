@@ -44,7 +44,7 @@
   | November 27 | <ul><li> Data cleaning workflow (continued) </li><li> Introduction to spatial thinning </li><li> `spThin` tutorial |                                                                                                                       [Intro to spatial thinning -- slides](https://docs.google.com/presentation/d/1QXQPjPB8mJhL8VQIGlejPfd9HxWgUiIPPAF1MVurtsE/edit?usp=sharing) <br> Sloth data cleaning - part 3 |
   | November 29 | <ul><li> Louise is visiting! </li><li> `raster` package tutorial </li><li> What is WorldClim? </li><li>       WorldClim in R :earth_americas: | [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) <br> [WorldClim website](http://www.worldclim.org) |
 | **Week 9** | | |
-  | December 4 | <ul><li> Presentation planning | |
+  | December 4 | <ul><li> Presentation planning | [Presentation brainstorm](https://docs.google.com/document/d/10Ytlmy8DcSudERSc9Uk5MVY_r0eSNfBT702VEK1XoyY/edit?usp=sharing)|
   | December 6 | <ul><li> Work on presentations | |
 | **Week 10** | | |
   | December 11 | <ul><li> Work on presentations | |
