@@ -41,7 +41,7 @@
   | November 20 | <ul><li> Meet Julia Tejada! </li><li> Data cleaning workflow |                                                 [Data cleaning script](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/intern_code/data_cleaning_workflow.R)|
   | November 22 <br> <sub> :poultry_leg: Thanksgiving :maple_leaf: </sub> | **No internship session today** | | 
 | **Week 8** | | |
-  | November 27 | <ul><li> Introduction to spatial thinning </li><li> `spThin` tutorial | Sloth data cleaning - part 3 |
+  | November 27 | <ul><li> Data cleaning workflow (continued) </li><li> Introduction to spatial thinning </li><li> `spThin` tutorial |                                                                                                                       [Intro to spatial thinning -- slides](https://docs.google.com/presentation/d/1QXQPjPB8mJhL8VQIGlejPfd9HxWgUiIPPAF1MVurtsE/edit?usp=sharing) <br> Sloth data cleaning - part 3 |
   | November 29 | <ul><li> Louise is visiting! </li><li> `raster` package tutorial </li><li> What is WorldClim? </li><li>       WorldClim in R :earth_americas: | [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) <br> [WorldClim website](http://www.worldclim.org) |
 | **Week 9** | | |
   | December 4 | <ul><li> Presentation planning | |
