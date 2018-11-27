@@ -48,7 +48,7 @@
   | December 6 | <ul><li> Work on presentations | |
 | **Week 10** | | |
   | December 11 | <ul><li> Work on presentations | |
-  | December 13 | Presentation Skills Workshop | |
+  | December 13 | <ul><li> Community building </li><li> Work on presentations | |
 | **Week 11** | | |
   | December 18 | <ul><li> Work on presentations | |
   | December 20 | **Winter Presentations!** | |
