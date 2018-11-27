@@ -51,6 +51,13 @@ For the last step, we want to subset our occurrence data that remained after usi
 thinned_occs <- ???[rownames(maxThin),]
 ```
 
+**Try it yourself:** We can check how many occurrences were taken out by spatial thinning. Use `nrow()` to find how many rows (occurrences) were in your occurrences subsetted by polygon. Compare to the number of rows in `thinned_occs()`:
+
+```{r}
+
+```
+
+
 This all might have been tricky -- take some time to go through the code line by line to understand why you did what you did. If you have any questions, check out the Help menu, ask your neighbor, and/or ask Cecina!
 
 ## Mapping
@@ -63,7 +70,7 @@ Running `spThin` can seem a bit abstract until you can visualize the results. Yo
 
 ```
 
-**Try it yourself:** Copy and paste the above code into the code chunk below. Use the `+` to add another layer onto your map: plot the points from `thinned_occs` on your map in a different color.
+**Try it yourself:** Copy and paste the above code into the code chunk below. Use the `+` to add another layer onto your map: plot the points from `thinned_occs` on your map in a different color. You may need to zoom into a region of the map to see a difference.
 
 ```{r}
 
