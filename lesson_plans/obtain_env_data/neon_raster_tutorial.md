@@ -4,7 +4,7 @@ We are going to take a brief break from our sloths to learn about the `raster` p
 
 ## Download data
 
-We need to start by downloading the data for the tutorial from NEON: https://www.neonscience.org/primer-raster-data-r. The data is too large to store conveniently on GitHub, so I suggest saving it on your Desktop for easy access. The specific data you'll be working with comes from the San Joaquin Experimental Range (https://www.neonscience.org/field-sites/field-sites-map/SJER), which is a study site in California.
+We need to start by downloading the data for the tutorial from NEON: https://www.neonscience.org/primer-raster-data-r. I saved the files you need to a folder in my Google Drive: https://drive.google.com/open?id=1MkKS0s0_kvpiEsPVqOFHDcQpW2MtGh-b, so downloading should be quicker than downloading directly from NEON. The data is too large to store conveniently on GitHub, so save it on your Desktop for easy access. The specific data you'll be working with comes from the San Joaquin Experimental Range (https://www.neonscience.org/field-sites/field-sites-map/SJER), which is a study site in California.
 
 ## Start the tutorial!
 
