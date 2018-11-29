@@ -80,7 +80,7 @@ Do you think the spatial thinning helped with spatial bias?
 
 ## Bonus:
 
-We just spatially thinned our data to 10 km. This may or may not have been enough to remove the spatial bias in the data. Try the above process again, but increase the thinning distance to something higher than 10 km. Make sure to plot on the map at the end -- which thinning distance results in data that looks less biased? Why?
+We just spatially thinned our data to 10 km. This may or may not have been enough to remove the spatial bias in the data. Try the above process again, but increase the thinning distance to something higher than 10 km. Make sure to plot the thinned points on the map at the end -- which thinning distance results in data that looks less biased? Why?
 
 ```{r}
 
