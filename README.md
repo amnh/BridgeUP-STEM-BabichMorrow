@@ -52,7 +52,7 @@
 | **Week 11** | | |
   | December 18 | <ul><li> Work on presentations | |
   | December 20 | **Winter Presentations!** | |
-| **Winter Recess** | **December 24-January 1** | |
+| :snowflake:**Winter Recess**:snowman: | **December 24-January 1** | |
 
 ## Daily Git To Do
 
