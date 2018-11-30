@@ -42,10 +42,10 @@
   | November 22 <br> <sub>:poultry_leg:Thanksgiving:maple_leaf:</sub> | **No internship session today** | | 
 | **Week 8** | | |
   | November 27 | <ul><li> Data cleaning workflow (continued) </li><li> Presentation brainstorm | [Presentation brainstorm](https://docs.google.com/document/d/10Ytlmy8DcSudERSc9Uk5MVY_r0eSNfBT702VEK1XoyY/edit?usp=sharing)|
-  | November 29 | <ul><li> Louise is visiting! </li><li> Introduction to spatial thinning </li><li> `spThin` tutorial </li><li> What is WorldClim? |                                                                                                       [Intro to spatial thinning -- slides](https://docs.google.com/presentation/d/1QXQPjPB8mJhL8VQIGlejPfd9HxWgUiIPPAF1MVurtsE/edit?usp=sharing) <br> [Sloth data cleaning - part 3](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt3.Rmd) <br> [WorldClim website](http://www.worldclim.org): [Data format](http://www.worldclim.org/formats1) & [Bioclimatic variables](http://www.worldclim.org/bioclim)|
+  | November 29 | <ul><li> Louise is visiting! </li><li> Introduction to spatial thinning </li><li> `spThin` tutorial |         [Intro to spatial thinning -- slides](https://docs.google.com/presentation/d/1QXQPjPB8mJhL8VQIGlejPfd9HxWgUiIPPAF1MVurtsE/edit?usp=sharing) <br> [Sloth data cleaning - part 3](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt3.Rmd) <br> |
 | **Week 9** | | |
-  | December 4 | <ul><li> `raster` package tutorial </li><li> WorldClim in R :earth_americas:|  <br>[`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) <br>  |
-  | December 6 | <ul><li> Environmental data for sloths! | |
+  | December 4 | <ul><li> Wrap up spatial thinning </li><li>`raster` package tutorial </li><li> What is WorldClim? |             [`raster` tutorial](https://www.neonscience.org/primer-raster-data-r) <br>  [WorldClim website](http://www.worldclim.org): [Data format](http://www.worldclim.org/formats1) & [Bioclimatic variables](http://www.worldclim.org/bioclim)|
+  | December 6 | <ul><li> WorldClim in R :earth_americas: | |
 | **Week 10** | | |
   | December 11 | <ul><li> Work on presentations | |
   | December 13 | <ul><li> Community building </li><li> Work on presentations | |
