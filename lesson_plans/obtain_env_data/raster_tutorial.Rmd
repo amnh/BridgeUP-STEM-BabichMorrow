@@ -3,9 +3,13 @@ title: "`raster` Package Tutorial"
 output: html_notebook
 ---
 
+This tutorial has been adapted from tutorials by NEON (National Ecological Observation Network - https://www.neonscience.org/primer-raster-data-r) and R Spatial (http://rspatial.org/spatial/index.html).
+
 We are going to take a brief break from our sloths to learn about the `raster` package in R. Raster data (if you remember from that super exciting online reading) is data in a grid, where each cell has a value representing some variable, like elevation, temperature, precipitation, etc.
 
-## Make a RasterLayer
+## Making raster objects
+
+### RasterLayers
 
 Most of the time when we are analyzing raster data, we create the raster from a file. To start learning about rasters, however, we are going to create one from scratch:
 
@@ -38,7 +42,7 @@ raster1@extent
 
 Notice that the raster has a CRS even though we didn't define one -- this is the default value.
 
-## Make RasterStacks & RasterBricks
+### RasterStacks & RasterBricks
 
 In many cases, we want to analyze multi-variable raster data sets. There are two classes to do this: `RasterStack` and `RasterBrick`. A `RasterBrick` can only be made from a single file, while a `RasterStack` can be formed from separate files.
 
@@ -66,5 +70,87 @@ And we can make a `RasterBrick` from the `RasterStack`:
 ```{r}
 brick1 <- brick(stack1)
 brick1
+```
+
+## Modifying a Raster* object
+
+### Crop
+
+The function `crop()` allows you to take a given subset of a raster. We can crop rasters in a couple of different ways. We can click on the plot of the raster itself to draw the region we want to crop by using the function `drawExtent()` -- when you run that line, click once on the upper left and once on the lower right to define a box.
+
+```{r}
+plot(raster1)
+#Define the extent of the crop by clicking on the plot
+cropbox1 <- drawExtent()
+#Create a new, cropped raster
+raster1_cropped1 <- crop(raster1, cropbox1)
+#plot the cropped extent
+plot(raster1_cropped1)
+```
+
+We can also crop a raster given an extent we want to crop to.
+
+**Try it yourself:** Check the extent of `raster1`:
+
+```{r}
+
+```
+
+We can crop `raster1` to an extent within the original extent:
+
+```{r}
+raster1_cropped2 <- crop(raster1, extent(-50, 0, 0, 30))
+plot(raster1_cropped2)
+```
+
+**Try it yourself:** Now try cropping raster1 to the extent `extent(-10,50,-20,10)` and plot the result:
+
+```{r}
+raster1_cropped3 <-
+```
+
+### Merge
+
+The `merge()` function can make multiple rasters with the same resolution and origin into a single new object. We can merge the last two cropped rasters we created:
+
+```{r}
+merge_raster1 <- merge(raster1_cropped2, raster1_cropped3)
+plot(merge_raster1)
+```
+
+
+### Mask
+
+The function `mask()` removes all values from one layer that are `NA` in another layer. 
+
+```{r}
+# make a raster equal to 3*raster1 but with NA's for all cells with values lower than 12
+na_raster <- raster1 * 3
+na_raster[na_raster < 12] <- NA
+
+plot(raster1)
+plot(na_raster)
+```
+
+So now we can mask `raster1` by `na_raster`:
+
+```{r}
+# remove from raster1 all values that are NA in na_raster
+masked_raster <- mask(raster1, na_raster)
+plot(masked_raster)
+```
+
+## Accessing cell values
+
+Often, we want to access the values associated with our raster. We can do that using the `getValues()` function:
+
+```{r}
+getValues(raster1)
+```
+
+**Try it yourself:** Use `getValues()` and square brackets to print the 5th through 10th values in `raster1`:
+
+```{r}
+
 ```
 
