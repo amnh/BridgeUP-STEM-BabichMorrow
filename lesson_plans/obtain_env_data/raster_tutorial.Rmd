@@ -1,0 +1,70 @@
+---
+title: "`raster` Package Tutorial"
+output: html_notebook
+---
+
+We are going to take a brief break from our sloths to learn about the `raster` package in R. Raster data (if you remember from that super exciting online reading) is data in a grid, where each cell has a value representing some variable, like elevation, temperature, precipitation, etc.
+
+## Make a RasterLayer
+
+Most of the time when we are analyzing raster data, we create the raster from a file. To start learning about rasters, however, we are going to create one from scratch:
+
+```{r}
+library(raster)
+library(sp)
+library(rgdal)
+
+# create blank 4x4 raster:
+raster1 <- raster(nrow=4, ncol=4)
+raster1
+```
+
+You can see the dimensions of the raster (4x4), the resolution, the extent, and the CRS, but there are no values yet. We can assign some arbitrary data values to our new raster:
+
+```{r}
+raster1[]<- 1:ncell(raster1)
+raster1
+plot(raster1, main="Raster with 16 pixels")
+```
+
+Now, when we look at the attributes of `raster1`, we can see the minimum and maximum values of the data for each cell. We can also look at the extent and CRS of our new raster:
+
+```{r}
+# is the CRS (Coordinate Reference System) defined?
+raster1@crs
+# what is the raster extent?
+raster1@extent
+```
+
+Notice that the raster has a CRS even though we didn't define one -- this is the default value.
+
+## Make RasterStacks & RasterBricks
+
+In many cases, we want to analyze multi-variable raster data sets. There are two classes to do this: `RasterStack` and `RasterBrick`. A `RasterBrick` can only be made from a single file, while a `RasterStack` can be formed from separate files.
+
+We can make a RasterStack from multiple layers in the following way:
+
+**Try it yourself:** Make two new arbitrary `RasterLayers` to combine with `raster1`. You can do "math" with rasters (add, subtract, multiply, divide the values, etc.):
+```{r}
+# make two arbitrary rasters
+raster2 <- 
+plot(raster2)
+raster3 <- 
+plot(raster3)
+```
+
+Now we can stack the three `RasterLayers`:
+
+```{r}
+stack1 <- stack(raster1, raster2, raster3)
+stack1
+plot(stack1)
+```
+
+And we can make a `RasterBrick` from the `RasterStack`:
+
+```{r}
+brick1 <- brick(stack1)
+brick1
+```
+
