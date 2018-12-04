@@ -23,3 +23,12 @@ Typically, when we work with rasters, we will be creating them from a file (inst
 ```{r}
 bio1 <- 
 ```
+
+
+
+Sometimes we want to get the raster value associated with a certain coordinate (this will be important for our sloths!). To accomplish this, we can use the `extract()` function:
+
+```{r}
+xy_coords <- c(0,0)
+extract(raster1, xy_coords)
+```
