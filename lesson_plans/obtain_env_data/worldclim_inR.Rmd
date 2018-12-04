@@ -1,0 +1,15 @@
+---
+title: "WorldClim in R"
+output: html_notebook
+---
+
+```{r}
+envs <- raster::getData(name = "worldclim", var = "bio", res = 2.5, lat = , lon = )
+
+# extract environmental values at occ grid cells
+locs.vals <- raster::extract(envs[[1]], occs[, c('longitude', 'latitude')])
+# remove occs without environmental values
+occs <- occs[!is.na(locs.vals), ]
+```
+
+
