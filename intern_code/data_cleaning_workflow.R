@@ -67,4 +67,17 @@
 
 
 
+# Spatial thinning --------------------------------------------------------
+
+# Refer to sloth_cleaning_pt3.Rmd for inspiration
+
+
+# Run the spatial thinning algorithm on the data post-polygon cleaning
+# using a thinning distance you think helps with spatial bias
+
+
+# Check how many rows were removed by spatial thinning
+
+
+# Visualize which points were removed from spatial thinning using ggmap
 
