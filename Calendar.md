@@ -3,7 +3,7 @@
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
 | **Week 12** | | |
-  | January 3 | | |
+  | January 3 | <ul><li> Introduction to rasters </li><li> Start `raster` package tutorial |                                     [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) |
 | **Week 13** | | |
   | January 8 | | |
   | January 10 | | |
