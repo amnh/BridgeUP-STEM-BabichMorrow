@@ -45,7 +45,7 @@
   | November 29 | <ul><li> Louise is visiting! </li><li> Introduction to spatial thinning </li><li> `spThin` tutorial |         [Intro to spatial thinning -- slides](https://docs.google.com/presentation/d/1QXQPjPB8mJhL8VQIGlejPfd9HxWgUiIPPAF1MVurtsE/edit?usp=sharing) <br> [Sloth data cleaning - part 3](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt3.Rmd) <br> |
 | **Week 9** | | |
   | December 4 | <ul><li> Polygon overlaps </li><li> Wrap up spatial thinning </li><li> Code troubleshooting |             [Polygon overlap revisited](https://docs.google.com/presentation/d/1VzmFvZxlq0hjCQCn3RYNRr9m_RY1ZUqj8TsK8rS2BAo/edit?usp=sharing) |
-  | December 6 | <ul><li> Code debugging :ant: </li><li> Introduction to rasters </li><li> Start `raster` package tutorial |     [Code troubleshooting - slides](https://docs.google.com/presentation/d/1lCz-m5qznkslYgGxYmmtLHqr6-C4xwzsn1TKG77WgAk/edit?usp=sharing) <br> [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) |
+  | December 6 | <ul><li> Code debugging :ant: |                                                                                 [Code troubleshooting - slides](https://docs.google.com/presentation/d/1lCz-m5qznkslYgGxYmmtLHqr6-C4xwzsn1TKG77WgAk/edit?usp=sharing) |
 | **Week 10** | | |
   | December 11 | <ul><li> Work on presentations | |
   | December 13 | <ul><li> Community building </li><li> Work on presentations | |
