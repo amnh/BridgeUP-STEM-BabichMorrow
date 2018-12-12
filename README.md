@@ -47,7 +47,7 @@
   | December 4 | <ul><li> Polygon overlaps </li><li> Wrap up spatial thinning </li><li> Code troubleshooting |             [Polygon overlap revisited](https://docs.google.com/presentation/d/1VzmFvZxlq0hjCQCn3RYNRr9m_RY1ZUqj8TsK8rS2BAo/edit?usp=sharing) |
   | December 6 | <ul><li> Code debugging :ant: |                                                                                 [Code troubleshooting - slides](https://docs.google.com/presentation/d/1lCz-m5qznkslYgGxYmmtLHqr6-C4xwzsn1TKG77WgAk/edit?usp=sharing) |
 | **Week 10** | | |
-  | December 11 | <ul><li> Work on presentations | |
+  | December 11 | <ul><li> Finish debugging </li><li> Work on presentations | [SlothSquad Winter Presentation - Slides](https://docs.google.com/presentation/d/1CsCpxDbWRfczCLFC6ZeQOavGhHhiaaiFzWesDrbR5Tw/edit?usp=sharing) <br> [Code summary by Ula](https://docs.google.com/document/d/1m6zxd6XjjJhvu1YlAomczeE37upaj3c1-if-pbvP7lw/edit?usp=sharing) |
   | December 13 | <ul><li> Community building </li><li> Work on presentations | |
 | **Week 11** | | |
   | December 18 | <ul><li> Work on presentations | |
