@@ -10,7 +10,7 @@ This game has been adapted from instructions written by Alexandra Walling (2017 
 
 ## Bash Commands to Know
 
-
+I've added a Linux cheatsheet from threenine.co.uk to this repository: https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Linux-Reference-1.pdf. There are other cheatsheets available online, so if this one doesn't quite suit you, feel free to look around for others. We will be mostly focusing on the "File Commands" section of this cheatsheet, so take a look at those commands. You have used some of these commands already when using Git -- which ones look familiar? Which ones don't? Do you see any that look particularly useful?
 
 ## Rules
 
