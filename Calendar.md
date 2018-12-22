@@ -2,48 +2,37 @@
 
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
-| **Week 12** | | |
-  | January 3 | <ul><li> Professionalism, and all that jazz :saxophone: </li><li> GitHub pull requests </li><li> File path game | |
-| **Week 13** | | |
-  | January 8 | <ul><li> Introduction to rasters </li><li> Start `raster` package tutorial |                                     [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) |
-  | January 10 | | |
-| **Week 14** | | |
-  | January 15 | | |
-  | January 17 | | |
-| **Week 15** | | |
-  | January 22 | | |
-  | January 24 | | |
-| **Week 16** | | |
-  | January 29 | | |
-  | January 31 | | |
-| **Week 17** | | |
-  | January 29 | | |
-  | January 31 | | |
-| **Week 18** | | |
-  | February 5 | **No internship session today** | |
-  | February 7 | | |
-  | February 8 | **Hackathon!** | |
-  | February 9 | **Hackathon!** | |
-| **Week 19** | | |
-  | February 10 | **Hackathon!** | |
-  | February 12 | **No internship session today** | |
-  | February 14 <br> <sub>:heart_eyes:Valentine's Day:love_letter:</sub> | | |
-| **Mid-Winter Recess** <br> :snowflake: | **February 18-22** | |
-| **Week 20** | | |
-  | February 26 | Resume Workshop |  |
-  | February 28 | HTML/CSS Workshop |  |
-| **Week 21** | | |
-  | March 5 | | |
-  | March 7 | | |
-| **Week 22** | | |
-  | March 12 | | |
-  | March 14 | | |
-| **Week 23** | | |
-  | March 19 | | |
-  | March 21 | | |
-| **Week 24** | | |
-  | March 26 | | |
-  | March 28 | | |
-| **Week 25** | | |
-  | April 2 | | |
-  | April 4 | Presentation Skills Workshop| |
+| **Week 1** | | |
+  | October 9 |  <ul><li>Join the Sloth Squad! </li><li> R set-up </li><li> Questions for Dr. Blair |                           [R Set-up - slides](https://docs.google.com/presentation/d/1EsC6WLLg2vecp1zUkETEXVK2Ai168oAJrUcz23vlpj8/edit?usp=sharing)     <br> [Dr. Blair's website](https://sites.google.com/site/maryeblair/home) <br> [Dr. Blair - Scientist at Work](https://scientistatwork.blogs.nytimes.com/tag/slow-loris/) |
+  | October 11 | <ul><li> Meet Dr. Mary Blair! </li><li> Project Overview |                                                     [Questions for Dr. Blair](https://docs.google.com/document/d/14YUri2-jk7_R_H8OH7ouzHGdfD1sJqFb7CTERCC7NMs/edit?usp=sharing)   <br>[Project Overview - slides](https://docs.google.com/presentation/d/1WHQqnFkMPRanS7SCgBz7Vu6U876s6jPJqvuFz_OkTFU/edit?usp=sharing) |
+| **Week 2** | | |
+  | October 16 | <ul><li> Digging into R+GitHub :fork_and_knife: </li><li>  Introduction to R |                                 [Forking in GitHub and RStudio](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GitHub_Fork.md) <br> [Happy Git with R](http://happygitwithr.com/rstudio-git-github.html) <br> [Introduction to R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Intro_R/Introduction_to_R.Rmd) |
+  | October 18 | <ul><li> Going outside! - GPS exploration </li><li> Syncing a fork </li><li> Introduction to spatial data in R |                                                                                                                             [GPS collection instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GPS_CollectData.md) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Intro_GPS/IntroGPS.Rmd) |
+| **Week 3** | | |
+  | October 23 | <ul><li> Syncing a fork - review </li><li> GPS in R continued |                                                 [GitHub Help: syncing a fork](https://help.github.com/articles/syncing-a-fork/) <br> [GPS R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Intro_GPS/IntroGPS.Rmd)  |
+  | October 25 | <ul><li> Hall of Biodiversity scavenger hunt </li><li> What is GBIF? |                                         [GBIF website](https://www.gbif.org) |
+| **Week 4** | | |
+  |October 30 <br> <sub>:jack_o_lantern:Halloween Eve:chocolate_bar:</sub> |                                                 <ul><li> UFO(+R) :alien: |                                                                                                     [UFO R Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Spooky_R/UFO_code.Rmd) |
+  | November 1 | <ul><li> `ggplot2` tutorial </li><li> UFO(+R) continued </li><li> `spocc` package |                             [`ggplot2` tutorial](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) and [tutorial notes](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/Spooky_R/ggplot2_Notes.md) <br> [`ggplot2` Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) <br> [`spocc` package tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_occ_data/spocc_tutorial.Rmd) |
+| **Week 5** | | |
+  | November 6 <br> <sub> :us: Election Day :us: </sub> | **No internship session today** |                                      Code in politics (and life) - [FiveThirtyEight](https://fivethirtyeight.com/) |
+  | November 8 | <ul><li> Finish `spocc` tutorial </li><li> ~~Fast~~ facts about sloths |                                       [Sloth slides](https://docs.google.com/presentation/d/1h3dgXnZQpHdQW54hK1eR3cRHQ3shuDH3E7P_h1rnZKE/edit?usp=sharing) |
+| **Week 6** | | |
+  | November 13 | <ul><li> Subsetting data </li><li> Lines and polygons - Introduction |                                         [Sloth data cleaning - part 1](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt1.Rmd) <br> [Return to GPS](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/GPS_PointLinePoly.Rmd) <br> |
+  | November 15 | <ul><li> Lines and polygons (continued) </li><li> Questions for Julia Tejada |                                 [Sloth data cleaning - part 2](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt2.Rmd) <br> [Questions for Julia Tejada](https://docs.google.com/document/d/15rEqzpRAIuNE7CPi0UA2Lyxaw1sH1BPFmGaGWRG7JfY/edit?usp=sharing) |
+| **Week 7** | | |
+  | November 20 | <ul><li> Meet Julia Tejada! </li><li> Data cleaning workflow |                                                 [Data cleaning script](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/intern_code/data_cleaning_workflow.R)|
+  | November 22 <br> <sub>:poultry_leg:Thanksgiving:maple_leaf:</sub> | **No internship session today** | | 
+| **Week 8** | | |
+  | November 27 | <ul><li> Data cleaning workflow (continued) </li><li> Presentation brainstorm | [Presentation brainstorm](https://docs.google.com/document/d/10Ytlmy8DcSudERSc9Uk5MVY_r0eSNfBT702VEK1XoyY/edit?usp=sharing)|
+  | November 29 | <ul><li> Louise is visiting! </li><li> Introduction to spatial thinning </li><li> `spThin` tutorial |         [Intro to spatial thinning -- slides](https://docs.google.com/presentation/d/1QXQPjPB8mJhL8VQIGlejPfd9HxWgUiIPPAF1MVurtsE/edit?usp=sharing) <br> [Sloth data cleaning - part 3](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/process_occ_data/sloth_cleaning_pt3.Rmd) <br> |
+| **Week 9** | | |
+  | December 4 | <ul><li> Polygon overlaps </li><li> Wrap up spatial thinning </li><li> Code troubleshooting |             [Polygon overlap revisited](https://docs.google.com/presentation/d/1VzmFvZxlq0hjCQCn3RYNRr9m_RY1ZUqj8TsK8rS2BAo/edit?usp=sharing) |
+  | December 6 | <ul><li> Code debugging :ant: |                                                                                 [Code troubleshooting - slides](https://docs.google.com/presentation/d/1lCz-m5qznkslYgGxYmmtLHqr6-C4xwzsn1TKG77WgAk/edit?usp=sharing) |
+| **Week 10** | | |
+  | December 11 | <ul><li> Finish debugging </li><li> Work on presentations | [SlothSquad Winter Presentation - Slides](https://docs.google.com/presentation/d/1CsCpxDbWRfczCLFC6ZeQOavGhHhiaaiFzWesDrbR5Tw/edit?usp=sharing) <br> [Code summary by Ula](https://docs.google.com/document/d/1m6zxd6XjjJhvu1YlAomczeE37upaj3c1-if-pbvP7lw/edit?usp=sharing) |
+  | December 13 | <ul><li> Community building </li><li> Work on presentations | |
+| **Week 11** | | |
+  | December 18 | <ul><li> Work on presentations | |
+  | December 20 | **Winter Presentations!** | |
+| **Winter Recess** <br> :snowman: | **December 24-January 1** | |
