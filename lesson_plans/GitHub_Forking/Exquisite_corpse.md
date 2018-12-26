@@ -25,13 +25,9 @@ Sound complicated? Let's give it a try.
 ## Instructions
 
 1. We are going to work in two groups on two different stories. One person at a time will be responsible for typing the commands as well as the updates to the story, while the other group members tell them what to type. Switch off every turn so that everyone has a chance to type.
-2. First, navigate in Terminal to the folder for your forked repository.
-3. Next, your group needs to sync the fork of whoever is typing:
-  + Fetch commits from upstream repository to get the updated version of the story: `git fetch upstream`
-  + Check out your fork's local `master` branch: `git checkout master`
-  + Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
-    + Will need to hit the escape key, then type `:wq` to get out of the text editor for the commit
-  + Run `git push` one final time to push the merged changes to your remote fork
-4. Go to the online (remote) version of your sloth repository on GitHub. Navigate to the folder with the stories in it. Open the file you're working on with the command `nano story1.txt` or `nano story2.txt`. Nano is a text editor that we will be using to edit the stories. There are lots of text editors, like Vim, Sublime, Emacs, etc. Nano is a pretty basic one, so we're going to use it today just to get started. When you run `nano <file name>`, the editor will either allow you to edit that file, if it already exists, or it will create a file with that name and allow you to edit it.
+2. First, navigate in Terminal to the folder for your forked repository. Sync your fork to make sure it is up-to-date with all changes from the upstream repository.
+4. Navigate to the folder with the stories in it. Open the file you're working on with the command `nano story1.txt` or `nano story2.txt`. Nano is a text editor that we will be using to edit the stories. There are lots of text editors, like Vim, Sublime, Emacs, etc. Nano is a pretty basic one, so we're going to use it today just to get started. When you run `nano <file name>`, the editor will either allow you to edit that file, if it already exists, or it will create a file with that name and allow you to edit it.
 5. Edit your story as a group - you have about 3-5 minutes! Once your editing time is up, exit the text editor by pressing Ctrl+X. Make sure to save the document by typing Y.
+6. Add and commit the story file. Push the changes to the remote copy of the fork you've been editing.
+7. Pull request time! Go to the online (remote) version of your forked sloth repository on GitHub. Select "New pull request" and click "compare across forks". The "base" fork should be "amnh/BridgeUP-STEM-BabichMorrow". Change the "head" fork to the name of your forked copy. Type a title for your pull request and click "Create pull request".
 
