@@ -20,7 +20,7 @@
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
 | **Week 12** | | |
-  | January 3 | <ul><li> GitHub pull requests </li><li> File path game |                                                                   [File path game instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Path_Game.md) <br> |
+  | January 3 | <ul><li> File path game </li><li> GitHub pull requests |                                                                   [File path game instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Path_Game.md) <br> [Exquisite corpse instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GitHub_Forking/Exquisite_corpse.md) |
 | **Week 13** | | |
   | January 8 | <ul><li> Introduction to rasters </li><li> Start `raster` package tutorial |                                     [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) |
   | January 10 | | |
