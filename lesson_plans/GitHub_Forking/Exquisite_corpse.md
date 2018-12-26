@@ -32,6 +32,6 @@ Sound complicated? Let's give it a try.
   + Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
     + Will need to hit the escape key, then type `:wq` to get out of the text editor for the commit
   + Run `git push` one final time to push the merged changes to your remote fork
-4. Go to the online (remote) version of your sloth repository on GitHub. Navigate to the folder with the stories in it. You have about 3-5 minutes to add to them as a group!
-  (Note, these stories are written in Markdown files, which is a way to style text on the web. [Here](https://help.github.com/articles/basic-writing-and-formatting-syntax/) is a cheatsheet for formatting a Markdown document and [here](https://gist.github.com/rxaviers/7360908) is a list of all the GitHub Markdown emojis.)
-5. Save changes to the story by going to the bottom of the document, where it says "Commit changes." Add a descriptive commit message in the first text box, and click the green "Commit new file" button.
+4. Go to the online (remote) version of your sloth repository on GitHub. Navigate to the folder with the stories in it. Open the file you're working on with the command `nano story1.txt` or `nano story2.txt`. Nano is a text editor that we will be using to edit the stories. There are lots of text editors, like Vim, Sublime, Emacs, etc. Nano is a pretty basic one, so we're going to use it today just to get started. When you run `nano <file name>`, the editor will either allow you to edit that file, if it already exists, or it will create a file with that name and allow you to edit it.
+5. Edit your story as a group - you have about 3-5 minutes! Once your editing time is up, exit the text editor by pressing Ctrl+X. Make sure to save the document by typing Y.
+
