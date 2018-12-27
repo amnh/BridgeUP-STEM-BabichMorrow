@@ -39,7 +39,7 @@
 | **Week 18** | | |
   | February 5 | **No internship session today** | |
   | February 7 | | |
-  | February 8 | **Hackathon!** | |
+  | February 8 | **Hackathon! :full_moon:** | |
   | February 9 | **Hackathon!** | |
 | **Week 19** | | |
   | February 10 | **Hackathon!** | |
