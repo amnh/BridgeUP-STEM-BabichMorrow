@@ -1,0 +1,85 @@
+---
+title: "Intermediate GPS -- Points, Lines, & Polygons"
+output: html_notebook
+---
+
+## Introduction
+
+Now you know that spatial data can be represented by vector data -- for discrete objects like rivers or countries -- and raster data -- for continuous variables like temperature that vary across a landscape. Today we are going to be focusing on the three vector data types (points, lines, and polygons). We're going to go back in time briefly to revisit the GPS data points you collected in Central Park.
+
+**Try it yourself:** To get reoriented to that dataset, go back to your code from IntroGPS.Rmd and/or any R script you made for the project and make a map of your points.
+
+```{r}
+library(raster)
+library(sp)
+library(rgdal)
+library(ggmap)
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+
+#Make map of your Central Park GPS points:
+bound_box <- make_bbox()
+map <- get_map()
+ggmap(map) +
+  
+```
+
+## Points, lines, and polygons
+
+We are going to create a point, line, and polygon feature using the GPS points you collected. First, you need to pick which GPS points will belong to each feature.
+
+**Try it yourself:** View the dataframe of GPS points. Pick one observation (row of your dataframe) to be your point feature, pick a set of >2 observations to be your line feature, and pick another set of >2 observations to be your polygon.
+
+```{r}
+#Enter the row name of the point feature:
+PointFeat <- 
+#Enter the row numbers of the line feature using either c() or a colon
+LineFeat <-
+#Enter the row numbers of the polygon feature using either c() or a colon
+PolyFeat <-
+```
+
+Now you can create individual spatial objects for each of the features. You'll have to replace `yourdata` with the actual name of your dataframe of GPS coordinates. This code may look a little complicated -- you don't have to worry about the specifics right now, just know that this is the way to make spatial objects from your lists of coordinates.
+
+```{r}
+# Point features
+PointShape <- SpatialPoints(yourdata[PointFeat,1:2])
+# Line features
+PointLine <- SpatialLines(list(Lines(list(Line(coords = yourdata[LineFeat,1:2])), ID='a')))
+# Polygon features
+PointPoly <- SpatialPolygons(list(Polygons(list(Polygon(yourdata[PolyFeat, 1:2])), ID=1)))
+```
+
+## Plot features
+
+Now we can map our features, starting with the point:
+
+```{r}
+#Map the point feature
+ggmap(map) + 
+  geom_point(data = data.frame(PointShape@coords), 
+             color = "red",
+             size =1)
+```
+
+This isn't earth-shattering -- we've already been able to map points, but this is a way to do it using a spatial feature. Now we can try the line and polygon:
+
+```{r}
+# Map the line feature
+ggmap(map) + 
+  geom_path(data = as.data.frame(coordinates(PointLine@lines[[1]])[[1]]), 
+               aes(x = lon, y = lat),
+               color = "red",
+               size =1)
+
+#Map the polygon feature
+ggmap(map) + 
+  geom_polygon(data = PointPoly, 
+               aes(x = long, y = lat),
+               color = "red",
+               size =1)
+```
+
+
+
+

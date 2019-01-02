@@ -1,0 +1,103 @@
+---
+title: "Sloth Data Cleaning - Part 2: Polygons"
+output: html_notebook
+---
+
+## Introduction
+
+In addition to being fun things that we can plot on maps, polygons can actually help us clean our sloth data. For example, we know that our sloth species live only in South America. In order to get rid of points outside of South America, we could draw a polygon around South America and select out only occurrences that fall within our polygon. We can also use our knowledge about the specific ranges of our sloth species to clean the data even more.
+
+```{r}
+library(raster)
+library(sp)
+library(rgdal)
+library(ggmap)
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+```
+
+
+## Draw and save polygon
+
+To start off, we need to find the coordinates of the polygon we want to use to clean our data. As a group, visit the website https://www.keene.edu/campus/maps/tool/. Zoom out until you find South America. Using the map of Bradypus species distributions as a guide, work together to draw a polygon that captures the area you expect your species to live (one polygon per group!).
+
+Copy the coordinates and paste into an Excel document. We now have a little Excel formatting to do. Select the first column of your Excel file, go to the **Data** tab, and select "Convert Text to Columns". Select "Delimited", hit "Next", and then check the box next to "Comma" and hit "Finish". Now you should have two columns. We want to add some column names, so add a row at the beginning and call the first column "latitude" and the second "longitude".
+
+Whoever has the file on their computer should save it in the `intern_code` folder of their GitHub repo: name it `variegatus_polygon` or `tridactylus_polygon` and save it as a .csv file. That person can then slack their file to everyone else to download and save in the same folder in their repository.
+
+## Polygon in R
+
+Now we are going to follow the same process we did to create a polygon from your Central Park GPS points. First we have to import the new .csv with your polygon:
+
+**Try it yourself:** Use the "Import Dataset" button to import your .csv and paste the code that runs below:
+
+```{r}
+
+```
+
+You can create a spatial polygon from that .csv in a way similar to how we created a spatial polygon dataframe from the GPS coordinates (remember to change `sample_polygon_points` to the name of your dataframe):
+
+```{r}
+SlothPoly <- SpatialPolygons(list(Polygons(list(Polygon(sample_polygon_points)), ID=1)))
+```
+
+## Map polygon
+
+**Try it yourself:** Start off by making a map of your occurrence points. You can reference code from the `spocc` package tutorial to get started:
+
+```{r}
+#Make a map of sloth occurrence points
+sloth_bbox <- make_bbox()
+sloth_map <- get_map()
+ggmap(sloth_map) +
+  
+```
+
+Now we want to add the polygon to the map. Copy your `ggmap()` code above, paste it in the code chunk below, and add a `+` to the end, followed by `geom_polygon`:
+
+```{r}
+#insert code from last code chunk here
+  + geom_polygon(data = SlothPoly,
+    aes(x = long, y = lat), color = "red", size = 1)
+```
+
+Now you can see the polygon you drew! Unfortunately, it doesn't look very pretty at the moment because we can't see the points or the map through our polygon.
+
+**Try it yourself:** Copy all the code from the previous code chunk and paste it in the code chunk below. Add `fill = NA` after `aes(x = long, y = lat)` from `geom_polygon()` and run it again:
+
+```{r}
+
+```
+
+## Data cleaning with polygons
+
+So now we know how to create a polygon and plot it in R...but where does the data cleaning come in? The `sp` package in R lets you overlay polygons with points. To start, we must convert our species occurrences to a SpatialPoints object, just like we did with the GPS data:
+
+```{r}
+SlothPoints <- SpatialPoints(na.omit(sp_df[,2:3]))
+#Notice we used na.omit() to get rid of the NA values in our coordinates
+```
+
+Now we can intersect our polygon with our occurrence points:
+
+```{r}
+intersect <- over(SlothPoints, SlothPoly)
+#find the row numbers of the occurrence points that fall within the polygon:
+intersect_rowNums <- as.numeric(which(!(is.na(intersect))))
+#Create a new dataframe of sloth occurrences containing only occurrences within your polygon
+polygon_occs <- sp_df[intersect_rowNums,]
+```
+
+**Try it yourself:** Plot your new set of occurrence points on the map. Compare with your previous map -- did you get rid of any suspicious points?
+
+```{r}
+
+```
+
+## Bonus
+
+For some `ggplot2` practice...
+
++ Add the polygon to your map of the intersected occurrence points
++ Make a map including the original occurrence points and the new ones after intersecting with the polygon: use a different color for the two sets. Think about the order of the "layers" you are plotting in `ggplot2`
+

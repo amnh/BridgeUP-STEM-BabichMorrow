@@ -89,6 +89,7 @@ ufo_data <- ufo_data[!is.na(ufo_data$latitude),]
 Now that we've reformatted and cleaned up our data a little, we're ready for some fun graphing. We can start by mapping all the data in the same way we mapped the GPS points from Central Park:
 
 ```{r}
+world_map <- map_data("world")
 #Assign the world map plot to the variable "world"
 world <- ggplot() + 
   geom_polygon(data = world_map, aes(x=long, y = lat, group = group), fill = "grey", color = "darkgrey")

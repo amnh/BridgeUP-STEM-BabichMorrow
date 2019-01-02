@@ -117,5 +117,27 @@ When you save the file:
 
 + Name it in the following way (using the name of your sloth species and your own first name): `bradypus_tridactylus_occ_cecina`
 
+## Bonus
 
+### Occurrence date
+
+Look at the `sp_df` dataframe for your sloth species. Notice we have a column for the date of the occurrences. Use your new `ggplot2` skills to color the points on your map according to the date of occurrence (look back at your UFO code if you want a hint).
+
+```{r}
+
+```
+
+Is there any pattern on where the newest/occurrences were found? How might the date the occurrence was collected impact data quality?
+
+### Use a different data source
+
+The `spocc` package lets you get data from more sources than GBIF. You can also use BISON (https://bison.usgs.gov/#home), iNaturalist (https://www.inaturalist.org/), eBird (https://ebird.org/home), Ecoengine (https://ecoengine.berkeley.edu/), and VertNet (http://www.vertnet.org/index.html). Some of these sources only work for specific species, e.g. BISON is only for US species and eBird is only for birds. Pick a source that would work either for the sloths or for the species you originally picked at the beginning of the tutorial.
+
+Rerun `occ` using the new source:
+
+```{r}
+spp_occ <- occ(query = "species name", from = "source")
+```
+
+Go through the steps in the rest of the tutorial to plot the occurrences from this data source. How does it compare to what you got from GBIF?
 

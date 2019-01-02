@@ -1,0 +1,34 @@
+---
+title: "WorldClim in R"
+output: html_notebook
+---
+
+
+```{r}
+envs <- raster::getData(name = "worldclim", var = "bio", res = 2.5, lat = , lon = )
+
+# extract environmental values at occ grid cells
+locs.vals <- raster::extract(envs[[1]], occs[, c('longitude', 'latitude')])
+# remove occs without environmental values
+occs <- occs[!is.na(locs.vals), ]
+```
+
+
+## Rasters from files
+
+Typically, when we work with rasters, we will be creating them from a file (instead of from arbitrary data values). We are going to start by looking at annual mean temperature across the globe from the WorldClim data you downloaded. To make a raster from a file, you first need to get the file path. Terminal makes this easy: open Terminal and open Finder. In Finder, navigate to the file "" and drag and drop it into your Terminal window. The file path should appear -- copy it.
+
+**Try it yourself:** Use the `raster()` function to create a raster from the file of mean temperature data using the file path you just copied (in quotation marks!).
+
+```{r}
+bio1 <- 
+```
+
+
+
+Sometimes we want to get the raster value associated with a certain coordinate (this will be important for our sloths!). To accomplish this, we can use the `extract()` function:
+
+```{r}
+xy_coords <- c(0,0)
+extract(raster1, xy_coords)
+```
