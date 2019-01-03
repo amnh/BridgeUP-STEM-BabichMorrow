@@ -14,7 +14,7 @@ I've added a Linux cheatsheet from threenine.co.uk to this repository: https://g
 
 ## Rules
 
-You're going to work in two teams of three where you rotate from being The File, The User, and The Navigator.
+You're going to work in two teams where you rotate from being The File, The User, and The Navigator.
 
 1. The Game Master (me!) will give the first team a prompt indicating where The File and The User should be on the game board.
 
@@ -35,3 +35,12 @@ You're going to work in two teams of three where you rotate from being The File,
 ![alt text|10%](file_path_diagram.png)
 
 This is the game board you'll see on the floor.
+
+### Example Challenges
+
+Here are some examples of the types of challenges and commands you could use to solve them. Keep in mind, there are lots of different ways to solve most of these.
+
++ User starts in `Users`. Copy File from `Downloads` to `Documents`.
+    + `cp ./SlothSquad/Downloads/File ./SlothSquad/Documents/File`
++ User starts in `AMNH_Research`. Move file from `sloth_data` to `intern_code`.
+    + `mv ./sloth_data/File ./intern_code/File`
