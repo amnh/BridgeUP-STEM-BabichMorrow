@@ -8,3 +8,4 @@ A pull request is a way for you to get the changes you've made to your code back
 
 Sound complicated? Let's give it a try.
 
+Go to the online (remote) version of your forked sloth repository on GitHub. Select "New pull request" and click "compare across forks". The "base" fork should be "amnh/BridgeUP-STEM-BabichMorrow". Change the "head" fork to the name of your forked copy. Click "Create pull request" and type a title for your pull request.
