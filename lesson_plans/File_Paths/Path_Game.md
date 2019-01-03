@@ -16,7 +16,7 @@ I've added a Linux cheatsheet from threenine.co.uk to this repository: https://g
 
 You're going to work in two teams where you rotate from being The File, The User, and The Navigator.
 
-1. The Game Master (me!) will give the first team a prompt indicating where The File and The User should be on the game board.
+1. The Game Master will give the first team a prompt indicating where The File and The User should be on the game board.
 
 2. The Navigator will write a command on the whiteboard, which will tell The User and The File where to move on the game board. If this command doesn't produce the desired result, The Game Master will declare an Error.
 
@@ -41,6 +41,6 @@ This is the game board you'll see on the floor.
 Here are some examples of the types of challenges and commands you could use to solve them. Keep in mind, there are lots of different ways to solve most of these.
 
 + User starts in `Users`. Copy File from `Downloads` to `Documents`.
-    + `cp ./SlothSquad/Downloads/File ./SlothSquad/Documents/File`
-+ User starts in `AMNH_Research`. Move file from `sloth_data` to `intern_code`.
-    + `mv ./sloth_data/File ./intern_code/File`
+    + `cp ./NatureGang/Downloads/File ./NatureGang/Documents/File`
++ User starts in `AMNH_Research`. Move file from `images` to `intern_code`.
+    + `mv ./images/File ./intern_code/File`
