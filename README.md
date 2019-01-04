@@ -20,10 +20,10 @@
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
 | **Week 12** | | |
-  | January 3 | <ul><li> Git and goals! </li><li> File path game |                                                               [File path game instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Path_Game.md) |
+  | January 3 | <ul><li> File path game |                                                                                       [File path game instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Path_Game.md) |
 | **Week 13** | | |
-  | January 8 | <ul><li> Gift exchange! :gift: </li><li> Introduction to rasters </li><li> Start `raster` package tutorial |     [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) |
-  | January 10 | <ul><li> What is WorldClim? </li><li> WorldClim in R :earth_americas: |                                                   [WorldClim website](http://www.worldclim.org): [Data format](http://www.worldclim.org/formats1) & [Bioclimatic variables](http://www.worldclim.org/bioclim) <br> [WorldClim in R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/worldclim_inR.Rmd) |
+  | January 8 | <ul><li> Git and goals! </li><li> Gift exchange! :gift: </li><li> Introduction to rasters </li><li> Start `raster` package tutorial |                                                                                                     [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) |
+  | January 10 | <ul><li> What is WorldClim? </li><li> WorldClim in R :earth_americas: |                                         [WorldClim website](http://www.worldclim.org): [Data format](http://www.worldclim.org/formats1) & [Bioclimatic variables](http://www.worldclim.org/bioclim) <br> [WorldClim in R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/worldclim_inR.Rmd) |
 | **Week 14** | | |
   | January 15 | <ul><li> Introduction to machine learning | |
   | January 17 | | |
