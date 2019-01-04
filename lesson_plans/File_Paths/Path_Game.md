@@ -41,6 +41,7 @@ This is the game board you'll see on the floor.
 Here are some examples of the types of challenges and commands you could use to solve them. Keep in mind, there are lots of different ways to solve most of these.
 
 + User starts in `Users`. Copy File from `Downloads` to `Documents`.
-    + `cp ./NatureGang/Downloads/File ./NatureGang/Documents/File`
+    + `cp ~/Downloads/File ~/Documents/File`
 + User starts in `AMNH_Research`. Move file from `images` to `intern_code`.
-    + `mv ./images/File ./intern_code/File`
+    + `mv ~/Documents/AMNH_Research/images/File ~/Documents/AMNH_Research/intern_code/File`
+    + Also, could use `.`: `mv ./images/File ./intern_code/File`
