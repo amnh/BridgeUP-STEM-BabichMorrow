@@ -1,4 +1,4 @@
-# Calendar
+# Calendar :calendar:
 
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
