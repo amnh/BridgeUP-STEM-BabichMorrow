@@ -4,27 +4,29 @@ output: html_notebook
 ---
 
 
-```{r}
-envs <- raster::getData(name = "worldclim", var = "bio", res = 2.5, lat = , lon = )
+## WorldClim
 
-# extract environmental values at occ grid cells
-locs.vals <- raster::extract(envs[[1]], occs[, c('longitude', 'latitude')])
-# remove occs without environmental values
-occs <- occs[!is.na(locs.vals), ]
-```
+Now that you have a little familiarity with what WorldClim data is, we are going to start using it in R! You have already downloaded the bioclimatic data from WorldClim version 2 at a resolution of 2.5 minutes (about 4.5 km^2 at the equator).
 
+### Mean annual temperature
+
+The first bioclimatic variable (BIO1) is mean annual temperature. Since sloths don't regulate their body temperature as much as most mammals, the temperature of the environment matters a lot in determining where they can live. We are going to start out by creating a raster from the file of WorldClim data for mean annual temperature. To do this, we need to start by finding the file path.
+
+**Try it yourself:** Use Terminal to find the file path for the .tif file containing the data for BIO1. Hint: you downloaded the folder containing all the bioclimatic data and moved it to your desktop, so look in there! Once you have the file path, copy it.
 
 ## Rasters from files
 
-Typically, when we work with rasters, we will be creating them from a file (instead of from arbitrary data values). We are going to start by looking at annual mean temperature across the globe from the WorldClim data you downloaded. To make a raster from a file, you first need to get the file path. Terminal makes this easy: open Terminal and open Finder. In Finder, navigate to the file "" and drag and drop it into your Terminal window. The file path should appear -- copy it.
+Typically, when we work with rasters, we will be creating them from a file (instead of from arbitrary data values). We can use the file path for mean annual temperature that you just found to create a raster.
 
-**Try it yourself:** Use the `raster()` function to create a raster from the file of mean temperature data using the file path you just copied (in quotation marks!).
+**Try it yourself:** Use the `raster()` function to create a raster from the file of mean temperature data using the file path you just copied (in quotation marks!). Plot the raster.
 
 ```{r}
 bio1 <- 
+# plot the raster:
+
 ```
 
-
+##`extract` temperature values
 
 Sometimes we want to get the raster value associated with a certain coordinate (this will be important for our sloths!). To accomplish this, we can use the `extract()` function:
 
@@ -32,3 +34,66 @@ Sometimes we want to get the raster value associated with a certain coordinate (
 xy_coords <- c(0,0)
 extract(raster1, xy_coords)
 ```
+
+**Try it yourself:** Get the raster value for a different longitude and latitude coordinate. Remember, longitude is your "x value" and latitude is your "y value".
+
+```{r}
+
+```
+
+## Make RasterStack
+
+Now that we have looked at some values for mean annual temperature, we are ready to use all 19 of the bioclimatic variables. To do this, we want to create a RasterStack where each layer is one of the variables. 
+
+### File paths revisited
+
+This is going to require a bit more of your newfound file path knowledge -- we would rather not have to copy and paste all 19 file paths the way you did for mean annual temperature. Fortunately R has a function called `list.files()` that gives you a list of all the files in a specific folder.
+
+**Try it yourself:** Look at the file path you found for mean annual temperature. Copy all of it up to the actual name of the .tif file. You want to include the name of the folder on your desktop that contains all of the WorldClim data. Paste this path inside the quotation marks of `list.files()`. Then check to see if those file names look reasonable to you.
+
+```{r}
+bioclim_files <- list.files(" ")
+bioclim_files
+```
+
+### `stack`
+
+Now you're ready to make a RasterStack. We will be using the `stack()` function you learned in `raster_tutorial.Rmd`. We are also going to use the `paste0()` function in R, which you can use to convert a vectors into characters and then paste them together. In this case, we are going to be pasting together the file path you found giving the folder of WorldClim data with the vector of filenames you created in `bioclim_files`.
+
+**Try it yourself:** Copy the file path you pasted into `list.files()` above. Paste it into the quotation marks in `stack()` and run the code.
+
+```{r}
+env_stack <- stack(paste0(" ", bioclim_files))
+plot(env_stack)
+```
+
+Now you have a RasterStack with all 19 of the bioclimatic variables!
+
+## `crop`
+
+Our new RasterStack has environmental data for the whole globe, but we're only interested in the area where the sloths live. We can use the `crop()` function to get just the region we care about.
+
+**Try it yourself:** Look back at the section of `raster_tutorial.Rmd` that goes over the `crop()` function. Crop the RasterStack to the new extent `extent(-90, -30, -30, 20)` (which give us the region of South America we're interested in!):
+
+```{r}
+cropped_env <- 
+#see the new cropped extent for mean annual temperature
+plot(cropped_env[[1]])
+```
+
+
+## Sloth data!
+
+Now, we want to be able to extract the values of all 19 bioclimatic variables for the sloth occurrence points. Once again, we are going to use the `extract` function, but there are two important differences: (1) we are using `extract()` on a multi-layer raster instead of a single-layer one, and (2) we are going to get values for more than one occurrence point at a time.
+
+**Try it yourself:** Use the `extract()` function to get the values of the bioclimatic variables (from `cropped_env`!) for the occurrence points of your sloth species. Note, you'll need to use square brackets to select the longitude and latitude columns of the dataframe with your sloth occurrence points.
+
+```{r}
+occurrence_values <- 
+```
+
+
+
+
+
+
