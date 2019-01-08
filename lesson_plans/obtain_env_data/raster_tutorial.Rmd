@@ -51,6 +51,8 @@ We can make a RasterStack from multiple layers in the following way:
 **Try it yourself:** Make two new arbitrary `RasterLayers` to combine with `raster1`. You can do "math" with rasters (add, subtract, multiply, divide the values, etc.):
 ```{r}
 # make two arbitrary rasters
+# for example you could do:
+# raster2 <- 4*raster1
 raster2 <- 
 plot(raster2)
 raster3 <- 
@@ -76,7 +78,7 @@ brick1
 
 ### Crop
 
-The function `crop()` allows you to take a given subset of a raster. We can crop rasters in a couple of different ways. We can click on the plot of the raster itself to draw the region we want to crop by using the function `drawExtent()` -- when you run that line, click once on the upper left and once on the lower right to define a box.
+The function `crop()` allows you to crop the raster to a given region. We can crop rasters in a couple of different ways. We can click on the plot of the raster itself to draw the region we want to crop by using the function `drawExtent()` -- when you run that line, click once on the upper left and once on the lower right to define a box.
 
 ```{r}
 plot(raster1)
@@ -111,7 +113,7 @@ raster1_cropped3 <-
 
 ### Merge
 
-The `merge()` function can make multiple rasters with the same resolution and origin into a single new object. We can merge the last two cropped rasters we created:
+The `merge()` function can make multiple rasters into a single new object as long as the original rasters have the same resolution and origin. We can merge the last two cropped rasters we created:
 
 ```{r}
 merge_raster1 <- merge(raster1_cropped2, raster1_cropped3)
