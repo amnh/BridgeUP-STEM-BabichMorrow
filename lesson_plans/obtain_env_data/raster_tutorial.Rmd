@@ -156,4 +156,4 @@ getValues(raster1)
 
 ```
 
-We can also access raster values at given xy-coordinates, which is what we will be doing with our sloth occurrence data!
+We can also access raster values at given xy-coordinates using the `extract()` function, which is what we will be doing with our sloth occurrence data!

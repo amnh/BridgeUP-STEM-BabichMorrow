@@ -35,7 +35,7 @@ xy_coords <- c(0,0)
 extract(raster1, xy_coords)
 ```
 
-**Try it yourself:** Get the raster value for a different longitude and latitude coordinate. Remember, longitude is your "x value" and latitude is your "y value".
+**Try it yourself:** Get the raster value for a different longitude and latitude coordinate. Remember, longitude should come first, followed by latitude (think of longitude as your "x value" and latitude your "y value").
 
 ```{r}
 
