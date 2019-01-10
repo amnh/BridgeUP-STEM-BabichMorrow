@@ -61,8 +61,40 @@ For this exercise, we are going to be using the `caret` package in R, which allo
 
 ## Machine learning time
 
-### Create a 
+### Create a validation dataset
 
+In machine learning, it's often useful to have a set of training data and a set of test/validation data. The training data is what you use to "teach"" the algorithm in supervised learning. After you create your model, you can test it on the validation data to check that it performs well on data that the model has not seen before. For this project, we are going to split our iris data: 80% will be training data and 20% will be validation data.
+
+**Try it yourself:** Look at the help menu for the function `createDataPartition()`. This function from the `caret` package separates data into test and training sets.
+
+```{r}
+# create a list of 80% of the rows in the original dataset to use for training
+training_rows <- createDataPartition(iris$Species, p = 0.80, list = FALSE)
+```
+
+**Try it yourself:** Find the length of `validation_rows`. Is this the number you expect? Why/why not?
+
+```{r}
+
+```
+
+We want to take those rows of our data to use as our training set.
+
+**Try it yourself:** Create a dataframe `training` consisting of the rows that ARE in `training rows`. Hint: you'll need to use subsetting.
+
+```{r}
+
+```
+
+Now we need to set aside the remaining 20% of the data for validation. We want the validation dataset to be the rows of `iris` that are not in `training_rows`.
+
+**Try it yourself:** Create a dataframe `validation` consisting of the rows NOT in `training_rows`. Hint: you'll need to use subsetting and you may want to use the - sign (Google is your friend!) -- this is the opposite of what you just did to create `training`.
+
+```{r}
+validation <-
+```
+
+### Summarize the training data
 
 
 
