@@ -1,6 +1,6 @@
 ---
 title: "Hello machine learning!"
-output: html_notebook
+output: github_document
 ---
 
 Material for this lesson was adapted from https://machinelearningmastery.com/machine-learning-in-r-step-by-step/.
@@ -31,14 +31,34 @@ As we learned with our sloth data, it's useful to spend some time plotting your 
 + Find the mean sepal length of all the species
 + Find the mean petal length for each species separately
 + Find a standard deviation
++ Make a boxplot of one of the variables. See if you can create separate boxes for each of the species
 + Make a scatterplot of two of the variables, for example petal width on the x-axis and petal length on the y-axis
 
 Some functions you might want to use:
 + `hist()`
 + `mean()`
 + `favstats()` (you need the `mosaic` package for this function, but it's super useful)
++ `boxplot()`
 + `plot()` (put your x variable first and your y variable second)
 
+```{r}
+
+```
+
+
+## `caret` package
+
+For this exercise, we are going to be using the `caret` package in R, which allows you to run hundreds of different machine learning algorithms, visualize the results, and compare models.
+
+**Try it yourself:** Install and load the `caret` package:
+
+```{r}
+
+```
+
+## Machine learning time
+
+### Create a 
 
 
 
