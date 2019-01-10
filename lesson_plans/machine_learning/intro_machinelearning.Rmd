@@ -1,6 +1,9 @@
 ---
 title: "Hello machine learning!"
-output: github_document
+author: Cecina Babich Morrow
+output:
+  github_document:
+    html_preview: false
 ---
 
 Material for this lesson was adapted from https://machinelearningmastery.com/machine-learning-in-r-step-by-step/.
