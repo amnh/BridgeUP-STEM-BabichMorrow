@@ -34,36 +34,36 @@
   | January 29 | | |
   | January 31 | | |
 | **Week 17** | | |
-  | January 29 | | |
-  | January 31 | | |
-| **Week 18** | | |
   | February 5 | **No internship session today** | |
   | February 7 | | |
   | February 8 | **Hackathon! :rocket:** | |
   | February 9 | **Hackathon! :sunny:** | |
-| **Week 19** | | |
+| **Week 18** | | |
   | February 10 | **Hackathon! :full_moon:** | |
   | February 12 | **No internship session today** | |
   | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> An R Valentine :love_letter: | |
 | **Mid-Winter Recess** <br> :snowflake: | **February 18-22** | |
-| **Week 20** | | |
+| **Week 19** | | |
   | February 26 | Resume Workshop |  |
   | February 28 | HTML/CSS Workshop |  |
-| **Week 21** | | |
+| **Week 20** | | |
   | March 5 | | |
   | March 7 | | |
-| **Week 22** | | |
+| **Week 21** | | |
   | March 12 | | |
   | March 14 | | |
-| **Week 23** | | |
+| **Week 22** | | |
   | March 19 | | |
   | March 21 | | |
-| **Week 24** | | |
+| **Week 23** | | |
   | March 26 | | |
   | March 28 | | |
-| **Week 25** | | |
+| **Week 24** | | |
   | April 2 | | |
   | April 4 | Presentation Skills Workshop| |
+| **Week 25** | | |
+  | April 9 | | |
+  | April 11 | | |
 
 
 ## Daily Git To Do
