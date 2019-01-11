@@ -44,7 +44,7 @@
 | **Week 19** | | |
   | February 10 | **Hackathon! :full_moon:** | |
   | February 12 | **No internship session today** | |
-  | February 14 <br> <sub>:heart_eyes:Valentine's Day:love_letter:</sub> | | |
+  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> An R Valentine :love_letter: | |
 | **Mid-Winter Recess** <br> :snowflake: | **February 18-22** | |
 | **Week 20** | | |
   | February 26 | Resume Workshop |  |
