@@ -42,7 +42,7 @@
   | February 10 | **Hackathon! :full_moon:** | |
   | February 12 | **No internship session today** | |
   | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> An R Valentine :love_letter: | |
-| **Mid-Winter Recess** <br> :snowflake: | **February 18-22** | |
+| **Mid-Winter Recess** | **:snowflake: February 18-22 :snowman:** | |
 | **Week 19** | | |
   | February 26 | Resume Workshop |  |
   | February 28 | HTML/CSS Workshop |  |
@@ -64,6 +64,10 @@
 | **Week 25** | | |
   | April 9 | | |
   | April 11 | | |
+| **Week 26** | | |
+  | April 16 | | |
+  | April 18 | | |
+| **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
 
 ## Daily Git To Do
