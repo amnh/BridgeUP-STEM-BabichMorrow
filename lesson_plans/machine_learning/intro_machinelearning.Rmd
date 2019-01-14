@@ -40,7 +40,7 @@ As we learned with our sloth data, it's useful to spend some time plotting your 
 Some functions you might want to use:
 + `hist()`
 + `mean()`
-+ `favstats()` (you need the `mosaic` package for this function, but it's super useful)
++ `favstats()` (you need to load the `mosaic` package for this function)
 + `boxplot()`
 + `plot()` (put your x variable first and your y variable second)
 
@@ -63,16 +63,17 @@ For this exercise, we are going to be using the `caret` package in R, which allo
 
 ### Create a validation dataset
 
-In machine learning, it's often useful to have a set of training data and a set of test/validation data. The training data is what you use to "teach"" the algorithm in supervised learning. After you create your model, you can test it on the validation data to check that it performs well on data that the model has not seen before. For this project, we are going to split our iris data: 80% will be training data and 20% will be validation data.
+In machine learning, it's often useful to have a set of training data and a set of validation data. The training data is what you use to "teach" the algorithm in supervised learning. After you create your model, you can test it on the validation data to check that it performs well on data that the model has not seen before. For this project, we are going to split our iris data: 80% will be training data and 20% will be validation data.
 
-**Try it yourself:** Look at the help menu for the function `createDataPartition()`. This function from the `caret` package separates data into test and training sets.
+**Try it yourself:** Look at the help menu for the function `createDataPartition()`. This function from the `caret` package separates data into validation and training sets.
 
 ```{r}
 # create a list of 80% of the rows in the original dataset to use for training
 training_rows <- createDataPartition(iris$Species, p = 0.80, list = FALSE)
+head(training_rows)
 ```
 
-**Try it yourself:** Find the length of `validation_rows`. Is this the number you expect? Why/why not?
+**Try it yourself:** Find the length of `training_rows`. Is this the number you expect? Why/why not?
 
 ```{r}
 
@@ -80,7 +81,7 @@ training_rows <- createDataPartition(iris$Species, p = 0.80, list = FALSE)
 
 We want to take those rows of our data to use as our training set.
 
-**Try it yourself:** Create a dataframe `training` consisting of the rows that ARE in `training rows`. Hint: you'll need to use subsetting.
+**Try it yourself:** Create a dataframe `training` consisting of the rows that ARE in `training_rows`. Hint: you'll need to use subsetting.
 
 ```{r}
 
@@ -94,7 +95,141 @@ Now we need to set aside the remaining 20% of the data for validation. We want t
 validation <-
 ```
 
-### Summarize the training data
+### Summarize/Visualize the training data
 
+**Try it yourself:** Use the `summary()` function to look at each variable in your `training` data.
+
+```{r}
+
+```
+
+#### Univariate plots
+
+Univariate plots are any plot that you use to visualize a single variable. What are some kinds of univariate plots you can think of?
+
+#### Multivariate plots
+
+Multivariate plots allow us to visualize the interactions between variables. We can create a scatterplot matrix showing the pairwise interactions between all 4 of the variables:
+
+```{r}
+featurePlot(x=iris[,1:4], y=iris[,5], plot="ellipse")
+```
+
+
+We can also use the `featurePlot()` function to make boxplots broken up by the different species.
+
+```{r}
+featurePlot(x=iris[,1:4], y=iris[,5], plot="box")
+```
+
+Finally, we can make probability density plots to see the distributions for each species.
+
+```{r}
+featurePlot(x=iris[,1:4], y=iris[,5], plot="density")
+```
+
+
+**Try it yourself:** What distinctions can you see between the different species in the different visualizations? Is there a visualization you prefer/think is most helpful?
+
+### Evaluate algorithms
+
+Now it's time for some machine learning algorithms! We are going to test 5 different models:
+
++ Linear discriminant analysis
++ Classification and regression trees
++ k-nearest neighbor
++ Support vector machines
++ Random forest
+
+#### Test Harness
+
+In order to check how well an algorithm is doing, we are going to train it on 90% of our data and then test it on the remaining 10%. The `caret` package allows us to do that with the function `trainControl()`.
+
+```{r}
+# Run algorithms using 10-fold cross validation
+control <- trainControl(method="cv", number=10) #"cv" stands for cross-validation
+metric <- "Accuracy"
+```
+
+We are using "Accuracy" as our metric, which is the percentage of correctly predicted instances in the data.
+
+#### Build models
+
+Here is the code to build our five models using the `train` function.
+
+```{r}
+# a) linear algorithms
+set.seed(7)
+fit.lda <- train(Species~., data=iris, method="lda", metric=metric, trControl=control)
+# b) nonlinear algorithms
+# CART
+set.seed(7)
+fit.cart <- train(Species~., data=iris, method="rpart", metric=metric, trControl=control)
+# kNN
+set.seed(7)
+fit.knn <- train(Species~., data=iris, method="knn", metric=metric, trControl=control)
+# c) advanced algorithms
+# SVM
+set.seed(7)
+fit.svm <- train(Species~., data=iris, method="svmRadial", metric=metric, trControl=control)
+# Random Forest
+set.seed(7)
+fit.rf <- train(Species~., data=iris, method="rf", metric=metric, trControl=control)
+```
+
+#### Select the best model
+
+So now that we have our 5 models, we need to compare them to pick one. We can use the `resamples` function to create a list of the different models:
+
+```{r}
+# summarize accuracy of models
+results <- resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
+summary(results)
+```
+
+We can visualize these results in a plot:
+
+```{r}
+dotplot(results)
+```
+
+**Try it yourself:** Which model has the highest accuracy? Use the `print` function to show summarize that model.
+
+```{r}
+
+```
+
+### Make predictions
+
+Now that we have selected the most accurate model, we want to see how well it performs on the validation data we set aside at the beginning. Checking a model on a validation set like this helps check your model for overfitting (performing well on the training data, but not on new data).
+
+To do this, we want to run the model on the validation set:
+
+```{r}
+predictions <- predict(fit.lda, validation)
+```
+
+To check how well the model did, we can create something called a *confusion matrix*. A confusion matrix is a table that describes how well a model performed on a set of test data.
+
+```{r}
+confusionMatrix(predictions, validation$Species)
+```
+
+**Try it yourself:** How did the model do? Did it misclassify any of the flower species?
+
+#### Other models
+
+Now let's see how the other models you built compare.
+
+**Try it yourself:** Apply the other four models to the validation data and look at the confusion matrices. Are there any models that perform as well as the most accurate model? Which model(s) performed worst?
+
+```{r}
+
+```
+
+
+## Wrapping up
+
+Congratulations, you've officially done machine learning!
 
 
