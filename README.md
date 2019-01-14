@@ -23,10 +23,10 @@
   | January 3 | <ul><li> File path game |                                                                                       [File path game instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Path_Game.md) |
 | **Week 13** | | |
   | January 8 | <ul><li> Git and goals! </li><li> Gift exchange :gift: </li><li> Introduction to rasters </li><li> `raster` package tutorial </li><li> What is WorldClim?|                                                                                   [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) <br> [WorldClim website](http://www.worldclim.org): [Data format](http://www.worldclim.org/formats1) & [Bioclimatic variables](http://www.worldclim.org/bioclim) |
-  | January 10 | <ul><li> WorldClim in R :earth_americas: </li><li> Introduction to machine learning </li><li> Machine learning in R | [WorldClim in R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/worldclim_inR.Rmd) <br>  [Intro to machine learning - slides](https://docs.google.com/presentation/d/19iiNWlrCgezdAJ2jJDbihEQ2EyQF0LKojtHor53D_2s/edit?usp=sharing) <br> Intro to machine learning - RMarkdown |
+  | January 10 | <ul><li> WorldClim in R :earth_americas: </li><li> Introduction to machine learning |                           [WorldClim in R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/worldclim_inR.Rmd) <br>  [Intro to machine learning - slides](https://docs.google.com/presentation/d/19iiNWlrCgezdAJ2jJDbihEQ2EyQF0LKojtHor53D_2s/edit?usp=sharing) |
 | **Week 14** | | |
-  | January 15 | <ul><li>  | |
-  | January 17 | | |
+  | January 15 | <ul><li> Introduction to machine learning (continued) </li><li> Machine learning in the real world </li><li> Machine learning in R |                                                                                                         [Machine learning articles](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/ML_articles.md) <br> [Intro to machine learning - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning.Rmd)|
+  | January 17 | <ul><li> Iris machine learning project (continued) | |
 | **Week 15** | | |
   | January 22 | <ul><li> Louise is visiting! | |
   | January 24 | | |
@@ -34,36 +34,40 @@
   | January 29 | | |
   | January 31 | | |
 | **Week 17** | | |
-  | January 29 | | |
-  | January 31 | | |
-| **Week 18** | | |
   | February 5 | **No internship session today** | |
   | February 7 | | |
   | February 8 | **Hackathon! :rocket:** | |
   | February 9 | **Hackathon! :sunny:** | |
-| **Week 19** | | |
+| **Week 18** | | |
   | February 10 | **Hackathon! :full_moon:** | |
   | February 12 | **No internship session today** | |
-  | February 14 <br> <sub>:heart_eyes:Valentine's Day:love_letter:</sub> | | |
-| **Mid-Winter Recess** <br> :snowflake: | **February 18-22** | |
-| **Week 20** | | |
+  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> An R Valentine :love_letter: | |
+| **Mid-Winter Recess** | **:snowflake: February 18-22 :snowman:** | |
+| **Week 19** | | |
   | February 26 | Resume Workshop |  |
   | February 28 | HTML/CSS Workshop |  |
-| **Week 21** | | |
+| **Week 20** | | |
   | March 5 | | |
   | March 7 | | |
-| **Week 22** | | |
+| **Week 21** | | |
   | March 12 | | |
   | March 14 | | |
-| **Week 23** | | |
+| **Week 22** | | |
   | March 19 | | |
   | March 21 | | |
-| **Week 24** | | |
+| **Week 23** | | |
   | March 26 | | |
   | March 28 | | |
-| **Week 25** | | |
+| **Week 24** | | |
   | April 2 | | |
   | April 4 | Presentation Skills Workshop| |
+| **Week 25** | | |
+  | April 9 | | |
+  | April 11 | | |
+| **Week 26** | | |
+  | April 16 | | |
+  | April 18 | | |
+| **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
 
 ## Daily Git To Do

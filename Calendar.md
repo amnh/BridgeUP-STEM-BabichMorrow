@@ -36,3 +36,26 @@
   | December 18 | <ul><li> Work on presentations | |
   | December 20 | **Winter Presentations!** | |
 | **Winter Recess** <br> :snowman: | **December 24-January 1** | |
+  
+  
+| Date   |      Topics      |  Materials |
+|----------|-------------|------|
+| **Week 27** | | |
+  | April 30 | | |
+  | May 2 | | |
+| **Week 28** | | |
+  | May 7 | | |
+  | May 9 | | |
+| **Week 29** | | |
+  | May 14 | | |
+  | May 16 | | |
+| **Week 30** | | |
+  | May 21 | | |
+  | May 23 | **SRMP poster ready for printing!** | |
+| **Week 31** | | |
+  | May 28 | **Practice presentation!** | |
+  | May 30 | | |
+| **Week 32** | | |
+  | June 4 | **No internship session today** | |
+  | June 6 | **SRMP Colloquium, Poster, and 5-minute Presentation** | |
+  | June 9 | **15-minute presentation** <br> **:mortar_board: Brown Scholar Intern Graduation! :tada:** |
