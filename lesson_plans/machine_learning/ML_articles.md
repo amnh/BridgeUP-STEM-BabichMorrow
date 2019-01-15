@@ -30,3 +30,4 @@ If you finish reading your article early, here are some other links to read/watc
 + Microsoft's AI for Earth program: https://news.mongabay.com/wildtech/2018/05/scientists-tackling-conservation-problems-turn-to-artificial-intelligence/
 + Using machine learning to fight poaching: https://medium.com/datadriveninvestor/ai-drones-and-game-theory-for-smart-wildlife-conservation-7c1a27adc151
 + The difference between AI and ML: https://medium.com/iotforall/the-difference-between-artificial-intelligence-machine-learning-and-deep-learning-3aa67bff5991
++ A machine learning meme generator: https://blogs.nvidia.com/blog/2018/07/18/deep-learning-generating-memes/
