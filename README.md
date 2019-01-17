@@ -31,8 +31,8 @@
   | January 22 | <ul><li> Louise is visiting! | |
   | January 24 | | |
 | **Week 16** | | |
-  | January 29 | | |
-  | January 31 | | |
+  | January 29 | <ul><li> Questions for Alexandra Matos | [Questions for Alexandra Matos](https://docs.google.com/document/d/1Ivx97en5U8K-xEx68SZuiP-Rd5SuzrSLwCRqb5wOvKs/edit?usp=sharing)|
+  | January 31 | <ul><li> Meet Alexandra Matos | |
 | **Week 17** | | |
   | February 5 | **No internship session today** | |
   | February 7 | | |
