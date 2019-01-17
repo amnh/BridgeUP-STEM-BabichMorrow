@@ -1,5 +1,5 @@
 ---
-title: "Hello machine learning!"
+title: "Hello machine learning! - Supervised learning"
 author: Cecina Babich Morrow
 output:
   github_document:
@@ -230,6 +230,6 @@ Now let's see how the other models you built compare.
 
 ## Wrapping up
 
-Congratulations, you've officially done machine learning!
+Congratulations, you've officially done machine learning! This project was a supervised machine learning project, specifically classification. Next, we are going to explore unsupervised machine learning.
 
 
