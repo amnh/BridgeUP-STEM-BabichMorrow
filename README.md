@@ -26,7 +26,7 @@
   | January 10 | <ul><li> WorldClim in R :earth_americas: </li><li> Introduction to machine learning |                           [WorldClim in R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/worldclim_inR.Rmd) <br>  [Intro to machine learning - slides](https://docs.google.com/presentation/d/19iiNWlrCgezdAJ2jJDbihEQ2EyQF0LKojtHor53D_2s/edit?usp=sharing) |
 | **Week 14** | | |
   | January 15 | <ul><li> Introduction to machine learning (continued) </li><li> Machine learning in the real world |           [Machine learning articles](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/ML_articles.md)|
-  | January 17 | <ul><li> Hello machine learning project - supervised learning |                                                 [Iris machine learning project - slides](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning_supervised.Rmd) <br> [Hello machine learning! - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning.Rmd)|
+  | January 17 | <ul><li> Hello machine learning project - supervised learning |                                                 [Iris machine learning project - slides](https://docs.google.com/presentation/d/1dLnjxI7--hQtiehWNztXQ7rFRAFkpjkB_h4NpTzQM0M/edit?usp=sharing) <br> [Hello machine learning! - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning.Rmd)|
 | **Week 15** | | |
   | January 22 | <ul><li> Louise is visiting! </li><li> Hello machine learning - unsupervised learning | |
   | January 24 | | |
