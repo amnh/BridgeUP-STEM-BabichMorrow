@@ -25,14 +25,14 @@
   | January 8 | <ul><li> Git and goals! </li><li> Gift exchange :gift: </li><li> Introduction to rasters </li><li> `raster` package tutorial </li><li> What is WorldClim?|                                                                                   [Intro to rasters - slides](https://docs.google.com/presentation/d/1MQMfrr6dFnPqvtxN5eqYqkOdbTS5NkUvMaKpuUI-v9Q/edit?usp=sharing) <br> [`raster` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/raster_tutorial.Rmd) <br> [WorldClim website](http://www.worldclim.org): [Data format](http://www.worldclim.org/formats1) & [Bioclimatic variables](http://www.worldclim.org/bioclim) |
   | January 10 | <ul><li> WorldClim in R :earth_americas: </li><li> Introduction to machine learning |                           [WorldClim in R - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/obtain_env_data/worldclim_inR.Rmd) <br>  [Intro to machine learning - slides](https://docs.google.com/presentation/d/19iiNWlrCgezdAJ2jJDbihEQ2EyQF0LKojtHor53D_2s/edit?usp=sharing) |
 | **Week 14** | | |
-  | January 15 | <ul><li> Introduction to machine learning (continued) </li><li> Machine learning in the real world </li><li> Machine learning in R |                                                                                                         [Machine learning articles](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/ML_articles.md) <br> [Intro to machine learning - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning.Rmd)|
-  | January 17 | <ul><li> Iris machine learning project (continued) | |
+  | January 15 | <ul><li> Introduction to machine learning (continued) </li><li> Machine learning in the real world |           [Machine learning articles](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/ML_articles.md)|
+  | January 17 | <ul><li> Hello machine learning project |                                                                       [Iris machine learning project - slides](https://docs.google.com/presentation/d/1dLnjxI7--hQtiehWNztXQ7rFRAFkpjkB_h4NpTzQM0M/edit?usp=sharing) <br> [Hello machine learning! - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning.Rmd)|
 | **Week 15** | | |
   | January 22 | <ul><li> Louise is visiting! | |
   | January 24 | | |
 | **Week 16** | | |
-  | January 29 | | |
-  | January 31 | | |
+  | January 29 | <ul><li> Questions for Alexandra Matos | [Questions for Alexandra Matos](https://docs.google.com/document/d/1Ivx97en5U8K-xEx68SZuiP-Rd5SuzrSLwCRqb5wOvKs/edit?usp=sharing)|
+  | January 31 | <ul><li> Meet Alexandra Matos | |
 | **Week 17** | | |
   | February 5 | **No internship session today** | |
   | February 7 | | |
