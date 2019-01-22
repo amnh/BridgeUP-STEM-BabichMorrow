@@ -1,0 +1,107 @@
+---
+title: "Hello machine learning! - Unsupervised learning"
+output:
+  github_document:
+    html_preview: false
+---
+
+Material for this lesson was adapted from the DataCamp Introduction to Machine Learning course (https://www.datacamp.com/courses/introduction-to-machine-learning-with-r) and a University of Cincinnati tutorial on hierarchical cluster analysis (https://uc-r.github.io/hc_clustering).
+
+## Return to iris data
+
+Last session, you used the `caret` package to run supervised machine learning algorithms to classify the flowers in the iris dataset. We can also use unsupervised learning to group the flowers into clusters, with no prior knowledge of the species.
+
+**Try it yourself:** Load in the iris dataset. Install and load the `cluster` package
+
+```{r}
+
+```
+
+## Unsupervised learning
+
+Imagine a situation in which we didn't know the species of each of the 150 flowers in our dataset. We could use unsupervised learning to classify the observations into groups that might potentially correspond to different species.
+
+### K-means clustering
+
+The first unsupervised learning algorithm we will try is k-means clustering. We can perform k-means clustering in R using the `kmeans()` function.
+
+**Try it yourself:** Look at the Help menu for the `kmeans()` function, specifically the description of what the argument `x` should be. Note that only some columns of `iris` fit the description. Fill in the `kmeans()` function using a subset of the `iris` data to extract those columns and selecting 3 clusters.
+
+```{r}
+kmeans_iris <- kmeans()
+```
+
+Now we can check how the clusters that R created compare to the actual species of the iris.
+
+```{r}
+table(iris$Species, kmeans_iris$cluster)
+```
+
+In this table, the columns are the 3 clusters created by k-means clustering and the columns are the 3 iris species. How well did clustering do?
+
+We can also visualize the clusters.
+
+**Try it yourself:** Add to the code below to plot other combinations of the traits, coloring by the cluster, and add the centroids of each cluster.
+
+```{r}
+#plot petal length on the y-axis and petal width on the x-axis
+#color the points by cluster
+plot(Petal.Length~Petal.Width, data = iris, col = kmeans_iris$cluster)
+#add the centroids (centers of the clusters) to the plot
+points(Petal.Length~Petal.Width, data = kmeans_iris$centers, pch = 22, bg = c(1, 2, 3), cex = 2)
+```
+
+### Hierarchical clustering
+
+Hierarchical clustering is another way of identifying groups in a dataset. Unlike k-means, however, we don't need to specify the number of clusters to be generated. There are two main types of hierarchical clustering: agglomerative and divisive. Agglomerative clustering works bottom-up -- each object (for us, each flower) is considered its own single-element cluster and the algorithm works upwards to combine clusters into larger clusters until all objects are included. Divisive clustering goes in the other direction -- it starts with one cluster containing all of the data and splits that cluster up until it reaches individual elements.
+
+In all hierarchical clustering, the algorithm calculates the distance between objects in one cluster and objects in another cluster. There are several ways to do this:
+
+1. Complete linkage clustering: compute all pairwise distances between objects in cluster 1 and cluster 2 and select the largest value as the distance between the two clusters
+2. Single linkage clustering: compute all pairwise distances between objects in cluster 1 and cluster 2 and select the smallest value as the distance between the two clusters
+3. Average linkage clustering: compute all pairwise distances between objects in cluster 1 and cluster 2 and select the average value as the distance between the two clusters
+4. Centroid linkage clustering: compute the distance between the centroid for cluster 1 and the centroid for cluster 2
+5. Ward's minimum variance method: minimize the total within-cluster variance
+
+#### Data preparation
+
+No matter what method we use, we need to scale our data so that the different variables are comparable. Scaling, or standardization, is a way to transform data so that the mean is zero and standard deviation is one. The following code standardizes the four traits in the `iris` data and sets rownames according to species:
+
+```{r}
+scale_iris <- scale(iris[1:4])
+rownames(scale_iris) <- iris$Species
+```
+
+#### Agglomerative hierarchical clustering
+
+We can use the `hclust()` function to perform agglomerative (bottom-up) clustering.
+
+```{r}
+# Dissimilarity matrix
+d <- dist(scale_iris, method = "euclidean")
+# Hierarchical clustering using Complete Linkage
+hc_complete <- hclust(d, method = "complete" )
+# Plot the obtained dendrogram
+plot(hc_complete, cex = 0.6, hang = -1)
+```
+
+It may be hard to read the labels, but you can zoom in to read the species names.
+
+**Try it yourself:** Look at the help menu for `hclust()`, specifically the `method` argument. Try changing the agglomeration method to one of the other ones you read about. Compare the dendrograms. Which method appears to group together flowers of the same species the best?
+
+#### Divisive hierarchical clustering
+
+We can use the `diana()` function from the `cluster` package to perform divisive clustering (top-down).
+
+```{r}
+hc_diana <- diana(scale_iris)
+# Plot the dendrogram
+pltree(hc_diana, cex = 0.6, hang = -1)
+```
+
+How does divisive clustering compare to the agglomerative clustering you performed earlier?
+
+### Bonus
+
+If you wrap everything else, read through the following tutorial about hierarchical clustering: https://uc-r.github.io/hc_clustering. You will have run quite a bit of this, but I left out several things at the end that allow you to visualize different clusters on the dendrogram. Adapt their code for the iris data and see if you can see the different clusters created through hierarchical clustering.
+
