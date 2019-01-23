@@ -29,7 +29,7 @@
   | January 17 | <ul><li> Hello machine learning project - supervised learning |                                                 [Iris machine learning project - slides](https://docs.google.com/presentation/d/1dLnjxI7--hQtiehWNztXQ7rFRAFkpjkB_h4NpTzQM0M/edit?usp=sharing) <br> [Hello machine learning! - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning.Rmd)|
 | **Week 15** | | |
   | January 22 | <ul><li> Louise is visiting! </li><li> Supervised learning continued </li><li> Hello machine learning - unsupervised learning | [Unsupervised learning - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/intro_machinelearning_unsupervised.Rmd)|
-  | January 24 | | |
+  | January 24 | <ul><li> Types of supervised learning </li><li> Sloth skull machine learning :skull:| |
 | **Week 16** | | |
   | January 29 | <ul><li> Questions for Alexandra Matos | [Questions for Alexandra Matos](https://docs.google.com/document/d/1Ivx97en5U8K-xEx68SZuiP-Rd5SuzrSLwCRqb5wOvKs/edit?usp=sharing)|
   | January 31 | <ul><li> Meet Alexandra Matos | |
