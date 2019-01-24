@@ -28,3 +28,40 @@
 # Refer to your previous code to split your dataset into validation and training sets
 
 
+# Run algorithms -----------------------------------------------------
+
+# Set up the variables "control" and "metric" in order to run the models
+
+
+# Build five types of supervised learning models (following the code for the iris data)
+
+
+# Compare the results of the models
+# Which model(s) have high accuracy?
+
+
+
+# Make predictions --------------------------------------------------------
+
+# Run all five models on the validation data using the predict() function
+
+
+# View the confusion matrices for the models
+
+
+# Interpret your results: which models were most accurate?
+# Was it easier to classify some species than others?
+
+
+
+# Other approaches --------------------------------------------------------
+
+# Now it's time to explore!
+
+# Try adapting your machine learning script above to addreeess a different classification question
+# For example: classifying based on genus only (Bradypus vs. Choloepus)
+# Picking a genus and jsut running the models within that genus
+# Picking only species with a certain amount of data points
+
+
+
