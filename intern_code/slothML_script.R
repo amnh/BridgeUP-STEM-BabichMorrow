@@ -65,3 +65,50 @@
 
 
 
+
+
+# UNSUPERVISED LEARNING ---------------------------------------------------
+
+# Load the cluster package
+
+
+# K-means clustering ------------------------------------------------------
+
+# Use your code from intro_machinelearning_unsupervised.Rmd
+
+# Perform k-means clustering - think about how many clusters you want
+# Are you trying to cluster specimens into species or genuses?
+
+
+# Check how the clusters compare to the specimen identities (either genus or species)
+
+
+
+# Hierarchical clustering -------------------------------------------------
+
+# Scale the landmark variables you plan to use in your analyses
+
+# Use hclust() to perform agglomerative hierarchical clustering
+# Visualize the results
+
+
+# Use diana() to perform divisive hierarchical clustering
+# Visualize the results
+
+
+
+# Bonus hierarchical clustering -------------------------------------------
+
+# As a bonus, you can compare the agglomerative and divisive results
+
+# Install and load the dendextend package
+
+
+# Use the function tanglegram() to compare the two dendrograms you made with hclust() and diana()
+# If you get stumped, use the help menu
+# You can also look on this website: https://uc-r.github.io/hc_clustering#dendro
+
+
+
+
+
