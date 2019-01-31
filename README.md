@@ -32,22 +32,22 @@
   | January 24 | <ul><li> Sloth skull machine learning - supervised learning :skull: |                                           [Sloth skull project - slides](https://docs.google.com/presentation/d/1FptYx7vZoyKpOQWE864nSHeScnsFZvnYH_bvd1yLW-U/edit?usp=sharing) <br> [Sloth skull project - R script](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/intern_code/slothML_script.R) |
 | **Week 16** | | |
   | January 29 | <ul><li> Types of supervised learning </li><li> Sloth skull machine learning - supervised learning (continued) </li><li> Questions for Alexandra Matos |                                                                           [Supervised learning algorithms - slides](https://docs.google.com/presentation/d/1UsMsidCyYwbfuzxqBOGl3_CivOaqxvRkwjAUM8sdYuY/edit?usp=sharing) <br> [Questions for Alexandra Matos](https://docs.google.com/document/d/1Ivx97en5U8K-xEx68SZuiP-Rd5SuzrSLwCRqb5wOvKs/edit?usp=sharing)|
-  | January 31 | <ul><li> Meet Alexandra Matos </li><li> Sloth skull machine learning - unsupervised learning | |
+  | January 31 | **Internships canceled :thermometer:** | |
 | **Week 17** | | |
   | February 5 | **No internship session today** | |
-  | February 7 | <ul><li> Wrap up sloth skull machine learning | |
+  | February 7 | <ul><li> Meet Alexandra Matos </li><li> Wrap up sloth skull machine learning | |
   | February 8 | **Hackathon! :rocket:** | |
   | February 9 | **Hackathon! :sunny:** | |
 | **Week 18** | | |
   | February 10 | **Hackathon! :full_moon:** | |
   | February 12 | **No internship session today** | |
-  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> An R Valentine :love_letter: </li><li> Introduction to Maxent | [Make an R Valentine](https://www.r-bloggers.com/make-a-valentines-heart-with-r/) |
+  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> An R Valentine :love_letter: </li><li> Maxent tutorial | [Make an R Valentine](https://www.r-bloggers.com/make-a-valentines-heart-with-r/) <br> [Download Maxent and tutorial data](https://biodiversityinformatics.amnh.org/open_source/maxent/) <br> [Maxent tutorial](https://biodiversityinformatics.amnh.org/open_source/maxent/Maxent_tutorial2017.pdf) |
 | **Mid-Winter Recess** | **:snowflake: February 18-22 :snowman:** | |
 | **Week 19** | | |
   | February 26 | Resume Workshop |  |
   | February 28 | HTML/CSS Workshop |  |
 | **Week 20** | | |
-  | March 5 | <ul><li> Process environmental data </li><li> Partition occurrence data | Point buffering - RMarkdown <br> Data partitioning - RMarkdown |
+  | March 5 | <ul><li> Maxent tutorial continued </li><li> Process environmental data </li><li> Partition occurrence data | Point buffering - RMarkdown <br> Data partitioning - RMarkdown |
   | March 7 | <ul><li> `maxnet` tutorial </li><li> `ENMeval` tutorial </li><li> Build and visualize Maxent models | |
 | **Week 21** | | |
   | March 12 | <ul><li> Build and visualize Maxent models (continued) </li><li> Model selection | |
