@@ -41,20 +41,20 @@
 | **Week 18** | | |
   | February 10 | **Hackathon! :full_moon:** | |
   | February 12 | **No internship session today** | |
-  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> An R Valentine :love_letter: </li><li> Maxent tutorial </li><li> Questions for Allison Parrish | [Make an R Valentine](https://www.r-bloggers.com/make-a-valentines-heart-with-r/) <br> [Download Maxent and tutorial data](https://biodiversityinformatics.amnh.org/open_source/maxent/) <br> [Maxent tutorial](https://biodiversityinformatics.amnh.org/open_source/maxent/Maxent_tutorial2017.pdf) <br> [Questions for Allison Parrish](https://docs.google.com/document/d/1g_d9dig8e5Liopvqag4LCD0U0IcgxRBQfWUKosTRAks/edit?usp=sharing) |
+  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> Machine learning activity! </li><li> An R Valentine :love_letter: </li><li> Questions for Allison Parrish | [Make an R Valentine](https://www.r-bloggers.com/make-a-valentines-heart-with-r/) <br> [Questions for Allison Parrish](https://docs.google.com/document/d/1g_d9dig8e5Liopvqag4LCD0U0IcgxRBQfWUKosTRAks/edit?usp=sharing) |
 | **Mid-Winter Recess** | **:snowflake: February 18-22 :snowman:** | |
 | **Week 19** | | |
   | February 26 | Resume Workshop |  |
   | February 28 | HTML/CSS Workshop |  |
 | **Week 20** | | |
-  | March 5 | <ul><li> Meet Allison Parrish! </li><li> Maxent tutorial continued </li><li> Process environmental data </li><li> Partition occurrence data | Point buffering - RMarkdown <br> Data partitioning - RMarkdown |
-  | March 7 | <ul><li> `maxnet` tutorial </li><li> `ENMeval` tutorial </li><li> Build and visualize Maxent models | |
+  | March 5 | <ul><li> Meet Allison Parrish! </li><li> Maxent tutorial | [Download Maxent and tutorial data](https://biodiversityinformatics.amnh.org/open_source/maxent/) <br> [Maxent tutorial](https://biodiversityinformatics.amnh.org/open_source/maxent/Maxent_tutorial2017.pdf) |
+  | March 7 | <ul><li> Process environmental data </li><li> Partition occurrence data | Point buffering - RMarkdown <br> Data partitioning - RMarkdown |
 | **Week 21** | | |
-  | March 12 | <ul><li> Build and visualize Maxent models (continued) </li><li> Model selection | |
-  | March 14 | <ul><li> Projecting in space </li><li> Visualizing Maxent results | |
+  | March 12 | <ul><li> `maxnet` tutorial </li><li> `ENMeval` tutorial | |
+  | March 14 | <ul><li> Build and visualize Maxent models </li><li> Model selection | |
 | **Week 22** | | |
-  | March 19 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
-  | March 21 | | |
+  | March 19 | <ul><li> Projecting in space </li><li> Visualizing Maxent results | |
+  | March 21 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php) |
 | **Week 23** | | |
   | March 26 | | |
   | March 28 | | |
