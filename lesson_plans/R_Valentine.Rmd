@@ -1,0 +1,79 @@
+---
+title: "An R Valentine: Intro to R Functions"
+output:
+  github_document:
+    html_preview: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction to functions in R
+
+Start out by reading the first part of this article: https://swcarpentry.github.io/r-novice-inflammation/02-func-R/ (from the beginning through the "Nesting Functions" section). Get comfortable with the R syntax of simple functions.
+
+You can copy and paste the code for the temperature conversion functions here and play around with them to see how they work:
+
+```{r}
+
+```
+
+**Try it yourself:** What are the components of a function statement in R? How is this similar to functions in Python? How is it different?
+
+## The Valentine's day function
+
+The following code is modified from this blog post: https://www.r-bloggers.com/make-a-valentines-heart-with-r/.
+
+You are going to use your new-found R function skills to create a Valentine's Day card in R.
+
+### Heart code
+
+We will start by writing code to make one card before we generalize this code into a function you can use to customize the card.
+
+**Try it yourself:** Use the `seq()` function in R to create a vector with 100 elements going from 0 to 60 (use the Help menu to figure out how to do this).
+
+```{r}
+t <- seq()
+```
+
+Now we are going to use the following code to plot a heart using the vector you just created (you might have to change the size of your RStudio plotting window so the heart looks normal):
+
+```{r}
+plot(c(-8,8),c(0,20),type='n',axes=FALSE,xlab='',ylab='')
+  x = -.01*(-t^2+40*t+1200)*sin(pi*t/180)
+  y = .01*(-t^2+40*t+1200)*cos(pi*t/180)
+  lines(x,y, lwd=4)
+  lines(-x,y, lwd=4)
+```
+
+Finally, we can add some text to the heart.
+
+```{r}
+text(0,7,"Happy Valentine's Day",col='red',cex=2.5)
+text(0,5.5,"SlothSquad",col='red',cex=2.5)
+```
+
+**Try it yourself:** Modify the code above -- you can change the text, the color, the font size (`cex`) or the position of the text (the first two numbers in the `text()` function). Make a couple cards until you're happy with the appearance.
+
+### Function time
+
+Now it's time to convert that code into a function. Think about what you would want a `valentine()` function to do: create cards with different names on it, create cards for different occasions besides Valentine's Day, create cards with different colors, etc. The components of the card that you would like to change should become arguments to the function.
+
+For example:
+
+```{r}
+valentine = function(name, holiday, fontcolor){
+  # insert your code here
+}
+```
+
+**Try it yourself:** Use your code from above to make a function that you can use to create different kinds of cards based on the arguments of the function. If you get stuck, you can check out the code from the blog post, but try this on your own first.
+
+```{r}
+
+```
+
+
+
+
