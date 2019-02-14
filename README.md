@@ -41,7 +41,7 @@
 | **Week 18** | | |
   | February 10 | **Hackathon! :full_moon:** | |
   | February 12 | **No internship session today** | |
-  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> Wrap up sloth skull machine learning </li><li> An R Valentine :love_letter: </li><li>  Machine learning activity! </li><li> Questions for Allison Parrish |                     [Machine learning activity worksheet](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/ClassificationActivity.md) <br>[Make an R Valentine](https://www.r-bloggers.com/make-a-valentines-heart-with-r/) <br> [Questions for Allison Parrish](https://docs.google.com/document/d/1g_d9dig8e5Liopvqag4LCD0U0IcgxRBQfWUKosTRAks/edit?usp=sharing) |
+  | February 14 <br> <sub>:heart_eyes:Valentine's Day:heart:</sub> | <ul><li> Wrap up sloth skull machine learning </li><li> An R Valentine :love_letter: </li><li>  Machine learning activity! </li><li> Questions for Allison Parrish |                     [Machine learning activity worksheet](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/machine_learning/ClassificationActivity.md) <br> [R Valentine RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/R_Valentine.Rmd) <br> [Questions for Allison Parrish](https://docs.google.com/document/d/1g_d9dig8e5Liopvqag4LCD0U0IcgxRBQfWUKosTRAks/edit?usp=sharing) |
 | **Mid-Winter Recess** | **:snowflake: February 18-22 :snowman:** | |
 | **Week 19** | | |
   | February 26 | Resume Workshop |  |
