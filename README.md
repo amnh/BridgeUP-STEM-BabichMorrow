@@ -47,8 +47,8 @@
   | February 26 | Resume Workshop |  |
   | February 28 | HTML/CSS Workshop |  |
 | **Week 20** | | |
-  | March 5 | <ul><li> Meet Allison Parrish! </li><li> Maxent tutorial | [Download Maxent and tutorial data](https://biodiversityinformatics.amnh.org/open_source/maxent/) <br> [Maxent tutorial](https://biodiversityinformatics.amnh.org/open_source/maxent/Maxent_tutorial2017.pdf) |
-  | March 7 | <ul><li> Process environmental data </li><li> Partition occurrence data | Point buffering - RMarkdown <br> Data partitioning - RMarkdown |
+  | March 5 | <ul><li> Meet Allison Parrish! </li><li> Start Maxent tutorial | [Download Maxent](https://biodiversityinformatics.amnh.org/open_source/maxent/) <br> [Maxent tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/maxent/Maxent_tutorial.md) |
+  | March 7 | <ul><li> Finish Maxent tutorial </li><li> Process environmental data </li><li> Partition occurrence data | Point buffering - RMarkdown <br> Data partitioning - RMarkdown |
 | **Week 21** | | |
   | March 12 | <ul><li> `maxnet` tutorial </li><li> `ENMeval` tutorial | |
   | March 14 | <ul><li> Build and visualize Maxent models </li><li> Model selection | |
