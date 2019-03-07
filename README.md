@@ -48,7 +48,7 @@
   | February 28 | HTML/CSS Workshop |  |
 | **Week 20** | | |
   | March 5 | <ul><li> Meet Allison Parrish! |  |
-  | March 7 | <ul><li> Maxent tutorial </li><li> Get occurrence data for Maxent modeling |                                       [Download Maxent](https://biodiversityinformatics.amnh.org/open_source/maxent/) <br> [Maxent tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/maxent/Maxent_tutorial.md) <br> [Maxent next steps - Slides](https://docs.google.com/presentation/d/1RUsj8KpSndX3AqIwedqFibHuDqiXAFXcXTbcw-hbgik/edit?usp=sharing)|
+  | March 7 | <ul><li> Maxent tutorial </li><li> Get occurrence data for Maxent modeling |                                       [Download Maxent](https://biodiversityinformatics.amnh.org/open_source/maxent/) <br> [Maxent tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/maxent/Maxent_tutorial.md) <br> [Maxent notes (thank you, Ula!)](https://docs.google.com/document/d/1qWl3wmG55WtPeiJGIQc0K24qfyj6THT8TzBrAO4TMjU/edit?usp=sharing) <br> [Maxent next steps - Slides](https://docs.google.com/presentation/d/1RUsj8KpSndX3AqIwedqFibHuDqiXAFXcXTbcw-hbgik/edit?usp=sharing)|
 | **Week 21** | | |
   | March 12 | <ul><li> Process environmental data </li><li> Partition occurrence data </li><li> `maxnet` tutorial </li><li> `ENMeval` tutorial | Point buffering - RMarkdown <br> Data partitioning - RMarkdown |
   | March 14 | <ul><li> Build and visualize Maxent models </li><li> Model selection | |
