@@ -1,0 +1,60 @@
+---
+title: "Partitioning Occurrence Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Partitioning data
+
+Just as in our machine learning tutorials with the iris and sloth skull datasets, we need to find a way to split our data into test and training data to check how well our model is working. In biodiversity research, scientists typically accomplish this by splitting up their datasets into subsets. This allows us to perform k-fold cross validation, where the data is partitioned into a certain number of subsets (k). Then the model is built multiple times using all subsets but one and testing the resulting model on the left-out group. This process results in k models.
+
+We are going to use one kind of partitioning for *B. variegatus* and another for *B. tridactylus* and *B. torquatus*. If you are assigned to *B. variegatus*, read over the *Non-spatial partitions* section of this tutorial (without running any of the code, just get a grasp of what is happening conceptually), and then run the *Spatial partitions* section. If you are assigned to either *B. tridactylus* or *B. torquatus*, read over the *Spatial partitions* section and then run through the code in th *Non-spatial partitions* section.
+
+**Try it yourself:** To get started, load the `ENMeval` package. Then load in the csv of your occurrence points (you probably already have this loaded from the previous Rmd).
+
+```{r}
+
+```
+
+
+## Non-spatial partitions
+
+Typically, non-spatial partitions are used either when there is no sampling bias (which is rarely true, particularly in our case), or when there are only a small number of occurrences.
+
+For small sample sizes, which we have with both *B. tridactylus* and *B. torquatus*, we are going to use the jackknife partition, where each occurrence record is put in its own group. (How many models would result from such a partition? Can you see why we don't use this method for species with many occurrence points?)
+
+To create a jackknife partition, we are going to use the `ENMeval` function `getjackknife()`.
+
+**Try it yourself:** Read the Help menu for `get.jackknife()`. Fill in the code below to include the occurrence data and the background coordinates you created in `background_region_tutorial.Rmd`. Look at the resulting object -- you can see the group number for each occurrence point and background point.
+
+```{r}
+group.data <-
+# Look at group.data
+group.data
+```
+
+
+## Spatial partitions
+
+Spatial partitions are preferred in situations where sampling bias exists and when we want to apply the model to different geographic regions and time periods. There are several methods of spatial partitioning; for *B. variegatus*. we are going to focus on block partitioning in particular.
+
+The block method draws a horizontal and vertical line to divide the occurrences into 4 regions (the blocks). These blocks each hold a similar number of occurrences but can differ in area. This method can be particularly useful because it will divide the occurrences up into groups that share similar geographic region, for example, the Central American sloths, the mid-Amazon sloths, the Atlantic Forest sloths, etc.
+
+To create the block partition, we are going to use the `ENMeval` function `get.block()`.
+
+**Try it yourself:** Read the Help menu for `get.block()`. Fill in the code below to include the occurrence data and the background coordinates you created in `background_region_tutorial.Rmd`. Look at the resulting object -- you can see the group number for each occurrence point and background point.
+
+```{r}
+group.data <-
+# Look at group.data
+group.data
+```
+
+
+
+
+
+
