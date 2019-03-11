@@ -36,6 +36,40 @@ group.data <-
 group.data
 ```
 
+We can separately pull out the block numbers for the occurrence points and the background points in the following way:
+
+```{r}
+# pull out the occurrence and background partition group numbers from the list
+occs.grp <- group.data[[1]]
+bg.grp <- group.data[[2]]
+```
+
+### Visualize partition
+
+Now we can view our points on a map based on what partition group they are in.
+
+The following code should look familiar -- it allows us to look at a satellite map of South America:
+
+```{r}
+library(ggmap)
+#Use Google maps
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+# Create bounding box to view South America
+SA_bbox <- make_bbox(lon = c(-95, -25), lat = c(-35,20), f = 0.1)
+SA_map <- get_map(location = SA_bbox, source = "google", maptype = "satellite")
+ggmap(SA_map)
+```
+
+Now we can use `ggmap` to visualize our occurrence points colored by their partition group number.
+
+**Try it yourself:** Complete the following code to specify the occurrence data and the column names for latitude and longitude in your dataset. Finally, color the points by `occs.grp`:
+
+```{r}
+ggmap(SA_map) +
+  geom_point(data = , aes(x=, y=), color = )
+```
+
 
 ## Spatial partitions
 
@@ -51,6 +85,48 @@ To create the block partition, we are going to use the `ENMeval` function `get.b
 group.data <-
 # Look at group.data
 group.data
+```
+
+We can separately pull out the block numbers for the occurrence points and the background points in the following way:
+
+```{r}
+# pull out the occurrence and background partition group numbers from the list
+occs.grp <- group.data[[1]]
+bg.grp <- group.data[[2]]
+```
+
+### Visualize partition
+
+Now we can view our points on a map based on what partition group they are in.
+
+The following code should look familiar -- it allows us to look at a satellite map of South America:
+
+```{r}
+library(ggmap)
+#Use Google maps
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+# Create bounding box to view South America
+SA_bbox <- make_bbox(lon = c(-95, -25), lat = c(-35,20), f = 0.1)
+SA_map <- get_map(location = SA_bbox, source = "google", maptype = "satellite")
+ggmap(SA_map)
+```
+
+Now we can use `ggmap` to visualize our occurrence points colored by their partition group number.
+
+**Try it yourself:** Complete the following code to specify the occurrence data and the column names for latitude and longitude in your dataset. Finally, color the points by `occs.grp`:
+
+```{r}
+ggmap(SA_map) +
+  geom_point(data = , aes(x=, y=e), color = )
+```
+
+We can also visualize the block partition by looking at the partition groups for the background data.
+
+**Try it yourself:** Modify the above code to instead see the background points (`bg.xy`) you created colored by their group number (`bg.grp`). You will have to change the x and y column names.
+
+```{r}
+
 ```
 
 
