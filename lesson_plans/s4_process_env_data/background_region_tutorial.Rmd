@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In the Maxent model, we need to choose suitable background regions for each sloth species. The Maxent model compares the environmental conditions at our known sloth occurrence points with the environmental conditions in the background region to make its predictions. This also allows us to flag regions with environmental conditions outside the range of conditions used to build the model when we project our model to new geographic locations and time periods later on.
 
-Our first step is to load in our occurrence data. Load the csv into R for the species you are working on:
+Our first step is to load in our occurrence data. Import the csv into R for the species you are working on:
 
 ```{r}
 
@@ -32,9 +32,9 @@ Next, load the following packages into R (you may need to install some of these 
 
 The first type of background region we are going to be creating today is a bounding box: a rectangular region around the occurrence points. We have already talked about bounding boxes in the context of using them to create maps in R. Now we are going to use them as one of the methods to designate a background region for Maxent modeling.
 
-To create the bounding box, we are going to use the `bbox()` function on the latitude and longitude columns of our torquatus data.
+To create the bounding box, we are going to use the `bbox()` function on the latitude and longitude columns of our species data.
 
-**Try it yourself:** Complete the following code by subsetting `torquatus` just to include the longitude and latitude columns. Also, add a line to plot the bounding box.
+**Try it yourself:** Complete the following code by subsetting your occurrence data just to include the longitude and latitude columns. Also, add a line of code to plot the bounding box.
 
 ```{r}
 # Create bounding box
@@ -50,7 +50,9 @@ bgExt <- as(extent(bgExt), "SpatialPolygons")
 
 Next we are going to use some functions from the `raster` package to mask our environmental data by the bounding box we created. Refer back to the `raster_tutorial.Rmd` to see how to use these functions.
 
-**Try it yourself:** Crop the environmental variables by the bounding box. Plot the resulting area to see what region the bounding box covers.
+For the environmental data, we are going to use the WorldClim bioclimatic variables you downloaded in `worldclim_inR.Rmd`. The raster stack containing these variables should be in your R environment as the object `env_stack`.
+
+**Try it yourself:** Crop the environmental variables by the bounding box. Plot the resulting area to see what region the bounding box covers. Remember, cropping trims down the environmental raster to the extent of the bounding box.
 
 ```{r}
 # Create cropped raster
@@ -59,7 +61,7 @@ envsBgCrop <-
 
 ```
 
-**Try it yourself:** Mask the MCP background extent shape from the cropped raster.
+**Try it yourself:** Mask the bounding box background extent shape from the cropped raster. Remember, masking takes the environmental raster and removes all regions that have an NA value in the bounding box (all cells outside the box).
 
 ```{r}
 # Create masked raster
@@ -96,7 +98,7 @@ bgExt_buffer <-
   
 ```
 
-**Try it yourself:** Now go through the same cropping and masking procedure as above to create an environmental raster for your study region:
+**Try it yourself:** Now go through the same cropping and masking procedure as above to create an environmental raster for your study region based on the buffered bounding box:
 
 ```{r}
 
@@ -107,9 +109,9 @@ bgExt_buffer <-
 
 ## Minimum convex polygon
 
-The minimum convex polygon method draws the smallest polygon around the occurrence points where all angles of the polygon are acute (less than 180°). To create the minimum convex polygon, we are going to create a function called `mcp()`.
+The minimum convex polygon method draws the smallest polygon around the occurrence points where all angles of the polygon are less than 180°. To create the minimum convex polygon, we are going to create a function called `mcp()`.
 
-**Try it yourself:** The `mcp()` function has already been written for you, but look over it to try to understand each line. Some of this code should look familiar to you from our section on Spatial objects in R.
+**Try it yourself:** The `mcp()` function has already been written for you, but look over it to try to understand each line. Some of this code should look familiar to you from our lessons on Spatial objects in R.
 
 ```{r}
 # function to create a minimum convex polygon
@@ -127,7 +129,7 @@ mcp <- function(xy) {
 
 Our next step is to run this function on our data to create the minimum convex polygon (MCP).
 
-**Try it yourself:** Create a polygon called `bgExt` by providing it with your occurrence data (just the latitude and longitude columns!). Hint, you may need to subset out only the columns you need.
+**Try it yourself:** Create a minimum convex polygon called `bgExt` by providing it with your occurrence data (just the latitude and longitude columns!) and using the new `mcp()` function. Hint, you may need to subset out only the columns you need.
 
 ```{r}
 # Create the minimum convex polygon
@@ -196,7 +198,7 @@ bgExt_buffer <-
 
 ## Point buffers
 
-The third method of designating a study region is by creating a buffered region around each occurrence point. You can think of this as creating a bunch of circles of a given diameter (the buffer distance) around each occurrence point. To create this kind of background region, you can use the `gBuffer()` function directly on the occurrence points.
+The third method of designating a study region is by creating a buffered region around each occurrence point. You can think of this as creating a bunch of circles of a given diameter (the buffer distance) around each occurrence point. To create this kind of background region, you can use the `gBuffer()` function directly on the occurrence points, instead of on a shape like the bounding box or MCP.
 
 **Try it yourself:** First, we need to convert the occurrence points to a Spatial object using the `SpatialPoints()` function (this may look familiar from our GPS in R lessons).
 

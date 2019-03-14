@@ -9,11 +9,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Partitioning data
 
-Just as in our machine learning tutorials with the iris and sloth skull datasets, we need to find a way to split our data into test and training data to check how well our model is working. In biodiversity research, scientists typically accomplish this by splitting up their datasets into subsets. This allows us to perform k-fold cross validation, where the data is partitioned into a certain number of subsets (k). Then the model is built multiple times using all subsets but one and testing the resulting model on the left-out group. This process results in k models.
+Just as in our machine learning tutorials with the iris and sloth skull datasets, we need to find a way to split our data into test and training data to check how well our model is working. In biodiversity research, scientists typically accomplish this by splitting up their datasets into subsets. This allows us to perform k-fold cross validation, where the data is partitioned into k different subsets. Then the model is built multiple times using all subsets but one and testing the resulting model on the left-out group. This process results in k models.
 
 We are going to use one kind of partitioning for *B. variegatus* and another for *B. tridactylus* and *B. torquatus*. If you are assigned to *B. variegatus*, read over the *Non-spatial partitions* section of this tutorial (without running any of the code, just get a grasp of what is happening conceptually), and then run the *Spatial partitions* section. If you are assigned to either *B. tridactylus* or *B. torquatus*, read over the *Spatial partitions* section and then run through the code in th *Non-spatial partitions* section.
 
-**Try it yourself:** To get started, load the `ENMeval` package. Then load in the csv of your occurrence points (you probably already have this loaded from the previous Rmd).
+**Try it yourself:** To get started, load the `ENMeval` package. Then import the csv of your occurrence points (you probably already have this imported from the previous Rmd).
 
 ```{r}
 
@@ -44,6 +44,8 @@ occs.grp <- group.data[[1]]
 bg.grp <- group.data[[2]]
 ```
 
+Notice the double square brackets `[[ ]]`: they get the first and second items from the list `group.data` (where the first item is the group numbers for the occurrence points and the second item is the group numbers for the background points).
+
 ### Visualize partition
 
 Now we can view our points on a map based on what partition group they are in.
@@ -63,7 +65,7 @@ ggmap(SA_map)
 
 Now we can use `ggmap` to visualize our occurrence points colored by their partition group number.
 
-**Try it yourself:** Complete the following code to specify the occurrence data and the column names for latitude and longitude in your dataset. Finally, color the points by `occs.grp`:
+**Try it yourself:** Complete the following code to specify the occurrence data and the column names for latitude and longitude in your dataset of occurrence points for your sloth species. Finally, color the points by `occs.grp` so the point(s) in each group are a different color:
 
 ```{r}
 ggmap(SA_map) +
@@ -75,7 +77,7 @@ ggmap(SA_map) +
 
 Spatial partitions are preferred in situations where sampling bias exists and when we want to apply the model to different geographic regions and time periods. There are several methods of spatial partitioning; for *B. variegatus*. we are going to focus on block partitioning in particular.
 
-The block method draws a horizontal and vertical line to divide the occurrences into 4 regions (the blocks). These blocks each hold a similar number of occurrences but can differ in area. This method can be particularly useful because it will divide the occurrences up into groups that share similar geographic region, for example, the Central American sloths, the mid-Amazon sloths, the Atlantic Forest sloths, etc.
+The block method draws a horizontal and vertical line to divide the occurrences into 4 regions (the blocks). These blocks will each hold a similar number of occurrences but can differ in area. This method can be particularly useful because it will divide the occurrences up into groups that share similar geographic region, for example, the Central American sloths, the mid-Amazon sloths, the Atlantic Forest sloths, etc.
 
 To create the block partition, we are going to use the `ENMeval` function `get.block()`.
 
