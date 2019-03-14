@@ -56,11 +56,11 @@
   | March 19 | <ul><li> Build and visualize Maxent models </li><li> Model selection | |
   | March 21 | <ul><li> Louise is visiting! </li><li> Visualizing Maxent results </li><li> Projecting in space | |
 | **Week 23** | | |
-  | March 26 | Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php) |
+  | March 26 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php) |
   | March 28 | | |
 | **Week 24** | | |
   | April 2 | | |
-  | April 4 | Presentation Skills Workshop| |
+  | April 4 | Improv / Presentation Skills Workshop| |
 | **Week 25** | | |
   | April 9 | | |
   | April 11 | | |
