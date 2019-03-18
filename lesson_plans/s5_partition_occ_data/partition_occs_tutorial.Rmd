@@ -120,7 +120,7 @@ Now we can use `ggmap` to visualize our occurrence points colored by their parti
 
 ```{r}
 ggmap(SA_map) +
-  geom_point(data = , aes(x=, y=e), color = )
+  geom_point(data = , aes(x=, y=), color = )
 ```
 
 We can also visualize the block partition by looking at the partition groups for the background data.

@@ -1,64 +1,87 @@
 "","name","longitude","latitude","prov","date","key"
-"1","Bradypus tridactylus",-59.34123,3.600205,"gbif",2018-06-23,1899764220
-"2","Bradypus tridactylus",-55.239568,5.698873,"gbif",2018-10-05,2006081117
-"3","Bradypus tridactylus",-60.038909,-2.653622,"gbif",2017-05-31,1993708232
-"4","Bradypus tridactylus",-60.092313,-3.066462,"gbif",2014-05-06,1898782240
-"5","Bradypus tridactylus",-52.57478,3.12009,"gbif",2012-01-29,1863259940
-"6","Bradypus tridactylus",-52.75364,2.39638,"gbif",2012-02-09,1863252789
-"7","Bradypus tridactylus",-52.1252,3.39203,"gbif",2012-02-24,1863255894
-"8","Bradypus tridactylus",-52.2151,3.30147,"gbif",2012-03-21,1863262225
-"9","Bradypus tridactylus",-52.7547,3.1198,"gbif",2012-04-24,1863251350
-"10","Bradypus tridactylus",-52.75353,2.30595,"gbif",2012-04-28,1863254759
-"11","Bradypus tridactylus",-52.93319,2.21529,"gbif",2012-04-03,1863255985
-"12","Bradypus tridactylus",-59.885208,-3.07768,"gbif",2012-05-31,891084073
-"13","Bradypus tridactylus",-52.39496,3.21079,"gbif",2012-05-17,1863251172
-"14","Bradypus tridactylus",-53.02295,2.12476,"gbif",2011-01-22,1863256568
-"15","Bradypus tridactylus",-52.21521,3.39192,"gbif",2011-02-13,1863259561
-"16","Bradypus tridactylus",-53.02333,2.396,"gbif",2011-02-10,1863259169
-"17","Bradypus tridactylus",-60.774295,-2.822796,"gbif",2011-03-03,1913717075
-"18","Bradypus tridactylus",-52.66385,2.48692,"gbif",2011-03-23,1863253394
-"19","Bradypus tridactylus",-52.66373,2.39649,"gbif",2011-03-23,1863244830
-"20","Bradypus tridactylus",-52.48494,3.21066,"gbif",2011-04-24,1863244837
-"21","Bradypus tridactylus",-54.19304,3.02608,"gbif",2011-05-28,1863245452
-"22","Bradypus tridactylus",-54.01238,2.66521,"gbif",2011-05-11,1863253670
-"23","Bradypus tridactylus",-54.10399,3.29735,"gbif",2011-05-22,1863259174
-"24","Bradypus tridactylus",-54.19358,3.20673,"gbif",2011-05-14,1863251306
-"25","Bradypus tridactylus",-52.57393,2.48703,"gbif",2011-06-22,1863261254
-"26","Bradypus tridactylus",-54.28601,3.92901,"gbif",2011-06-29,1863255592
-"27","Bradypus tridactylus",-52.21499,3.21102,"gbif",2011-06-16,1863250243
-"28","Bradypus tridactylus",-51.76554,3.84469,"gbif",2011-06-09,1863251591
-"29","Bradypus tridactylus",-54.01556,3.74934,"gbif",2011-09-20,1863249828
-"30","Bradypus tridactylus",-54.19278,2.93575,"gbif",2011-11-21,1863254198
-"31","Bradypus tridactylus",-52.57415,2.66791,"gbif",2010-06-13,1863247322
-"32","Bradypus tridactylus",-52.75455,3.02938,"gbif",2010-06-18,1863255047
-"33","Bradypus tridactylus",-52.57491,3.21053,"gbif",2010-08-25,1863249107
-"34","Bradypus tridactylus",-52.93413,2.84823,"gbif",2010-09-20,1863249693
-"35","Bradypus tridactylus",-52.30498,3.21091,"gbif",2010-11-11,1863243334
-"36","Bradypus tridactylus",-53.11589,3.75199,"gbif",2010-12-31,1876989615
-"37","Bradypus tridactylus",-52.66656,4.11469,"gbif",2010-12-31,1877248629
-"38","Bradypus tridactylus",-51.85597,4.20644,"gbif",2010-12-31,1877251003
-"39","Bradypus tridactylus",-52.21741,4.83908,"gbif",2010-12-31,1877302888
-"40","Bradypus tridactylus",-52.03654,4.47758,"gbif",2010-12-31,1877142066
-"41","Bradypus tridactylus",-54.28097,2.30323,"gbif",2010-12-31,1877547501
-"42","Bradypus tridactylus",-53.57197,5.46792,"gbif",2010-12-31,1877251159
-"43","Bradypus tridactylus",-53.29541,3.57075,"gbif",2010-12-31,1877246978
-"44","Bradypus tridactylus",-53.3883,4.5648,"gbif",2009-12-31,1877302582
-"45","Bradypus tridactylus",-53.147445,5.022742,"gbif",2008-02-04,1901045642
-"46","Bradypus tridactylus",-52.48731,4.56724,"gbif",2008-12-20,1880819829
-"47","Bradypus tridactylus",-52.30775,4.92936,"gbif",2003-04-02,1881917001
-"48","Bradypus tridactylus",-52.39792,4.92918,"gbif",2002-07-15,1863789125
-"49","Bradypus tridactylus",-58.811,3.268,"gbif",2001-09-20,197018775
-"50","Bradypus tridactylus",-52.21693,4.56775,"gbif",1998-12-31,1876842113
-"51","Bradypus tridactylus",-59.25,3.25,"gbif",1993-02-01,197018771
-"52","Bradypus tridactylus",-55.416668,5.783333,"gbif",1962-01-28,665745547
-"53","Bradypus tridactylus",-59.51666,2.83333,"gbif",1962-10-01,1211796875
-"54","Bradypus tridactylus",-55.166668,5.833334,"gbif",1961-03-06,665718429
-"55","Bradypus tridactylus",-55.466667,5.15,"gbif",1961-12-15,665720475
-"56","Bradypus tridactylus",-55.032204,3.271144,"gbif",1960-07-03,1211814328
-"57","Bradypus tridactylus",-58.05,5.28333,"gbif",1952-07-27,1145687522
-"58","Bradypus tridactylus",-54.03111,5.49944,"gbif",1952-10-23,865718047
-"59","Bradypus tridactylus",-48.366667,-1.366667,"gbif",1938-03-16,476818126
-"60","Bradypus tridactylus",-58.9,5.36667,"gbif",1924-01-01,1211810783
-"61","Bradypus tridactylus",-58.3,6.43333,"gbif",1914-07-21,1987299898
+"1","Bradypus tridactylus",-59.34123,3.600205,"gbif","6/23/18",1899764220
+"2","Bradypus tridactylus",-55.239568,5.698873,"gbif","10/5/18",2006081117
+"3","Bradypus tridactylus",-60.038909,-2.653622,"gbif","5/31/17",1993708232
+"4","Bradypus tridactylus",-60.092313,-3.066462,"gbif","5/6/14",1898782240
+"5","Bradypus tridactylus",-52.57478,3.12009,"gbif","1/29/12",1863259940
+"6","Bradypus tridactylus",-52.75364,2.39638,"gbif","2/9/12",1863252789
+"7","Bradypus tridactylus",-52.1252,3.39203,"gbif","2/24/12",1863255894
+"8","Bradypus tridactylus",-52.2151,3.30147,"gbif","3/21/12",1863262225
+"9","Bradypus tridactylus",-52.7547,3.1198,"gbif","4/24/12",1863251350
+"10","Bradypus tridactylus",-52.75353,2.30595,"gbif","4/28/12",1863254759
+"11","Bradypus tridactylus",-52.93319,2.21529,"gbif","4/3/12",1863255985
+"12","Bradypus tridactylus",-59.885208,-3.07768,"gbif","5/31/12",891084073
+"13","Bradypus tridactylus",-52.39496,3.21079,"gbif","5/17/12",1863251172
+"14","Bradypus tridactylus",-53.02295,2.12476,"gbif","1/22/11",1863256568
+"15","Bradypus tridactylus",-52.21521,3.39192,"gbif","2/13/11",1863259561
+"16","Bradypus tridactylus",-53.02333,2.396,"gbif","2/10/11",1863259169
+"17","Bradypus tridactylus",-60.774295,-2.822796,"gbif","3/3/11",1913717075
+"18","Bradypus tridactylus",-52.66385,2.48692,"gbif","3/23/11",1863253394
+"19","Bradypus tridactylus",-52.66373,2.39649,"gbif","3/23/11",1863244830
+"20","Bradypus tridactylus",-52.48494,3.21066,"gbif","4/24/11",1863244837
+"21","Bradypus tridactylus",-54.19304,3.02608,"gbif","5/28/11",1863245452
+"22","Bradypus tridactylus",-54.01238,2.66521,"gbif","5/11/11",1863253670
+"23","Bradypus tridactylus",-54.10399,3.29735,"gbif","5/22/11",1863259174
+"24","Bradypus tridactylus",-54.19358,3.20673,"gbif","5/14/11",1863251306
+"25","Bradypus tridactylus",-52.57393,2.48703,"gbif","6/22/11",1863261254
+"26","Bradypus tridactylus",-54.28601,3.92901,"gbif","6/29/11",1863255592
+"27","Bradypus tridactylus",-52.21499,3.21102,"gbif","6/16/11",1863250243
+"28","Bradypus tridactylus",-51.76554,3.84469,"gbif","6/9/11",1863251591
+"29","Bradypus tridactylus",-54.01556,3.74934,"gbif","9/20/11",1863249828
+"30","Bradypus tridactylus",-54.19278,2.93575,"gbif","11/21/11",1863254198
+"31","Bradypus tridactylus",-52.57415,2.66791,"gbif","6/13/10",1863247322
+"32","Bradypus tridactylus",-52.75455,3.02938,"gbif","6/18/10",1863255047
+"33","Bradypus tridactylus",-52.57491,3.21053,"gbif","8/25/10",1863249107
+"34","Bradypus tridactylus",-52.93413,2.84823,"gbif","9/20/10",1863249693
+"35","Bradypus tridactylus",-52.30498,3.21091,"gbif","11/11/10",1863243334
+"36","Bradypus tridactylus",-53.11589,3.75199,"gbif","12/31/10",1876989615
+"37","Bradypus tridactylus",-52.66656,4.11469,"gbif","12/31/10",1877248629
+"38","Bradypus tridactylus",-51.85597,4.20644,"gbif","12/31/10",1877251003
+"39","Bradypus tridactylus",-52.21741,4.83908,"gbif","12/31/10",1877302888
+"40","Bradypus tridactylus",-52.03654,4.47758,"gbif","12/31/10",1877142066
+"41","Bradypus tridactylus",-54.28097,2.30323,"gbif","12/31/10",1877547501
+"42","Bradypus tridactylus",-53.57197,5.46792,"gbif","12/31/10",1877251159
+"43","Bradypus tridactylus",-53.29541,3.57075,"gbif","12/31/10",1877246978
+"44","Bradypus tridactylus",-53.3883,4.5648,"gbif","12/31/09",1877302582
+"45","Bradypus tridactylus",-53.147445,5.022742,"gbif","2/4/08",1901045642
+"46","Bradypus tridactylus",-52.48731,4.56724,"gbif","12/20/08",1880819829
+"47","Bradypus tridactylus",-52.30775,4.92936,"gbif","4/2/03",1881917001
+"48","Bradypus tridactylus",-52.39792,4.92918,"gbif","7/15/02",1863789125
+"49","Bradypus tridactylus",-58.811,3.268,"gbif","9/20/01",197018775
+"50","Bradypus tridactylus",-52.21693,4.56775,"gbif","12/31/98",1876842113
+"51","Bradypus tridactylus",-59.25,3.25,"gbif","2/1/93",197018771
+"52","Bradypus tridactylus",-55.416668,5.783333,"gbif","1/28/62",665745547
+"53","Bradypus tridactylus",-59.51666,2.83333,"gbif","10/1/62",1211796875
+"54","Bradypus tridactylus",-55.166668,5.833334,"gbif","3/6/61",665718429
+"55","Bradypus tridactylus",-55.466667,5.15,"gbif","12/15/61",665720475
+"56","Bradypus tridactylus",-55.032204,3.271144,"gbif","7/3/60",1211814328
+"57","Bradypus tridactylus",-58.05,5.28333,"gbif","7/27/52",1145687522
+"58","Bradypus tridactylus",-54.03111,5.49944,"gbif","10/23/52",865718047
+"60","Bradypus tridactylus",-58.9,5.36667,"gbif","1/1/24",1211810783
+"61","Bradypus tridactylus",-58.3,6.43333,"gbif","7/21/14",1987299898
 "62","Bradypus tridactylus",-60,-2.5,"gbif",NA,1698143453
 "63","Bradypus tridactylus",-53.12572,3.93393,"gbif",NA,865718043
+"64","bradypus_tridactylus",-59.5,-1.83333,"literature",NA,NA
+"65","bradypus_tridactylus",-56.73333,-2.1833333,"literature",NA,NA
+"66","bradypus_tridactylus",-58.6833333,6.383333,"literature",NA,NA
+"67","bradypus_tridactylus",-59.5,2.833333,"literature",NA,NA
+"68","bradypus_tridactylus",-55.16667,5.8333333,"literature",NA,NA
+"69","bradypus_tridactylus",-63.55,8.133333,"literature",NA,NA
+"70","bradypus_tridactylus",-61.316667,6.283333,"literature",NA,NA
+"71","bradypus_tridactylus",-62.366667,7.183333,"literature",NA,NA
+"72","bradypus_tridactylus",-67.01666667,6.8,"literature",NA,NA
+"73","bradypus_tridactylus",-60.01666667,-3.133333333,"literature",NA,NA
+"74","bradypus_tridactylus",-52.33333333,4.933333333,"literature",NA,NA
+"75","bradypus_tridactylus",-58.68333333,6.383333333,"literature",NA,NA
+"76","bradypus_tridactylus",-58.65,6.4,"literature",NA,NA
+"77","bradypus_tridactylus",-58.3,6.416666667,"literature",NA,NA
+"78","bradypus_tridactylus",-59.5,2.833333333,"literature",NA,NA
+"79","bradypus_tridactylus",-55.46666667,5.166666667,"literature",NA,NA
+"80","bradypus_tridactylus",-55.16666667,5.833333333,"literature",NA,NA
+"81","bradypus_tridactylus",-63.55,8.133333333,"literature",NA,NA
+"82","bradypus_tridactylus",-61.31666667,6.283333333,"literature",NA,NA
+"83","bradypus_tridactylus",-61.55,7.033333333,"literature",NA,NA
+"84","bradypus_tridactylus",-62.36666667,7.183333333,"literature",NA,NA
+"85","bradypus_tridactylus",-65.15,7.433333333,"literature",NA,NA
+"87","bradypus_tridactylus",-62.25,7,"literature",NA,NA
+"88","bradypus_tridactylus",-65.11666667,7.15,"literature",NA,NA
