@@ -1,7 +1,7 @@
-# BRADYPUS TORQUATUS
+# BRADYPUS TORQUATUS 
 # Maxent modeling code
 
-# Your name + your partner's name
+# luna + Anjali 
 # Date
 
 # Required packages -------------------------------------------------------
