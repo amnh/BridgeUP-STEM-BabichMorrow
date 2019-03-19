@@ -32,6 +32,17 @@ View(torquatus)
 # Use the ggmap package to plot the occurrence points for your species on a map
 # Share this map in Slack
 
+#Set the API key again
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+bound_box <- make_bbox(lon = torquatus$longitude, lat = torquatus$latitude, f = 2)
+#Get a satellite map at the location of the bounding box you made:
+bbox_map <- get_map(location = bound_box, maptype = "satellite", source = "google")
+
+ggmap(bbox_map) +
+  geom_point(data = torquatus, aes(x = longitude, y = latitude),
+             color = "green",
+             size =1)
 
 
 # Spatial thinning --------------------------------------------------------
