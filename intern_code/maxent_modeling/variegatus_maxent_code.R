@@ -12,11 +12,18 @@
 # 3) the packages from background_region_tutorial.Rmd,
 # 4) the package used in partitioning occurrences
 
+library(rgeos)
+library(sp)
+library(raster)
+library(dismo)
+library(ggmap)
+library(spThin)
+library(ENMeval)
 
 # Occurrence data ---------------------------------------------------------
 
 # Import the dataset for B. variegatus from data/occurrence_data
-
+variegatus = read.csv("~/Desktop/Repository Clone/Data/occurrence_data/variegatus.csv")
 
 
 # Visualize occurrence data -----------------------------------------------
