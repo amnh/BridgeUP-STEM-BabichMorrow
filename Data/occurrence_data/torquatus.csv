@@ -1,49 +1,49 @@
-"","name","longitude","latitude","prov","date","key"
-"1","Bradypus torquatus",-38.588619,-13.009022,"gbif",2018-05-28,1848761450
-"2","Bradypus torquatus",-40.266589,-20.380756,"gbif",2018-06-11,1914192367
-"3","Bradypus torquatus",-40.25893,-20.253949,"gbif",2018-07-19,1891315543
-"4","Bradypus torquatus",-40.600278,-19.935556,"gbif",2006-01-29,1323973764
-"5","Bradypus torquatus",-40.072222,-19.391111,"gbif",1990-01-01,1323971334
-"6","bradypus_torquatus",-39.4,-15.833,"literature",NA,NA
-"7","bradypus_torquatus",-39.1166,-14.8,"literature",NA,NA
-"8","bradypus_torquatus",-39.12528,-14.65778,"literature",NA,NA
-"9","bradypus_torquatus",-39.28333,-14.83333,"literature",NA,NA
-"10","bradypus_torquatus",-38.05,-12.5,"literature",NA,NA
-"11","bradypus_torquatus",-39.04,-13.65,"literature",NA,NA
-"12","bradypus_torquatus",-39.25,-13,"literature",NA,NA
-"13","bradypus_torquatus",-39.10497,-15.17714,"literature",NA,NA
-"14","bradypus_torquatus",-39.0518,-15.16311,"literature",NA,NA
-"15","bradypus_torquatus",-39.41667,-12.95,"literature",NA,NA
-"16","bradypus_torquatus",-39.75,-13.53333,"literature",NA,NA
-"17","bradypus_torquatus",-41.51221,-20.71916,"literature",NA,NA
-"18","bradypus_torquatus",-40.7,-20.56667,"literature",NA,NA
-"19","bradypus_torquatus",-40.2,-19.79,"literature",NA,NA
-"20","bradypus_torquatus",-40.13333,-19.93333,"literature",NA,NA
-"21","bradypus_torquatus",-40.11667,-19.91667,"literature",NA,NA
-"22","bradypus_torquatus",-40.11667,-19.8,"literature",NA,NA
-"23","bradypus_torquatus",-40.15,-19.61667,"literature",NA,NA
-"24","bradypus_torquatus",-40.16108,-19.87743,"literature",NA,NA
-"25","bradypus_torquatus",-41.00974,-20.41615,"literature",NA,NA
-"26","bradypus_torquatus",-40.41806,-19.83473,"literature",NA,NA
-"27","bradypus_torquatus",-40.87,-19.87,"literature",NA,NA
-"28","bradypus_torquatus",-40.11878,-19.46809,"literature",NA,NA
-"29","bradypus_torquatus",-39.85978,-19.62792,"literature",NA,NA
-"30","bradypus_torquatus",-40.68333,-20.03333,"literature",NA,NA
-"31","bradypus_torquatus",-40.74414,-20.06209,"literature",NA,NA
-"32","bradypus_torquatus",-40.70224,-20.04194,"literature",NA,NA
-"33","bradypus_torquatus",-40.69428,-19.90531,"literature",NA,NA
-"34","bradypus_torquatus",-40.53047,-19.97323,"literature",NA,NA
-"35","bradypus_torquatus",-40.54556,-19.88866,"literature",NA,NA
-"36","bradypus_torquatus",-40.62348,-19.92452,"literature",NA,NA
-"37","bradypus_torquatus",-40.59414,-19.93773,"literature",NA,NA
-"38","bradypus_torquatus",-41.00227,-20.46464,"literature",NA,NA
-"39","bradypus_torquatus",-41.83154,-21.8822,"literature",NA,NA
-"40","bradypus_torquatus",-42.03805,-22.42465,"literature",NA,NA
-"41","bradypus_torquatus",-42.33333,-22.31667,"literature",NA,NA
-"42","bradypus_torquatus",-43.15712,-22.39786,"literature",NA,NA
-"43","bradypus_torquatus",-41.03558,-21.73639,"literature",NA,NA
-"44","bradypus_torquatus",-42.12375,-22.78576,"literature",NA,NA
-"45","bradypus_torquatus",-42.2766,-22.54937,"literature",NA,NA
-"46","bradypus_torquatus",-37.55,-11.3,"literature",NA,NA
-"47","bradypus_torquatus",-37.23333,-11.2,"literature",NA,NA
-"48","bradypus_torquatus",-39.26666667,-14.8,"literature",NA,NA
+name,longitude,latitude,prov,date,key
+Bradypus torquatus,-38.588619,-13.009022,gbif,5/28/18,1848761450
+Bradypus torquatus,-40.266589,-20.380756,gbif,6/11/18,1914192367
+Bradypus torquatus,-40.25893,-20.253949,gbif,7/19/18,1891315543
+Bradypus torquatus,-40.600278,-19.935556,gbif,1/29/06,1323973764
+Bradypus torquatus,-40.072222,-19.391111,gbif,1/1/90,1323971334
+bradypus_torquatus,-39.4,-15.833,literature,NA,NA
+bradypus_torquatus,-39.1166,-14.8,literature,NA,NA
+bradypus_torquatus,-39.12528,-14.65778,literature,NA,NA
+bradypus_torquatus,-39.28333,-14.83333,literature,NA,NA
+bradypus_torquatus,-38.05,-12.5,literature,NA,NA
+bradypus_torquatus,-39.04,-13.65,literature,NA,NA
+bradypus_torquatus,-39.25,-13,literature,NA,NA
+bradypus_torquatus,-39.10497,-15.17714,literature,NA,NA
+bradypus_torquatus,-39.0518,-15.16311,literature,NA,NA
+bradypus_torquatus,-39.41667,-12.95,literature,NA,NA
+bradypus_torquatus,-39.75,-13.53333,literature,NA,NA
+bradypus_torquatus,-41.51221,-20.71916,literature,NA,NA
+bradypus_torquatus,-40.7,-20.56667,literature,NA,NA
+bradypus_torquatus,-40.2,-19.79,literature,NA,NA
+bradypus_torquatus,-40.13333,-19.93333,literature,NA,NA
+bradypus_torquatus,-40.11667,-19.91667,literature,NA,NA
+bradypus_torquatus,-40.11667,-19.8,literature,NA,NA
+bradypus_torquatus,-40.15,-19.61667,literature,NA,NA
+bradypus_torquatus,-40.16108,-19.87743,literature,NA,NA
+bradypus_torquatus,-41.00974,-20.41615,literature,NA,NA
+bradypus_torquatus,-40.41806,-19.83473,literature,NA,NA
+bradypus_torquatus,-40.87,-19.87,literature,NA,NA
+bradypus_torquatus,-40.11878,-19.46809,literature,NA,NA
+bradypus_torquatus,-39.85978,-19.62792,literature,NA,NA
+bradypus_torquatus,-40.68333,-20.03333,literature,NA,NA
+bradypus_torquatus,-40.74414,-20.06209,literature,NA,NA
+bradypus_torquatus,-40.70224,-20.04194,literature,NA,NA
+bradypus_torquatus,-40.69428,-19.90531,literature,NA,NA
+bradypus_torquatus,-40.53047,-19.97323,literature,NA,NA
+bradypus_torquatus,-40.54556,-19.88866,literature,NA,NA
+bradypus_torquatus,-40.62348,-19.92452,literature,NA,NA
+bradypus_torquatus,-40.59414,-19.93773,literature,NA,NA
+bradypus_torquatus,-41.00227,-20.46464,literature,NA,NA
+bradypus_torquatus,-41.83154,-21.8822,literature,NA,NA
+bradypus_torquatus,-42.03805,-22.42465,literature,NA,NA
+bradypus_torquatus,-42.33333,-22.31667,literature,NA,NA
+bradypus_torquatus,-43.15712,-22.39786,literature,NA,NA
+bradypus_torquatus,-41.03558,-21.73639,literature,NA,NA
+bradypus_torquatus,-42.12375,-22.78576,literature,NA,NA
+bradypus_torquatus,-42.2766,-22.54937,literature,NA,NA
+bradypus_torquatus,-37.55,-11.3,literature,NA,NA
+bradypus_torquatus,-37.23333,-11.2,literature,NA,NA
+bradypus_torquatus,-39.26666667,-14.8,literature,NA,NA
