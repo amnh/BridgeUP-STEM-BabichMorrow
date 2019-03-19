@@ -79,7 +79,7 @@ ggmap(bbox_map) +
 
 # Create background region ------------------------------------------------
 
-# Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd
+# Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd  https://github.com/deathbunbun/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s4_process_env_data/background_region_tutorial.Rmd
 
 # Create a background region for your species (based on the thinned occurrence data!):
 ## B. torquatus: points buffered by 1 degree
