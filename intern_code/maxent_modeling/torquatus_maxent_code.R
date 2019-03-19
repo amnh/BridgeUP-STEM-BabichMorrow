@@ -9,13 +9,22 @@
 # Load all the packages you need for the analyses
 # You need 1) the package for spatial thinning, 2) the package for mapping,
 # 3) the packages from background_region_tutorial.Rmd,
+library(spThin)
+library(ggmap)
+library(rgeos)
+library(sp)
+library(raster)
+library(dismo)
+
+library(ENMeval)
 # 4) the package used in partitioning occurrences
 
 
 # Occurrence data ---------------------------------------------------------
 
 # Import the dataset for B. torquatus from data/occurrence_data
-
+torquatus <- read.csv("~/Desktop/Project3/Data/occurrence_data/torquatus.csv")
+View(torquatus)
 
 
 # Visualize occurrence data -----------------------------------------------
