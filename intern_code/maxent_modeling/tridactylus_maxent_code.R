@@ -4,24 +4,31 @@
 # Yamile and Ula 
 # March 2019 
 
+
 # Required packages -------------------------------------------------------
 
 # Load all the packages you need for the analyses
 # You need 1) the package for spatial thinning, 2) the package for mapping,
 # 3) the packages from background_region_tutorial.Rmd,
 # 4) the package used in partitioning occurrences
-
+library(spThin)
+library(ggmap)
+library(rgeos)
+library(sp)
+library(raster)
+library(dismo)
+library(ENMeval)
 
 # Occurrence data ---------------------------------------------------------
+library(readr)
 # Import the dataset for B. tridactylus from data/occurrence_data
-
-
-
+tridactylus <- read_csv("~/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/tridactylus.csv")
 # Visualize occurrence data -----------------------------------------------
+View(tridactylus)
 
 # Use the ggmap package to plot the occurrence points for your species on a map
 # Share this map in Slack
-
+ 
 
 
 # Spatial thinning --------------------------------------------------------
