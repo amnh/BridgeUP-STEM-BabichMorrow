@@ -1,0 +1,15 @@
+---
+title: "Maxent model selection"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Selecting a model
+
+When you ran `ENMevaluate()` in the last tutorial, you created models with every combination of regularization multiplier and feature class that you specified. (How many models did you create?) Your next task is to go through those models and select out just the one that performed the "best" on your data. "Best" is a somewhat tricky thing to determine, however, so we are going to go over some of the different statistics you use to evaluate Maxent models.
+
+
+
