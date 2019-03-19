@@ -56,10 +56,20 @@ ggmap(bbox_map) +
 # (and also lesson_plans/s2_process_occ_data/sloth_cleaning_pt3.Rmd)
 
 # Thin your occurrence data to a distance of 40 km
-
+tridactylus$name <- "Bradypus_tridactylus"
+thinned_output <- thin(loc.data = tridactylus, lat.col = "latitude", long.col ="longitude" , spec.col = "name", thin.par = 40, reps = 100, locs.thinned.list.return = TRUE, write.files = FALSE)
+maxThin <- which(sapply(thinned_output, nrow) == max(sapply(thinned_output, nrow)))
+if(length(maxThin) > 1){
+  maxThin <- thinned_output[[ maxThin[1] ]]
+} else{
+  maxThin <- thinned_output[[maxThin]]
+}
+thinned_occs <- tridactylus[rownames(maxThin),]
+nrow(thinned_occs)
 
 # Check how many rows were removed by spatial thinning
 # Share this number in Slack
+
 
 
 # Visualize which points were removed using ggmap
