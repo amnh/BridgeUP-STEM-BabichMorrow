@@ -1,8 +1,8 @@
 # BRADYPUS VARIEGATUS
 # Maxent modeling code
 
-# Your name + your partner's name
-# Date
+# Hanora and Loralai
+# 3/19/19
 
 
 # Required packages -------------------------------------------------------
