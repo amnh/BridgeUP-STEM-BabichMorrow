@@ -53,8 +53,8 @@
   | March 12 | <ul><li> Process environmental data |                                                                             [Create background regions - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s4_process_env_data/background_region_tutorial.Rmd) |
   | March 14 | <ul><li> Partition occurrence data </li><li> :monkey: :rat: March Mammal Madness! :ram: :tiger2: |               [Occurrence data partitioning - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s5_partition_occ_data/partition_occs_tutorial.Rmd) <br> [MMM instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/MMM/MMMInstructions.md) |
 | **Week 22** | | |
-  | March 19 | <ul><li> Build and visualize Maxent models </li><li> Model selection | |
-  | March 21 | <ul><li> Louise is visiting! </li><li> Visualizing Maxent results </li><li> Projecting in space | |
+  | March 19 | <ul><li> GitHub branching </li><li> Prepare data for Maxent models </li><li> Build and visualize Maxent models|   Branching in GitHub|
+  | March 21 | <ul><li> Louise is visiting! </li><li> </li><li> Model selection </li><li> Visualizing Maxent results </li><li> Projecting in space | |
 | **Week 23** | | |
   | March 26 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php) |
   | March 28 | | |
