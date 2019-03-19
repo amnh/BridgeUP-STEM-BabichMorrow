@@ -83,7 +83,13 @@ ggmap(bbox_map) +
 
 # Create a background region for your species (based on the thinned occurrence data!):
 ## B. torquatus: points buffered by 1 degree
+occs.sp <- SpatialPoints(thinned_torquatus[,2:3])
+View(occs.sp)
+plot(occs.sp)
 
+torquatus_buffer <- gBuffer(occs.sp, width = 1.0)
+# Plot buffered MCP
+plot(torquatus_buffer)
 
 # Make a map of your background region
 # Share that map in Slack
