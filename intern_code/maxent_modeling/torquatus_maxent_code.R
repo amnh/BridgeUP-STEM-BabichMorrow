@@ -24,6 +24,7 @@ library(ENMeval)
 
 # Import the dataset for B. torquatus from data/occurrence_data
 torquatus <- read.csv("~/Desktop/Project3/Data/occurrence_data/torquatus.csv")
+# torquatus <- read.csv("~/OneDrive - AMNH/BridgeUp/BridgeUP-STEM-BabichMorrow/data/occurrence_data/torquatus.csv")
 View(torquatus)
 #fixing the data
 torquatus$name <- "Bradypus_torquatus"
