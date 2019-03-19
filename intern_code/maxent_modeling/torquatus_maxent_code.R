@@ -25,7 +25,8 @@ library(ENMeval)
 # Import the dataset for B. torquatus from data/occurrence_data
 torquatus <- read.csv("~/Desktop/Project3/Data/occurrence_data/torquatus.csv")
 View(torquatus)
-
+#fixing the data
+torquatus$name <- "Bradypus_torquatus"
 
 # Visualize occurrence data -----------------------------------------------
 
@@ -51,14 +52,29 @@ ggmap(bbox_map) +
 # (and also lesson_plans/s2_process_occ_data/sloth_cleaning_pt3.Rmd)
 
 # Thin your occurrence data to a distance of 40 km
-
-
+thinned_torquatus <- thin(loc.data = torquatus, lat.col = "latitude", long.col = "longitude", spec.col = "name", thin.par = 40, reps = 100, locs.thinned.list.return = TRUE, write.files = FALSE, verbose = FALSE)
+torquatus_maxThin <- which(sapply(thinned_torquatus, nrow) == max(sapply(thinned_torquatus, nrow)))
+if(length(torquatus_maxThin) > 1){
+  torquatus_maxThin <- thinned_torquatus[[torquatus_maxThin[1]]]
+} else{
+  torquatus_maxThin <- thinned_torquatus[[torquatus_maxThin]]
+}
+thinned_torquatus <- torquatus[rownames(torquatus_maxThin),]
 # Check how many rows were removed by spatial thinning
+View(thinned_torquatus)
+#removed 28
 # Share this number in Slack
 
 
 # Visualize which points were removed using ggmap
+bound_box <- make_bbox(lon = thinned_torquatus$longitude, lat = thinned_torquatus$latitude, f = 2)
+#Get a satellite map at the location of the bounding box you made:
+bbox_map <- get_map(location = bound_box, maptype = "satellite", source = "google")
 
+ggmap(bbox_map) +
+  geom_point(data = thinned_torquatus, aes(x = longitude, y = latitude),
+             color = "green",
+             size =1)
 
 # Create background region ------------------------------------------------
 
