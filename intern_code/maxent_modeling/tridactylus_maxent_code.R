@@ -4,7 +4,6 @@
 # Yamile and Ula 
 # March 2019 
 
-# dygd y
 # Required packages -------------------------------------------------------
 
 # Load all the packages you need for the analyses
