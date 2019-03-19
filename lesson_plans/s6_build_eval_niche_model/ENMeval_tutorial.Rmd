@@ -1,0 +1,75 @@
+---
+title: "Building maxent models with ENMeval"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## `ENMeval` package
+
+The `ENMeval` package allows you to run Maxent from within R (instead of having to use that annoying Java application). It was actually written in part by one of the people  in my lab (Pete Galante), so yay AMNH! ENMeval works by running Maxent multiple times, across a range of parameters that you can specify. Then, you can compare the resulting models based on their statistical performance and select the one that best describes your data. In this tutorial, we will focus on building the models, and in the next one we will discuss how you select the "best" model.
+
+**Try it yourself:** Install and load the `ENMeval` package.
+
+```{r}
+
+```
+
+## Specify parameters
+
+Recall that there are certain parameters you can give Maxent that impact the way the model is built. You can check out the Google Doc Ula started (https://docs.google.com/document/d/1qWl3wmG55WtPeiJGIQc0K24qfyj6THT8TzBrAO4TMjU/edit) for more notes about these parameters -- feel free to add to it as well.
+
+### Regularization multiplier
+
+The first parameter we will specify is the regularization multiplier (RM), which determines the penalty for adding more parameters to the model. This means that RM impacts how closely the model is fit to the given occurrence data. Low RM values mean that the model is very closely fit to the given data (there is no penalty for adding more parameters), so values that are too low can result in overfitting (machine learning review: what is overfitting?). High RM values will result in more diffuse predictions (there is a high penalty for adding more parameters to the model), which means that the model will predict habitat to be suitable in a wider range of regions. Values that are too high will just predict that the habitat is suitable everywhere, which is also no good.
+
+To start, we would like to create models with RM values ranging from 1 to 3 with a step value of 1 (so we have values of 1, 2, and 3).
+
+**Try it yourself:** Create a vector to store your RM values using the `seq()` function (check the Help menu if you're stumped!).
+
+```{r}
+rms <- 
+```
+
+### Feature classes
+
+The feature classes of the model determine what potential functions the model fits to the different environmental variables. For example, a linear feature class means that all the relationships modeled between the environmental variables and habitat suitability will be linear.
+
+To start, we are going to run models with feature classes "L", "LQ", and "LQH", where "L" stands for linear, "Q" stands for quadratic, and "H" stands for hinge (don't worry too much about what these mean).
+
+**Try it yourself:** Create a vector in R using `c()` to store the values "L", "LQ", and "LQH" (don't forget the quotation marks).
+
+```{r}
+fcs <-
+```
+
+## Build the models
+
+Now it's time to build the models! We will be using the `ENMevaluate()` function.
+
+**Try it yourself:** Open up the Help menu for `ENMevaluate()` and look at the arguments for the function. We will be specifying the following arguments:
++ `occ`: the longitude and latitude columns of your thinned occurrence data
++ `env`: the masked environmental data masked to your chosen background region
++ `bg.coords`: the longitude and latitude columns of the 10000 points sampled from your background region
++ `RMvalues`: the vector of RM values you created
++ `fc`: the vector of feature classes you created
++ `method`: the method of data partitioning you used for your species (either "jackknife" or "block")
++ `clamp`: set this to TRUE -- clamping means that Maxent will treat environmental variables outside the observed range as if they were at the limit of the training range
+Run the `ENMevaluate()` function with the above arguments specified (call Cecina over before running if you have any questions!). This may take awhile to run, so just hang out until it's done (maybe check out your March Mammal Madness bracket).
+
+```{r}
+enm <- 
+
+# unpack the results data frame, the list of models, and the RasterStack of raw predictions
+evalTbl <- enm@results
+evalMods <- enm@models
+evalPreds <- enm@predictions
+```
+
+
+
+
+
+
