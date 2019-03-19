@@ -54,12 +54,12 @@
   | March 14 | <ul><li> Partition occurrence data </li><li> :monkey: :rat: March Mammal Madness! :ram: :tiger2: |               [Occurrence data partitioning - RMarkdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s5_partition_occ_data/partition_occs_tutorial.Rmd) <br> [MMM instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/MMM/MMMInstructions.md) |
 | **Week 22** | | |
   | March 19 | <ul><li> GitHub branching </li><li> Prepare data for Maxent models |   [Branching in GitHub](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/GitHub/Branching.md) <br> [Maxent modeling script](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/intern_code/maxent_modeling/maxent_modeling_code.R)|
-  | March 21 | <ul><li> Louise is visiting! </li><li> Build and visualize Maxent models </li><li> Model selection | |
+  | March 21 | <ul><li> Louise is visiting! </li><li> GitHub pull requests </li><li> Build and visualize Maxent models |         [`ENMeval` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd) |
 | **Week 23** | | |
-  | March 26 | <ul><li> Projecting in space |  |
-  | March 28 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
+  | March 26 | <ul><li> Model selection </li><li> Projecting in space | [Maxent model selection tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd) |
+  | March 28 | <ul><li> Update Maxent modeling script | |
 | **Week 24** | | |
-  | April 2 | | |
+  | April 2 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
   | April 4 | Improv / Presentation Skills Workshop| |
 | **Week 25** | | |
   | April 9 | | |
