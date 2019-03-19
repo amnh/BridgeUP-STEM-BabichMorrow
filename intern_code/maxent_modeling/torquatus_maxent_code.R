@@ -1,4 +1,4 @@
-# BRADYPUS VARIEGATUS
+# BRADYPUS TORQUATUS
 # Maxent modeling code
 
 # Your name + your partner's name
@@ -14,7 +14,7 @@
 
 # Occurrence data ---------------------------------------------------------
 
-# Import the dataset for B. variegatus from data/occurrence_data
+# Import the dataset for B. torquatus from data/occurrence_data
 
 
 
@@ -45,7 +45,7 @@
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd
 
 # Create a background region for your species (based on the thinned occurrence data!):
-## B. variegatus: points buffered by 2 degrees
+## B. torquatus: points buffered by 1 degree
 
 
 # Make a map of your background region
