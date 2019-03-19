@@ -1,7 +1,7 @@
 # BRADYPUS TRIDACTYLUS
 # Maxent modeling code
 
-# Your name + your partner's name
+# Yamile and Ula 
 # Date
 
 
