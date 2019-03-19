@@ -25,6 +25,7 @@ library(readr)
 tridactylus <- read_csv("~/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/tridactylus.csv")
 # Visualize occurrence data -----------------------------------------------
 View(tridactylus)
+# :)
 # Use the ggmap package to plot the occurrence points for your species on a map
 # Share this map in Slack
  
