@@ -19,7 +19,7 @@ library(ggmap) # the package for mapping
 # the packages from background_region_tutorial.Rmd
 library(rgeos)
 library(sp)
-library(raster)
+library(raster)a
 library(dismo)
 
 # the package used in partitioning occurrences
@@ -86,17 +86,41 @@ save(thinned_occs, file = "tridactylus_thinned")
 
 # Create background region ------------------------------------------------
 
-# Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd
-
+# Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd & lesson_plans/s3/worldclim_inR.Rmd 
 # Create a background region for your species (based on the thinned occurrence data!):
 ## B. tridactylus: MCP buffered by 1 degree
 
+bioclim_files <- list.files("/Users/student/Desktop/wc2.0_2.5m_bio")
+bioclim_files
+env_stack <- stack(paste0("/Users/student/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
+mcp <- function(xy){
+  # convert the input coordinates into a spatial object
+  xy <- as.data.frame(sp::coordinates(xy))
+  # find the subset of occurrence points that lie on the convex hull around all of the points
+  coords.t <- chull(xy[, 1], xy[, 2])
+  xy.bord <- xy[coords.t, ]
+  xy.bord <- rbind(xy.bord[nrow(xy.bord), ], xy.bord)
+  # make a SpatialPolygon out of the convex polygon
+  return(sp::SpatialPolygons(list(sp::Polygons(list(sp::Polygon(as.matrix(xy.bord))), 1))))
+}
+
+  bgExt <- mcp(thinned_occs[,3:4] )
+  envsBgCrop <- crop(env_stack,bgExt)
+  envsBgMsk <- mask(envsBgCrop, bgExt)
+  plot(envsBgMsk)
+
+  
 # Make a map of your background region
 # Share that map in Slack
 
 
 # Remember to sample background points from your background region
+  
+  bg.xy <- randomPoints(envsBgMsk, 10000)
+  # Convert these points into a dataframe using as.data.frame
+  bg.xy <- as.data.frame(bg.xy)
+  View(bg.xy)
 
 # Partition occurrence data -----------------------------------------------
 
