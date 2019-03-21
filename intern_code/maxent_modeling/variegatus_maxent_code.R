@@ -47,6 +47,10 @@ variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/v
 # Visualize which points were removed using ggmap
 
 
+# Save the thinned occurrence data as a csv in the data/occurrence_data/ folder
+# Name it with your species name and the word "thinned"
+
+
 # Create background region ------------------------------------------------
 
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd
