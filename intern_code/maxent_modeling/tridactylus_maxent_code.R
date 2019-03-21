@@ -72,19 +72,20 @@ nrow(thinned_occs)
 
 # Check how many rows were removed by spatial thinning
 # Share this number in Slack: 44
-
 # Visualize which points were removed using ggmap
 
-
-# Save the thinned occurrence data as a csv in the data/occurrence_data/ folder
-# Name it with your species name and the word "thinned"
-
-
-# Create background region ------------------------------------------------
 ggmap(bbox_map) + 
   geom_point(data = thinned_occs, aes(x = longitude, y = latitude),
              color = "yellow",
              size =0.25)
+
+# Save the thinned occurrence data as a csv in the data/occurrence_data/ folder
+# Name it with your species name and the word "thinned"
+
+save(thinned_occs, file = "tridactylus_thinned")
+
+# Create background region ------------------------------------------------
+
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd
 
 # Create a background region for your species (based on the thinned occurrence data!):
