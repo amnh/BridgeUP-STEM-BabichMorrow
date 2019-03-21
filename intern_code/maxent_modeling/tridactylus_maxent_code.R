@@ -65,18 +65,21 @@ if(length(maxThin) > 1){
   maxThin <- thinned_output[[maxThin]]
 }
 thinned_occs <- tridactylus[rownames(maxThin),]
-nrow(thinned_occs)
 
 # Check how many rows were removed by spatial thinning
-# Share this number in Slack
+# Share this number in Slack:44
 
+nrow(thinned_occs)
 
 
 # Visualize which points were removed using ggmap
 
 
 # Create background region ------------------------------------------------
-
+ggmap(bbox_map) + 
+  geom_point(data = thinned_occs, aes(x = longitude, y = latitude),
+             color = "yellow",
+             size =0.25)
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd
 
 # Create a background region for your species (based on the thinned occurrence data!):
