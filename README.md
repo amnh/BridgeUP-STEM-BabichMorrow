@@ -60,7 +60,7 @@
   | March 28 | <ul><li> Update Maxent modeling script | |
 | **Week 24** | | |
   | April 2 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
-  | April 4 | Improv / Presentation Skills Workshop| |
+  | April 4 | | |
 | **Week 25** | | |
   | April 9 | | |
   | April 11 | | |
