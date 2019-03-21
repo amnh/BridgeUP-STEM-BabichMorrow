@@ -37,6 +37,8 @@ boxing <- make_bbox(lon = c(-95, -25), lat = c(-35, 20), f = 0.1)
 
 SA_map <- get_map(location = boxing, source = "google", maptype = "satellite")
 
+ggmap(SA_map) +
+geom_point(data = variegatus, aes(x = longitude, y = latitude))
 
 # Spatial thinning --------------------------------------------------------
 
