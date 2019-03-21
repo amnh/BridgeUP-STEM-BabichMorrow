@@ -65,7 +65,7 @@ if(length(maxThin) > 1){
   maxThin <- thinned_output[[maxThin]]
 }
 thinned_occs <- tridactylus[rownames(maxThin),]
-
+.
 # Check how many rows were removed by spatial thinning
 # Share this number in Slack:44
 
