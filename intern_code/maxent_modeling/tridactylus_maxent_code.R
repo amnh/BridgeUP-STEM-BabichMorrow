@@ -128,8 +128,25 @@ mcp <- function(xy) {
 ## if your species has 25 or fewer thinned occurrences, use a jackknife partition
 ## if your species has >25 thinned occurrences, use a block partition
 
-
+group.data <- get.block (thinned_occs[,3:4], bg.xy)
+group.data
+occs.grp <- group.data[[1]]
+bg.grp <- group.data[[2]]
+  
 # Visualize the partitioned occurrence data on a map
+
+SA_bbox <- make_bbox(lon = c(-95, -25), lat = c(-35,20), f = 0.1)
+SA_map <- get_map(location = SA_bbox, source = "google", maptype = "satellite")
+ggmap(SA_map)
+
+ggmap(SA_map) +
+  geom_point(data = thinned_occs[,3:4], aes(x=longitude, y=latitude), color = occs.grp )
+
+# Modify the above code to instead see the background points (`bg.xy`) you created colored by their group number (`bg.grp`). You will have to change the x and y column names.
+
+ggmap(SA_map) +
+  geom_point(data = bg.xy, aes(x=x, y=y), color = bg.grp)
+
 # Share this map in Slack
 
 
