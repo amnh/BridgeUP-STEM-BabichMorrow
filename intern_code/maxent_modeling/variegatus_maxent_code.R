@@ -29,7 +29,10 @@ variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/v
 # Visualize occurrence data -----------------------------------------------
 
 # Use the ggmap package to plot the occurrence points for your species on a map
-# Share this map in Slack
+
+ggmap(v_map) +
+  geom_point(data = variegatus, aes(x=longitude, y=latitude))
+
 api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
 register_google(key = api_key)
 
