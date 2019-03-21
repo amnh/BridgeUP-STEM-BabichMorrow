@@ -74,6 +74,8 @@ nrow(variegatus_df)
 nrow(thinned_occs)
 
 # Visualize which points were removed using ggmap
+ggmap(SA_map) +
+  geom_point(data = thinned_occs, aes(x = longitude, y = latitude))
 
 
 # Save the thinned occurrence data as a csv in the data/occurrence_data/ folder
