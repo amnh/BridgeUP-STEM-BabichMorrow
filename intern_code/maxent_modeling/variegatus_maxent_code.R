@@ -88,17 +88,43 @@ write.csv(thinned_occs, '~/Desktop/Project Repository clone/Data/occurrence_data
 
 # Create a background region for your species (based on the thinned occurrence data!):
 ## B. variegatus: points buffered by 2 degrees
+# function to create a minimum convex polygon
+mcp <- function(xy) {
+  # convert the input coordinates into a spatial object
+  xy <- as.data.frame(sp::coordinates(xy))
+  # find the subset of occurrence points that lie on the convex hull around all of the points
+  coords.t <- chull(xy[, 1], xy[, 2])
+  xy.bord <- xy[coords.t, ]
+  xy.bord <- rbind(xy.bord[nrow(xy.bord), ], xy.bord)
+  # make a SpatialPolygon out of the convex polygon
+  return(sp::SpatialPolygons(list(sp::Polygons(list(sp::Polygon(as.matrix(xy.bord))), 1))))
+}
 
+mini_convex = mcp(thinned_occs[,3:4])
+plot(mini_convex)
 
-# Make a map of your background region
-# Share that map in Slack
+#Creating env_stack
+bioclim_files <- list.files("~/Desktop/wc2/")
+bioclim_files
+env_stack <- stack(paste0("~/Desktop/wc2/", bioclim_files))
 
+# Create cropped raster
+env_convex <- crop(env_stack, mini_convex)
+# Plot cropped raster
+plot(env_convex)
+
+# Create masked raster
+mask_thin_varie <- mask(env_convex, mini_convex)
+
+# Plot masked raster
+plot(mask_thin_varie)
 
 # Remember to sample background points from your background region
 
 # Partition occurrence data -----------------------------------------------
 
 # Refer to lesson_plans/s5_partition_occ_data.Rmd
+
 
 # Partition your thinned occurrence data:
 ## if your species has 25 or fewer thinned occurrences, use a jackknife partition
