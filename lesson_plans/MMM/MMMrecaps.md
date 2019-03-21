@@ -46,7 +46,7 @@ For a recap of the first round of the Waterfalls division, check out this episod
 
 ### Round 1
 
-For a recap of the first round of the Waterfalls division, check out this episode of [Rodent Recap](https://www.youtube.com/watch?v=2tmUkth_Bpo&t=4s) and/or the following Twitter threads.
+For a recap of the first round of the CAT-e-gory division, check out this episode of [Rodent Recap](https://www.youtube.com/watch?v=2tmUkth_Bpo&t=4s) and/or the following Twitter threads.
 
 + Nimravid vs. dandelion: https://twitter.com/Mammals_Suck/status/1107834199338188800
 + Great horned owl vs. panther chameleon: https://twitter.com/am_anatiala/status/1107831374252253186
@@ -61,7 +61,7 @@ For a recap of the first round of the Waterfalls division, check out this episod
 
 ### Round 1
 
-For a recap of the first round of the Waterfalls division, check out this episode of [Rodent Recap](https://www.youtube.com/watch?v=7vpNzvsJ-5U) and/or the following Twitter threads.
+For a recap of the first round of the Tag Team division, check out this episode of [Rodent Recap](https://www.youtube.com/watch?v=7vpNzvsJ-5U) and/or the following Twitter threads.
 
 + Coyote & badger vs. ants & aphids: https://twitter.com/TanisBP/status/1108191168641142784
 + Diana monkey & red colobus vs. Bornean bat & pitcher plant: https://twitter.com/MarcKissel/status/1108187281930768384
