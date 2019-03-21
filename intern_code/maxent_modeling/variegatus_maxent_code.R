@@ -30,6 +30,12 @@ variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/v
 
 # Use the ggmap package to plot the occurrence points for your species on a map
 # Share this map in Slack
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+
+boxing <- make_bbox(lon = c(-95, -25), lat = c(-35, 20), f = 0.1)
+
+SA_map <- get_map(location = boxing, source = "google", maptype = "satellite")
 
 
 # Spatial thinning --------------------------------------------------------
@@ -37,12 +43,30 @@ variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/v
 # Refer to your code from intern_code/occ_data_cleaning.R
 # (and also lesson_plans/s2_process_occ_data/sloth_cleaning_pt3.Rmd)
 
+
 # Thin your occurrence data to a distance of 40 km
+variegatus_df <- as.data.frame(variegatus)
+variegatus_df$name <- "Bradypus_variegatus"
+View(variegatus_df)
+
+thinned_output <- thin(loc.data = variegatus , lat.col = "latitude", long.col = "longitude", spec.col = "name", thin.par = 40, reps = 100, locs.thinned.list.return = TRUE, write.files = FALSE)
+View(thinned_output)
+
+maxThin <- which(sapply(thinned_output, nrow) == max(sapply(thinned_output, nrow)))
+if(length(maxThin) > 1){
+  maxThin <- thinned_output[[ maxThin[1] ]]
+} else{
+  maxThin <- thinned_output[[maxThin]]
+}
+View(maxThin)
+
+thinned_occs <- variegatus_df[rownames(maxThin),]
 
 
 # Check how many rows were removed by spatial thinning
 # Share this number in Slack
-
+nrow(variegatus_df)
+nrow(thinned_occs)
 
 # Visualize which points were removed using ggmap
 
