@@ -80,7 +80,7 @@ ggmap(SA_map) +
 
 # Save the thinned occurrence data as a csv in the data/occurrence_data/ folder
 # Name it with your species name and the word "thinned"
-
+write.csv(thinned_occs, '~/Desktop/Project Repository clone/Data/occurrence_data/thinned_variegatus.csv')
 
 # Create background region ------------------------------------------------
 
