@@ -63,8 +63,7 @@ thinned_output <- thin(loc.data = tridactylus, lat.col = "latitude", long.col ="
 maxThin <- which(sapply(thinned_output, nrow) == max(sapply(thinned_output, nrow)))
 if(length(maxThin) > 1){
   maxThin <- thinned_output[[ maxThin[1] ]]
-} 
-elif {
+} else {
   maxThin <- thinned_output[[maxThin]]
 }
 
