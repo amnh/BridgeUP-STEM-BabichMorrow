@@ -87,14 +87,14 @@ save(thinned_occs, file = "tridactylus_thinned")
 # Create background region ------------------------------------------------
 
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd & lesson_plans/s3/worldclim_inR.Rmd 
-# Create a background region for your species (based on the thinned occurrence data!):
-## B. tridactylus: MCP buffered by 1 degree
-
 bioclim_files <- list.files("/Users/student/Desktop/wc2.0_2.5m_bio")
 bioclim_files
+
 env_stack <- stack(paste0("/Users/student/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
-mcp <- function(xy){
+# Create a background region for your species (based on the thinned occurrence data!):
+## B. tridactylus: MCP buffered by 1 degree
+mcp <- function(xy) {
   # convert the input coordinates into a spatial object
   xy <- as.data.frame(sp::coordinates(xy))
   # find the subset of occurrence points that lie on the convex hull around all of the points
@@ -109,11 +109,9 @@ mcp <- function(xy){
   envsBgCrop <- crop(env_stack,bgExt)
   envsBgMsk <- mask(envsBgCrop, bgExt)
   plot(envsBgMsk)
-
   
 # Make a map of your background region
 # Share that map in Slack
-
 
 # Remember to sample background points from your background region
   
