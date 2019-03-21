@@ -20,6 +20,7 @@ library(ggmap)
 library(spThin)
 library(ENMeval)
 
+variegatus$name <- "Bradypus_variegatus"
 # Occurrence data ---------------------------------------------------------
 
 # Import the dataset for B. variegatus from data/occurrence_data
@@ -30,8 +31,16 @@ variegatus = read.csv("~/Desktop/Repository Clone/Data/occurrence_data/variegatu
 
 # Use the ggmap package to plot the occurrence points for your species on a map
 # Share this map in Slack
+library(ggmap)
+#Use Google maps
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+# Create bounding box to view South America
+v_bbox <- make_bbox(lon = c(-95, -25), lat = c(-35,20), f = 0.1)
+v_map <- get_map(location = v_bbox, source = "google", maptype = "satellite")
 
-
+ggmap(v_map) +
+  geom_point(data = variegatus, aes(x=longitude, y=latitude))
 
 # Spatial thinning --------------------------------------------------------
 
