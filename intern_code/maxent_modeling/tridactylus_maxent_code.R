@@ -41,6 +41,7 @@ api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
 register_google(key = api_key)
 
 # this zooms into specific region of South America
+# this region is near the area of border intersection of Northern Brazil & Southern French Guiana & Southern Suriname 
 bound_box <- make_bbox(lon = tridactylus$longitude, lat = tridactylus$latitude, f = 0.5)
 bbox_map <- get_map(location = bound_box, maptype = "satellite", source = "google")
 
@@ -62,17 +63,16 @@ thinned_output <- thin(loc.data = tridactylus, lat.col = "latitude", long.col ="
 maxThin <- which(sapply(thinned_output, nrow) == max(sapply(thinned_output, nrow)))
 if(length(maxThin) > 1){
   maxThin <- thinned_output[[ maxThin[1] ]]
-} else{
+} 
+elif {
   maxThin <- thinned_output[[maxThin]]
 }
+
 thinned_occs <- tridactylus[rownames(maxThin),]
 nrow(thinned_occs)
 
 # Check how many rows were removed by spatial thinning
-# Share this number in Slack
-
-
-
+# Share this number in Slack: 44
 # Visualize which points were removed using ggmap
 
 
