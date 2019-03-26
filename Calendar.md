@@ -45,7 +45,7 @@
   | May 2 | </ul><li> Draft 15-minute presentation | |
 | **Week 28** | | |
   | May 7 | </ul><li> Work on 15-minute presentation | |
-  | May 9 | </ul><li> Work on presentations | |
+  | May 9 | Presentation Skills / Improv Workshop | |
 | **Week 29** | | |
   | May 14 | </ul><li> Finalize 5-minute presentation | |
   | May 16 | </ul><li> Work on poster | |
