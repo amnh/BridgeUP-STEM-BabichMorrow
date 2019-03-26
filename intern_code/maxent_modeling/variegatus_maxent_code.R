@@ -80,7 +80,13 @@ ggmap(SA_map) +
 
 # Save the thinned occurrence data as a csv in the data/occurrence_data/ folder
 # Name it with your species name and the word "thinned"
+
+#Hanora's
 csv_variegatus <- write.csv(thinned_occs, '~/Desktop/Project Repository clone/Data/occurrence_data/thinned_variegatus.csv')
+
+#Loralai's
+#csv_variegatus = write.csv(thinned_occs, '~/Desktop/Repository Clone/Data/occurrence_data/thinned_variegatus.csv')
+
 
 # Create background region ------------------------------------------------
 
@@ -119,7 +125,28 @@ mask_thin_varie <- mask(env_convex, mini_convex)
 # Plot masked raster
 plot(mask_thin_varie)
 
+bg_varie = bbox(as.matrix(thinned_occs[,3:4]))
+bg_variegatus = as(extent(bg_varie), "SpatialPolygons")
+
+occs.variegatus = SpatialPoints(variegatus[,3:4])
+
+#Create buffered points background extent
+bg.varie.1 = gBuffer(occs.variegatus, width = 2.0)
+#Create cropped raster
+crop.varie.1 = crop(env_stack, bg.varie.1)
+#Plot cropped raster
+plot(crop.varie.1)
+#create masked raster
+mask.varie.1 = mask(crop.varie.1, bg.varie.1)
+#Plot masked raster
+plot(mask.varie.1)
+#Sample 10000 points from MCP
+points.varie = randomPoints(mask.varie, 10000)
+#Convert these points into a dataframe using as.data.frame
+final.points.varie = as.data.frame(points.varie)
+
 # Remember to sample background points from your background region
+
 
 # Partition occurrence data -----------------------------------------------
 
