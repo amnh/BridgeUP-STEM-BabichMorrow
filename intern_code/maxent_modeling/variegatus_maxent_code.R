@@ -110,9 +110,16 @@ mini_convex = mcp(thinned_occs[,3:4])
 plot(mini_convex)
 
 #Creating env_stack
+#Lor
 bioclim_files <- list.files("~/Desktop/wc2/")
 bioclim_files
 env_stack <- stack(paste0("~/Desktop/wc2/", bioclim_files))
+
+#Han
+bioclim_files <- list.files("~/Desktop/wc2.0_2.5m_bio/")
+bioclim_files
+env_stack <- stack(paste0("~/Desktop/wc2.0_2.5m_bio/", bioclim_files))
+
 
 # Create cropped raster
 env_convex <- crop(env_stack, mini_convex)
@@ -141,12 +148,12 @@ mask.varie.1 = mask(crop.varie.1, bg.varie.1)
 #Plot masked raster
 plot(mask.varie.1)
 #Sample 10000 points from MCP
-points.varie = randomPoints(mask.varie, 10000)
+points.varie = randomPoints(mask.varie.1, 10000)
 #Convert these points into a dataframe using as.data.frame
 final.points.varie = as.data.frame(points.varie)
 
 # Remember to sample background points from your background region
-
+#Done above
 
 # Partition occurrence data -----------------------------------------------
 
@@ -156,11 +163,17 @@ final.points.varie = as.data.frame(points.varie)
 # Partition your thinned occurrence data:
 ## if your species has 25 or fewer thinned occurrences, use a jackknife partition
 ## if your species has >25 thinned occurrences, use a block partition
-
-
-
+View(thinned_occs)
+thinned_occs<- na.omit(thinned_occs)
+group.data <- get.block(thinned_occs[,3:4], points.varie)
+ # Look at group.data
+  group.data
+  occs.grp <- group.data[[1]]
+  bg.grp <- group.data[[2]]
 # Visualize the partitioned occurrence data on a map
 # Share this map in Slack
+  ggmap(SA_map) +
+    geom_point(data = thinned_occs, aes(x = longitude, y = latitude), color = occs.grp)
 
 
 
