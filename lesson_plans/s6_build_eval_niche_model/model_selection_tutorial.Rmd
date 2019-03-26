@@ -9,7 +9,109 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Selecting a model
 
-When you ran `ENMevaluate()` in the last tutorial, you created models with every combination of regularization multiplier and feature class that you specified. (How many models did you create?) Your next task is to go through those models and select out just the one that performed the "best" on your data. "Best" is a somewhat tricky thing to determine, however, so we are going to go over some of the different statistics you use to evaluate Maxent models.
+When you ran `ENMevaluate()` in the last tutorial, you created models with every combination of regularization multiplier and feature class that you specified. (How many models did you create?) Your next task is to go through those models and select out just the one that performed the "best" on your data. "Best" is a somewhat tricky thing to determine, however, so we are going to go over some of the different statistics you can use to evaluate Maxent models.
 
-##
+**Try it yourself:** Load the `ENMeval` package. View the results table you created at the end of `ENMeval_tutorial.Rmd`.
+
+```{r}
+# load ENMeval
+
+# view the results table
+
+```
+
+Look at the results table: each row represents a different Maxent model with a certain combination of feature class (`features`) and regularization multiplier (`rm`). Each column is a different statistic for that model.
+
+## Statistics
+
+Here are descriptions of the statistics in the results table and what they mean about our model. For each, there is a brief description of each column in the results table. I've labeled some of these columns as important -- these are the ones we will be using to select our model later. The less important columns are good to understand, but you won't need to use them.
+
+### AUC
+
+Columns 4 through 8 of the results table deal with the statistic AUC. We talked a bit about AUC during the Maxent model tutorial -- AUC stands for "area under curve" and measures how well the model fits the data. Higher values of AUC (values closer to 1) are better. If the AUC is 0.5 or lower, the model is no better than random.
+
+Important:
++ `train.AUC`: AUC of the training data, tells you how well the model performed on the training occurrence points
++ `avg.test.AUC`: AUC of the test data averaged over all the partitions, tells you how well the model performs on new data
+
+Less important:
++ `var.test.AUC`: variance of the AUC values from the test data, tells you how different AUC values were for the different partitions
++ `avg.diff.AUC`: the average difference between the AUC value of the training data and the AUC values of the test data
++ `var.diff.AUC`: the variance in the difference between the AUC value of the training data and the AUC values of the test data
+
+**Try it yourself:** Which value do you think will usually be higher, `train.AUC` or `avg.test.AUC`?
+
+**Try it yourself:** Which model is "best" according to AUC? Share the name of that model in Slack (along with what species you are working on).
+
+### Omission rate
+
+Columns 9-12 deal with the omission rate, which is often abbreviated OR. OR is the percentage of occurrence points in the test data. `ENMeval` calculates these OR values using two different threshold, or cut-off, values for the model. The first, minimum training presence (MTP), removes all areas of the model that have predicted habitat suitability values lower than the habitat suitability of the occurrence point in the "worst" habitat. The second, 10th percentile, removes all areas of the model with habitat suitability values lower than the lowest 10 percent of the occurrence data.
+
+**Try it yourself:** Do you think we want models with lower or higher values of OR? Which OR values will be higher, the MTP ones or the 10th percentile ones?
+
+Important:
++ `avg.test.orMTP`: average omission rate for the test data at an MTP threshold
++ `avg.test.or10pct`: average omission rate for the test data at a 10th percentile threshold
+
+Less important:
++ `var.test.orMTP`: variance in omission rates for the test data at an MTP threshold
++ `var.test.or10pct`: variance in omission rates for the test data at a 10th percentile threshold
+
+**Try it yourself:** Which model is "best" according to OR? Share the name of that model in Slack (along with what species you are working on).
+
+### AIC
+
+Columns 13-15 tell us about the AIC/AICc of the model. AIC stands for Akaike information criterion, which is a general statistical method for comparing different models. The results table provides us AICc values, which are basically AIC values standardized to prioritize models with fewer parameters (we do this to prevent overfitting). Given a set of models, AICc estimates how well they do relative to each other. The key word here is relative: a single AICc value tells you nothing about a model -- you need to compare AICc values between models. Models with lower AICc values are "better": they fit the data well without being too complicated.
+
+Fortunately, the results table does this for us: the column `delta.AICc` subtracts the AICc value of the model with the lowest AICc score from all the AICc scores. This means that the model with the lowest AICc score has a `delta.AICc` value of 0 and all the other models have a higher `delta.AICc` value.
+
+**Try it yourself:** How do models with too many parameters cause overfitting?
+
+Important:
++ `AICc`: the raw AICc value for the model
++ `delta.AICc`: difference between AICc value of that model and the AICc value of the model with the lowest AICc score
+
+Less important:
++ `w.AIC`: Akaike weight, which can be used for model averaging (we don't need this)
+
+**Try it yourself:** Which model is "best" according to AICc? Share the name of that model in Slack (along with what species you are working on).
+
+### Parameters
+
+The last column of the dataset tells us how many parameters that model has.
+
+## Sorting dataframes
+
+Now you've gone through the results table and identified several models that perform "best" on the data based on a couple different statistics. We can use R to speed this process up and sort our dataframe based on the values of different columns.
+
+**Try it yourself:** Look at the Help menu for the function `order`. Also take a look at this website that has some examples: https://www.statmethods.net/management/sorting.html.
+
+We are going to use the `order` function to sort the results table by different columns.
+
+To try it out, here is some code that will sort the table by the `parameters` column:
+
+```{r}
+# sort the results table by the column parameters
+sorted_data <- evalTbl[order(evalTbl$parameters), ]
+View(sorted_data)
+```
+
+**Try it yourself:** You've seen how to sort the results table by `parameters` in ascending order (starting with the models with the lowest number of parameters). Now sort the results table by `parameters` in descending order:
+
+```{r}
+sorted_data <- 
+```
+
+## Model selection
+
+Now, use your new skills with `order()` to order your results table by the statistics you learned about above. I would suggest using `avg.test.AUC`, `avg.test.or10pct`, and `delta.AICc`, but play around with sorting based on different columns. Think about whether you want to sort a particular column in ascending or descending order. Also, keep in mind that `order()` will sort your dataframe by the first column you give it, then break ties with the second, and so on, so order matters.
+
+**Try it yourself:** Sort your dataframe based on the statistics you learned about. Look at the model in the first row of your sorted dataframe -- this is the "best" model according to your selection criteria.
+
+```{r}
+sorted_data <-
+```
+
+Put in Slack the name of this "best" model and the code you used to sort the data to find it.
+
 

@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## `ENMeval` package
 
-The `ENMeval` package allows you to run Maxent from within R (instead of having to use that annoying Java application). It was actually written in part by one of the people  in my lab (Pete Galante), so yay AMNH! ENMeval works by running Maxent multiple times, across a range of parameters that you can specify. Then, you can compare the resulting models based on their statistical performance and select the one that best describes your data. In this tutorial, we will focus on building the models, and in the next one we will discuss how you select the "best" model.
+The `ENMeval` package allows you to run Maxent from within R (instead of having to use that annoying Java application). It was actually written in part by one of the people in my lab (Pete Galante), so yay AMNH! ENMeval works by running Maxent multiple times using a range of parameters that you can specify. Then, you can compare the resulting models based on their statistical performance and select the one that best describes your data. In this tutorial, we will focus on building the models, and in the next one we will discuss how you select the "best" model.
 
 **Try it yourself:** Install and load the `ENMeval` package.
 
