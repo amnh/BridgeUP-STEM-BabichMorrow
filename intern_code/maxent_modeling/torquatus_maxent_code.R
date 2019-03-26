@@ -86,14 +86,29 @@ ggmap(bbox_map) +
 occs.sp <- SpatialPoints(thinned_torquatus[,2:3])
 View(occs.sp)
 plot(occs.sp)
-
+# Create buffered points background extent
 torquatus_buffer <- gBuffer(occs.sp, width = 1.0)
 # Plot buffered MCP
 plot(torquatus_buffer)
 
-# Make a map of your background region
-# Share that map in Slack
+# Create cropped raster
+bioclim_files <- list.files("/Users/lunaeve/Desktop/wc2/")
+bioclim_files
+env_stack <- stack(paste0("/Users/lunaeve/Desktop/wc2/", bioclim_files))
+plot(env_stack)
 
+torquatus_BgCrop <-  crop(env_stack, torquatus_buffer)
+plot(torquatus_BgCrop)
+
+torquatus_BgMsk <- mask(torquatus_BgCrop, torquatus_buffer)
+# Sample 10000 points from the MCP
+bg.xy <- randomPoints(torquatus_BgMsk, 10000)
+# Convert these points into a dataframe using as.data.frame
+bg.xy <- as.data.frame(bg.xy)
+# Make a map of your background region
+plot(torquatus_BgMsk)
+# Share that map in Slack
+#done 
 
 # Remember to sample background points from your background region
 
@@ -104,9 +119,21 @@ plot(torquatus_buffer)
 # Partition your thinned occurrence data:
 ## if your species has 25 or fewer thinned occurrences, use a jackknife partition
 ## if your species has >25 thinned occurrences, use a block partition
-
+torquatus_Partition <- get.jackknife(occs.sp, bg.xy)
+occs.grp <- torquatus_Partition[[1]]
+bg.grp <- torquatus_Partition[[2]]
 
 # Visualize the partitioned occurrence data on a map
+api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+register_google(key = api_key)
+# Create bounding box to view South America
+torquatus_bbox <- make_bbox(lon = c(-95, -25), lat = c(-35,20), f = 0.1)
+torquatus_map <- get_map(location = torquatus_bbox, source = "google", maptype = "satellite")
+ggmap(torquatus_map)
+
+ggmap(torquatus_map) +
+  geom_point(data = thinned_torquatus, aes(x = longitude, y = latitude), color = occs.grp ,
+             size =.5)
 # Share this map in Slack
 
 
