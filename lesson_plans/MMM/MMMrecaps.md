@@ -4,7 +4,7 @@ I've compiled a set of links for each round of March Mammal Madness so far. You 
 
 ## Current Bracket!
 
-Here you can see the current state of the bracket: https://twitter.com/2019MMMletsgo/status/1108198519788191744.
+Here you can see the current state of the bracket: https://twitter.com/2019MMMletsgo/status/1108925030816251904.
 
 ## Wild Card
 
@@ -22,10 +22,19 @@ For a recap of the first round of the Jump Jump division, you can check out this
 + Sifaka vs. 9-banded armadillo: https://twitter.com/tinkeringprim8/status/1106015603641540608
 + Bharal vs. stoat: https://twitter.com/PKurnath/status/1106013924980215808
 + Serval vs. rock-wallaby: https://twitter.com/Mammals_Suck/status/1106006546960379905
-+ Markhor vs. streaked-tenrec: https://twitter.com/am_anatiala/status/1106001028254760960
++ Markhor vs. streaked tenrec: https://twitter.com/am_anatiala/status/1106001028254760960
 + Bengal tiger vs. ringtail cat: https://twitter.com/MarcKissel/status/1105997083696349185
 + Spinner dolphin vs. spinifex hopping mouse: https://twitter.com/Drew_Lab/status/1105994464861011968
 + Jackrabbit vs. springhare: https://twitter.com/je_light/status/1105990824414842880
+
+### Round 2
+
+For a recap of the second round of Jump Jump and Waterfalls, check out this [video recap](https://www.youtube.com/watch?v=AiZUx01qJlo) or read these Twitter summaries:
+
++ 9-banded armadillo vs. streaked tenrec: https://twitter.com/am_anatiala/status/1108912593471705088
++ Bharal vs. rock wallaby: https://twitter.com/PKurnath/status/1108898571959455744
++ Spinner dolphin vs. impala: https://twitter.com/c_n_anderson/status/1108894297259159553
++ Bengal tiger vs. springhare: https://twitter.com/tinkeringprim8/status/1108891194694742016
 
 ## Waterfalls Division
 
@@ -42,6 +51,15 @@ For a recap of the first round of the Waterfalls division, check out this episod
 + Manatee vs. ring-tailed montsira: https://twitter.com/PKurnath/status/1106357973088034816
 + Tapir vs. water opossum: https://twitter.com/MarcKissel/status/1106354990875070467
 
+### Round 2
+
+For a recap of the second round of Jump Jump and Waterfalls, check out this [video recap](https://www.youtube.com/watch?v=AiZUx01qJlo), see the [wakelet](https://wakelet.com/wake/c4af17a6-875b-4bd7-b015-913adba9ebab) of the Twitter threads or read these Twitter summaries:
+
++ Beaver vs. rakali: https://twitter.com/je_light/status/1108917861081337858
++ Tapir vs. moonrat: https://twitter.com/AnneWHilborn/status/1108909381603622912
++ Moose vs. flat-headed cat: https://twitter.com/MarcKissel/status/1108906172873089025
++ Manatee vs. aquatic genet: https://twitter.com/chumblebiome/status/1108902923914883072
+
 ## CAT-e-gory Division
 
 ### Round 1
@@ -56,6 +74,15 @@ For a recap of the first round of the CAT-e-gory division, check out this episod
 + Fisher cat vs. tiger salamander: https://twitter.com/TCastanea/status/1107812892265472000
 + Bearcat vs. leopard frog: https://twitter.com/je_light/status/1107805703283056640
 + Sea lion vs. antlion: https://twitter.com/am_anatiala/status/1107803257563418624
+
+### Round 2
+
+For a recap of the second round of CAT-e-gory and Tag Team, check out this [video recap](https://www.youtube.com/watch?v=f7ep4qg7Yec) or read these Twitter summaries:
+
++ Tiger quoll vs. nimravid: https://twitter.com/Mammals_Suck/status/1110366004981329920
++ Bearcat vs. lion-tailed macaque: https://twitter.com/chumblebiome/status/1110359794681028608
++ Fisher cat vs. great horned owl: https://twitter.com/TCastanea/status/1110350242396827648
++ Sea lion vs. cat shark: https://twitter.com/Drew_Lab/status/1110339170097074176
 
 ## Tag Team Division
 
@@ -72,6 +99,13 @@ For a recap of the first round of the Tag Team division, check out this episode 
 + Wrasse & moray eel vs. fire coral & algae: https://twitter.com/Drew_Lab/status/1108167947175055360
 + Plains zebra & yellow-bellied oxpecker vs. batfly & gammaproteobacteria: https://twitter.com/chumblebiome/status/1108165753071636482
 
+### Round 2
 
+For a recap of the second round of CAT-e-gory and Tag Team, check out this [video recap](https://www.youtube.com/watch?v=f7ep4qg7Yec) or read these Twitter summaries:
+
++ Coyote & badger vs. capybara & wattled jacana: https://twitter.com/MarcKissel/status/1110362454016622592
++ Banded mongoose & warthog vs. Diana monkey & red colobus: https://twitter.com/Mammals_Suck/status/1110356867551621120
++ Oceanic crab & loggerhead sea turtle vs. wrasse & moray eel: https://twitter.com/Drew_Lab/status/1110347646164713473
++ Zebra & yellow-bellied oxpecker vs. aardvark & aardvark cucumber: https://twitter.com/je_light/status/1110342299047915520
 
 
