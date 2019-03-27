@@ -57,10 +57,10 @@
   | March 21 | <ul><li> Louise is visiting! </li><li> Wrap up Maxent modeling script | |
 | **Week 23** | | |
   | March 26 | <ul><li> GitHub pull requests </li><li> Build and visualize Maxent models </li><li> Model selection | [Git/GitHub workflows (slides 26-56)](https://github.com/jtr13/codehelp/blob/master/GitHubWorkflowPt2.pdf) <br> [`ENMeval` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd) <br> [Maxent model selection tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd) |
-  | March 28 | <ul><li> Projecting in space </li><li> Update Maxent modeling script | |
+  | March 28 | <ul><li> Visualize Maxent models </li><li> Model selection </li><li> Update Maxent modeling script | |
 | **Week 24** | | |
-  | April 2 | <ul><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
-  | April 4 | | |
+  | April 2 | <ul><li> Projecting in space </li><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
+  | April 4 | <ul><li> Projecting in time | |
 | **Week 25** | | |
   | April 9 | | |
   | April 11 | | |
