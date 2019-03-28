@@ -108,8 +108,11 @@
 
 # Project in space --------------------------------------------------------
 
-# Project the model and plot the projection
+# Project the model to the background region you selected and plot the projection
 # Share this map in Slack
 
+
+# Project the model to a bounding box for your species and plot the projection
+# Share this map in Slack
 
 
