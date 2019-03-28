@@ -25,6 +25,8 @@ library(ENMeval)
 # Import the dataset for B. torquatus from data/occurrence_data
 torquatus <- read.csv("~/Desktop/Project3/Data/occurrence_data/torquatus.csv")
 # torquatus <- read.csv("~/OneDrive - AMNH/BridgeUp/BridgeUP-STEM-BabichMorrow/data/occurrence_data/torquatus.csv")
+## ANJALI FILE PATH
+torquatus <- read.csv("~/Desktop/bridgeup\ year\ 2/Main\ Sloth\ Squad\ Repository/Data/occurrence_data/torquatus.csv")
 View(torquatus)
 #fixing the data
 torquatus$name <- "Bradypus_torquatus"
@@ -96,9 +98,15 @@ torquatus_buffer <- gBuffer(occs.sp, width = 1.0)
 plot(torquatus_buffer)
 
 # Create cropped raster
+## LUNA BIOCLIM FILES
 bioclim_files <- list.files("/Users/lunaeve/Desktop/wc2/")
+## ANJALI BIOCLIM FILES
+bioclim_files <- list.files("/Users/student/Desktop/wc2.0_2.5m_bio/")
 bioclim_files
+## LUNA ENV STACK
 env_stack <- stack(paste0("/Users/lunaeve/Desktop/wc2/", bioclim_files))
+## ANJALI ENV STACK
+env_stack <- stack(paste0("/Users/student/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 plot(env_stack)
 
 torquatus_BgCrop <-  crop(env_stack, torquatus_buffer)
