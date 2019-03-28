@@ -62,8 +62,8 @@
   | April 2 | <ul><li> Projecting in space </li><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
   | April 4 | <ul><li> Projecting in time | |
 | **Week 25** | | |
-  | April 9 | <ul><li> Questions for Periwinkle Doerfler | [Questions for Periwinkle Doerfler](https://docs.google.com/document/d/1a41m-ZPjNwv8DGKwXOwsKCcL6pJ2awGI7djP99ffoOw/edit?usp=sharing) |
-  | April 11 | <ul><li> Meet Periwinkle Doerfler | |
+  | April 9 | <ul><li> Questions for Peri Doerfler | [Questions for Peri Doerfler](https://docs.google.com/document/d/1a41m-ZPjNwv8DGKwXOwsKCcL6pJ2awGI7djP99ffoOw/edit?usp=sharing) |
+  | April 11 | <ul><li> Meet Peri Doerfler | |
 | **Week 26** | | |
   | April 16 | | |
   | April 18 | | |
