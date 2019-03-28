@@ -114,4 +114,42 @@ sorted_data <-
 
 Put in Slack the name of this "best" model and the code you used to sort the data to find it.
 
+Now we want to extract just the model you picked from the list of models you made in `ENMeval_tutorial.Rmd`.
 
+**Try it yourself:** Modify the following code to select the model you are going to use from the list of models `evalMods`:
+
+```{r}
+model <- evalMods[["L_1"]]
+```
+
+
+## Visualizing your model
+
+Now that you've picked a model, it's time to see what it tells us about sloth habitat suitability in a certain region. We will start by using the model to predict habitat suitability in the background region you selected. We will use the `maxnet.predictRaster()` function from the `ENMeval` package.
+
+**Try it yourself:** Look at the Help menu for `maxnet.predictRaster()`: what arguments do you need to give to the function? Run the function using the environmental predictor variables from the background region you selected (hint: this will be in a masked raster of environmental variables). Set `type = 'cloglog'` and `clamp = TRUE`. Plot the prediction. What areas does your model predict as highly suitable for the sloths? Share this plot in Slack.
+
+```{r}
+# create prediction
+prediction_bgRegion <- maxnet.predictRaster()
+# plot prediction
+
+```
+
+We can also project our model to a larger region, like a bounding box around our occurrence points. Keep in mind, the farther we project the model, the less likely it is to be accurate (if we look at habitat suitability for sloths in Africa, this isn't going to tell us a lot).
+
+We are going to start by creating a bounding box around the occurrence points for your species.
+
+**Try it yourself:** Refer to your code in `lesson_plans/s4_process_env_data/background_region_tutorial.Rmd` to make a bounding box and crop/mask the environmental data by this bounding box.
+
+```{r}
+
+```
+
+**Try it yourself:** Now, project your Maxent model to this bounding box and plot it. Share the plot in Slack.
+
+```{r}
+
+```
+
+You now have a model of sloth habitat suitability for your species!!
