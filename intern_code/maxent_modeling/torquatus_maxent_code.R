@@ -141,4 +141,48 @@ ggmap(torquatus_map) +
 # Share this map in Slack
 
 
+# Build Maxent models -----------------------------------------------------
+
+# Refer to lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd
+
+# Use regularization multiples from 1 to 5 with a step value of 1
+
+
+# Use feature classes "L", "LQ", "H", and "LQH"
+
+
+# Run ENMevaluate()
+# and unpack results data frame, list of models, and RasterStack of raw predictions
+
+
+
+# Select Maxent model -----------------------------------------------------
+
+# Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
+
+# Sort the results data frame using AUC, OR, and/or AIC
+# Select the "best" model according to your criteria
+
+
+# Slack the name of the best model and the criteria you used to select it
+
+
+# Visualize model ---------------------------------------------------------
+
+# Generate the model prediction and plot it
+# Share this map in Slack
+
+
+
+# Project in space --------------------------------------------------------
+
+# Project the model to the background region you selected and plot the projection
+# Share this map in Slack
+
+
+# Project the model to a bounding box for your species and plot the projection
+# Share this map in Slack
+
+
+
 
