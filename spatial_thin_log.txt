@@ -120,3 +120,22 @@ Maximum number of records after thinning: 186
 Number of data.frames with max records: 14
 >>>>>>> 63b09bb007a4cfff1a85d0655fe60812a394e691
 No files written for this run.
+********************************************** 
+ Beginning Spatial Thinning.
+ Script Started at: Tue Mar 26 17:26:29 2019
+There appear to be more than one species name in this *.csv file.
+Only using species name: Bradypus variegatus
+
+Thinning Parameter Used (in km): 40
+Number of replicates of thinning script: 100
+
+Elapsed time for thinning completion
+16.905 4.815 22.049 0.006 0.003
+
+Number of data.frames per locations retained
+loc.cnt df.freq
+183	184	185	186	187
+23	36	27	12	2
+Maximum number of records after thinning: 187
+Number of data.frames with max records: 2
+No files written for this run.
