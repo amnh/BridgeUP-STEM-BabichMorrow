@@ -42,7 +42,7 @@
 |----------|-------------|------|
 | **Week 27** | | |
   | April 30 | | |
-  | May 2 | </ul><li> Draft 15-minute presentation | |
+  | May 2 | | |
 | **Week 28** | | |
   | May 7 | </ul><li> Work on 15-minute presentation | |
   | May 9 | Presentation Skills / Improv Workshop | |
