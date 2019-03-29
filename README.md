@@ -59,8 +59,8 @@
   | March 26 | <ul><li> GitHub pull requests </li><li> Build and visualize Maxent models </li><li> Model selection | [Git/GitHub workflows (slides 26-56)](https://github.com/jtr13/codehelp/blob/master/GitHubWorkflowPt2.pdf) <br> [`ENMeval` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd) |
   | March 28 | <ul><li> Visualize Maxent models </li><li> Model selection | [Maxent model selection tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd) |
 | **Week 24** | | |
-  | April 2 | <ul><li> Update Maxent modeling script </li><li> Projecting in space </li><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
-  | April 4 | <ul><li> Projecting in time | |
+  | April 2 | <ul><li> Projecting in space </li><li> Update Maxent modeling script | |
+  | April 4 | <ul><li> Past climate data </li><li> Climate change scenarios </li><li> Projecting in time | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php) |
 | **Week 25** | | |
   | April 9 | <ul><li> Questions for Peri Doerfler | [Questions for Peri Doerfler](https://docs.google.com/document/d/1a41m-ZPjNwv8DGKwXOwsKCcL6pJ2awGI7djP99ffoOw/edit?usp=sharing) |
   | April 11 | <ul><li> Meet Peri Doerfler | |
