@@ -1,0 +1,29 @@
+---
+title: "Time-traveling distribution models: Back to the future"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Time periods
+
+**Try it yourself:** Load the `raster` and `ENMeval` packages:
+
+```{r}
+
+```
+
+
+## Set resolution
+
+First, we need to set the resolution of the environmental data we want from the future -- remember the resolution of a raster is the size of each grid cell. We would like the resolution of the future environmental data to match the resolution of our current environmental data.
+
+**Try it yourself:** Use the `res()` function to find the resolution of your masked environmental data. Notice that the resolution is two numeric values (for the two side lengths of each cell in the raster). These two numeric values should be the same. Create a variable `envsRes` that is the first element of the resolution.
+
+```{r}
+
+```
+
+
