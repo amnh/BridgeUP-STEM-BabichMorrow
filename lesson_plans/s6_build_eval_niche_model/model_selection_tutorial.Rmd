@@ -119,6 +119,9 @@ Now we want to extract just the model you picked from the list of models you mad
 **Try it yourself:** Modify the following code to select the model you are going to use from the list of models `evalMods`:
 
 ```{r}
+# name each model in our evalMods object
+names(evalMods) <- enm@results$settings
+# select just the model you want
 model <- evalMods[["L_1"]]
 ```
 
