@@ -156,15 +156,21 @@ ggmap(SA_map) +
 # Refer to lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd
 
 # Use regularization multiples from 1 to 5 with a step value of 1
-
-
 # Use feature classes "L", "LQ", "H", and "LQH"
 
+library(ENMeval)
+View(thinned_occs)
+rms <- seq(1,5,1)
+fcs <- c("L", "LQ", "H", "LQH")
 
 # Run ENMevaluate()
 # and unpack results data frame, list of models, and RasterStack of raw predictions
+View(thinned_occs)
+enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
 
-
+#evalTbl <- enm@results
+#evalMods <- enm@models
+#evalPreds <- enm@predictions
 
 # Select Maxent model -----------------------------------------------------
 
