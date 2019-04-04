@@ -15,15 +15,61 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
+## What data do you want?
 
-## Set resolution
+The first step is to figure out what data we actually want to download from WorldClim. To do this, we need to pick a GCM, an RCP, a year, and what resolution we would like the data to be in (remember the resolution of a raster is the size of each grid cell). You can check out this helpful table from WorldClim to see what combinations of those three selections are available: http://www.worldclim.org/cmip5_2.5m.
+
+### Set resolution
 
 First, we need to set the resolution of the environmental data we want from the future -- remember the resolution of a raster is the size of each grid cell. We would like the resolution of the future environmental data to match the resolution of our current environmental data.
 
 **Try it yourself:** Use the `res()` function to find the resolution of your masked environmental data. Notice that the resolution is two numeric values (for the two side lengths of each cell in the raster). These two numeric values should be the same. Create a variable `envsRes` that is the first element of the resolution.
 
 ```{r}
-
+envsRes <- 
 ```
+
+### Pick a GCM
+
+Now we can pick which GCM we would like to use. We are going to start by using the Hadley Centre Global Environmental Model version 2, with Earth System components (HadGEM2-ES). The "Earth System" part of the model means that it accounts for vegetation and hydrology changes as the climate changes.
+
+**Try it yourself:** Look at the WorldClim table and find the code for the HadGEM2-ES GCM. Create a character variable `GCM` and set it to this code (using quotation marks).
+
+```{r}
+GCM <- 
+```
+
+### Pick an RCP
+
+Our final step is to pick an RCP. For this tutorial, you can pick which scenario you want to use: RCP 2.6, RCP 4.5, RCP 6, or RCP 8.5. You can read about them on the GitHub here: https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Future_climate_data.md.
+
+**Try it yourself:** Once you select an RCP, create the variable `RCP`. Set it to be the number following "RCP", multiplied by 10 (so if you picked RCP 6, set your variable equal to 60).
+
+```{r}
+RCP <-
+```
+
+### Pick a year
+
+We can get predicted climate data from the year 2050 and the year 2070.
+
+**Try it yourself:** Decide whether you want to model sloth habitat in 2050 or 2070. Create the variable `time_period` and set it to be either 50 or 70, depending on your choice.
+
+```{r}
+time_period <-
+```
+
+
+## Download data
+
+We can use the `getData()` function from the `raster` package to download data from WorldClim based on the variables you just selected.
+
+**Try it yourself:** Fill in the following code to download the data. Use the Help menu for `getData` if you get stuck. Also, note that you need to multiply the resolution value you calculated earlier by 60 to get it in the right format for WorldClim:
+
+```{r}
+projTimeEnvs <- getData('CMIP5', var = "bio", res = , rcp = , model = , year = )
+```
+
+
 
 
