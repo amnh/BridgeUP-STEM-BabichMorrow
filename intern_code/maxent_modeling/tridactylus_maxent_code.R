@@ -168,9 +168,9 @@ fcs <- c("L", "LQ", "H", "LQH")
 View(thinned_occs)
 enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
 
-#evalTbl <- enm@results
-#evalMods <- enm@models
-#evalPreds <- enm@predictions
+evalTbl <- enm@results
+evalMods <- enm@models
+evalPreds <- enm@predictions
 
 # Select Maxent model -----------------------------------------------------
 
@@ -179,9 +179,14 @@ enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy,
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
 
+sorted_data <- evalTbl[order(-evalTbl$avg.test.AUC, evalTbl$avg.test.or10pct, evalTbl$delta.AICc), ]
+View(sorted_data)
+#LQH_1 is the best
 
 # Slack the name of the best model and the criteria you used to select it
-
+#Lowest delta val
+#Second highest avg test AUC
+#Doesn't actually stand up well in 10th percentile
 
 # Visualize model ---------------------------------------------------------
 
