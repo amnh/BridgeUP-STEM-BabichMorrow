@@ -6,4 +6,10 @@ WorldClim offers past climate data from two different time periods: the Mid-Holo
 
 ### Mid-Holocene
 
-The Mid-Holocene Warm Period was a period of high global temperatures that occurred from about 7,000 years ago to 5,000 years ago.
+The Mid-Holocene Warm Period was a period of high global temperatures that occurred from about 7,000 years ago to 5,000 years ago. The "warm" part of this period was caused by changes in Earth's orbit
+
+Some things you could have seen in the Holocene:
++ 
+
+Further reading:
++ [Mid-Holocene Warm Period](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) - NOAA
