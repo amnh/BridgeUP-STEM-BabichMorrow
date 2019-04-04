@@ -182,23 +182,26 @@ group.data <- get.block(thinned_occs[,3:4], points.varie)
 # Refer to lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd
 
 # Use regularization multiples from 1 to 5 with a step value of 1
-
+rms = seq(from = 1, to = 5, by = 1)
 
 # Use feature classes "L", "LQ", "H", and "LQH"
-
-
+fcs <- c("L","LQ","LQH","H")
+  
 # Run ENMevaluate()
 # and unpack results data frame, list of models, and RasterStack of raw predictions
-
-
+enm <- ENMevaluate(occ = thinned_occs[,3:4], env = mask.varie.1, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+evalTbl <- enm@results
+evalMods <- enm@models
+evalPreds <- enm@predictions
 
 # Select Maxent model -----------------------------------------------------
 
 # Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
-
+View(evalTbl)
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
-
+varie.sorted <- evalTbl[order(evalTbl$avg.test.AUC),]
+View(varie.sorted)
 
 # Slack the name of the best model and the criteria you used to select it
 
