@@ -1,8 +1,10 @@
 # Future Climate Data
 
+First, check out this Youtube video [How Climate Scientists Predict the Future](https://www.youtube.com/watch?v=i9EyFghIt5o) for an overview of how we've used computers over the last 40 years to model climate change.
+
 ## Back to WorldClim
 
-We are once again returning to WorldClim to get climate data, but now, instead of getting climate data from the present, we are going to be downloading climate data from the future based on the predictions of different climate change models. This time, though, we are going to download the data directly from R, instead of using the WorldClim website, so we are going to start by reading about the different kinds of data we could get. Check out the WorldClim webpage for [Future climate data](http://www.worldclim.org/CMIP5v1). Note what terms/acronyms you aren't familiar with.
+We are once again returning to WorldClim to get climate data. Now, instead of getting climate data from the present, we are going to be downloading climate data from the future based on the predictions of the different climate change models. This time, though, we are going to download the data directly from R, instead of using the WorldClim website, so we are going to start by reading about the different kinds of data we could get. Check out the WorldClim webpage for [Future climate data](http://www.worldclim.org/CMIP5v1). Note what terms/acronyms you aren't familiar with.
 
 ## Predicting the future
 
@@ -41,3 +43,5 @@ To learn more about RCPs, check out these links:
 ### GCM + RCP
 
 Once a particular GCM has been set up, it is tested by running the model back in time from the present and comparing the results to the observed climate in the past. If it performs well in these tests, it can be turned towards the future. This is where the RCP comes in: the GCM takes into account the scenario in the RCP and predicts how that will affect the global climate based on the GCM model.
+
+Not all of the GCMs have predictions for all of the RCP scenarios. WorldClim has a helpful table to see what datasets are available: http://www.worldclim.org/cmip5_2.5m. So, for example, the GCM ACCESS1-0 has predictions for the scenarios RCP 4.5 and RCP 8.5, but it hasn't been run for RCP 2.6 and RCP 6.
