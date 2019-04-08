@@ -65,7 +65,7 @@
   | April 9 | <ul><li> Projecting forward in time </li><li> Questions for Peri Doerfler | [Projecting forward tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/project_forward_tutorial.Rmd) <br> [Questions for Peri Doerfler](https://docs.google.com/document/d/1a41m-ZPjNwv8DGKwXOwsKCcL6pJ2awGI7djP99ffoOw/edit?usp=sharing) |
   | April 11 | <ul><li> Meet Peri Doerfler! </li><li> Past climate data | [Turn back time](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) |
 | **Week 26** | | |
-  | April 16 | <ul><li> Projecting backwards in time | |
+  | April 16 | <ul><li> Meet with Mary Blair! </li><li> Projecting backwards in time | |
   | April 18 | | |
 | **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
