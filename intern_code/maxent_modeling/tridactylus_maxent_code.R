@@ -19,7 +19,7 @@ library(ggmap) # the package for mapping
 # the packages from background_region_tutorial.Rmd
 library(rgeos)
 library(sp)
-library(raster)a
+library(raster)
 library(dismo)
 
 # the package used in partitioning occurrences
