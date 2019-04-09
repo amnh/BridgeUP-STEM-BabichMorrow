@@ -155,18 +155,14 @@ ggmap(torquatus_map) +
 
 # Use regularization multiples from 1 to 5 with a step value of 1
 
-max_rms <- seq(from = 1, to = 5, by = 1)
 
-# Use feature classes "L", "LQ", "H", and "LQHQ", "H", "LQH")
+# Use feature classes "L", "LQ", "H", and "LQH"
+
 
 # Run ENMevaluate()
 # and unpack results data frame, list of models, and RasterStack of raw predictions
 
-max_enm <- ENMevaluate(occ = thinned_torquatus[,2:3], env = torquatus_BgMsk, bg.coords = bg.xy , RMvalues = max_rms, fc = max_fcs, method = "jackknife", clamp = TRUE)
-max_evalTbl <- enm@results
-max_evalMods <- enm@models
-max_evalPreds <- enm@predictions
-View(max_evalTbl)
+
 
 # Select Maxent model -----------------------------------------------------
 
