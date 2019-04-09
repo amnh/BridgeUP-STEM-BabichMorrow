@@ -40,7 +40,7 @@ When it's time to switch typing partners, the person typing needs to commit thei
 *Switching from typing --> directing:*
 1. Save your changes to the script. The file will then show up in the Git tab of RStudio.
 2. Click the checkbox next to the file, and click the "Commit" button.
-3. A window will pop up where you will be able to see the difference between the original file and what you have added. Compare theese versions: do you like the edits you made?
+3. A window will pop up where you will be able to see the difference between the original file and what you have added. Compare these versions: do you like the edits you made?
 4. Type a commit message in the "Commit message" box and then click the "Commit" button.
 5. Click on the "Push" button with the green arrow: this will take that edit you just made and push it to the remote copy of the branch (the one you can see on the GitHub website).
 
