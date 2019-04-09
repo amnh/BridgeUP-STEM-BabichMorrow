@@ -156,7 +156,12 @@ ggmap(torquatus_map) +
 # Use regularization multiples from 1 to 5 with a step value of 1
 
 
+
 # Use feature classes "L", "LQ", "H", and "LQH"
+
+
+# Use feature classes "L", "LQ", "H", and "LQH")
+max_fcs <- c("L", "LQ", "H", "LQH")
 
 
 # Run ENMevaluate()
@@ -170,7 +175,13 @@ ggmap(torquatus_map) +
 
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
-
+## WE WANT HIGHER AUC, LOWER 10PCT, LOWER AIC VALUES
+max_auc_sorted <- max_evalTbl[order(-max_evalTbl$avg.test.AUC),] 
+View(max_auc_sorted)
+max_10_sorted <- max_evalTbl[order(max_evalTbl$avg.test.or10pct),] 
+max_aic_sorted <- max_evalTbl[order(max_evalTbl$delta.AICc),] 
+max_sorted <- max_evalTbl[order(-max_evalTbl$avg.test.AUC, max_evalTbl$avg.test.or10pct, max_evalTbl$delta.AICc),]
+View(max_sorted)
 
 # Slack the name of the best model and the criteria you used to select it
 
