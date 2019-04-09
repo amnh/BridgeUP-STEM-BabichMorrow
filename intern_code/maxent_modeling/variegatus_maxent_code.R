@@ -200,7 +200,7 @@ evalPreds <- enm@predictions
 View(evalTbl)
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
-varie.sorted <- evalTbl[order(evalTbl$avg.test.AUC),]
+varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
 View(varie.sorted)
 
 # Slack the name of the best model and the criteria you used to select it
