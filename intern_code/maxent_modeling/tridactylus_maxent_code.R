@@ -19,7 +19,7 @@ library(ggmap) # the package for mapping
 # the packages from background_region_tutorial.Rmd
 library(rgeos)
 library(sp)
-library(raster)a
+library(raster)
 library(dismo)
 
 # the package used in partitioning occurrences
@@ -28,7 +28,7 @@ library(ENMeval)
 # Occurrence data ---------------------------------------------------------
 
 # Import the dataset for B. tridactylus from data/occurrence_data
-tridactylus <- read_csv("~/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/tridactylus.csv")
+tridactylus <- read_csv("~/Desktop/Project Repository clone/Data/occurrence_data/tridactylus.csv")
 tridactylus$name <- "Bradypus_tridactylus"
 
 # Visualize occurrence data -----------------------------------------------
@@ -87,6 +87,7 @@ save(thinned_occs, file = "tridactylus_thinned")
 # Create background region ------------------------------------------------
 
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd & lesson_plans/s3/worldclim_inR.Rmd 
+#Ula's
 bioclim_files <- list.files("/Users/student/Desktop/wc2.0_2.5m_bio")
 bioclim_files
 
