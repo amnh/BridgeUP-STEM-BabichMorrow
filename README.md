@@ -70,11 +70,13 @@
 | **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
 
-## Daily Git To Do
+## GitHub
 
 ![alt text|10%](github_diagram1.png)
 
-### Beginning of Session
+### Working on Forks :fork_and_knife:
+
+#### Beginning of Session
 
 Push your local changes:
 
@@ -96,7 +98,7 @@ Sync your fork:
   + Will need to hit the escape key, then type `:wq` to get out of the text editor for the commit
 + Run `git push` one final time to push the merged changes to your remote fork
 
-### End of Session
+#### End of Session
 
 Push your local changes:
 
@@ -106,4 +108,17 @@ Push your local changes:
   + Once you've added all the files, `git commit -m "whatever you want your message to be"`
 + Push your changes to your remote copy of the fork: `git push`
 
+### Working with Branches :tanabata_tree:
 
+#### Typing --> Directing
+
++ Save your changes to the script. The file will then show up in the Git tab of RStudio.
++ Click the checkbox next to the file, and click the "Commit" button.
++ A window will pop up where you will be able to see the difference between the original file and what you have added. Compare these versions: do you like the edits you made?
++ Type a commit message in the "Commit message" box and then click the "Commit" button.
++ Click on the "Push" button with the green arrow: this will take that edit you just made and push it to the remote copy of the branch (the one you can see on the GitHub website).
+
+#### Directing --> Typing
+
++ Go to the Git window of RStudio and click on the blue arrow: this will pull the edits from the remote copy to your machine.
++ Open the script file. Check to see that the edits your partner made are there.
