@@ -201,16 +201,19 @@ View(evalTbl)
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
 varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
-View(varie.sorted)
 
+names(evalMods) <- enm@results$settings
+model <- evalMods[["LQH_5"]]
+
+prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
+plot(prediction_varie)
 # Slack the name of the best model and the criteria you used to select it
 
-
+View(evalTbl)
 # Visualize model ---------------------------------------------------------
 
 # Generate the model prediction and plot it
 # Share this map in Slack
-
 
 
 # Project in space --------------------------------------------------------
