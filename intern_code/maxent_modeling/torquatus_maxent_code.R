@@ -174,7 +174,8 @@ View(max_evalTbl)
 
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
-
+max_sorted <- max_evalTbl[order(max_evalTbl$avg.test.AUC, max_evalTbl$avg.test.or10pct, -max_evalTbl$delta.AICc),]
+View(max_sorted)
 
 # Slack the name of the best model and the criteria you used to select it
 
