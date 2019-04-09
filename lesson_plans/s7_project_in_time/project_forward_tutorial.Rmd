@@ -64,11 +64,44 @@ time_period <-
 
 We can use the `getData()` function from the `raster` package to download data from WorldClim based on the variables you just selected.
 
-**Try it yourself:** Fill in the following code to download the data. Use the Help menu for `getData` if you get stuck. Also, note that you need to multiply the resolution value you calculated earlier by 60 to get it in the right format for WorldClim:
+**Try it yourself:** Fill in the following code to download the data. Use the Help menu for `getData` if you get stuck. Note that you need to multiply the resolution value you calculated earlier by 60 to get it in the right format for WorldClim. Then, use `names()` to see the names of the variables in the downloaded data:
 
 ```{r}
+# download data
 projTimeEnvs <- getData('CMIP5', var = "bio", res = , rcp = , model = , year = )
+# see the names of the data
+
 ```
+
+We need to set the names of the variables in this downloaded data so that they match the names of our current environmental data, which is in the format "bio1", "bio2", ..., "bio19". In order to set the names of `projTimeEnvs`, we can use the `paste0()` function to quickly create a vector containing "bio1", "bio2", ..., "bio19" (instead of typing out all 19 by hand).
+
+**Try it yourself:** Use `paste0()` to set the names of `projTimeEnvs`:
+
+```{r}
+
+```
+
+### Crop & mask data
+
+**Try it yourself:** Crop and mask the future environmental data to the bounding box around the occurrence points for your species (hint: you made this bounding box in `model_selection_tutorial.Rmd`).
+
+```{r}
+
+```
+
+## Project the model
+
+Now we're ready to project your model into the future! Just like projecting the model in space, you are going to use the `maxnet.predictRaster()` function. The difference is that you will provide the future environmental data (masked to the bounding box), instead of using the environmental data from the present.
+
+**Try it yourself:** Look at the code you wrote to project your model in space at the end of `model_selection_tutorial.Rmd`. Modify it to instead project your model in time using the future environmental data:
+
+```{r}
+# project your model into the future
+
+# plot the projected model
+
+```
+
 
 
 
