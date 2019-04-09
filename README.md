@@ -60,12 +60,12 @@
   | March 28 | <ul><li> Visualize Maxent models </li><li> Model selection | [Maxent model selection tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd) |
 | **Week 24** | | |
   | April 2 | <ul><li> Meet Tracey John! </li><li> Projecting in space | [Tracey's website](http://www.traceyjohn.com/) |
-  | April 4 | <ul><li>  Update Maxent modeling script </li><li> Future climate data | [Back to the future](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Future_climate_data.md) |
+  | April 4 | <ul><li>  Update Maxent modeling script | [Updated modeling script](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/intern_code/maxent_modeling/maxent_modeling_code.R) |
 | **Week 25** | | |
-  | April 9 | <ul><li> Projecting forward in time </li><li> Questions for Peri Doerfler | [Projecting forward tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/project_forward_tutorial.Rmd) <br> [Questions for Peri Doerfler](https://docs.google.com/document/d/1a41m-ZPjNwv8DGKwXOwsKCcL6pJ2awGI7djP99ffoOw/edit?usp=sharing) |
-  | April 11 | <ul><li> Meet Peri Doerfler! </li><li> Past climate data | [Turn back time](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) |
+  | April 9 | <ul><li> How do we pick a model? </li><li> Finish updating Maxent model script </li><li> Future climate data </li><li> Questions for Peri Doerfler |                                                                                         [Back to the future - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Future_climate_data.md) <br> [Questions for Peri Doerfler](https://docs.google.com/document/d/1a41m-ZPjNwv8DGKwXOwsKCcL6pJ2awGI7djP99ffoOw/edit?usp=sharing) |
+  | April 11 | <ul><li> Meet Peri Doerfler! </li><li> Projecting forward in time </li><li> Talk about elevator pitches |         [Projecting forward tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/project_forward_tutorial.Rmd) |
 | **Week 26** | | |
-  | April 16 | <ul><li> Meet with Mary Blair! </li><li> Projecting backwards in time | |
+  | April 16 | <ul><li> Meet with Mary Blair! </li><li> Past climate data </li><li> Projecting backwards in time |               [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) <br> Projecting backward tutorial |
   | April 18 | | |
 | **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
