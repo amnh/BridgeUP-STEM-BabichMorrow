@@ -72,9 +72,9 @@
 
 ## GitHub
 
-![alt text|10%](github_diagram1.png)
-
 ### Working on Forks :fork_and_knife:
+
+![alt text|10%](github_diagram1.png)
 
 #### Beginning of Session
 
@@ -109,6 +109,8 @@ Push your local changes:
 + Push your changes to your remote copy of the fork: `git push`
 
 ### Working with Branches :tanabata_tree:
+
+![alt text|10%](branching_diagram.png)
 
 #### Typing --> Directing
 
