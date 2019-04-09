@@ -1,7 +1,7 @@
 # BRADYPUS TRIDACTYLUS
 # Maxent modeling code
 
-# Yamile and Ula 
+# Yamile and Ula... and now Hanora(4/9/19)
 # March 2019 
 
 # Required packages -------------------------------------------------------
@@ -179,8 +179,8 @@ evalPreds <- enm@predictions
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
 
-sorted_data <- evalTbl[order(-evalTbl$avg.test.AUC, evalTbl$avg.test.or10pct, evalTbl$delta.AICc), ]
-View(sorted_data)
+sorted_data_tribest <- evalTbl[order(evalTbl$delta.AICc,evalTbl$avg.test.or10pct,-evalTbl$avg.test.AUC), ]
+View(sorted_data_tribest)
 #LQH_1 is the best
 
 # Slack the name of the best model and the criteria you used to select it
@@ -191,6 +191,8 @@ View(sorted_data)
 # Visualize model ---------------------------------------------------------
 
 # Generate the model prediction and plot it
+
+
 # Share this map in Slack
 
 
