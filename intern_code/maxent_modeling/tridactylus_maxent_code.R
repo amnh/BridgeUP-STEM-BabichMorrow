@@ -168,6 +168,9 @@ fcs <- c("L", "LQ", "H", "LQH")
 View(thinned_occs)
 enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
 
+# Save RDS object (Cecina)
+# saveRDS(enm, file = "/Users/student/Desktop/tridactylus_enm.rds")
+
 evalTbl <- enm@results
 evalMods <- enm@models
 evalPreds <- enm@predictions
