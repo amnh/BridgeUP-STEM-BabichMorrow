@@ -44,11 +44,11 @@
   | April 30 | | |
   | May 2 | | |
 | **Week 28** | | |
-  | May 7 | </ul><li> Work on 15-minute presentation | |
+  | May 7 | </ul><li> Work on 15-minute presentation | [SlothSquad 15 minute presentation](https://docs.google.com/presentation/d/1aX_tO7AxOBtzjL3G4HP4yusqQLfOULbZFlZptiPITHg/edit?usp=sharing) |
   | May 9 | Presentation Skills / Improv Workshop | |
 | **Week 29** | | |
-  | May 14 | </ul><li> Finalize 5-minute presentation | |
-  | May 16 | </ul><li> Work on poster | |
+  | May 14 | </ul><li> Finalize 5-minute presentation | [SlothSquad 5 minute presentation](https://docs.google.com/presentation/d/1GHCRX4S40CSreG6Wuqr-WimVtXon8ogT1HVO8IA4sGk/edit?usp=sharing) |
+  | May 16 | </ul><li> Work on poster | [Text and figures for poster - Google Doc](https://docs.google.com/document/d/1iMuhG_zP2L80mkIyqCEzG8FKZtD3dcVCbsHHfvWyYyg/edit?usp=sharing) <br> [SlothSquad poster](https://docs.google.com/presentation/d/1PW7UTE2eX54k_aJYQEQx8VD3gAqqdAdqnYsYwBnbXnI/edit?usp=sharing) |
 | **Week 30** | | |
   | May 21 | </ul><li> Work on poster | |
   | May 23 | **SRMP poster ready for printing!** | |
