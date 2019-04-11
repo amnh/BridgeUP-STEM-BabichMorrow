@@ -48,9 +48,9 @@
   | May 9 | Presentation Skills / Improv Workshop | |
 | **Week 29** | | |
   | May 14 | </ul><li> Finalize 5-minute presentation | [SlothSquad 5 minute presentation](https://docs.google.com/presentation/d/1GHCRX4S40CSreG6Wuqr-WimVtXon8ogT1HVO8IA4sGk/edit?usp=sharing) |
-  | May 16 | </ul><li> Work on poster | [Text and figures for poster - Google Doc](https://docs.google.com/document/d/1iMuhG_zP2L80mkIyqCEzG8FKZtD3dcVCbsHHfvWyYyg/edit?usp=sharing) <br> [SlothSquad poster](https://docs.google.com/presentation/d/1PW7UTE2eX54k_aJYQEQx8VD3gAqqdAdqnYsYwBnbXnI/edit?usp=sharing) |
+  | May 16 | </ul><li> Work on poster </li><li> Install and test Zoom | [Text and figures for poster - Google Doc](https://docs.google.com/document/d/1iMuhG_zP2L80mkIyqCEzG8FKZtD3dcVCbsHHfvWyYyg/edit?usp=sharing) <br> [SlothSquad poster](https://docs.google.com/presentation/d/1PW7UTE2eX54k_aJYQEQx8VD3gAqqdAdqnYsYwBnbXnI/edit?usp=sharing) <br> [Zoom download](https://zoom.us/support/download) |
 | **Week 30** | | |
-  | May 21 | </ul><li> Work on poster | |
+  | May 21 | [Cecina in D.C. for conference] </ul><li> Work on poster | |
   | May 23 | **SRMP poster ready for printing!** | |
 | **Week 31** | | |
   | May 28 | **Practice presentation!** | |
