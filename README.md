@@ -69,58 +69,15 @@
   | April 18 | <ul><li> Projecting backwards in time </li><li> Past climate data :rewind: | [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) <br> Projecting backward tutorial |
 | **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
+## Resources
 
-## GitHub
+### GitHub
 
-### Working on Forks :fork_and_knife:
++ [Working on Forks :fork_and_knife:](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Fork_instructions.md)
++ [Working with Branches :tanabata_tree:](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Branch_instructions.md)
 
-![alt text|10%](github_diagram1.png)
+### Coding
 
-#### Beginning of Session
++ [Debugging workflow](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Debugging_workflow.md)
++ [Terminal command cheatsheet](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Linux-Reference-1.pdf)
 
-Push your local changes:
-
-+ Open Terminal and navigate to your folder for the forked repository
-  + `pwd`: check current directory
-  + `ls`: get a list of files in the current directory
-  + `cd`: move to a new directory
-+ See current status of Git: `git status`
-+ If you have modified files, commit your changes
-  + `git add .` to add all untracked files to your commit
-  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
-+ Push your changes to your remote copy of the fork: `git push`
-
-Sync your fork:
-
-+ Fetch commits from upstream repository to get any updates: `git fetch upstream`
-+ Check out your fork's local `master` branch: `git checkout master`
-+ Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
-  + Will need to hit the escape key, then type `:wq` to get out of the text editor for the commit
-+ Run `git push` one final time to push the merged changes to your remote fork
-
-#### End of Session
-
-Push your local changes:
-
-+ See current status of Git: `git status`
-+ If you have modified files, commit your changes
-  + `git add .` to add all untracked files to your commit
-  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
-+ Push your changes to your remote copy of the fork: `git push`
-
-### Working with Branches :tanabata_tree:
-
-![alt text|10%](branching_diagram.png)
-
-#### Typing --> Directing
-
-+ Save your changes to the script. The file will then show up in the Git tab of RStudio.
-+ Click the checkbox next to the file, and click the "Commit" button.
-+ A window will pop up where you will be able to see the difference between the original file and what you have added. Compare these versions: do you like the edits you made?
-+ Type a commit message in the "Commit message" box and then click the "Commit" button.
-+ Click on the "Push" button with the green arrow: this will take that edit you just made and push it to the remote copy of the branch (the one you can see on the GitHub website).
-
-#### Directing --> Typing
-
-+ Go to the Git window of RStudio and click on the blue arrow: this will pull the edits from the remote copy to your machine.
-+ Open the script file. Check to see that the edits your partner made are there.
