@@ -41,8 +41,8 @@
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
 | **Week 27** | | |
-  | April 30 | | |
-  | May 2 | | |
+  | April 30 | <ul><li> Update Maxent modeling script | |
+  | May 2 | <ul><li> Save plots for presentations | |
 | **Week 28** | | |
   | May 7 | </ul><li> Work on 15-minute presentation | [SlothSquad 15 minute presentation](https://docs.google.com/presentation/d/1aX_tO7AxOBtzjL3G4HP4yusqQLfOULbZFlZptiPITHg/edit?usp=sharing) |
   | May 9 | Presentation Skills / Improv Workshop | |
