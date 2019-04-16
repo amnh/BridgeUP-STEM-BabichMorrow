@@ -23,7 +23,7 @@ library(ENMeval)
 # Occurrence data ---------------------------------------------------------
 
 # Import the dataset for B. variegatus from data/occurrence_data
-variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/variegatus.csv")
+variegatus = read.csv("~/Desktop/Repository Clone/Data/occurrence_data/variegatus.csv")
 
 #Yamile
 variegatus = read.csv("/Users/student/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/variegatus.csv")
@@ -200,7 +200,7 @@ evalPreds <- enm@predictions
 # Name it with the species name and your initials
 # Upload it to GitHub
 saveRDS(enm, file = "LFvariegatus.rds")
-
+enm = readRDS("LFvariegatus.rds")
 # Select Maxent model -----------------------------------------------------
 
 # Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
@@ -216,8 +216,8 @@ saveRDS(enm, file = "YSvariegatus.RDS")
 prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
 plot(prediction_varie)
 # Slack the name of the best model and the criteria you used to select it
-
 View(evalTbl)
+
 # Visualize model ---------------------------------------------------------
 
 # Generate the model prediction and plot it
@@ -228,7 +228,7 @@ View(evalTbl)
 
 # Project the model to the background region you selected and plot the projection
 # Share this map in Slack
-
+prediction_varie <- maxnet.predictRaster(mod = model, thinned_occs, type = "cloglog", clamp = TRUE)
 
 # Project the model to a bounding box for your species and plot the projection
 # Share this map in Slack
