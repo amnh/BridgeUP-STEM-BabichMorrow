@@ -25,6 +25,8 @@ library(ENMeval)
 # Import the dataset for B. variegatus from data/occurrence_data
 variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/variegatus.csv")
 
+#Yamile
+variegatus = read.csv("/Users/student/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/variegatus.csv")
 
 # Visualize occurrence data -----------------------------------------------
 
