@@ -168,7 +168,7 @@ fcs <- c("L", "LQ", "H", "LQH")
 # and unpack results data frame, list of models, and RasterStack of raw predictions
 View(thinned_occs)
 #enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
-readRDS("tridactylus_enm_us.rds")
+enm <- readRDS("tridactylus_enm_us.rds")
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the specsaveRDS(enm, file = "tridactylus_enm_us.rds")
 # Upload it to GitHub
@@ -231,7 +231,14 @@ plot(prediction_bgRegion)
 
 # Project the model to the background region you selected and plot the projection
 # Share this map in Slack
+bgExt_ftri <- bbox(as.matrix(thinned_occs[, 3:4]))
+envsBgCrop_ftri <- crop(env_stack, extent(bgExt_ftri))
 
+
+prediction_bgRegion_tri <- maxnet.predictRaster(model,envsBgCrop_ftri , type = "cloglog", clamp = TRUE)
+# plot prediction
+plot(prediction_bgRegion_tri)
+points(thinned_occs[,3:4])
 
 # Project the model to a bounding box for your species and plot the projection
 # Share this map in Slack
