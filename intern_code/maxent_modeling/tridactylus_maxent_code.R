@@ -201,6 +201,27 @@ View(sorted_data_tribest)
 
 # Generate the model prediction and plot it
 
+names(evalMods) <- enm@results$settings
+model <- evalMods[["LQH_1"]]
+
+occs.sp <- SpatialPoints(thinned_occs[, 3:4])
+bgExt_enm <- gBuffer(occs.sp, width = 1.0)
+
+# Create cropped raster
+
+envsBgCrop_enm <- crop(env_stack, bgExt_enm)
+
+# Create masked raster
+
+envsBgMsk_enm <- mask(envsBgCrop_enm, bgExt_enm)
+
+# create prediction
+
+prediction_bgRegion <- maxnet.predictRaster(model, envsBgMsk_enm, type = "cloglog", clamp = TRUE)
+
+# plot prediction
+
+plot(prediction_bgRegion)
 
 # Share this map in Slack
 
