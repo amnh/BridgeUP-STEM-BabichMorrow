@@ -170,11 +170,12 @@ View(thinned_occs)
 #enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
 readRDS("~/Desktop/Project Repository clone/tridactylus_enm.rds")
 # Save the object you create using ENMevaluate using saveRDS()
-# Name it with the species name and your initials
+# Name it with the specsaveRDS(enm, file = "tridactylus_enm_us.rds")
 # Upload it to GitHub
 
 # Save RDS object (Cecina)
-# saveRDS(enm, file = "/Users/student/Desktop/tridactylus_enm.rds")
+saveRDS(enm, file = "tridactylus_enm_us.rds")
+
 
 evalTbl <- enm@results
 evalMods <- enm@models
