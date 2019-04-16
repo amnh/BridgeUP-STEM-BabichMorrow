@@ -197,7 +197,7 @@ evalPreds <- enm@predictions
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the species name and your initials
 # Upload it to GitHub
-
+saveRDS(enm, file = "LFvariegatus.rds")
 
 # Select Maxent model -----------------------------------------------------
 
