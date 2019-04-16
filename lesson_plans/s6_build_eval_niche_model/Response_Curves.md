@@ -30,6 +30,8 @@ To create response curves, we can use the `response.plot()` function from the `m
 
 ```
 
+If you have more questions about response curves, you can look at page 17 of this [Maxent tutorial](https://biodiversityinformatics.amnh.org/open_source/maxent/Maxent_tutorial2017.pdf).
+
 ## Interpretation
 
 Look back at the [table](http://www.worldclim.org/bioclim) of BioClim variables. How does your sloth species respond to these variables? What values for these variables are favorable for the species? Talk about this with your partner.
