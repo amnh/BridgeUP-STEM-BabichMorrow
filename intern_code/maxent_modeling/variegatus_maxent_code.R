@@ -25,6 +25,8 @@ library(ENMeval)
 # Import the dataset for B. variegatus from data/occurrence_data
 variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/variegatus.csv")
 
+#Yamile
+variegatus = read.csv("/Users/student/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/variegatus.csv")
 
 # Visualize occurrence data -----------------------------------------------
 
@@ -209,6 +211,7 @@ varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
 
 names(evalMods) <- enm@results$settings
 model <- evalMods[["LQH_5"]]
+saveRDS(enm, file = "YSvariegatus.RDS")
 
 prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
 plot(prediction_varie)
