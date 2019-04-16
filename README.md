@@ -66,7 +66,7 @@
   | April 11 | <ul><li> Meet Peri Doerfler! </li><li> **At home:** Future climate data :fast_forward: |                         [Back to the future - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Future_climate_data.md) |
 | **Week 26** | | |
   | April 16 | <ul><li> Meet with Mary Blair! </li><li> Getting help with R </li><li> Finish updating Maxent model script </li><li> Projecting forward in time |                                                                                           [Debugging workflow](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Debugging_workflow.md) <br> [`saveRDS()` function example](http://www.endmemo.com/program/R/saverds.php) <br> [Projecting forward tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/project_forward_tutorial.Rmd) |
-  | April 18 | <ul><li> Update R scripts </li><li> Response curves </li><li> Past climate data :rewind: | [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) |
+  | April 18 | <ul><li> Update R scripts </li><li> Response curves </li><li> Past climate data :rewind: | [Response curves - Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/Response_Curves.md) <br> [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) |
 | **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
 ## Resources
