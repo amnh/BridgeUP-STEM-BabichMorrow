@@ -211,6 +211,7 @@ varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
 
 names(evalMods) <- enm@results$settings
 model <- evalMods[["LQH_5"]]
+saveRDS(enm, file = "YSvariegatus.RDS")
 
 prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
 plot(prediction_varie)
