@@ -206,7 +206,6 @@ model <- evalMods[["LQH_1"]]
 
 occs.sp <- SpatialPoints(thinned_occs[, 3:4])
 bgExt_enm <- gBuffer(occs.sp, width = 1.0)
-
 # Create cropped raster
 
 envsBgCrop_enm <- crop(env_stack, bgExt_enm)
