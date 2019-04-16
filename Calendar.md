@@ -41,7 +41,7 @@
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
 | **Week 27** | | |
-  | April 30 | <ul><li> Update Maxent modeling script | |
+  | April 30 | <ul><li> Projecting backwards in time </li><li> Update Maxent modeling script | Projecting backward tutorial |
   | May 2 | <ul><li> Save plots for presentations | |
 | **Week 28** | | |
   | May 7 | </ul><li> Work on 15-minute presentation | [SlothSquad 15 minute presentation](https://docs.google.com/presentation/d/1aX_tO7AxOBtzjL3G4HP4yusqQLfOULbZFlZptiPITHg/edit?usp=sharing) |
