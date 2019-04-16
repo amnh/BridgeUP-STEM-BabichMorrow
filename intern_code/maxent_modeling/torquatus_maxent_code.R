@@ -171,6 +171,11 @@ max_evalMods <- enm@models
 max_evalPreds <- enm@predictions
 View(max_evalTbl)
 
+# Save the object you create using ENMevaluate using saveRDS()
+# Name it with the species name and your initials
+# Upload it to GitHub
+
+
 # Select Maxent model -----------------------------------------------------
 
 # Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
