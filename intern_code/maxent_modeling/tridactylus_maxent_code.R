@@ -167,8 +167,8 @@ fcs <- c("L", "LQ", "H", "LQH")
 # Run ENMevaluate()
 # and unpack results data frame, list of models, and RasterStack of raw predictions
 View(thinned_occs)
-enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
-
+#enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+readRDS("~/Desktop/Project Repository clone/tridactylus_enm.rds")
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the species name and your initials
 # Upload it to GitHub
