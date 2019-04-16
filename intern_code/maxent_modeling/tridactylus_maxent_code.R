@@ -168,7 +168,7 @@ fcs <- c("L", "LQ", "H", "LQH")
 # and unpack results data frame, list of models, and RasterStack of raw predictions
 View(thinned_occs)
 #enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
-readRDS("~/Desktop/Project Repository clone/tridactylus_enm.rds")
+readRDS("tridactylus_enm_us.rds")
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the specsaveRDS(enm, file = "tridactylus_enm_us.rds")
 # Upload it to GitHub
