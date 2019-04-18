@@ -1,6 +1,10 @@
 # Working with Branches :tanabata_tree:
 
+Branches allow us to work on different versions of the code in parallel, without affecting the "main" copy of our code on the master branch. In software development, branches are often used to work on new features. While the feature is in development, it doesn't affect the main code. Once the feature is completed, however, the branch can be merged into the master branch so that the main copy of the code now includes that new feature.
+
 ![alt text|10%](branching_diagram.png)
+
+In our code, we can use one branch per sloth species, where you will work in pairs to write code for that species.
 
 ## Typing --> Directing
 
