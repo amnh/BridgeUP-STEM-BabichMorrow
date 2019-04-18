@@ -41,7 +41,7 @@
 | Date   |      Topics      |  Materials |
 |----------|-------------|------|
 | **Week 27** | | |
-  | April 30 | <ul><li> Past climate data :rewind: </li><li> Projecting backwards in time </li><li> Update Maxent modeling script | [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) <br> Projecting backward tutorial |
+  | April 30 | <ul><li> Response curves </li><li> Past climate data :rewind: </li><li> Projecting backwards in time </li><li> Update Maxent modeling script | [Response curves - Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/Response_Curves.md) <br> [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) <br> Projecting backward tutorial |
   | May 2 | <ul><li> Finishing touches on code </li><li> Save plots for presentations | |
 | **Week 28** | | |
   | May 7 | </ul><li> Work on 15-minute presentation | [SlothSquad 15 minute presentation](https://docs.google.com/presentation/d/1aX_tO7AxOBtzjL3G4HP4yusqQLfOULbZFlZptiPITHg/edit?usp=sharing) |
