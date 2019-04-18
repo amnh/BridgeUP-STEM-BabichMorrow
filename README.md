@@ -66,7 +66,7 @@
   | April 11 | <ul><li> Meet Peri Doerfler! </li><li> **At home:** Future climate data :fast_forward: |                         [Back to the future - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Future_climate_data.md) |
 | **Week 26** | | |
   | April 16 | <ul><li> Meet with Mary Blair! </li><li> Getting help with R </li><li> Finish updating Maxent model script |     [Debugging workflow](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Debugging_workflow.md) <br> [`saveRDS()` function example](http://www.endmemo.com/program/R/saverds.php) <br> |
-  | April 18 | <ul><li> Pull requests </li><li> Projecting forward in time </li><li> Response curves </li><li> Update scripts|   [Cropping vs. masking](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s3_obtain_env_data/Crop_vs_mask.md) <br> [Projecting forward tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/project_forward_tutorial.Rmd) <br> [Response curves - Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/Response_Curves.md) |
+  | April 18 | <ul><li> Pull requests </li><li> Projecting forward in time </li><li> Update scripts |                           [Cropping vs. masking](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s3_obtain_env_data/Crop_vs_mask.md) <br> [Projecting forward tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/project_forward_tutorial.Rmd)|
 | **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
 ## Resources
@@ -75,6 +75,7 @@
 
 + [Working on Forks :fork_and_knife:](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Fork_instructions.md)
 + [Working with Branches :tanabata_tree:](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Branch_instructions.md)
+  + Submitting a pull request
 
 ### Coding
 
