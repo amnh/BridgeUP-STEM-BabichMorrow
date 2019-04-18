@@ -8,9 +8,10 @@
 
 # Load all the packages you need for the analyses
 # You need:
-# 1) the package for spatial thinning, 2) the package for mapping,
+# 1) the package for spatial thinning, 
+# 2) the package for mapping,
 # 3) the packages from background_region_tutorial.Rmd,
-# 4) the package used in partitioning occurrences
+# 4) the package used in partitioning occurrences.
 
 library(readr) # the package for reading csv files
 library(spThin) # the package for spatial thinning
@@ -34,7 +35,6 @@ tridactylus$name <- "Bradypus_tridactylus"
 # Visualize occurrence data -----------------------------------------------
 
 # Use the ggmap package to plot the occurrence points for your species on a map
-# Share this map in Slack
 
 # permission from google to get map
 api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
@@ -91,7 +91,8 @@ bioclim_files
 env_stack <- stack(paste0("/Users/student/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
 # Create a background region for your species (based on the thinned occurrence data!):
-## B. tridactylus: MCP buffered by 1 degree
+# B. tridactylus: MCP buffered by 1 degree
+
 mcp <- function(xy) {
   # convert the input coordinates into a spatial object
   xy <- as.data.frame(sp::coordinates(xy))
@@ -109,8 +110,6 @@ mcp <- function(xy) {
   plot(envsBgMsk)
   
 # Make a map of your background region
-# Share that map in Slack
-
 # Remember to sample background points from your background region
   bg.xy <- randomPoints(envsBgMsk, 10000)
   
@@ -143,8 +142,6 @@ ggmap(SA_map) +
 ggmap(SA_map) +
   geom_point(data = bg.xy, aes(x=x, y=y), color = bg.grp)
 
-# Share this map in Slack
-
 # Build Maxent models -----------------------------------------------------
 
 # Refer to lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd
@@ -161,13 +158,15 @@ fcs <- c("L", "LQ", "H", "LQH")
 View(thinned_occs)
 
 #enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+#Hanora
 enm <- readRDS("tridactylus_enm_us.rds")
 
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the specsaveRDS(enm, file = "tridactylus_enm_us.rds")
 # Upload it to GitHub
 
-# Save RDS object (Cecina)
+# Save RDS object (Cecina) 
+#Ula
 saveRDS(enm, file = "tridactylus_enm_us.rds")
 
 evalTbl <- enm@results
@@ -212,12 +211,9 @@ prediction_bgRegion <- maxnet.predictRaster(model, envsBgMsk_enm, type = "cloglo
 # plot prediction
 plot(prediction_bgRegion)
 
-# Share this map in Slack
-
 # Project in space --------------------------------------------------------
 
 # Project the model to a bounding box for your species and plot the projection
-# Share this map in Slack
 
 bgExt_ftri <- bbox(as.matrix(thinned_occs[, 3:4]))
 envsBgCrop_ftri <- crop(env_stack, extent(bgExt_ftri))
@@ -227,6 +223,3 @@ prediction_bgRegion_tri <- maxnet.predictRaster(model,envsBgCrop_ftri , type = "
 # plot prediction
 plot(prediction_bgRegion_tri)
 points(thinned_occs[,3:4])
-
-
-
