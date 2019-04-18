@@ -31,7 +31,7 @@ Once you have completed all the code on the branch that you need to and everythi
 2. Go online to GitHub and switch to the branch for your species by clicking on the button on the top left that says "Branch: **master**" and switching to the desired species branch. Click the "New pull request" button.
 3. Add a description for the pull request and click "Create pull request".
 4. In this case, I will perform this step by merging the pull request. You can check out [slides 49 - 53](https://github.com/jtr13/codehelp/blob/master/GitHubWorkflowPt2.pdf) to see how I do it.
-5. I will also perform this step by deleting the merged branch on GitHub ([slide 55](https://github.com/jtr13/codehelp/blob/master/GitHubWorkflowPt2.pdf).
+5. I will also perform this step by deleting the merged branch on GitHub ([slide 55](https://github.com/jtr13/codehelp/blob/master/GitHubWorkflowPt2.pdf)).
 6. Finally, you should delete the merged branch on your computer. Using Terminal, navigate to the correct directory and run the following:
   + `git branch -d <branchname>` (without the < >, just insert the name of the branch)
   + `git fetch -p`
