@@ -233,5 +233,29 @@ prediction_varie <- maxnet.predictRaster(mod = model, thinned_occs, type = "clog
 # Project the model to a bounding box for your species and plot the projection
 # Share this map in Slack
 
+# Project forward in time --------------------------------------------------------
+
+# Find the resolution of your masked environmental data
+
+
+# Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
+
+
+# Set three different RCPs: 2.6, 6, and 8.5
+
+
+# Set the year to be 2070
+
+
+# Download the data for the 6 different combinations of GCM and RCP (all at the year 2070)
+
+# Set the names of your environmental data
+
+# Crop and mask the environmental data to the bounding box for your species
+
+
+# Project the model into the future -- you will end up with 6 different projected models
+# Plot the projected models
+
 
 
