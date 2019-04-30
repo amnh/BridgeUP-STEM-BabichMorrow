@@ -218,23 +218,62 @@ points(thinned_torquatus[2:3])
 # Project forward in time --------------------------------------------------------
 
 # Find the resolution of your masked environmental data
-
+envsRes <- res(torquatus_BgMsk)[1]
+View(envsRes)
+## 0.04166667
 
 # Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
-
+GCM_1 <- "HE"
+GCM_2 <- "CC"
 
 # Set three different RCPs: 2.6, 6, and 8.5
-
+RCP_1 <- 26
+RCP_2 <- 60
+RCP_3 <- 85
 
 # Set the year to be 2070
-
+year <- 70
 
 # Download the data for the 6 different combinations of GCM and RCP (all at the year 2070)
+projTimeEnvs_1 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_1, model = GCM_1, year = year)
+projTimeEnvs_2 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_2, model = GCM_1, year = year)
+projTimeEnvs_3 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_3, model = GCM_1, year = year)
+projTimeEnvs_4 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_1, model = GCM_2, year = year)
+projTimeEnvs_5 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_2, model = GCM_2, year = year)
+projTimeEnvs_6 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_3, model = GCM_2, year = year)
 
 # Set the names of your environmental data
+names(projTimeEnvs_1) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_2) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_3) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_4) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_5) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_6) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
 
 # Crop and mask the environmental data to the bounding box for your species
+projTimeEnvs_1_bboxCrop <- crop(projTimeEnvs_1, torquatus_bboxcrop)
+projTimeEnvs_1_bboxMsk <- mask(projTimeEnvs_1_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_1_bboxMsk)
+  
+projTimeEnvs_2_bboxCrop <- crop(projTimeEnvs_2, torquatus_bboxcrop)
+projTimeEnvs_2_bboxMsk <- mask(projTimeEnvs_2_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_2_bboxMsk)
 
+projTimeEnvs_3_bboxCrop <- crop(projTimeEnvs_3, torquatus_bboxcrop)
+projTimeEnvs_3_bboxMsk <- mask(projTimeEnvs_3_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_3_bboxMsk)
+
+projTimeEnvs_4_bboxCrop <- crop(projTimeEnvs_4, torquatus_bboxcrop)
+projTimeEnvs_4_bboxMsk <- mask(projTimeEnvs_4_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_4_bboxMsk)
+
+projTimeEnvs_5_bboxCrop <- crop(projTimeEnvs_5, torquatus_bboxcrop)
+projTimeEnvs_5_bboxMsk <- mask(projTimeEnvs_5_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_5_bboxMsk)
+
+projTimeEnvs_6_bboxCrop <- crop(projTimeEnvs_6, torquatus_bboxcrop)
+projTimeEnvs_6_bboxMsk <- mask(projTimeEnvs_6_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_6_bboxMsk)
 
 # Project the model into the future -- you will end up with 6 different projected models
 # Plot the projected models
