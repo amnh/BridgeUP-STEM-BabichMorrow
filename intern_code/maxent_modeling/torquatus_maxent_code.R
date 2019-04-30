@@ -297,10 +297,13 @@ points(thinned_torquatus[,2:3])
 
 
 # Response curves
-##LUNA
-# Check which variables in the model have non-zero coefficients
+## Checks which variables in our model have "non-zero coefficients"
+torquatus_model$betas
+## variables used = 12,14, and 18
 
 # Plot response curves
-
-
+library(maxnet)
+response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_12" , type = "cloglog")
+response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_14" , type = "cloglog")
+response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_18" , type = "cloglog")
 
