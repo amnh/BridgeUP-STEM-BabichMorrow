@@ -21,7 +21,7 @@
 |----------|-------------|------|
 | **Week 27** | | |
   | April 30 | <ul><li> Update Maxent modeling script </li><li> Response curves </li><li> Past climate data :rewind: </li><li> Projecting backwards in time |                                                                                                   [List of projections to make](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Model_projections.md) <br> [Response curves - Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/Response_Curves.md) <br> [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) <br> [Projecting backwards instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Project_backwards.md) |
-  | May 2 | <ul><li> Finishing touches on code </li><li> Save plots for presentations | |
+  | May 2 | <ul><li> Finishing touches on code </li><li> Save plots for presentations | [List of figures for presentations](https://docs.google.com/document/d/16B2qpXNtdvVHJRsvL3txUpMujzVlUk4uzlqOMg9NS9U/edit?usp=sharing) |
 | **Week 28** | | |
   | May 7 | </ul><li> Louise is visiting! </ul><li> Work on 15-minute presentation | [SlothSquad 15 minute presentation](https://docs.google.com/presentation/d/1aX_tO7AxOBtzjL3G4HP4yusqQLfOULbZFlZptiPITHg/edit?usp=sharing) |
   | May 9 | Presentation Skills / Improv Workshop | |
