@@ -296,8 +296,8 @@ plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC")
 points(thinned_torquatus[,2:3])
 
 
-# Response curves --------------------------------------------------------
-
+# Response curves
+##LUNA
 # Check which variables in the model have non-zero coefficients
 
 # Plot response curves
