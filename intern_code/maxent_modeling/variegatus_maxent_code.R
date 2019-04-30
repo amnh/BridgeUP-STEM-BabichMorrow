@@ -154,6 +154,10 @@ points.varie = randomPoints(mask.varie.1, 10000)
 #Convert these points into a dataframe using as.data.frame
 final.points.varie = as.data.frame(points.varie)
 
+#Create cropped raster
+crop.varie.bbox = crop(env_stack, bg_variegatus)
+mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
+plot(mask.varie.bbox)
 # Remember to sample background points from your background region
 #Done above
 
@@ -228,7 +232,7 @@ View(evalTbl)
 
 # Project the model to the background region you selected and plot the projection
 # Share this map in Slack
-prediction_varie <- maxnet.predictRaster(mod = model, thinned_occs, type = "cloglog", clamp = TRUE)
+prediction_varie <- maxnet.predictRaster(mod = model, mask.varie.bbox, type = "cloglog", clamp = TRUE)
 
 # Project the model to a bounding box for your species and plot the projection
 # Share this map in Slack
@@ -240,33 +244,94 @@ envsRes <- res(mask_thin_varie)[1]
 
 
 # Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
-GCM <- "HE"
-GCM <- "CC"
+GCM_he <- "HE"
+GCM_cc <- "CC"
 
 # Set three different RCPs: 2.6, 6, and 8.5
-RCP <- 2.6
-RCP = 6
-RCP = 8.5
+RCP_26 <- 2.6
+RCP_60 = 6
+RCP_85 = 8.5
 
 # Set the year to be 2070
 time_period <- 70
 
 
 # Download the data for the 6 different combinations of GCM and RCP (all at the year 2070)
+#HadGEM2-ES
+projTimeEnvs_26 <- getData('CMIP5', var = "bio", res = 2.5, rcp = 26, model = GCM_he  , year = time_period)
+
+projTimeEnvs_60 <- getData('CMIP5', var = "bio", res = 2.5, rcp = 60, model = GCM_he  , year = time_period)
+
+projTimeEnvs_85 <- getData('CMIP5', var = "bio", res = 2.5, rcp = 85, model = GCM_he  , year = time_period)
+
+#CCSM4
+projTimeEnvs_26_cc <- getData('CMIP5', var = "bio", res = 2.5, rcp = 26, model = GCM_cc  , year = time_period)
+
+projTimeEnvs_60_cc <- getData('CMIP5', var = "bio", res = 2.5, rcp = 60, model = GCM_cc  , year = time_period)
+
+projTimeEnvs_85_cc <- getData('CMIP5', var = "bio", res = 2.5, rcp = 85, model = GCM_cc  , year = time_period)
 
 # Set the names of your environmental data
+#HadGEM2-ES
+names(projTimeEnvs_26) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_60) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_85) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+#CCSM4
+names(projTimeEnvs_26_cc) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_60_cc) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_85_cc) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
 
 # Crop and mask the environmental data to the bounding box for your species
+new_bbox = bbox(as.matrix(variegatus[,3:4]))
+new_bbox = as(extent(new_bbox), "SpatialPolygons")
 
+#HadGEM2-ES
+var_data_26 = crop(projTimeEnvs_26, new_bbox)
+var_data_60 = crop(projTimeEnvs_60, new_bbox)
+var_data_85 = crop(projTimeEnvs_85, new_bbox)
+
+var_data_26 = mask(var_data_26, new_bbox)
+var_data_60 = mask(var_data_60, new_bbox)
+var_data_85 = mask(var_data_85, new_bbox)
+
+#CCSM4
+var_data_26_cc = crop(projTimeEnvs_26_cc, new_bbox)
+var_data_60_cc = crop(projTimeEnvs_60_cc, new_bbox)
+var_data_85_cc = crop(projTimeEnvs_85_cc, new_bbox)
+
+var_data_26_cc = mask(var_data_26_cc, new_bbox)
+var_data_60_cc = mask(var_data_60_cc, new_bbox)
+var_data_85_cc = mask(var_data_85_cc, new_bbox)
 
 # Project the model into the future -- you will end up with 6 different projected models
 # Plot the projected models
+#HadGEM2-ES
+future_var_26 = maxnet.predictRaster(mod = model, var_data_26, type = "cloglog", clamp = TRUE)
+future_var_60 = maxnet.predictRaster(mod = model, var_data_60, type = "cloglog", clamp = TRUE)
+future_var_85 = maxnet.predictRaster(mod = model, var_data_85, type = "cloglog", clamp = TRUE)
 
+plot(future_var_26)
+plot(future_var_60)
+plot(future_var_85)
 
+#CCSM4
+future_var_26_cc = maxnet.predictRaster(mod = model, var_data_26_cc, type = "cloglog", clamp = TRUE)
+future_var_60_cc = maxnet.predictRaster(mod = model, var_data_60_cc, type = "cloglog", clamp = TRUE)
+future_var_85_cc = maxnet.predictRaster(mod = model, var_data_85_cc, type = "cloglog", clamp = TRUE)
+
+plot(future_var_26_cc)
+plot(future_var_60_cc)
+plot(future_var_85_cc)
 
 # Response curves --------------------------------------------------------
 
 # Check which variables in the model have non-zero coefficients
+names(model$betas)
 
 # Plot response curves
 
