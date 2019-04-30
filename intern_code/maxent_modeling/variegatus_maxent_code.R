@@ -236,15 +236,20 @@ prediction_varie <- maxnet.predictRaster(mod = model, thinned_occs, type = "clog
 # Project forward in time --------------------------------------------------------
 
 # Find the resolution of your masked environmental data
+envsRes <- res(mask_thin_varie)[1]
 
 
 # Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
-
+GCM <- "HE"
+GCM <- "CC"
 
 # Set three different RCPs: 2.6, 6, and 8.5
-
+RCP <- 2.6
+RCP = 6
+RCP = 8.5
 
 # Set the year to be 2070
+time_period <- 70
 
 
 # Download the data for the 6 different combinations of GCM and RCP (all at the year 2070)
