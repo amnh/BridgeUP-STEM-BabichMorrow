@@ -259,3 +259,10 @@ prediction_varie <- maxnet.predictRaster(mod = model, thinned_occs, type = "clog
 
 
 
+# Response curves --------------------------------------------------------
+
+# Check which variables in the model have non-zero coefficients
+
+# Plot response curves
+
+
