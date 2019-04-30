@@ -2,6 +2,8 @@
 
 ## Future climate
 
+One partner will build all the climate models for the HadGEM2-ES GCM and the other will build all of the models for CCSM4. We are projecting to the year 2070.
+
 | ***Future Climate*** |     HadGEM2-ES                 |   CCSM4                       |
 |----------------------|------------------------------- |-------------------------------|
 | **RCP 2.6**          | GCM: HE, RCP: 2.6, year: 2070  | GCM: CC, RCP: 2.6, year: 2070 |
