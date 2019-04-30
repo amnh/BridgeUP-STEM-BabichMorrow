@@ -248,3 +248,10 @@ points(thinned_occs[,3:4])
 # Project the model into the future -- you will end up with 6 different projected models
 # Plot the projected models
 
+
+# Response curves --------------------------------------------------------
+
+# Check which variables in the model have non-zero coefficients
+
+# Plot response curves
+
