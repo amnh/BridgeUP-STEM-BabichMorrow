@@ -277,6 +277,23 @@ plot(projTimeEnvs_6_bboxMsk)
 
 # Project the model into the future -- you will end up with 6 different projected models
 # Plot the projected models
+plot(projTimeEnvs_1_bboxRegion, main = "2070 Worst Case Scenario HE")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_2_bboxRegion, main = "2070 Moderate Case Scenario HE")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_3_bboxRegion, main = "2070 Best Case Scenario HE")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_4_bboxRegion, main = "2070 Worst Case Scenario CC")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_5_bboxRegion, main = "2070 Moderate Case Scenario CC")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC")
+points(thinned_torquatus[,2:3])
 
 
 # Response curves --------------------------------------------------------
