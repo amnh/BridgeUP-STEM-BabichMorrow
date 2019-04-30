@@ -226,7 +226,7 @@ View(envsRes)
 GCM_1 <- "HE"
 GCM_2 <- "CC"
 
-# Set three different RCPs: 2.6, 6, and 8.5
+# Set three different RCPs: 2.6, 6, and 8.5 
 RCP_1 <- 26
 RCP_2 <- 60
 RCP_3 <- 85
@@ -276,35 +276,14 @@ projTimeEnvs_6_bboxMsk <- mask(projTimeEnvs_6_bboxCrop, torquatus_bboxcrop)
 plot(projTimeEnvs_6_bboxMsk)
 
 # Project the model into the future -- you will end up with 6 different projected models
-projTimeEnvs_1_bboxRegion <- maxnet.predictRaster(mod = torquatus_model, env = projTimeEnvs_1_bboxMsk, type = "cloglog", clamp = TRUE)
-projTimeEnvs_2_bboxRegion <- maxnet.predictRaster(mod = torquatus_model, env = projTimeEnvs_2_bboxMsk, type = "cloglog", clamp = TRUE)
-projTimeEnvs_3_bboxRegion <- maxnet.predictRaster(mod = torquatus_model, env = projTimeEnvs_3_bboxMsk, type = "cloglog", clamp = TRUE)
-projTimeEnvs_4_bboxRegion <- maxnet.predictRaster(mod = torquatus_model, env = projTimeEnvs_4_bboxMsk, type = "cloglog", clamp = TRUE)
-projTimeEnvs_5_bboxRegion <- maxnet.predictRaster(mod = torquatus_model, env = projTimeEnvs_5_bboxMsk, type = "cloglog", clamp = TRUE)
-projTimeEnvs_6_bboxRegion <- maxnet.predictRaster(mod = torquatus_model, env = projTimeEnvs_6_bboxMsk, type = "cloglog", clamp = TRUE)
-
 # Plot the projected models
-plot(projTimeEnvs_1_bboxRegion, main = "2070 Worst Case Scenario HE")
-points(thinned_torquatus[,2:3])
 
-plot(projTimeEnvs_2_bboxRegion, main = "2070 Moderate Case Scenario HE")
-points(thinned_torquatus[,2:3])
-
-plot(projTimeEnvs_3_bboxRegion, main = "2070 Best Case Scenario HE")
-points(thinned_torquatus[,2:3])
-
-plot(projTimeEnvs_4_bboxRegion, main = "2070 Worst Case Scenario CC")
-points(thinned_torquatus[,2:3])
-
-plot(projTimeEnvs_5_bboxRegion, main = "2070 Moderate Case Scenario CC")
-points(thinned_torquatus[,2:3])
-
-plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC")
-points(thinned_torquatus[,2:3])
 
 # Response curves --------------------------------------------------------
 
 # Check which variables in the model have non-zero coefficients
 
 # Plot response curves
+
+
 
