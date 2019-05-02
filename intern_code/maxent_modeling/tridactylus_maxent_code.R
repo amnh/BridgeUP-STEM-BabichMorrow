@@ -30,10 +30,10 @@ library(ENMeval)
 
 # Import the dataset for B. tridactylus from data/occurrence_data
 #Ula
-#tridactylus <- read_csv("~/Desktop/SSRepoClone/Data/occurrence_data/tridactylus.csv")
+tridactylus <- read_csv("~/Desktop/SSRepoClone/Data/occurrence_data/tridactylus.csv")
 #Yamile
-tridactylus <- read_csv("~/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/tridactylus.csv")
-tridactylus$name <- "Bradypus_tridactylus"
+#tridactylus <- read_csv("~/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/tridactylus.csv")
+#tridactylus$name <- "Bradypus_tridactylus"
 
 # Visualize occurrence data -----------------------------------------------
 
@@ -88,11 +88,11 @@ save(thinned_occs, file = "tridactylus_thinned")
 
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd & lesson_plans/s3/worldclim_inR.Rmd 
 #Ula's
-#bioclim_files <- list.files("/Users/student/Desktop/Internship/wc2.0_2.5m_bio")
-#env_stack <- stack(paste0("/Users/student/Desktop/Internship/wc2.0_2.5m_bio/", bioclim_files))
+bioclim_files <- list.files("/Users/student/Desktop/Internship/wc2.0_2.5m_bio")
+env_stack <- stack(paste0("/Users/student/Desktop/Internship/wc2.0_2.5m_bio/", bioclim_files))
 #Yamile
-bioclim_files <- list.files("/Users/student/Desktop/wc2.0_2.5m_bio")
-env_stack <- stack(paste0("/Users/student/Desktop/wc2.0_2.5m_bio/", bioclim_files))
+#bioclim_files <- list.files("/Users/student/Desktop/wc2.0_2.5m_bio")
+#env_stack <- stack(paste0("/Users/student/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
 # Create a background region for your species (based on the thinned occurrence data!):
 # B. tridactylus: MCP buffered by 1 degree
@@ -163,9 +163,9 @@ View(thinned_occs)
 
 #enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
 #Ula
-#enm <- readRDS("~/Desktop/SSRepoClone/tridactylus_enm_us.rds")
+enm <- readRDS("~/Desktop/SSRepoClone/tridactylus_enm_us.rds")
 #Yamile 
-enm <- readRDS("~/Desktop/Branch_master/tridactylus_enm_us.rds")
+#enm <- readRDS("~/Desktop/Branch_master/tridactylus_enm_us.rds")
 
 
 # Save the object you create using ENMevaluate using saveRDS()
@@ -245,7 +245,6 @@ View(envsRes)
 GCM1 <- ("HE")
 GCM2 <- ("CC")
 
-
 # Set three different RCPs: 2.6, 6, and 8.5
 
 RCP1 <- 26
@@ -254,7 +253,6 @@ RCP3 <- 85
 RCP4 <- 26
 RCP5 <- 60
 RCP6 <- 85
-
 
 # Set the year to be 2070
 
@@ -303,33 +301,40 @@ library(sp)
 library(raster)
 library(dismo)
 
+
 bgExt <- bbox(as.matrix(thinned_occs[,c("longitude", "latitude")]))
 bgExt <- as(extent(bgExt), "SpatialPolygons")
+
 
 envsBgCrop1 <- crop(projTimeEnvs1,bgExt)
 plot(envsBgCrop1, main="Raster with 16 pixels 3")
 envsBgMsk1 <-mask(envsBgCrop1, bgExt)
 plot(envsBgMsk1)
 
+
 envsBgCrop2 <- crop(projTimeEnvs2,bgExt)
 plot(envsBgCrop2, main="Raster with 16 pixels 3")
 envsBgMsk2 <-mask(envsBgCrop2, bgExt)
 plot(envsBgMsk2)
+
 
 envsBgCrop3 <- crop(projTimeEnvs3,bgExt)
 plot(envsBgCrop3, main="Raster with 16 pixels 3")
 envsBgMsk3 <-mask(envsBgCrop3, bgExt)
 plot(envsBgMsk3)
 
+
 envsBgCrop4 <- crop(projTimeEnvs4,bgExt)
 plot(envsBgCrop4, main="Raster with 16 pixels 4")
 envsBgMsk4 <-mask(envsBgCrop4, bgExt)
 plot(envsBgMsk4)
 
+
 envsBgCrop5 <- crop(projTimeEnvs5,bgExt)
 plot(envsBgCrop5, main="Raster with 16 pixels 5")
 envsBgMsk5 <-mask(envsBgCrop5, bgExt)
 plot(envsBgMsk5)
+
 
 envsBgCrop6 <- crop(projTimeEnvs6,bgExt)
 plot(envsBgCrop6, main="Raster with 16 pixels 6")
@@ -374,5 +379,10 @@ plot(prediction_bgRegion6, main="Global Climate Models: Bradypus Tridactylus in 
 
 # Check which variables in the model have non-zero coefficients
 
+model$betas
+names(model$betas)
 # Plot response curves
-
+# load the package maxnet
+library(maxnet)
+# Use the response.plot function to plot response curves
+response.plot(mod = model, v = "wc2.0_bio_2.5m_08", type ='cloglog')
