@@ -334,5 +334,25 @@ plot(future_var_85_cc)
 names(model$betas)
 
 # Plot response curves
+library(ENMeval)
+
+response.plot(mod = model, v = "wc2.0_bio_2.5m_02", type = "cloglog", main = "Mean Diurnal Range")
+# Mean Diurnal Range (Mean of monthly(max temp - min temp)) 
+response.plot(mod = model, v = "wc2.0_bio_2.5m_12", type = "cloglog")
+# Annual Precipitation
+response.plot(mod = model, v = "wc2.0_bio_2.5m_14", type = "cloglog")
+# Precipitation of Driest Month
+response.plot(mod = model, v = "wc2.0_bio_2.5m_17", type = "cloglog")
+# Preciptation of Driest Quarter
+response.plot(mod = model, v = "wc2.0_bio_2.5m_18", type = "cloglog")
+# Preciptation of Warmest Quarter
+response.plot(mod = model, v = "wc2.0_bio_2.5m_06", type = "cloglog")
+# Min Temperatue of Coldest Month
+response.plot(mod = model, v = "wc2.0_bio_2.5m_09", type = "cloglog")
+# Mean Temperature of Driest Quarter
+
+
+# Projecting Backwards in Time
+
 
 
