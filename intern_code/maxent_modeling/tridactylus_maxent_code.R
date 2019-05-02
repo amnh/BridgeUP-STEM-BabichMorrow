@@ -29,7 +29,10 @@ library(ENMeval)
 # Occurrence data ---------------------------------------------------------
 
 # Import the dataset for B. tridactylus from data/occurrence_data
-tridactylus <- read_csv("~/Desktop/SSRepoClone/Data/occurrence_data/tridactylus.csv")
+#Ula
+#tridactylus <- read_csv("~/Desktop/SSRepoClone/Data/occurrence_data/tridactylus.csv")
+#Yamile
+tridactylus <- read_csv("~/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/tridactylus.csv")
 tridactylus$name <- "Bradypus_tridactylus"
 
 # Visualize occurrence data -----------------------------------------------
@@ -85,9 +88,11 @@ save(thinned_occs, file = "tridactylus_thinned")
 
 # Refer to lesson_plans/s4_process_env_data/background_region_tutorial.Rmd & lesson_plans/s3/worldclim_inR.Rmd 
 #Ula's
-bioclim_files <- list.files("/Users/student/Desktop/Internship/wc2.0_2.5m_bio")
-
-env_stack <- stack(paste0("/Users/student/Desktop/Internship/wc2.0_2.5m_bio/", bioclim_files))
+#bioclim_files <- list.files("/Users/student/Desktop/Internship/wc2.0_2.5m_bio")
+#env_stack <- stack(paste0("/Users/student/Desktop/Internship/wc2.0_2.5m_bio/", bioclim_files))
+#Yamile
+bioclim_files <- list.files("/Users/student/Desktop/wc2.0_2.5m_bio")
+env_stack <- stack(paste0("/Users/student/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
 # Create a background region for your species (based on the thinned occurrence data!):
 # B. tridactylus: MCP buffered by 1 degree
@@ -157,8 +162,11 @@ fcs <- c("L", "LQ", "H", "LQH")
 View(thinned_occs)
 
 #enm <- ENMevaluate(occ = thinned_occs[,3:4], env = envsBgMsk, bg.coords = bg.xy, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
-#Hanora
-enm <- readRDS("~/Desktop/tridactylus_enm.rds")
+#Ula
+#enm <- readRDS("~/Desktop/SSRepoClone/tridactylus_enm_us.rds")
+#Yamile 
+enm <- readRDS("~/Desktop/Branch_master/tridactylus_enm_us.rds")
+
 
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the specsaveRDS(enm, file = "tridactylus_enm_us.rds")
@@ -234,13 +242,19 @@ View(envsRes)
 
 # Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
 
-GCM <- ("HE")
+GCM1 <- ("HE")
+GCM2 <- ("CC")
+
 
 # Set three different RCPs: 2.6, 6, and 8.5
 
 RCP1 <- 26
 RCP2 <- 60
 RCP3 <- 85
+RCP4 <- 26
+RCP5 <- 60
+RCP6 <- 85
+
 
 # Set the year to be 2070
 
@@ -249,23 +263,38 @@ time_period <- 70
 # Download the data for the 6 different combinations of GCM and RCP (all at the year 2070)
 
 # download data 1
-projTimeEnvs1 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP1, model = GCM, year = time_period)
+projTimeEnvs1 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP1, model = GCM1, year = time_period)
 # see the names of the data 1
 names(projTimeEnvs1)
 # download data 2
-projTimeEnvs2 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP2, model = GCM, year = time_period)
+projTimeEnvs2 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP2, model = GCM1, year = time_period)
 # see the names of the data 2
 names(projTimeEnvs2)
 # download data 3
-projTimeEnvs3 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP3, model = GCM, year = time_period)
+projTimeEnvs3 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP3, model = GCM1, year = time_period)
 # see the names of the data 3
 names(projTimeEnvs3)
+# download data 4
+projTimeEnvs4 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP4, model = GCM2, year = time_period)
+# see the names of the data 4
+names(projTimeEnvs4)
+# download data 5
+projTimeEnvs5 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP5, model = GCM2, year = time_period)
+# see the names of the data 5
+names(projTimeEnvs5)
+# download data 6
+projTimeEnvs6 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP6, model = GCM2, year = time_period)
+# see the names of the data 6
+names(projTimeEnvs6)
 
 # Set the names of your environmental data
 
 names(projTimeEnvs1) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
 names(projTimeEnvs2) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
 names(projTimeEnvs3) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs4) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs5) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs6) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
 
 # Crop and mask the environmental data to the bounding box for your species
 
@@ -292,23 +321,53 @@ plot(envsBgCrop3, main="Raster with 16 pixels 3")
 envsBgMsk3 <-mask(envsBgCrop3, bgExt)
 plot(envsBgMsk3)
 
+envsBgCrop4 <- crop(projTimeEnvs4,bgExt)
+plot(envsBgCrop4, main="Raster with 16 pixels 4")
+envsBgMsk4 <-mask(envsBgCrop4, bgExt)
+plot(envsBgMsk4)
+
+envsBgCrop5 <- crop(projTimeEnvs5,bgExt)
+plot(envsBgCrop5, main="Raster with 16 pixels 5")
+envsBgMsk5 <-mask(envsBgCrop5, bgExt)
+plot(envsBgMsk5)
+
+envsBgCrop6 <- crop(projTimeEnvs6,bgExt)
+plot(envsBgCrop6, main="Raster with 16 pixels 6")
+envsBgMsk6 <-mask(envsBgCrop6, bgExt)
+plot(envsBgMsk6)
+
 # Project the model into the future -- you will end up with 6 different projected models
 
 # Plot the projected models
 
 prediction_bgRegion1 <- maxnet.predictRaster(mod = model, env = envsBgMsk1, type = "cloglog", clamp = TRUE)
 # plot the projected model
-plot(prediction_bgRegion1, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 2.6)", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+plot(prediction_bgRegion1, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 2.6)", sub="Hadley Global Environment Model 2 - Earth Syste", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
 
 
 prediction_bgRegion2 <- maxnet.predictRaster(mod = model, env = envsBgMsk2, type = "cloglog", clamp = TRUE)
 # plot the projected model
-plot(prediction_bgRegion2, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 6)", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+plot(prediction_bgRegion2, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 6)", sub="Hadley Global Environment Model 2 - Earth Syste", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
 
 
 prediction_bgRegion3 <- maxnet.predictRaster(mod = model, env = envsBgMsk3, type = "cloglog", clamp = TRUE)
 # plot the projected model
-plot(prediction_bgRegion3, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 8.5)", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+plot(prediction_bgRegion3, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 8.5)", sub="Hadley Global Environment Model 2 - Earth Syste", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+
+
+prediction_bgRegion4 <- maxnet.predictRaster(mod = model, env = envsBgMsk4, type = "cloglog", clamp = TRUE)
+# plot the projected model
+plot(prediction_bgRegion4, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 2.6)", sub="The Community Climate System Model 4.0", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+
+
+prediction_bgRegion5 <- maxnet.predictRaster(mod = model, env = envsBgMsk5, type = "cloglog", clamp = TRUE)
+# plot the projected model
+plot(prediction_bgRegion5, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 6)", sub="The Community Climate System Model 4.0", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+
+
+prediction_bgRegion6 <- maxnet.predictRaster(mod = model, env = envsBgMsk6, type = "cloglog", clamp = TRUE)
+# plot the projected model
+plot(prediction_bgRegion6, main="Global Climate Models: Bradypus Tridactylus in 2070 (RCP 8.5)", sub="The Community Climate System Model 4.0", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
 
 
 # Response curves --------------------------------------------------------
