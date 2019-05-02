@@ -23,14 +23,14 @@
   | April 30 | <ul><li> Update Maxent modeling script </li><li> Response curves </li><li> Past climate data :rewind: </li><li> Projecting backwards in time |                                                                                                   [List of projections to make](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Model_projections.md) <br> [Response curves - Markdown](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/Response_Curves.md) <br> [Turn back time - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Past_climate_data.md) <br> [Projecting backwards instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Project_backwards.md) |
   | May 2 | <ul><li> Finishing touches on code </li><li> Save plots for presentations | [List of figures for presentations](https://docs.google.com/document/d/16B2qpXNtdvVHJRsvL3txUpMujzVlUk4uzlqOMg9NS9U/edit?usp=sharing) |
 | **Week 28** | | |
-  | May 7 | </ul><li> Louise is visiting! </ul><li> Work on 15-minute presentation | [SlothSquad 15 minute presentation](https://docs.google.com/presentation/d/1aX_tO7AxOBtzjL3G4HP4yusqQLfOULbZFlZptiPITHg/edit?usp=sharing) |
+  | May 7 | </ul><li> Louise is visiting! </li><li> Come up with a title! </li><li> Work on 15-minute presentation | [SlothSquad 15 minute presentation](https://docs.google.com/presentation/d/1aX_tO7AxOBtzjL3G4HP4yusqQLfOULbZFlZptiPITHg/edit?usp=sharing) |
   | May 9 | Presentation Skills / Improv Workshop | |
 | **Week 29** | | |
   | May 14 | </ul><li> Finalize 5-minute presentation </li><li> Talk about posters | [SlothSquad 5 minute presentation](https://docs.google.com/presentation/d/1GHCRX4S40CSreG6Wuqr-WimVtXon8ogT1HVO8IA4sGk/edit?usp=sharing) <br> [Sample posters folder](https://drive.google.com/drive/folders/191DgkGNsqaEv6D5J9tvvm8qube8S2qXu?usp=sharing) <br> [Poster session video](https://www.youtube.com/watch?v=1RwJbhkCA58&feature=youtu.be) |
   | May 16 | </ul><li> Work on poster </li><li> Install and test Zoom | [Text and figures for poster - Google Doc](https://docs.google.com/document/d/1iMuhG_zP2L80mkIyqCEzG8FKZtD3dcVCbsHHfvWyYyg/edit?usp=sharing) <br> [SlothSquad poster](https://docs.google.com/presentation/d/1PW7UTE2eX54k_aJYQEQx8VD3gAqqdAdqnYsYwBnbXnI/edit?usp=sharing) <br> [Zoom download](https://zoom.us/support/download) |
 | **Week 30** | | |
   | May 21 | [Cecina in D.C. for conference] </ul><li> Work on poster | |
-  | May 23 | **SRMP poster ready for printing!** | |
+  | May 23 | </ul><li> Edit abstract <br> **SRMP poster ready for printing!** [6:30 pm] | |
 | **Week 31** | | |
   | May 28 | **Practice presentation!** | |
   | May 30 | </ul><li> Final edits to presentations | |
