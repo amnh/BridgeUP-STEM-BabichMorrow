@@ -353,6 +353,23 @@ response.plot(mod = model, v = "wc2.0_bio_2.5m_09", type = "cloglog")
 
 
 # Projecting Backwards in Time
+predict_cc <- list.files("~/Desktop/cclgmbi_2-5m/")
+predict_he <- list.files("~/Desktop/hemidbi_2-5m/")
 
+pastEnv_cc <- stack(paste0("~/Desktop/cclgmbi_2-5m/", predict_cc))
+pastEnv_he <- stack(paste0("~/Desktop/hemidbi_2-5m/", predict_he))
 
+past_cc = crop(pastEnv_cc, new_bbox)
+past_he = crop(pastEnv_he, new_bbox)
 
+names(past_cc) = gsub("cclgmbi", "wc2.0_bio_2.5m_", names(past_cc))
+names(past_he) = gsub("hemidbi", "wc2.0_bio_2.5m_", names(past_he))
+
+names(past_he) = c(paste0("wc2.0_bio_2.5m_0",1), paste0("wc2.0_bio_2.5m_",10:19), paste0("wc2.0_bio_2.5m_0",2:9))
+names(past_cc) = c(paste0("wc2.0_bio_2.5m_0",1), paste0("wc2.0_bio_2.5m_",10:19), paste0("wc2.0_bio_2.5m_0",2:9))
+
+past_plot_cc = maxnet.predictRaster(mod = model, past_cc, type = "cloglog", clamp = TRUE)
+past_plot_he = maxnet.predictRaster(mod = model, past_he, type = "cloglog", clamp = TRUE)
+
+plot(past_plot_cc)
+plot(past_plot_he)
