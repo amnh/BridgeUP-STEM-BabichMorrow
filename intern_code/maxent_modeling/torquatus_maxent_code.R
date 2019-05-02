@@ -307,3 +307,49 @@ response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_12" , type = "cloglog")
 response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_14" , type = "cloglog")
 response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_18" , type = "cloglog")
 
+## PROJECTING BACK IN TIME
+### HADLEY 2.5 Mid-Holocene
+files_1 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/hemidbi_2-5m/")
+### CCSM4 2.5 Mid-Holocene
+files_2 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/ccmidbi_2-5m/")
+### CCSM4 2.5 Last Glacial Maximum
+files_3 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/cclgmbi_2-5m/")
+### RANDOM GCM 2.5 Last Glacial Maximum
+files_4 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/mrlgmbi_2-5m/")
+
+pastEnv_1 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/hemidbi_2-5m/", files_1))
+pastEnv_2 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/ccmidbi_2-5m/", files_2))
+pastEnv_3 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/cclgmbi_2-5m/", files_3))
+pastEnv_4 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/mrlgmbi_2-5m/", files_4))
+
+pastEnv_1_crop <- crop(pastEnv_1, torquatus_bboxcrop)
+pastEnv_2_crop <- crop(pastEnv_2, torquatus_bboxcrop)
+pastEnv_3_crop <- crop(pastEnv_3, torquatus_bboxcrop)
+pastEnv_4_crop <- crop(pastEnv_4, torquatus_bboxcrop)
+
+names(pastEnv_1_crop) <- gsub("hemidbi", "wc2.0_bio_2.5m_", names(pastEnv_1_crop))
+names(pastEnv_2_crop) <- gsub("ccmidbi", "wc2.0_bio_2.5m_", names(pastEnv_2_crop))
+names(pastEnv_3_crop) <- gsub("cclgmbi", "wc2.0_bio_2.5m_", names(pastEnv_3_crop))
+names(pastEnv_4_crop) <- gsub("mrlgmbil", "wc2.0_bio_2.5m_", names(pastEnv_4_crop))
+
+names(pastEnv_1_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(pastEnv_2_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(pastEnv_3_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(pastEnv_4_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+
+pastEnv_1_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_1_crop, type = "cloglog", clamp = TRUE)
+pastEnv_2_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_2_crop, type = "cloglog", clamp = TRUE)
+pastEnv_3_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_3_crop, type = "cloglog", clamp = TRUE)
+pastEnv_4_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_4_crop, type = "cloglog", clamp = TRUE)
+
+plot(pastEnv_1_BgRegion, main = "About 6,000 Years Ago #1")
+points(thinned_torquatus[,2:3]) 
+
+plot(pastEnv_2_BgRegion, main = "About 6,000 Years Ago #2")
+points(thinned_torquatus[,2:3])
+
+plot(pastEnv_3_BgRegion, main = "About 22,000 Years Ago #1")
+points(thinned_torquatus[,2:3])
+
+plot(pastEnv_4_BgRegion, main = "About 22,000 Years Ago #2")
+points(thinned_torquatus[,2:3])
