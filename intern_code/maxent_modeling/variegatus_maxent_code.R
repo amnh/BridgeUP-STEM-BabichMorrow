@@ -109,12 +109,6 @@ bioclim_files
 env_stack <- stack(paste0("~/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
 
-# Create masked raster
-mask_thin_varie <- mask(env_convex, mini_convex)
-
-# Plot masked raster
-plot(mask_thin_varie)
-
 bg_varie = bbox(as.matrix(thinned_occs[,3:4]))
 bg_variegatus = as(extent(bg_varie), "SpatialPolygons")
 
@@ -136,9 +130,9 @@ points.varie = randomPoints(mask.varie.1, 10000)
 final.points.varie = as.data.frame(points.varie)
 
 #Create cropped raster
-crop.varie.bbox = crop(env_stack, bg_variegatus)
-mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
-plot(mask.varie.bbox)
+# crop.varie.bbox = crop(env_stack, bg_variegatus)
+# mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
+# plot(mask.varie.bbox)
 # Remember to sample background points from your background region
 #Done above
 
@@ -151,7 +145,7 @@ plot(mask.varie.bbox)
 ## if your species has 25 or fewer thinned occurrences, use a jackknife partition
 ## if your species has >25 thinned occurrences, use a block partition
 View(thinned_occs)
-thinned_occs<- na.omit(thinned_occs)
+#thinned_occs<- na.omit(thinned_occs)
 group.data <- get.block(thinned_occs[,3:4], points.varie)
  # Look at group.data
   group.data
