@@ -385,4 +385,8 @@ names(model$betas)
 # load the package maxnet
 library(maxnet)
 # Use the response.plot function to plot response curves
-response.plot(mod = model, v = "wc2.0_bio_2.5m_08", type ='cloglog')
+Mean_Temperature_of_Wettest_Quarter = response.plot(mod = model, v = "wc2.0_bio_2.5m_08", type ='cloglog')
+Precipitation_of_Coldest_Quarter = response.plot(mod = model, v = "wc2.0_bio_2.5m_19", type ='cloglog')
+Min_Temperature_of_Coldest_Month = response.plot(mod = model, v = "wc2.0_bio_2.5m_06", type ='cloglog')
+Temperature_Annual_Range = response.plot(mod = model, v = "wc2.0_bio_2.5m_07", type ='cloglog')
+Isothermality = response.plot(mod = model, v = "wc2.0_bio_2.5m_03", type ='cloglog')
