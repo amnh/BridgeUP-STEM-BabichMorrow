@@ -56,7 +56,7 @@ variegatus_df <- as.data.frame(variegatus)
 variegatus_df$name <- "Bradypus_variegatus"
 View(variegatus_df)
 
-thinned_output <- thin(loc.data = variegatus , lat.col = "latitude", long.col = "longitude", spec.col = "name", thin.par = 40, reps = 100, locs.thinned.list.return = TRUE, write.files = FALSE)
+thinned_output <- thin(loc.data = variegatus_df , lat.col = "latitude", long.col = "longitude", spec.col = "name", thin.par = 40, reps = 100, locs.thinned.list.return = TRUE, write.files = FALSE)
 View(thinned_output)
 
 maxThin <- which(sapply(thinned_output, nrow) == max(sapply(thinned_output, nrow)))
@@ -335,9 +335,8 @@ names(model$betas)
 
 # Plot response curves
 library(ENMeval)
+library(maxnet)
 
-response.plot(mod = model, v = "wc2.0_bio_2.5m_02", type = "cloglog", main = "Mean Diurnal Range")
-# Mean Diurnal Range (Mean of monthly(max temp - min temp)) 
 response.plot(mod = model, v = "wc2.0_bio_2.5m_12", type = "cloglog")
 # Annual Precipitation
 response.plot(mod = model, v = "wc2.0_bio_2.5m_14", type = "cloglog")
