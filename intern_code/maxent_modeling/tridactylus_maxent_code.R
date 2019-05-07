@@ -390,3 +390,48 @@ Precipitation_of_Coldest_Quarter = response.plot(mod = model, v = "wc2.0_bio_2.5
 Min_Temperature_of_Coldest_Month = response.plot(mod = model, v = "wc2.0_bio_2.5m_06", type ='cloglog')
 Temperature_Annual_Range = response.plot(mod = model, v = "wc2.0_bio_2.5m_07", type ='cloglog')
 Isothermality = response.plot(mod = model, v = "wc2.0_bio_2.5m_03", type ='cloglog')
+
+# Project backwards in time --------------------------------------------------------
+
+#GCM: CC, year: Mid-Holocene
+files1 <- list.files("~/Desktop/ccmidbi_2-5m/")
+pastEnv1 <- stack(paste0("~/Desktop/ccmidbi_2-5m/", files1))
+
+#GCM: HE, year: Mid-Holocene
+files2 <- list.files("~/Desktop/hemidbi_2-5m/")
+pastEnv2 <- stack(paste0("~/Desktop/hemidbi_2-5m/", files2))
+
+#GCM: CC, year: Last Glacial Maximum
+files3 <- list.files("~/Desktop/cclgmbi_2-5m/")
+pastEnv3 <- stack(paste0("~/Desktop/cclgmbi_2-5m/", files3))
+
+past_envsBgCrop1 <- crop(pastEnv1,bgExt)
+plot(past_envsBgCrop1, main="Raster with 16 pixels 5")
+
+past_envsBgCrop2 <- crop(pastEnv2,bgExt)
+plot(past_envsBgCrop2, main="Raster with 16 pixels 5")
+
+past_envsBgCrop3 <- crop(pastEnv3,bgExt)
+plot(past_envsBgCrop3, main="Raster with 16 pixels 5")
+
+names(past_envsBgCrop1) <- gsub("hemidbi", "wc2.0_bio_2.5m_", names(past_envsBgCrop1))
+names(past_envsBgCrop2) <- gsub("ccmidbi", "wc2.0_bio_2.5m_", names(past_envsBgCrop2))
+names(past_envsBgCrop3) <- gsub("cclgmbi", "wc2.0_bio_2.5m_", names(past_envsBgCrop3))
+
+names(past_envsBgCrop1) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(past_envsBgCrop2) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(past_envsBgCrop3) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+
+p_prediction_bgRegion1 <- maxnet.predictRaster(mod = model, env = past_envsBgCrop1, type = "cloglog", clamp = TRUE)
+# plot the projected model
+plot(p_prediction_bgRegion1, main="Global Climate Models: Bradypus Tridactylus 7,000 - 5,500 years ago", sub="Community Climate System Model 4 in Mid Holocene", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+
+
+p_prediction_bgRegion2 <- maxnet.predictRaster(mod = model, env = past_envsBgCrop2, type = "cloglog", clamp = TRUE)
+# plot the projected model
+plot(p_prediction_bgRegion2, main="Global Climate Models: Bradypus Tridactylus 7,000 - 5,500 years ago", sub="Hadley Global Environment Model 2 - Earth System in Mid Holocene", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
+
+
+p_prediction_bgRegion3 <- maxnet.predictRaster(mod = model, env = past_envsBgCrop3, type = "cloglog", clamp = TRUE)
+# plot the projected model
+plot(p_prediction_bgRegion3, main="Global Climate Models: Bradypus Tridactylus 22,000 years ago", sub="Community Climate System Model 4 in Last Glacial Maximum", xlab="Latitude", ylab="Longitude", font.main=2, font.sub=4)
