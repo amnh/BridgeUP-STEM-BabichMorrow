@@ -217,7 +217,7 @@ plot(prediction_varie)
 # Project forward in time --------------------------------------------------------
 
 # Find the resolution of your masked environmental data
-envsRes <- res(mask_thin_varie)[1]
+envsRes <- res(prediction_varie)[1]
 
 
 # Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
