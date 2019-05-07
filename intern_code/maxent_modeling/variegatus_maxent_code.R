@@ -96,20 +96,6 @@ csv_variegatus <- write.csv(thinned_occs, '~/Desktop/Project Repository clone/Da
 
 # Create a background region for your species (based on the thinned occurrence data!):
 ## B. variegatus: points buffered by 2 degrees
-# function to create a minimum convex polygon
-mcp <- function(xy) {
-  # convert the input coordinates into a spatial object
-  xy <- as.data.frame(sp::coordinates(xy))
-  # find the subset of occurrence points that lie on the convex hull around all of the points
-  coords.t <- chull(xy[, 1], xy[, 2])
-  xy.bord <- xy[coords.t, ]
-  xy.bord <- rbind(xy.bord[nrow(xy.bord), ], xy.bord)
-  # make a SpatialPolygon out of the convex polygon
-  return(sp::SpatialPolygons(list(sp::Polygons(list(sp::Polygon(as.matrix(xy.bord))), 1))))
-}
-
-mini_convex = mcp(thinned_occs[,3:4])
-plot(mini_convex)
 
 #Creating env_stack
 #Lor
@@ -122,11 +108,6 @@ bioclim_files <- list.files("~/Desktop/wc2.0_2.5m_bio/")
 bioclim_files
 env_stack <- stack(paste0("~/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
-
-# Create cropped raster
-env_convex <- crop(env_stack, mini_convex)
-# Plot cropped raster
-plot(env_convex)
 
 # Create masked raster
 mask_thin_varie <- mask(env_convex, mini_convex)
@@ -216,6 +197,7 @@ varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
 names(evalMods) <- enm@results$settings
 model <- evalMods[["LQH_5"]]
 saveRDS(enm, file = "YSvariegatus.RDS")
+enm <- readRDS("YSVariegatus.RDS")
 
 prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
 plot(prediction_varie)
@@ -236,6 +218,7 @@ prediction_varie <- maxnet.predictRaster(mod = model, mask.varie.bbox, type = "c
 
 # Project the model to a bounding box for your species and plot the projection
 # Share this map in Slack
+plot(prediction_varie)
 
 # Project forward in time --------------------------------------------------------
 
@@ -337,6 +320,9 @@ names(model$betas)
 library(ENMeval)
 library(maxnet)
 
+
+response.plot(mod = model, v = "wc2.0_bio_2.5m_02", type = "cloglog")
+# Mean Diurnal Range (Mean of monthly(max temp - min temp)) 
 response.plot(mod = model, v = "wc2.0_bio_2.5m_12", type = "cloglog")
 # Annual Precipitation
 response.plot(mod = model, v = "wc2.0_bio_2.5m_14", type = "cloglog")
@@ -361,8 +347,8 @@ pastEnv_he <- stack(paste0("~/Desktop/hemidbi_2-5m/", predict_he))
 past_cc = crop(pastEnv_cc, new_bbox)
 past_he = crop(pastEnv_he, new_bbox)
 
-names(past_cc) = gsub("cclgmbi", "wc2.0_bio_2.5m_", names(past_cc))
-names(past_he) = gsub("hemidbi", "wc2.0_bio_2.5m_", names(past_he))
+#names(past_cc) = gsub("cclgmbi", "wc2.0_bio_2.5m_", names(past_cc))
+#names(past_he) = gsub("hemidbi", "wc2.0_bio_2.5m_", names(past_he))
 
 names(past_he) = c(paste0("wc2.0_bio_2.5m_0",1), paste0("wc2.0_bio_2.5m_",10:19), paste0("wc2.0_bio_2.5m_0",2:9))
 names(past_cc) = c(paste0("wc2.0_bio_2.5m_0",1), paste0("wc2.0_bio_2.5m_",10:19), paste0("wc2.0_bio_2.5m_0",2:9))
