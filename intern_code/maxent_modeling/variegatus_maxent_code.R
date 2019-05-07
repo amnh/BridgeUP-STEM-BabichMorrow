@@ -132,7 +132,7 @@ final.points.varie = as.data.frame(points.varie)
 #Create cropped raster
 # crop.varie.bbox = crop(env_stack, bg_variegatus)
 # mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
-# plot(mask.varie.bbox)
+ plot(mask.varie.bbox)
 # Remember to sample background points from your background region
 #Done above
 
@@ -189,11 +189,11 @@ View(evalTbl)
 varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
 
 names(evalMods) <- enm@results$settings
-model <- evalMods[["LQH_5"]]
-saveRDS(enm, file = "YSvariegatus.RDS")
-enm <- readRDS("YSVariegatus.RDS")
+model <- evalMods[["LQ_5"]]
+# saveRDS(enm, file = "YSvariegatus.RDS")
+# enm <- readRDS("YSVariegatus.RDS")
 
-prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
+prediction_varie <- maxnet.predictRaster(mod = model, mask.varie.bbox, type = "cloglog", clamp = TRUE)
 plot(prediction_varie)
 # Slack the name of the best model and the criteria you used to select it
 View(evalTbl)
