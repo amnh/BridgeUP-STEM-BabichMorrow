@@ -312,6 +312,8 @@ names(model$betas)
 
 # Plot response curves
 library(ENMeval)
+library(maxnet)
+
 
 response.plot(mod = model, v = "wc2.0_bio_2.5m_02", type = "cloglog")
 # Mean Diurnal Range (Mean of monthly(max temp - min temp)) 
