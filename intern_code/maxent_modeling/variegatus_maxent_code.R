@@ -28,6 +28,9 @@ variegatus = read.csv("~/Desktop/Repository Clone/Data/occurrence_data/variegatu
 #Yamile
 variegatus = read.csv("/Users/student/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/variegatus.csv")
 
+#Cecina
+variegatus = read.csv("/Users/hellenfellows/OneDrive\ -\ AMNH/BridgeUp/BridgeUP-STEM-BabichMorrow/data/occurrence_data/variegatus.csv")
+
 # Visualize occurrence data -----------------------------------------------
 
 # Use the ggmap package to plot the occurrence points for your species on a map
@@ -108,6 +111,10 @@ bioclim_files <- list.files("~/Desktop/wc2.0_2.5m_bio/")
 bioclim_files
 env_stack <- stack(paste0("~/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
+#Cecina
+# bioclim_files <- list.files("/Users/hellenfellows/Desktop/worldclim/wc2.0_2.5m_bio")
+# bioclim_files
+# env_stack <- stack(paste0("/Users/hellenfellows/Desktop/worldclim/wc2.0_2.5m_bio/", bioclim_files))
 
 bg_varie = bbox(as.matrix(thinned_occs[,3:4]))
 bg_variegatus = as(extent(bg_varie), "SpatialPolygons")
@@ -130,9 +137,9 @@ points.varie = randomPoints(mask.varie.1, 10000)
 final.points.varie = as.data.frame(points.varie)
 
 #Create cropped raster
-# crop.varie.bbox = crop(env_stack, bg_variegatus)
-# mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
- plot(mask.varie.bbox)
+crop.varie.bbox = crop(env_stack, bg_variegatus)
+mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
+plot(mask.varie.bbox)
 # Remember to sample background points from your background region
 #Done above
 
@@ -180,6 +187,10 @@ evalPreds <- enm@predictions
 # Upload it to GitHub
 saveRDS(enm, file = "LFvariegatus.rds")
 enm = readRDS("LFvariegatus.rds")
+
+# Cecina
+saveRDS(enm, file = "CBMvariegatus.rds")
+
 # Select Maxent model -----------------------------------------------------
 
 # Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
@@ -187,9 +198,13 @@ View(evalTbl)
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
 varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
+# Cecina:
+varie.sorted <- evalTbl[with(evalTbl, order(avg.test.or10pct, -avg.test.AUC, delta.AICc)), ]
 
 names(evalMods) <- enm@results$settings
 model <- evalMods[["LQ_5"]]
+#Cecina:
+model <- evalMods[["L_5"]]
 # saveRDS(enm, file = "YSvariegatus.RDS")
 # enm <- readRDS("YSVariegatus.RDS")
 
@@ -334,9 +349,13 @@ response.plot(mod = model, v = "wc2.0_bio_2.5m_09", type = "cloglog")
 # Projecting Backwards in Time
 predict_cc <- list.files("~/Desktop/cclgmbi_2-5m/")
 predict_he <- list.files("~/Desktop/hemidbi_2-5m/")
+# Cecina
+predict_he <- list.files("/Users/hellenfellows/Desktop/worldclim/hemidbi_2-5m")
 
 pastEnv_cc <- stack(paste0("~/Desktop/cclgmbi_2-5m/", predict_cc))
 pastEnv_he <- stack(paste0("~/Desktop/hemidbi_2-5m/", predict_he))
+# Cecina
+pastEnv_he <- stack(paste0("/Users/hellenfellows/Desktop/worldclim/hemidbi_2-5m/", predict_he))
 
 past_cc = crop(pastEnv_cc, new_bbox)
 past_he = crop(pastEnv_he, new_bbox)
