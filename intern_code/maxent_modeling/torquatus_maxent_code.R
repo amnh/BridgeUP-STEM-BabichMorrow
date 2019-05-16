@@ -212,7 +212,7 @@ torquatus_bboxcrop <- crop(env_stack, torquatus_bbox)
 plot(torquatus_bboxcrop)
 
 maxprediction_bboxBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_bboxcrop, type = "cloglog", clamp = TRUE)
-plot(maxprediction_bboxBgRegion)
+plot(maxprediction_bboxBgRegion, main = "Present", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[2:3])
 
 # Project forward in time --------------------------------------------------------
