@@ -296,7 +296,7 @@ plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC", xlab = "Lat
 points(thinned_torquatus[,2:3])
 
 ## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
-plot(projTimeEnvs_1_bboxRegion, main = "B. torquatus 2070 (worst case scenario)", xlab = "Latitude", ylab = "Longitude")
+plot(projTimeEnvs_1_bboxRegion, main = "B. torquatus 2070", xlab = "Latitude", ylab = "Longitude")
 points(thinned_torquatus[,2:3])
 
 # Response curves
