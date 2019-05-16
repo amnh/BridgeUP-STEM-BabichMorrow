@@ -212,7 +212,7 @@ torquatus_bboxcrop <- crop(env_stack, torquatus_bbox)
 plot(torquatus_bboxcrop)
 
 maxprediction_bboxBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_bboxcrop, type = "cloglog", clamp = TRUE)
-plot(maxprediction_bboxBgRegion, main = "Present", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(maxprediction_bboxBgRegion, main = "B. torquatus present", xlab = "Latitude", ylab = "Longitude")
 points(thinned_torquatus[2:3])
 
 # Project forward in time --------------------------------------------------------
@@ -296,7 +296,7 @@ plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC", xlab = "Lat
 points(thinned_torquatus[,2:3])
 
 ## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
-plot(projTimeEnvs_1_bboxRegion, main = "2070 Worst Case Scenario", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(projTimeEnvs_1_bboxRegion, main = "B. torquatus 2070 (worst case scenario)", xlab = "Latitude", ylab = "Longitude")
 points(thinned_torquatus[,2:3])
 
 # Response curves
@@ -361,5 +361,5 @@ plot(pastEnv_4_BgRegion, main = "Approximately 22,000 Years Ago #2", xlab = "Lat
 points(thinned_torquatus[,2:3])
 
 ## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
-plot(pastEnv_1_BgRegion, main = "Approximately 6,000 Years Ago", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(pastEnv_1_BgRegion, main = "B. torquatus 6,000 years ago", xlab = "Latitude", ylab = "Longitude")
 points(thinned_torquatus[,2:3]) 
