@@ -295,6 +295,9 @@ points(thinned_torquatus[,2:3])
 plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
+## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
+plot(projTimeEnvs_1_bboxRegion, main = "2070 Worst Case Scenario", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
 
 # Response curves
 ## Checks which variables in our model have "non-zero coefficients"
@@ -356,3 +359,7 @@ points(thinned_torquatus[,2:3])
 
 plot(pastEnv_4_BgRegion, main = "Approximately 22,000 Years Ago #2", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
+
+## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
+plot(pastEnv_1_BgRegion, main = "Approximately 6,000 Years Ago", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3]) 
