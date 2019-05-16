@@ -227,8 +227,8 @@ envsBgCrop_ftri <- crop(env_stack, extent(bgExt_ftri))
 
 prediction_bgRegion_tri <- maxnet.predictRaster(model,envsBgCrop_ftri , type = "cloglog", clamp = TRUE)
 
-# plot prediction
-plot(prediction_bgRegion_tri)
+# plot projection
+plot(prediction_bgRegion_tri, main = " Present Range of Bradypus tridactylus", xlab = "longitude", ylab = "latitude")
 points(thinned_occs[,3:4])
 
 # Project forward in time --------------------------------------------------------
