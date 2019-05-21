@@ -212,8 +212,10 @@ torquatus_bboxcrop <- crop(env_stack, torquatus_bbox)
 plot(torquatus_bboxcrop)
 
 maxprediction_bboxBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_bboxcrop, type = "cloglog", clamp = TRUE)
+
+png(file = "TORQUATUS_PRESENT.png", width = 800, height = 700, res = 100)
 plot(maxprediction_bboxBgRegion, main = "B. torquatus present", xlab = "Latitude", ylab = "Longitude")
-points(thinned_torquatus[2:3])
+dev.off()
 
 # Project forward in time --------------------------------------------------------
 
@@ -296,8 +298,9 @@ plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC", xlab = "Lat
 points(thinned_torquatus[,2:3])
 
 ## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
+png(file = "TORQUATUS_FUTURE.png", width = 800, height = 700, res = 100)
 plot(projTimeEnvs_1_bboxRegion, main = "B. torquatus 2070", xlab = "Latitude", ylab = "Longitude")
-points(thinned_torquatus[,2:3])
+dev.off()
 
 # Response curves
 ## Checks which variables in our model have "non-zero coefficients"
@@ -361,5 +364,6 @@ plot(pastEnv_4_BgRegion, main = "Approximately 22,000 Years Ago #2", xlab = "Lat
 points(thinned_torquatus[,2:3])
 
 ## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
+png(file = "TORQUATUS_PAST.png", width = 800, height = 700, res = 100)
 plot(pastEnv_1_BgRegion, main = "B. torquatus 6,000 years ago", xlab = "Latitude", ylab = "Longitude")
-points(thinned_torquatus[,2:3]) 
+dev.off()
