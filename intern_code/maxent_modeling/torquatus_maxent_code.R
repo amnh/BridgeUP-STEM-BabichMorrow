@@ -313,6 +313,8 @@ response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_12" , type = "cloglog")
 response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_14" , type = "cloglog")
 response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_18" , type = "cloglog")
 
+## GOAL: FIGURE OUT HOW TO LABEL RESPONSE CURVES
+
 ## PROJECTING BACK IN TIME
 ### HADLEY 2.5 Mid-Holocene
 files_1 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/hemidbi_2-5m/")
