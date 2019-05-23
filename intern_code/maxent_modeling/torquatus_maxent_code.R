@@ -214,7 +214,7 @@ plot(torquatus_bboxcrop)
 maxprediction_bboxBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_bboxcrop, type = "cloglog", clamp = TRUE)
 
 png(file = "TORQUATUS_PRESENT.png", width = 800, height = 700, res = 100)
-plot(maxprediction_bboxBgRegion, main = "B. torquatus present", xlab = "Latitude", ylab = "Longitude")
+plot(maxprediction_bboxBgRegion, main = "Present Range of B. torquatus", xlab = "Longitude", ylab = "Latitude")
 dev.off()
 
 # Project forward in time --------------------------------------------------------
@@ -279,27 +279,27 @@ plot(projTimeEnvs_6_bboxMsk)
 
 # Project the model into the future -- you will end up with 6 different projected models
 # Plot the projected models
-plot(projTimeEnvs_1_bboxRegion, main = "2070 Worst Case Scenario HE", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(projTimeEnvs_1_bboxRegion, main = "2070 Worst Case Scenario HE", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-plot(projTimeEnvs_2_bboxRegion, main = "2070 Moderate Case Scenario HE", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(projTimeEnvs_2_bboxRegion, main = "2070 Moderate Case Scenario HE", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-plot(projTimeEnvs_3_bboxRegion, main = "2070 Best Case Scenario HE", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(projTimeEnvs_3_bboxRegion, main = "2070 Best Case Scenario HE", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-plot(projTimeEnvs_4_bboxRegion, main = "2070 Worst Case Scenario CC", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(projTimeEnvs_4_bboxRegion, main = "2070 Worst Case Scenario CC", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-plot(projTimeEnvs_5_bboxRegion, main = "2070 Moderate Case Scenario CC", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(projTimeEnvs_5_bboxRegion, main = "2070 Moderate Case Scenario CC", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
+## PLOTTING MAP FOR PRESENTATION (SPECIFIC TITLE)
 png(file = "TORQUATUS_FUTURE.png", width = 800, height = 700, res = 100)
-plot(projTimeEnvs_1_bboxRegion, main = "B. torquatus 2070", xlab = "Latitude", ylab = "Longitude")
+plot(projTimeEnvs_1_bboxRegion, main = "B. torquatus in 2070", xlab = "Longitude", ylab = "Latitude")
 dev.off()
 
 # Response curves
@@ -351,21 +351,21 @@ pastEnv_3_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_
 pastEnv_4_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_4_crop, type = "cloglog", clamp = TRUE)
 
 
-plot(pastEnv_1_BgRegion, main = "Approximately 6,000 Years Ago #1", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(pastEnv_1_BgRegion, main = "Approximately 6,000 Years Ago #1", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3]) 
 #legend("right", legend = c("Best", "Worst"), col=c("green", "white"), lty = 1:2, cex = 0.8, title = "Sloth Suitability", bg = "grey")
 #legend("bottomright", title = "Sloth Suitability", c("best", "worst"), fill = c("green", "white"), bg = "lightgrey", horiz = FALSE, cex = 1.0)
 
-plot(pastEnv_2_BgRegion, main = "Approximately 6,000 Years Ago #2", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(pastEnv_2_BgRegion, main = "Approximately 6,000 Years Ago #2", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-plot(pastEnv_3_BgRegion, main = "Approximately 22,000 Years Ago #1", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(pastEnv_3_BgRegion, main = "Approximately 22,000 Years Ago #1", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-plot(pastEnv_4_BgRegion, main = "Approximately 22,000 Years Ago #2", xlab = "Latitude", ylab = "Longitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+plot(pastEnv_4_BgRegion, main = "Approximately 22,000 Years Ago #2", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
 points(thinned_torquatus[,2:3])
 
-## PLOTTING MAP FOR POSTER (SPECIFIC TITLE)
+## PLOTTING MAP FOR PRESENTATION (SPECIFIC TITLE)
 png(file = "TORQUATUS_PAST.png", width = 800, height = 700, res = 100)
-plot(pastEnv_1_BgRegion, main = "B. torquatus 6,000 years ago", xlab = "Latitude", ylab = "Longitude")
+plot(pastEnv_1_BgRegion, main = "B. torquatus 6,000 years ago", xlab = "Longitude", ylab = "Latitude")
 dev.off()
