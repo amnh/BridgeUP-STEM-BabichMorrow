@@ -30,6 +30,7 @@ variegatus = read.csv("/Users/student/Desktop/BridgeUP-STEM-BabichMorrow2/Data/o
 
 #Cecina
 variegatus = read.csv("/Users/hellenfellows/OneDrive\ -\ AMNH/BridgeUp/BridgeUP-STEM-BabichMorrow/data/occurrence_data/variegatus.csv")
+variegatus_2 = read.csv("/Users/hellenfellows/OneDrive\ -\ AMNH/BridgeUp/BridgeUP-STEM-BabichMorrow/data/occurrence_data/variegatus_lit_data.csv")
 
 # Visualize occurrence data -----------------------------------------------
 
@@ -136,6 +137,22 @@ points.varie = randomPoints(mask.varie.1, 10000)
 #Convert these points into a dataframe using as.data.frame
 final.points.varie = as.data.frame(points.varie)
 
+# # Cecina
+# #Create buffered points background extent
+# bg.varie.2 = gBuffer(occs.variegatus, width = 4.0)
+# #Create cropped raster
+# crop.varie.2 = crop(env_stack, bg.varie.2)
+# #Plot cropped raster
+# plot(crop.varie.2)
+# #create masked raster
+# mask.varie.2 = mask(crop.varie.2, bg.varie.2)
+# #Plot masked raster
+# plot(mask.varie.2)
+# #Sample 10000 points from 4 degree buffer
+# points.varie = randomPoints(mask.varie.2, 10000)
+# #Convert these points into a dataframe using as.data.frame
+# final.points.varie = as.data.frame(points.varie)
+
 #Create cropped raster
 crop.varie.bbox = crop(env_stack, bg_variegatus)
 mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
@@ -153,7 +170,7 @@ plot(mask.varie.bbox)
 ## if your species has >25 thinned occurrences, use a block partition
 View(thinned_occs)
 #thinned_occs<- na.omit(thinned_occs)
-group.data <- get.block(thinned_occs[,3:4], points.varie)
+group.data <- get.block(thinned_occs[,2:3], points.varie)
  # Look at group.data
   group.data
   occs.grp <- group.data[[1]]
@@ -173,14 +190,19 @@ group.data <- get.block(thinned_occs[,3:4], points.varie)
 rms = seq(from = 1, to = 5, by = 1)
 
 # Use feature classes "L", "LQ", "H", and "LQH"
-fcs <- c("L","LQ","LQH","H")
+fcs <- c("L","LQ","LQH","LH")
   
 # Run ENMevaluate()
 # and unpack results data frame, list of models, and RasterStack of raw predictions
-enm <- ENMevaluate(occ = thinned_occs[,3:4], env = mask.varie.1, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+enm <- ENMevaluate(occ = thinned_occs[,2:3], env = mask.varie.1, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
 evalTbl <- enm@results
 evalMods <- enm@models
 evalPreds <- enm@predictions
+# # Cecina
+# enm2 <- ENMevaluate(occ = thinned_occs[,2:3], env = mask.varie.2, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+# evalTbl2 <- enm2@results
+# evalMods2 <- enm2@models
+# evalPreds2 <- enm2@predictions
 
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the species name and your initials
@@ -189,27 +211,34 @@ saveRDS(enm, file = "LFvariegatus.rds")
 enm = readRDS("LFvariegatus.rds")
 
 # Cecina
-saveRDS(enm, file = "CBMvariegatus.rds")
+# saveRDS(enm, file = "CBMvariegatus.rds")
+saveRDS(enm, file = "CBMvariegatus2.rds")
 
 # Select Maxent model -----------------------------------------------------
 
 # Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
 View(evalTbl)
+View(evalTbl2)
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
 varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
 # Cecina:
 varie.sorted <- evalTbl[with(evalTbl, order(avg.test.or10pct, -avg.test.AUC, delta.AICc)), ]
+varie.sorted2 <- evalTbl[with(evalTbl2, order(avg.test.or10pct, -avg.test.AUC, delta.AICc)), ]
 
 names(evalMods) <- enm@results$settings
+names(evalMods2) <- enm2@results$settings
 model <- evalMods[["LQ_5"]]
 #Cecina:
-model <- evalMods[["L_5"]]
+model <- evalMods[["L_3"]]
+model2 <- evalMods2[["L_5"]]
 # saveRDS(enm, file = "YSvariegatus.RDS")
 # enm <- readRDS("YSVariegatus.RDS")
 
 prediction_varie <- maxnet.predictRaster(mod = model, mask.varie.bbox, type = "cloglog", clamp = TRUE)
 plot(prediction_varie)
+prediction_varie2 <- maxnet.predictRaster(mod = model2, mask.varie.bbox, type = "cloglog", clamp = TRUE)
+plot(prediction_varie2)
 # Slack the name of the best model and the criteria you used to select it
 View(evalTbl)
 
@@ -307,7 +336,16 @@ future_var_26 = maxnet.predictRaster(mod = model, var_data_26, type = "cloglog",
 future_var_60 = maxnet.predictRaster(mod = model, var_data_60, type = "cloglog", clamp = TRUE)
 future_var_85 = maxnet.predictRaster(mod = model, var_data_85, type = "cloglog", clamp = TRUE)
 
+future_var_26_2 = maxnet.predictRaster(mod = model2, var_data_26, type = "cloglog", clamp = TRUE)
+future_var_60_2 = maxnet.predictRaster(mod = model2, var_data_60, type = "cloglog", clamp = TRUE)
+future_var_85_2 = maxnet.predictRaster(mod = model2, var_data_85, type = "cloglog", clamp = TRUE)
+
+
 plot(future_var_26)
+plot(future_var_60)
+plot(future_var_85)
+
+plot(future_var_26_2)
 plot(future_var_60)
 plot(future_var_85)
 
