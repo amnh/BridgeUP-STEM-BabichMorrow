@@ -212,5 +212,164 @@ torquatus_bboxcrop <- crop(env_stack, torquatus_bbox)
 plot(torquatus_bboxcrop)
 
 maxprediction_bboxBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_bboxcrop, type = "cloglog", clamp = TRUE)
+
+
+png(file = "TORQUATUS_PRESENT.png", width = 800, height = 700, res = 100)
+plot(maxprediction_bboxBgRegion, main = "Present Range of B. torquatus", xlab = "Longitude", ylab = "Latitude")
+dev.off()
+
+# Project forward in time --------------------------------------------------------
+
+# Find the resolution of your masked environmental data
+envsRes <- res(torquatus_BgMsk)[1]
+View(envsRes)
+## 0.04166667
+
+# Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
+GCM_1 <- "HE"
+GCM_2 <- "CC"
+
+# Set three different RCPs: 2.6, 6, and 8.5 
+RCP_1 <- 26
+RCP_2 <- 60
+RCP_3 <- 85
+
+# Set the year to be 2070
+year <- 70
+
+# Download the data for the 6 different combinations of GCM and RCP (all at the year 2070)
+projTimeEnvs_1 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_1, model = GCM_1, year = year)
+projTimeEnvs_2 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_2, model = GCM_1, year = year)
+projTimeEnvs_3 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_3, model = GCM_1, year = year)
+projTimeEnvs_4 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_1, model = GCM_2, year = year)
+projTimeEnvs_5 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_2, model = GCM_2, year = year)
+projTimeEnvs_6 <- getData('CMIP5', var = "bio", res = 2.5, rcp = RCP_3, model = GCM_2, year = year)
+
+# Set the names of your environmental data
+names(projTimeEnvs_1) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_2) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_3) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_4) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_5) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+names(projTimeEnvs_6) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+# Crop and mask the environmental data to the bounding box for your species
+projTimeEnvs_1_bboxCrop <- crop(projTimeEnvs_1, torquatus_bboxcrop)
+projTimeEnvs_1_bboxMsk <- mask(projTimeEnvs_1_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_1_bboxMsk)
+  
+projTimeEnvs_2_bboxCrop <- crop(projTimeEnvs_2, torquatus_bboxcrop)
+projTimeEnvs_2_bboxMsk <- mask(projTimeEnvs_2_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_2_bboxMsk)
+
+projTimeEnvs_3_bboxCrop <- crop(projTimeEnvs_3, torquatus_bboxcrop)
+projTimeEnvs_3_bboxMsk <- mask(projTimeEnvs_3_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_3_bboxMsk)
+
+projTimeEnvs_4_bboxCrop <- crop(projTimeEnvs_4, torquatus_bboxcrop)
+projTimeEnvs_4_bboxMsk <- mask(projTimeEnvs_4_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_4_bboxMsk)
+
+projTimeEnvs_5_bboxCrop <- crop(projTimeEnvs_5, torquatus_bboxcrop)
+projTimeEnvs_5_bboxMsk <- mask(projTimeEnvs_5_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_5_bboxMsk)
+
+projTimeEnvs_6_bboxCrop <- crop(projTimeEnvs_6, torquatus_bboxcrop)
+projTimeEnvs_6_bboxMsk <- mask(projTimeEnvs_6_bboxCrop, torquatus_bboxcrop)
+plot(projTimeEnvs_6_bboxMsk)
+
+# Project the model into the future -- you will end up with 6 different projected models
+# Plot the projected models
+plot(projTimeEnvs_1_bboxRegion, main = "2070 Worst Case Scenario HE", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_2_bboxRegion, main = "2070 Moderate Case Scenario HE", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_3_bboxRegion, main = "2070 Best Case Scenario HE", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_4_bboxRegion, main = "2070 Worst Case Scenario CC", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_5_bboxRegion, main = "2070 Moderate Case Scenario CC", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+plot(projTimeEnvs_6_bboxRegion, main = "2070 Best Case Scenario CC", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+## PLOTTING MAP FOR PRESENTATION (SPECIFIC TITLE)
+png(file = "TORQUATUS_FUTURE.png", width = 800, height = 700, res = 100)
+plot(projTimeEnvs_1_bboxRegion, main = "B. torquatus in 2070", xlab = "Longitude", ylab = "Latitude")
+dev.off()
+
+# Response curves
+## Checks which variables in our model have "non-zero coefficients"
+torquatus_model$betas
+## variables used = 12,14, and 18
+
+# Plot response curves
+library(maxnet)
+response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_12" , type = "cloglog")
+response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_14" , type = "cloglog")
+response.plot(mod = torquatus_model, v = "wc2.0_bio_2.5m_18" , type = "cloglog")
+
+## GOAL: FIGURE OUT HOW TO LABEL RESPONSE CURVES
+
+## PROJECTING BACK IN TIME
+### HADLEY 2.5 Mid-Holocene
+files_1 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/hemidbi_2-5m/")
+### CCSM4 2.5 Mid-Holocene
+files_2 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/ccmidbi_2-5m/")
+### CCSM4 2.5 Last Glacial Maximum
+files_3 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/cclgmbi_2-5m/")
+### RANDOM GCM 2.5 Last Glacial Maximum
+files_4 <- list.files("/Users/student/Desktop/bridgeup\ year\ 2/mrlgmbi_2-5m/")
+
+pastEnv_1 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/hemidbi_2-5m/", files_1))
+pastEnv_2 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/ccmidbi_2-5m/", files_2))
+pastEnv_3 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/cclgmbi_2-5m/", files_3))
+pastEnv_4 <- stack(paste0("/Users/student/Desktop/bridgeup\ year\ 2/mrlgmbi_2-5m/", files_4))
+
+pastEnv_1_crop <- crop(pastEnv_1, torquatus_bboxcrop)
+pastEnv_2_crop <- crop(pastEnv_2, torquatus_bboxcrop)
+pastEnv_3_crop <- crop(pastEnv_3, torquatus_bboxcrop)
+pastEnv_4_crop <- crop(pastEnv_4, torquatus_bboxcrop)
+
+names(pastEnv_1_crop) <- gsub("hemidbi", "wc2.0_bio_2.5m_", names(pastEnv_1_crop))
+names(pastEnv_2_crop) <- gsub("ccmidbi", "wc2.0_bio_2.5m_", names(pastEnv_2_crop))
+names(pastEnv_3_crop) <- gsub("cclgmbi", "wc2.0_bio_2.5m_", names(pastEnv_3_crop))
+names(pastEnv_4_crop) <- gsub("mrlgmbil", "wc2.0_bio_2.5m_", names(pastEnv_4_crop))
+
+names(pastEnv_1_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(pastEnv_2_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(pastEnv_3_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+names(pastEnv_4_crop) <- c(paste0("wc2.0_bio_2.5m_0",1) , paste0("wc2.0_bio_2.5m_", 10:19), paste0("wc2.0_bio_2.5m_0", 2:9))
+
+pastEnv_1_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_1_crop, type = "cloglog", clamp = TRUE)
+pastEnv_2_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_2_crop, type = "cloglog", clamp = TRUE)
+pastEnv_3_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_3_crop, type = "cloglog", clamp = TRUE)
+pastEnv_4_BgRegion <- maxnet.predictRaster(mod = torquatus_model, env = pastEnv_4_crop, type = "cloglog", clamp = TRUE)
+
+
+plot(pastEnv_1_BgRegion, main = "Approximately 6,000 Years Ago #1", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3]) 
+#legend("right", legend = c("Best", "Worst"), col=c("green", "white"), lty = 1:2, cex = 0.8, title = "Sloth Suitability", bg = "grey")
+#legend("bottomright", title = "Sloth Suitability", c("best", "worst"), fill = c("green", "white"), bg = "lightgrey", horiz = FALSE, cex = 1.0)
+
+plot(pastEnv_2_BgRegion, main = "Approximately 6,000 Years Ago #2", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+plot(pastEnv_3_BgRegion, main = "Approximately 22,000 Years Ago #1", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+plot(pastEnv_4_BgRegion, main = "Approximately 22,000 Years Ago #2", xlab = "Longitude", ylab = "Latitude", sub = "Torquatus Sloth Suitability in Brazil, South America")
+points(thinned_torquatus[,2:3])
+
+## PLOTTING MAP FOR PRESENTATION (SPECIFIC TITLE)
+png(file = "TORQUATUS_PAST.png", width = 800, height = 700, res = 100)
+plot(pastEnv_1_BgRegion, main = "B. torquatus 6,000 years ago", xlab = "Longitude", ylab = "Latitude")
+dev.off()
 plot(maxprediction_bboxBgRegion)
 points(thinned_torquatus[2:3])
+
