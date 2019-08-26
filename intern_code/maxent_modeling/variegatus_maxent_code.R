@@ -39,7 +39,7 @@ variegatus_2 = read.csv("/Users/hellenfellows/OneDrive\ -\ AMNH/BridgeUp/BridgeU
 ggmap(v_map) +
   geom_point(data = variegatus, aes(x=longitude, y=latitude))
 
-api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+# api_key = 
 register_google(key = api_key)
 
 boxing <- make_bbox(lon = c(-95, -25), lat = c(-35, 20), f = 0.1)
