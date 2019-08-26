@@ -37,7 +37,7 @@ torquatus$name <- "Bradypus_torquatus"
 # Share this map in Slack
 
 #Set the API key again
-api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+# api_key = 
 register_google(key = api_key)
 bound_box <- make_bbox(lon = torquatus$longitude, lat = torquatus$latitude, f = 2)
 #Get a satellite map at the location of the bounding box you made:
