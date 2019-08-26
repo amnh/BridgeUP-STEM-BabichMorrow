@@ -45,7 +45,7 @@ Less important:
 
 ### Omission rate
 
-Columns 9-12 deal with the omission rate, which is often abbreviated OR. OR is the percentage of occurrence points in the test data. `ENMeval` calculates these OR values using two different threshold, or cut-off, values for the model. The first, minimum training presence (MTP), removes all areas of the model that have predicted habitat suitability values lower than the habitat suitability of the occurrence point in the "worst" habitat. The second, 10th percentile, removes all areas of the model with habitat suitability values lower than the lowest 10 percent of the occurrence data.
+Columns 9-12 deal with the omission rate, which is often abbreviated OR. OR is the percentage of occurrence points in the test data that are left out of (omitted by) the model. `ENMeval` calculates these OR values using two different threshold, or cut-off, values for the model. The first, minimum training presence (MTP), removes all areas of the model that have predicted habitat suitability values lower than the habitat suitability of the occurrence point in the "worst" habitat. The second, 10th percentile, removes all areas of the model with habitat suitability values lower than the lowest 10 percent of the occurrence data.
 
 **Try it yourself:** Do you think we want models with lower or higher values of OR? Which OR values will be higher, the MTP ones or the 10th percentile ones?
 
@@ -119,6 +119,9 @@ Now we want to extract just the model you picked from the list of models you mad
 **Try it yourself:** Modify the following code to select the model you are going to use from the list of models `evalMods`:
 
 ```{r}
+# name each model in our evalMods object
+names(evalMods) <- enm@results$settings
+# select just the model you want
 model <- evalMods[["L_1"]]
 ```
 

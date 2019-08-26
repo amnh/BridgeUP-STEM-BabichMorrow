@@ -23,8 +23,10 @@ library(ENMeval)
 # Occurrence data ---------------------------------------------------------
 
 # Import the dataset for B. variegatus from data/occurrence_data
-variegatus = read.csv("~/Desktop/Project Repository Clone/Data/occurrence_data/variegatus.csv")
+variegatus = read.csv("~/Desktop/Repository Clone/Data/occurrence_data/variegatus.csv")
 
+#Yamile
+variegatus = read.csv("/Users/student/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/variegatus.csv")
 
 # Visualize occurrence data -----------------------------------------------
 
@@ -174,6 +176,62 @@ group.data <- get.block(thinned_occs[,3:4], points.varie)
 # Share this map in Slack
   ggmap(SA_map) +
     geom_point(data = thinned_occs, aes(x = longitude, y = latitude), color = occs.grp)
+
+
+
+# Build Maxent models -----------------------------------------------------
+
+# Refer to lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd
+
+# Use regularization multiples from 1 to 5 with a step value of 1
+rms = seq(from = 1, to = 5, by = 1)
+
+# Use feature classes "L", "LQ", "H", and "LQH"
+fcs <- c("L","LQ","LQH","H")
+  
+# Run ENMevaluate()
+# and unpack results data frame, list of models, and RasterStack of raw predictions
+enm <- ENMevaluate(occ = thinned_occs[,3:4], env = mask.varie.1, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+evalTbl <- enm@results
+evalMods <- enm@models
+evalPreds <- enm@predictions
+
+# Save the object you create using ENMevaluate using saveRDS()
+# Name it with the species name and your initials
+# Upload it to GitHub
+saveRDS(enm, file = "LFvariegatus.rds")
+enm = readRDS("LFvariegatus.rds")
+# Select Maxent model -----------------------------------------------------
+
+# Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
+View(evalTbl)
+# Sort the results data frame using AUC, OR, and/or AIC
+# Select the "best" model according to your criteria
+varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
+
+names(evalMods) <- enm@results$settings
+model <- evalMods[["LQH_5"]]
+saveRDS(enm, file = "YSvariegatus.RDS")
+
+prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
+plot(prediction_varie)
+# Slack the name of the best model and the criteria you used to select it
+View(evalTbl)
+
+# Visualize model ---------------------------------------------------------
+
+# Generate the model prediction and plot it
+# Share this map in Slack
+
+
+# Project in space --------------------------------------------------------
+
+# Project the model to the background region you selected and plot the projection
+# Share this map in Slack
+prediction_varie <- maxnet.predictRaster(mod = model, thinned_occs, type = "cloglog", clamp = TRUE)
+
+# Project the model to a bounding box for your species and plot the projection
+# Share this map in Slack
 
 
 

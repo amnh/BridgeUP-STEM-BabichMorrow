@@ -173,6 +173,7 @@ View(max_evalTbl)
 
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the species name and your initials
+saveRDS(object = max_enm, file = "torquatusLA.rds", ascii = FALSE, version = NULL, compress = TRUE, refhook = NULL)
 # Upload it to GitHub
 
 
@@ -183,32 +184,33 @@ View(max_evalTbl)
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
 ## WE WANT HIGHER AUC, LOWER 10PCT, LOWER AIC VALUES
-max_auc_sorted <- max_evalTbl[order(-max_evalTbl$avg.test.AUC),] 
-View(max_auc_sorted)
-max_10_sorted <- max_evalTbl[order(max_evalTbl$avg.test.or10pct),] 
-max_aic_sorted <- max_evalTbl[order(max_evalTbl$delta.AICc),] 
 max_sorted <- max_evalTbl[order(-max_evalTbl$avg.test.AUC, max_evalTbl$avg.test.or10pct, max_evalTbl$delta.AICc),]
 View(max_sorted)
+## LQH_3 IS THE BEST MODEL FOR AUC AND 10PCT AND DOES PRETTY WELL WITH DELTA AIC
 
 # Slack the name of the best model and the criteria you used to select it
 
-
 # Visualize model ---------------------------------------------------------
 
-# Generate the model prediction and plot it
+# Generate the model prediction and plot it WITH BUFFERED MASKED RASTER
 # Share this map in Slack
-
-
+torquatus_model <- max_evalMods[[9]]
+maxprediction_bufferBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_BgMsk, type = "cloglog", clamp = TRUE)
+plot(maxprediction_bufferBgRegion)
+points(thinned_torquatus[2:3])
 
 # Project in space --------------------------------------------------------
 
-# Project the model to the background region you selected and plot the projection
+# Project the model to a bounding box for your species and plot the projection WITH BBOX MASKED RASTER
 # Share this map in Slack
 
+## creating a bounding box:
+torquatus_bbox <- bbox(as.matrix(thinned_torquatus[2:3]))
+torquatus_bbox <- as(extent(torquatus_bbox), "SpatialPolygons")
+plot(torquatus_bbox)
+torquatus_bboxcrop <- crop(env_stack, torquatus_bbox)
+plot(torquatus_bboxcrop)
 
-# Project the model to a bounding box for your species and plot the projection
-# Share this map in Slack
-
-
-
-
+maxprediction_bboxBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_bboxcrop, type = "cloglog", clamp = TRUE)
+plot(maxprediction_bboxBgRegion)
+points(thinned_torquatus[2:3])

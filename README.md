@@ -57,53 +57,27 @@
   | March 21 | <ul><li> Louise is visiting! </li><li> Wrap up Maxent modeling script | |
 | **Week 23** | | |
   | March 26 | <ul><li> GitHub pull requests </li><li> Build and visualize Maxent models </li><li> Model selection | [Git/GitHub workflows (slides 26-56)](https://github.com/jtr13/codehelp/blob/master/GitHubWorkflowPt2.pdf) <br> [`ENMeval` tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/ENMeval_tutorial.Rmd) |
-  | March 28 | <ul><li> Visualize Maxent models </li><li> Model selection </li><li> Update Maxent modeling script | [Maxent model selection tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd) |
+  | March 28 | <ul><li> Visualize Maxent models </li><li> Model selection | [Maxent model selection tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd) |
 | **Week 24** | | |
-  | April 2 | <ul><li> Projecting in space </li><li> Past climate data </li><li> Climate change scenarios | WorldClim revisited: [past](http://www.worldclim.org/paleo-climate1) and [future](http://www.worldclim.org/CMIP5v1) data <br> Back to the [Last Glacial Maximum](http://www.antarcticglaciers.org/2017/06/global-last-glacial-maximum/) and the [mid-Holocene](https://www.ncdc.noaa.gov/global-warming/mid-holocene-warm-period) <br> [What are RCPs?](https://www.skepticalscience.com/rcp.php)|
-  | April 4 | <ul><li> Projecting in time | |
+  | April 2 | <ul><li> Meet Tracey John! </li><li> Projecting in space | [Tracey's website](http://www.traceyjohn.com/) |
+  | April 4 | <ul><li>  Update Maxent modeling script | [Updated modeling script](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/intern_code/maxent_modeling/maxent_modeling_code.R) |
 | **Week 25** | | |
-  | April 9 | | |
-  | April 11 | | |
+  | April 9 | <ul><li> How do we pick a model? </li><li> Updating Maxent model script </li><li> Questions for Peri Doerfler |   [Questions for Peri Doerfler](https://docs.google.com/document/d/1a41m-ZPjNwv8DGKwXOwsKCcL6pJ2awGI7djP99ffoOw/edit?usp=sharing) |
+  | April 11 | <ul><li> Meet Peri Doerfler! </li><li> **At home:** Future climate data :fast_forward: |                         [Back to the future - climate data](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/Future_climate_data.md) |
 | **Week 26** | | |
-  | April 16 | | |
-  | April 18 | | |
+  | April 16 | <ul><li> Meet with Mary Blair! </li><li> Getting help with R </li><li> Finish updating Maxent model script |     [Debugging workflow](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Debugging_workflow.md) <br> [`saveRDS()` function example](http://www.endmemo.com/program/R/saverds.php) <br> |
+  | April 18 | <ul><li> Pull requests </li><li> Projecting forward in time |                                                     [Cropping vs. masking](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s3_obtain_env_data/Crop_vs_mask.md) <br> [Pull request instructions](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Branch_instructions.md) <br> [Projecting forward tutorial](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/s7_project_in_time/project_forward_tutorial.Rmd)|
 | **Spring Recess** | **:tulip: April 22-26 :seedling:** | |
 
+## Resources
 
-## Daily Git To Do
+### GitHub
 
-![alt text|10%](github_diagram1.png)
++ [Working on Forks :fork_and_knife:](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Fork_instructions.md)
++ [Working with Branches :tanabata_tree: : pair programming & pull requests](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Branch_instructions.md)
 
-### Beginning of Session
+### Coding
 
-Push your local changes:
-
-+ Open Terminal and navigate to your folder for the forked repository
-  + `pwd`: check current directory
-  + `ls`: get a list of files in the current directory
-  + `cd`: move to a new directory
-+ See current status of Git: `git status`
-+ If you have modified files, commit your changes
-  + `git add .` to add all untracked files to your commit
-  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
-+ Push your changes to your remote copy of the fork: `git push`
-
-Sync your fork:
-
-+ Fetch commits from upstream repository to get any updates: `git fetch upstream`
-+ Check out your fork's local `master` branch: `git checkout master`
-+ Merge the changes from `upstream/master` into your local `master` branch: `git merge upstream/master`
-  + Will need to hit the escape key, then type `:wq` to get out of the text editor for the commit
-+ Run `git push` one final time to push the merged changes to your remote fork
-
-### End of Session
-
-Push your local changes:
-
-+ See current status of Git: `git status`
-+ If you have modified files, commit your changes
-  + `git add .` to add all untracked files to your commit
-  + Once you've added all the files, `git commit -m "whatever you want your message to be"`
-+ Push your changes to your remote copy of the fork: `git push`
-
++ [Debugging workflow](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/Resources/Debugging_workflow.md)
++ [Terminal command cheatsheet](https://github.com/amnh/BridgeUP-STEM-BabichMorrow/blob/master/lesson_plans/File_Paths/Linux-Reference-1.pdf)
 
