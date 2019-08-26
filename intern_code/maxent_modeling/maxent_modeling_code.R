@@ -141,4 +141,9 @@
 # Plot the projected models
 
 
+# Response curves --------------------------------------------------------
+
+# Check which variables in the model have non-zero coefficients
+
+# Plot response curves
 
