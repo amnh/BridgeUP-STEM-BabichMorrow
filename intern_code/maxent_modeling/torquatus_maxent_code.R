@@ -136,7 +136,7 @@ occs.grp <- torquatus_Partition[[1]]
 bg.grp <- torquatus_Partition[[2]]
 
 # Visualize the partitioned occurrence data on a map
-api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+# api_key = 
 register_google(key = api_key)
 # Create bounding box to view South America
 torquatus_bbox <- make_bbox(lon = c(-95, -25), lat = c(-35,20), f = 0.1)
