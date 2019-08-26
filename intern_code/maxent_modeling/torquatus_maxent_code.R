@@ -213,6 +213,7 @@ plot(torquatus_bboxcrop)
 
 maxprediction_bboxBgRegion <- maxnet.predictRaster(mod = torquatus_model, env = torquatus_bboxcrop, type = "cloglog", clamp = TRUE)
 
+
 png(file = "TORQUATUS_PRESENT.png", width = 800, height = 700, res = 100)
 plot(maxprediction_bboxBgRegion, main = "Present Range of B. torquatus", xlab = "Longitude", ylab = "Latitude")
 dev.off()
@@ -369,3 +370,6 @@ points(thinned_torquatus[,2:3])
 png(file = "TORQUATUS_PAST.png", width = 800, height = 700, res = 100)
 plot(pastEnv_1_BgRegion, main = "B. torquatus 6,000 years ago", xlab = "Longitude", ylab = "Latitude")
 dev.off()
+plot(maxprediction_bboxBgRegion)
+points(thinned_torquatus[2:3])
+
