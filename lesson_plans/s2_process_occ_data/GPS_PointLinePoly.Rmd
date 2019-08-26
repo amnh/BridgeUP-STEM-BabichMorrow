@@ -14,7 +14,7 @@ library(raster)
 library(sp)
 library(rgdal)
 library(ggmap)
-api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+# api_key = 
 register_google(key = api_key)
 
 #Make map of your Central Park GPS points:
