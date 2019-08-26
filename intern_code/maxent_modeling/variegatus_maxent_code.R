@@ -28,6 +28,10 @@ variegatus = read.csv("~/Desktop/Repository Clone/Data/occurrence_data/variegatu
 #Yamile
 variegatus = read.csv("/Users/student/Desktop/BridgeUP-STEM-BabichMorrow2/Data/occurrence_data/variegatus.csv")
 
+#Cecina
+variegatus = read.csv("/Users/hellenfellows/OneDrive\ -\ AMNH/BridgeUp/BridgeUP-STEM-BabichMorrow/data/occurrence_data/variegatus.csv")
+variegatus_2 = read.csv("/Users/hellenfellows/OneDrive\ -\ AMNH/BridgeUp/BridgeUP-STEM-BabichMorrow/data/occurrence_data/variegatus_lit_data.csv")
+
 # Visualize occurrence data -----------------------------------------------
 
 # Use the ggmap package to plot the occurrence points for your species on a map
@@ -56,7 +60,7 @@ variegatus_df <- as.data.frame(variegatus)
 variegatus_df$name <- "Bradypus_variegatus"
 View(variegatus_df)
 
-thinned_output <- thin(loc.data = variegatus , lat.col = "latitude", long.col = "longitude", spec.col = "name", thin.par = 40, reps = 100, locs.thinned.list.return = TRUE, write.files = FALSE)
+thinned_output <- thin(loc.data = variegatus_df , lat.col = "latitude", long.col = "longitude", spec.col = "name", thin.par = 40, reps = 100, locs.thinned.list.return = TRUE, write.files = FALSE)
 View(thinned_output)
 
 maxThin <- which(sapply(thinned_output, nrow) == max(sapply(thinned_output, nrow)))
@@ -96,20 +100,6 @@ csv_variegatus <- write.csv(thinned_occs, '~/Desktop/Project Repository clone/Da
 
 # Create a background region for your species (based on the thinned occurrence data!):
 ## B. variegatus: points buffered by 2 degrees
-# function to create a minimum convex polygon
-mcp <- function(xy) {
-  # convert the input coordinates into a spatial object
-  xy <- as.data.frame(sp::coordinates(xy))
-  # find the subset of occurrence points that lie on the convex hull around all of the points
-  coords.t <- chull(xy[, 1], xy[, 2])
-  xy.bord <- xy[coords.t, ]
-  xy.bord <- rbind(xy.bord[nrow(xy.bord), ], xy.bord)
-  # make a SpatialPolygon out of the convex polygon
-  return(sp::SpatialPolygons(list(sp::Polygons(list(sp::Polygon(as.matrix(xy.bord))), 1))))
-}
-
-mini_convex = mcp(thinned_occs[,3:4])
-plot(mini_convex)
 
 #Creating env_stack
 #Lor
@@ -122,17 +112,10 @@ bioclim_files <- list.files("~/Desktop/wc2.0_2.5m_bio/")
 bioclim_files
 env_stack <- stack(paste0("~/Desktop/wc2.0_2.5m_bio/", bioclim_files))
 
-
-# Create cropped raster
-env_convex <- crop(env_stack, mini_convex)
-# Plot cropped raster
-plot(env_convex)
-
-# Create masked raster
-mask_thin_varie <- mask(env_convex, mini_convex)
-
-# Plot masked raster
-plot(mask_thin_varie)
+#Cecina
+# bioclim_files <- list.files("/Users/hellenfellows/Desktop/worldclim/wc2.0_2.5m_bio")
+# bioclim_files
+# env_stack <- stack(paste0("/Users/hellenfellows/Desktop/worldclim/wc2.0_2.5m_bio/", bioclim_files))
 
 bg_varie = bbox(as.matrix(thinned_occs[,3:4]))
 bg_variegatus = as(extent(bg_varie), "SpatialPolygons")
@@ -154,6 +137,26 @@ points.varie = randomPoints(mask.varie.1, 10000)
 #Convert these points into a dataframe using as.data.frame
 final.points.varie = as.data.frame(points.varie)
 
+# # Cecina
+# #Create buffered points background extent
+# bg.varie.2 = gBuffer(occs.variegatus, width = 4.0)
+# #Create cropped raster
+# crop.varie.2 = crop(env_stack, bg.varie.2)
+# #Plot cropped raster
+# plot(crop.varie.2)
+# #create masked raster
+# mask.varie.2 = mask(crop.varie.2, bg.varie.2)
+# #Plot masked raster
+# plot(mask.varie.2)
+# #Sample 10000 points from 4 degree buffer
+# points.varie = randomPoints(mask.varie.2, 10000)
+# #Convert these points into a dataframe using as.data.frame
+# final.points.varie = as.data.frame(points.varie)
+
+#Create cropped raster
+crop.varie.bbox = crop(env_stack, bg_variegatus)
+mask.varie.bbox = mask(crop.varie.bbox, bg_variegatus)
+plot(mask.varie.bbox)
 # Remember to sample background points from your background region
 #Done above
 
@@ -166,8 +169,8 @@ final.points.varie = as.data.frame(points.varie)
 ## if your species has 25 or fewer thinned occurrences, use a jackknife partition
 ## if your species has >25 thinned occurrences, use a block partition
 View(thinned_occs)
-thinned_occs<- na.omit(thinned_occs)
-group.data <- get.block(thinned_occs[,3:4], points.varie)
+#thinned_occs<- na.omit(thinned_occs)
+group.data <- get.block(thinned_occs[,2:3], points.varie)
  # Look at group.data
   group.data
   occs.grp <- group.data[[1]]
@@ -187,34 +190,55 @@ group.data <- get.block(thinned_occs[,3:4], points.varie)
 rms = seq(from = 1, to = 5, by = 1)
 
 # Use feature classes "L", "LQ", "H", and "LQH"
-fcs <- c("L","LQ","LQH","H")
+fcs <- c("L","LQ","LQH","LH")
   
 # Run ENMevaluate()
 # and unpack results data frame, list of models, and RasterStack of raw predictions
-enm <- ENMevaluate(occ = thinned_occs[,3:4], env = mask.varie.1, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+enm <- ENMevaluate(occ = thinned_occs[,2:3], env = mask.varie.1, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
 evalTbl <- enm@results
 evalMods <- enm@models
 evalPreds <- enm@predictions
+# # Cecina
+# enm2 <- ENMevaluate(occ = thinned_occs[,2:3], env = mask.varie.2, bg.coords = final.points.varie, RMvalues = rms, fc = fcs, method = "block", clamp = TRUE)
+# evalTbl2 <- enm2@results
+# evalMods2 <- enm2@models
+# evalPreds2 <- enm2@predictions
 
 # Save the object you create using ENMevaluate using saveRDS()
 # Name it with the species name and your initials
 # Upload it to GitHub
 saveRDS(enm, file = "LFvariegatus.rds")
 enm = readRDS("LFvariegatus.rds")
+
+# Cecina
+# saveRDS(enm, file = "CBMvariegatus.rds")
+saveRDS(enm, file = "CBMvariegatus2.rds")
+
 # Select Maxent model -----------------------------------------------------
 
 # Refer to lesson_plans/s6_build_eval_niche_model/model_selection_tutorial.Rmd
 View(evalTbl)
+View(evalTbl2)
 # Sort the results data frame using AUC, OR, and/or AIC
 # Select the "best" model according to your criteria
 varie.sorted <- evalTbl[order(evalTbl$delta.AICc),]
+# Cecina:
+varie.sorted <- evalTbl[with(evalTbl, order(avg.test.or10pct, -avg.test.AUC, delta.AICc)), ]
+varie.sorted2 <- evalTbl[with(evalTbl2, order(avg.test.or10pct, -avg.test.AUC, delta.AICc)), ]
 
 names(evalMods) <- enm@results$settings
-model <- evalMods[["LQH_5"]]
-saveRDS(enm, file = "YSvariegatus.RDS")
+names(evalMods2) <- enm2@results$settings
+model <- evalMods[["LQ_5"]]
+#Cecina:
+model <- evalMods[["L_3"]]
+model2 <- evalMods2[["L_5"]]
+# saveRDS(enm, file = "YSvariegatus.RDS")
+# enm <- readRDS("YSVariegatus.RDS")
 
-prediction_varie <- maxnet.predictRaster(mod = model, env_convex, type = "cloglog", clamp = TRUE)
+prediction_varie <- maxnet.predictRaster(mod = model, mask.varie.bbox, type = "cloglog", clamp = TRUE)
 plot(prediction_varie)
+prediction_varie2 <- maxnet.predictRaster(mod = model2, mask.varie.bbox, type = "cloglog", clamp = TRUE)
+plot(prediction_varie2)
 # Slack the name of the best model and the criteria you used to select it
 View(evalTbl)
 
@@ -228,10 +252,160 @@ View(evalTbl)
 
 # Project the model to the background region you selected and plot the projection
 # Share this map in Slack
-prediction_varie <- maxnet.predictRaster(mod = model, thinned_occs, type = "cloglog", clamp = TRUE)
+prediction_varie <- maxnet.predictRaster(mod = model, mask.varie.bbox, type = "cloglog", clamp = TRUE)
 
 # Project the model to a bounding box for your species and plot the projection
 # Share this map in Slack
+plot(prediction_varie)
+
+# Project forward in time --------------------------------------------------------
+
+# Find the resolution of your masked environmental data
+envsRes <- res(prediction_varie)[1]
 
 
+# Set two different GCMs: HadGEM2-ES and CCSM4 (we are going to project to 2 different GCMs to compare the results)
+GCM_he <- "HE"
+GCM_cc <- "CC"
 
+# Set three different RCPs: 2.6, 6, and 8.5
+RCP_26 <- 2.6
+RCP_60 = 6
+RCP_85 = 8.5
+
+# Set the year to be 2070
+time_period <- 70
+
+
+# Download the data for the 6 different combinations of GCM and RCP (all at the year 2070)
+#HadGEM2-ES
+projTimeEnvs_26 <- getData('CMIP5', var = "bio", res = 2.5, rcp = 26, model = GCM_he  , year = time_period)
+
+projTimeEnvs_60 <- getData('CMIP5', var = "bio", res = 2.5, rcp = 60, model = GCM_he  , year = time_period)
+
+projTimeEnvs_85 <- getData('CMIP5', var = "bio", res = 2.5, rcp = 85, model = GCM_he  , year = time_period)
+
+#CCSM4
+projTimeEnvs_26_cc <- getData('CMIP5', var = "bio", res = 2.5, rcp = 26, model = GCM_cc  , year = time_period)
+
+projTimeEnvs_60_cc <- getData('CMIP5', var = "bio", res = 2.5, rcp = 60, model = GCM_cc  , year = time_period)
+
+projTimeEnvs_85_cc <- getData('CMIP5', var = "bio", res = 2.5, rcp = 85, model = GCM_cc  , year = time_period)
+
+# Set the names of your environmental data
+#HadGEM2-ES
+names(projTimeEnvs_26) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_60) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_85) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+#CCSM4
+names(projTimeEnvs_26_cc) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_60_cc) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+names(projTimeEnvs_85_cc) <- c(paste0("wc2.0_bio_2.5m_0",1:9) , paste0("wc2.0_bio_2.5m_", 10:19))
+
+# Crop and mask the environmental data to the bounding box for your species
+new_bbox = bbox(as.matrix(variegatus[,3:4]))
+new_bbox = as(extent(new_bbox), "SpatialPolygons")
+
+#HadGEM2-ES
+var_data_26 = crop(projTimeEnvs_26, new_bbox)
+var_data_60 = crop(projTimeEnvs_60, new_bbox)
+var_data_85 = crop(projTimeEnvs_85, new_bbox)
+
+var_data_26 = mask(var_data_26, new_bbox)
+var_data_60 = mask(var_data_60, new_bbox)
+var_data_85 = mask(var_data_85, new_bbox)
+
+#CCSM4
+var_data_26_cc = crop(projTimeEnvs_26_cc, new_bbox)
+var_data_60_cc = crop(projTimeEnvs_60_cc, new_bbox)
+var_data_85_cc = crop(projTimeEnvs_85_cc, new_bbox)
+
+var_data_26_cc = mask(var_data_26_cc, new_bbox)
+var_data_60_cc = mask(var_data_60_cc, new_bbox)
+var_data_85_cc = mask(var_data_85_cc, new_bbox)
+
+# Project the model into the future -- you will end up with 6 different projected models
+# Plot the projected models
+#HadGEM2-ES
+future_var_26 = maxnet.predictRaster(mod = model, var_data_26, type = "cloglog", clamp = TRUE)
+future_var_60 = maxnet.predictRaster(mod = model, var_data_60, type = "cloglog", clamp = TRUE)
+future_var_85 = maxnet.predictRaster(mod = model, var_data_85, type = "cloglog", clamp = TRUE)
+
+future_var_26_2 = maxnet.predictRaster(mod = model2, var_data_26, type = "cloglog", clamp = TRUE)
+future_var_60_2 = maxnet.predictRaster(mod = model2, var_data_60, type = "cloglog", clamp = TRUE)
+future_var_85_2 = maxnet.predictRaster(mod = model2, var_data_85, type = "cloglog", clamp = TRUE)
+
+
+plot(future_var_26)
+plot(future_var_60)
+plot(future_var_85)
+
+plot(future_var_26_2)
+plot(future_var_60)
+plot(future_var_85)
+
+#CCSM4
+future_var_26_cc = maxnet.predictRaster(mod = model, var_data_26_cc, type = "cloglog", clamp = TRUE)
+future_var_60_cc = maxnet.predictRaster(mod = model, var_data_60_cc, type = "cloglog", clamp = TRUE)
+future_var_85_cc = maxnet.predictRaster(mod = model, var_data_85_cc, type = "cloglog", clamp = TRUE)
+
+plot(future_var_26_cc)
+plot(future_var_60_cc)
+plot(future_var_85_cc)
+
+# Response curves --------------------------------------------------------
+
+# Check which variables in the model have non-zero coefficients
+names(model$betas)
+
+# Plot response curves
+library(ENMeval)
+library(maxnet)
+
+
+response.plot(mod = model, v = "wc2.0_bio_2.5m_02", type = "cloglog")
+# Mean Diurnal Range (Mean of monthly(max temp - min temp)) 
+response.plot(mod = model, v = "wc2.0_bio_2.5m_12", type = "cloglog")
+# Annual Precipitation
+response.plot(mod = model, v = "wc2.0_bio_2.5m_14", type = "cloglog")
+# Precipitation of Driest Month
+response.plot(mod = model, v = "wc2.0_bio_2.5m_17", type = "cloglog")
+# Preciptation of Driest Quarter
+response.plot(mod = model, v = "wc2.0_bio_2.5m_18", type = "cloglog")
+# Preciptation of Warmest Quarter
+response.plot(mod = model, v = "wc2.0_bio_2.5m_06", type = "cloglog")
+# Min Temperatue of Coldest Month
+response.plot(mod = model, v = "wc2.0_bio_2.5m_09", type = "cloglog")
+# Mean Temperature of Driest Quarter
+
+
+# Projecting Backwards in Time
+predict_cc <- list.files("~/Desktop/cclgmbi_2-5m/")
+predict_he <- list.files("~/Desktop/hemidbi_2-5m/")
+# Cecina
+predict_he <- list.files("/Users/hellenfellows/Desktop/worldclim/hemidbi_2-5m")
+
+pastEnv_cc <- stack(paste0("~/Desktop/cclgmbi_2-5m/", predict_cc))
+pastEnv_he <- stack(paste0("~/Desktop/hemidbi_2-5m/", predict_he))
+# Cecina
+pastEnv_he <- stack(paste0("/Users/hellenfellows/Desktop/worldclim/hemidbi_2-5m/", predict_he))
+
+past_cc = crop(pastEnv_cc, new_bbox)
+past_he = crop(pastEnv_he, new_bbox)
+
+#names(past_cc) = gsub("cclgmbi", "wc2.0_bio_2.5m_", names(past_cc))
+#names(past_he) = gsub("hemidbi", "wc2.0_bio_2.5m_", names(past_he))
+
+names(past_he) = c(paste0("wc2.0_bio_2.5m_0",1), paste0("wc2.0_bio_2.5m_",10:19), paste0("wc2.0_bio_2.5m_0",2:9))
+names(past_cc) = c(paste0("wc2.0_bio_2.5m_0",1), paste0("wc2.0_bio_2.5m_",10:19), paste0("wc2.0_bio_2.5m_0",2:9))
+
+past_plot_cc = maxnet.predictRaster(mod = model, past_cc, type = "cloglog", clamp = TRUE)
+past_plot_he = maxnet.predictRaster(mod = model, past_he, type = "cloglog", clamp = TRUE)
+
+plot(past_plot_cc)
+plot(past_plot_he)
