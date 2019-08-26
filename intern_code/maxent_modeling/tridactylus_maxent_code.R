@@ -40,7 +40,7 @@ tridactylus <- read_csv("~/Desktop/SSRepoClone/Data/occurrence_data/tridactylus.
 # Use the ggmap package to plot the occurrence points for your species on a map
 
 # permission from google to get map
-api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+# api_key = 
 register_google(key = api_key)
 
 # this zooms into specific region of South America
