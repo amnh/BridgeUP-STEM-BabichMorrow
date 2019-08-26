@@ -1,7 +1,7 @@
 library(spocc)
 library(ggmap)
 
-api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+# api_key = 
 register_google(key = api_key)
 
 variegatus <- occ(query = "Bradypus variegatus", from = 'gbif', limit = 1000)
