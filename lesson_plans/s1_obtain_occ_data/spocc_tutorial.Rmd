@@ -65,7 +65,7 @@ Now that you've downloaded the data from GBIF (using `occ`), and formatted it a 
 library(ggmap)
 
 #Set the API key again
-api_key = "AIzaSyBK7lLbqoqnYFdzf-idYYposb-1gwyRAlQ"
+# api_key = 
 register_google(key = api_key)
 ```
 
